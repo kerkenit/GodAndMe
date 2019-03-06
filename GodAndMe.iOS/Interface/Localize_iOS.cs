@@ -4,10 +4,9 @@ using System.Threading;
 using Foundation;
 
 [assembly: Xamarin.Forms.Dependency(typeof(GodAndMe.iOS.Localize))]
-
 namespace GodAndMe.iOS
 {
-    public class Localize : GodAndMe.ILocalize
+    public class Localize : ILocalize
     {
         public void SetLocale(CultureInfo ci)
         {

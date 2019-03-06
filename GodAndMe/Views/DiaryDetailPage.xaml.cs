@@ -1,26 +1,23 @@
-﻿using System;
-
+﻿using GodAndMe.Models;
+using GodAndMe.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using GodAndMe.Models;
-using GodAndMe.ViewModels;
 
 namespace GodAndMe.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ItemDetailPage : ContentPage
+    public partial class DiaryDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
 
-        public ItemDetailPage(ItemDetailViewModel viewModel)
+        public DiaryDetailPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
 
             BindingContext = this.viewModel = viewModel;
         }
 
-        public ItemDetailPage()
+        public DiaryDetailPage()
         {
             InitializeComponent();
 

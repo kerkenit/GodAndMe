@@ -4,21 +4,21 @@
         <NavigationPage Title="{resX:TranslateExtension Intentions}">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="intention.png" />
+                    <On Platform="iOS" Value="tab_intention.png" />
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:IntentionsPage Title="{resX:TranslateExtension Intentions}" />
+                <views:IntentionPage Title="{resX:TranslateExtension Intentions}" />
             </x:Arguments>
         </NavigationPage>
-        <NavigationPage Title="Browse">
+        <NavigationPage Title="{resX:TranslateExtension Diary}">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="iOS" Value="tab_feed.png" />
+                    <On Platform="iOS" Value="tab_diary.png" />
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:ItemsPage />
+                <views:DiaryPage />
             </x:Arguments>
         </NavigationPage>
         <NavigationPage Title="{resX:TranslateExtension About}">

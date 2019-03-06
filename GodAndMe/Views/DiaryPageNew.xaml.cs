@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-
+using GodAndMe.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using GodAndMe.Models;
 
 namespace GodAndMe.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewItemPage : ContentPage
+    public partial class DiaryPageNew : ContentPage
     {
         public Item Item { get; set; }
 
-        public NewItemPage()
+        public DiaryPageNew()
         {
             InitializeComponent();
 

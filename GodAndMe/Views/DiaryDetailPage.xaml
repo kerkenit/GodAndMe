@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:i18n="clr-namespace:GodAndMe"
              xmlns:local="clr-namespace:GodAndMe"
-             xmlns:resX="clr-namespace:GodAndMe.Resx;assembly=GodAndMe"
-             x:Class="GodAndMe.Views.ItemDetailPage" 
+             xmlns:resX="clr-namespace:GodAndMe.Resx"
+             x:Class="GodAndMe.Views.DiaryDetailPage" 
              Title="{Binding Title}">
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Text:" FontSize="Medium" />

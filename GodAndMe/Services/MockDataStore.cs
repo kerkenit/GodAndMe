@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GodAndMe.Models;
-using SQLite;
 
 namespace GodAndMe.Services
 {
@@ -39,7 +38,7 @@ namespace GodAndMe.Services
 
         public async Task<bool> UpdateItemAsync(Item item)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+            var oldItem = items.FirstOrDefault((Item arg) => arg.Id == item.Id);
             items.Remove(oldItem);
             items.Add(item);
 
@@ -48,7 +47,7 @@ namespace GodAndMe.Services
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
+            var oldItem = items.FirstOrDefault((Item arg) => arg.Id == id);
             items.Remove(oldItem);
 
             return await Task.FromResult(true);

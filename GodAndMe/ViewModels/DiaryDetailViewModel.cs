@@ -1,6 +1,4 @@
-﻿using System;
-
-using GodAndMe.Models;
+﻿using GodAndMe.Models;
 
 namespace GodAndMe.ViewModels
 {

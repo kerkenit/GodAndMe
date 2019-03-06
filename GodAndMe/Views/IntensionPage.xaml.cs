@@ -1,28 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using GodAndMe.Models;
+using GodAndMe.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using GodAndMe.Models;
-using GodAndMe.Views;
-using GodAndMe.ViewModels;
 
 namespace GodAndMe.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class IntentionsPage : ContentPage
+    public partial class IntentionPage : ContentPage
     {
-        IntentionsViewModel viewModel;
+        IntentionViewModel viewModel;
 
-        public IntentionsPage()
+        public IntentionPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new IntentionsViewModel();
+            BindingContext = viewModel = new IntentionViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -31,7 +25,7 @@ namespace GodAndMe.Views
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new IntentionDetailPage(new IntentionsDetailViewModel(item)));
+            await Navigation.PushAsync(new IntentionDetailPage(new IntentionDetailViewModel(item)));
 
             // Manually deselect item.
             IntentionsListView.SelectedItem = null;
@@ -39,7 +33,7 @@ namespace GodAndMe.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewIntentionPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new IntentionPageNew()));
         }
 
         public void OnMore(object sender, EventArgs e)

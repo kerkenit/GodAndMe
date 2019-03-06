@@ -1,5 +1,4 @@
-﻿using System;
-using GodAndMe.iOS.Renderers;
+﻿using GodAndMe.iOS.Renderers;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -15,7 +14,6 @@ namespace GodAndMe.iOS.Renderers
 
             TabBar.TintColor = UIColor.Black;
             TabBar.BarTintColor = UIColor.FromRGB(255, 215, 91);
-
         }
     }
 }

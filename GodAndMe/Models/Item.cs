@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GodAndMe.Models
+﻿namespace GodAndMe.Models
 {
     public class Item
     {

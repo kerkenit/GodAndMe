@@ -1,24 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using GodAndMe.Models;
+using GodAndMe.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using GodAndMe.Models;
-using GodAndMe.Views;
-using GodAndMe.ViewModels;
 
 namespace GodAndMe.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ItemsPage : ContentPage
+    public partial class DiaryPage : ContentPage
     {
         ItemsViewModel viewModel;
 
-        public ItemsPage()
+        public DiaryPage()
         {
             InitializeComponent();
 
@@ -31,7 +24,7 @@ namespace GodAndMe.Views
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            await Navigation.PushAsync(new DiaryDetailPage(new ItemDetailViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
@@ -39,7 +32,7 @@ namespace GodAndMe.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new DiaryPageNew()));
         }
 
         protected override void OnAppearing()

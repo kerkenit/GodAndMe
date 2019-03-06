@@ -13,69 +13,69 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="About" xml:space="preserve">
-    <value>Over</value>
+    <value>Sobre</value>
   </data>
     <data name="Add" xml:space="preserve">
-    <value>Toevoegen</value>
+    <value>Añadir</value>
   </data>
     <data name="Edit" xml:space="preserve">
-    <value>Wijzig</value>
+    <value>Editar</value>
   </data>
     <data name="ApplicationTitle" xml:space="preserve">
-    <value>God &amp; Ik</value>
+    <value>Dios &amp; Yo</value>
   </data>
     <data name="Cancel" xml:space="preserve">
-    <value>Annuleren</value>
+    <value>Cancelar</value>
   </data>
     <data name="Delete" xml:space="preserve">
-    <value>Verwijderen</value>
+    <value>Borra</value>
   </data>
     <data name="Done" xml:space="preserve">
-    <value>Klaar</value>
-  </data>
-    <data name="Intention" xml:space="preserve">
-    <value>Intentie</value>
-  </data>
-    <data name="Intentions" xml:space="preserve">
-    <value>Intenties</value>
+    <value>Completa</value>
   </data>
     <data name="NewIntention" xml:space="preserve">
-    <value>Nieuwe intentie</value>
+    <value>Nueva intencion</value>
+  </data>
+    <data name="Intention" xml:space="preserve">
+    <value>Intención</value>
+  </data>
+    <data name="Intentions" xml:space="preserve">
+    <value>Intenciones</value>
   </data>
     <data name="More" xml:space="preserve">
-    <value>Meer</value>
+    <value>Más</value>
   </data>
     <data name="Name" xml:space="preserve">
-    <value>Naam</value>
+    <value>Nombre</value>
   </data>
     <data name="Notes" xml:space="preserve">
-    <value>Notitie</value>
+    <value>Notas</value>
   </data>
     <data name="Save" xml:space="preserve">
-    <value>Opslaan</value>
+    <value>Guarda</value>
   </data>
     <data name="LearnMore" xml:space="preserve">
-    <value>Lees meer...</value>
+    <value>Aprende más...</value>
   </data>
     <data name="AboutText" xml:space="preserve">
-    <value>Deze app is gebouwd op privacy. Alles werkt offline en er worden geen gevens gedeelt. Alles is tussen God en jou.</value>
+    <value>Esta aplicación está construida sobre la privacidad. Todo funciona sin conexión y no se comparten datos. Todo es entre dios y tu.</value>
   </data>
     <data name="For" xml:space="preserve">
-    <value>Voor</value>
+    <value>Para</value>
   </data>
     <data name="Title" xml:space="preserve">
-    <value>Titel</value>
+    <value>Título</value>
   </data>
     <data name="Start" xml:space="preserve">
-    <value>Start</value>
+    <value>Comienzo</value>
   </data>
     <data name="Diary" xml:space="preserve">
-    <value>Dagboek</value>
+    <value>Diario</value>
   </data>
     <data name="ChooseOther" xml:space="preserve">
-    <value>Kies andere</value>
+    <value>Elegir otro</value>
   </data>
     <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
-    <value>Om je persoonlijke communicatie met God in te zien.</value>
+    <value>Para ver tu comunicación personal con Dios.</value>
   </data>
 </root>

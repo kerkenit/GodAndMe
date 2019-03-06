@@ -1,20 +1,18 @@
 ﻿using System;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
 using GodAndMe.Models;
 using GodAndMe.ViewModels;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace GodAndMe.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class IntentionDetailPage : ContentPage
     {
-        IntentionsDetailViewModel viewModel;
+        IntentionDetailViewModel viewModel;
         public Intention Intention { get; set; }
 
-        public IntentionDetailPage(IntentionsDetailViewModel viewModel)
+        public IntentionDetailPage(IntentionDetailViewModel viewModel)
         {
             InitializeComponent();
 
@@ -33,13 +31,13 @@ namespace GodAndMe.Views
                 Start = null
             };
 
-            viewModel = new IntentionsDetailViewModel(Intention);
+            viewModel = new IntentionDetailViewModel(Intention);
             BindingContext = viewModel;
         }
 
         async void EditItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewIntentionPage(this.viewModel.Item)));
+            await Navigation.PushModalAsync(new NavigationPage(new IntentionPageNew(this.viewModel.Item)));
 
         }
     }

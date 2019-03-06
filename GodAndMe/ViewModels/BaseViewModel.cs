@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
-using Xamarin.Forms;
-
 using GodAndMe.Models;
 using GodAndMe.Services;
+using Xamarin.Forms;
 
 namespace GodAndMe.ViewModels
 {

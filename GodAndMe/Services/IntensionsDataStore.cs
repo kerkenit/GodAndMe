@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using GodAndMe.Interface;
 using GodAndMe.Models;
 using SQLite;
-using GodAndMe;
+using Xamarin.Forms;
+
 namespace GodAndMe.Services
 {
     public class IntentionsDataStore : IDataStore<Intention>
@@ -15,14 +16,14 @@ namespace GodAndMe.Services
         public IntentionsDataStore()
         {
             items = new List<Intention>();
-            db = new SQLiteConnection(CommonFunctions.dbPath);
+            db = DependencyService.Get<IDatabaseConnection>().DbConnection();
             db.CreateTable<Intention>();
             items = db.Table<Intention>().ToList();
             items = items.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start)).ToList<Intention>();
 #if DEBUG
             if (false && items.Count == 0)
             {
-                var IntentionItems = new List<Intention>
+                List<Intention> IntentionItems = new List<Intention>
             {
                 new Intention {
                     Id = Guid.NewGuid().ToString(),

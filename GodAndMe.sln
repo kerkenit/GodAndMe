@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodAndMe.Android", "GodAndM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodAndMe.iOS", "GodAndMe.iOS\GodAndMe.iOS.csproj", "{360E6AEC-9C5B-421E-AA0F-2ED4879A7556}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GodAndMe", "GodAndMe\GodAndMe.shproj", "{327480FF-1F42-468A-A5C7-23E5471B64A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodAndMe", "GodAndMe\GodAndMe.csproj", "{AACBD266-AF23-48D4-BD14-073ECE957791}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,5 +41,17 @@ Global
 		{360E6AEC-9C5B-421E-AA0F-2ED4879A7556}.Debug|iPhone.Build.0 = Debug|iPhone
 		{360E6AEC-9C5B-421E-AA0F-2ED4879A7556}.Release|iPhone.ActiveCfg = Release|iPhone
 		{360E6AEC-9C5B-421E-AA0F-2ED4879A7556}.Release|iPhone.Build.0 = Release|iPhone
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{AACBD266-AF23-48D4-BD14-073ECE957791}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

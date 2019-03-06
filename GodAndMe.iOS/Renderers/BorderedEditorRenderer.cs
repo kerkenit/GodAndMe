@@ -16,7 +16,7 @@ namespace GodAndMe.iOS.Renderers
             {
                 Control.Layer.CornerRadius = 3;
                 Control.Layer.BorderColor = Color.FromHex("F0F0F0").ToCGColor();
-                Control.Layer.BorderWidth = 2;
+                Control.Layer.BorderWidth = 1;
             }
         }
     }

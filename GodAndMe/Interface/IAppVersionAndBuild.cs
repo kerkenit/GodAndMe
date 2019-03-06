@@ -1,5 +1,4 @@
-﻿using System;
-namespace GodAndMe.DependencyServices
+﻿namespace GodAndMe.DependencyServices
 {
     public interface IAppVersionAndBuild
     {

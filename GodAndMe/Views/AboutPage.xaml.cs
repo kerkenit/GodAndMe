@@ -1,8 +1,6 @@
-﻿using System;
-
+﻿using GodAndMe.DependencyServices;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using GodAndMe.DependencyServices;
 
 namespace GodAndMe.Views
 {

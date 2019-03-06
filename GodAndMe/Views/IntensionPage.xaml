@@ -4,7 +4,7 @@
              xmlns:i18n="clr-namespace:GodAndMe"
              xmlns:local="clr-namespace:GodAndMe"
              xmlns:resX="clr-namespace:GodAndMe.Resx"
-             x:Class="GodAndMe.Views.IntentionsPage" 
+             x:Class="GodAndMe.Views.IntentionPage" 
              Title="{Binding Title}" 
              x:Name="BrowseIntentionsPage">
     <ContentPage.ToolbarItems>

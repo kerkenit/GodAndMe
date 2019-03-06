@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Globalization;
-using System.IO;
 using System.Reflection;
 using System.Resources;
 using Xamarin.Forms;
 
 namespace GodAndMe
 {
-
     public static class CommonFunctions
     {
         static CultureInfo ci = null;
-        static string m_dbPath = null;
         static Lazy<ResourceManager> ResMgr = new Lazy<ResourceManager>(() => new ResourceManager("GodAndMe.Resx.AppResources", typeof(GodAndMe.Resx.AppResources).GetTypeInfo().Assembly));
         const string ResourceId = "GodAndMe.Resx.AppResources";
 
@@ -20,7 +17,7 @@ namespace GodAndMe
             return i18n(Text, null);
         }
 
-        public static string i18n(string Text, object format = null)
+        public static string i18n(string Text, object format)
         {
             if (ci == null && Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
             {
@@ -41,27 +38,6 @@ namespace GodAndMe
 #endif
             }
             return translation;
-        }
-
-        public static string dbPath
-        {
-            get
-            {
-                if (m_dbPath == null)
-                {
-                    string sqliteFilename = "GodAndMe.db3";
-                    string libraryPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-
-#if __IOS__
-                    //Get the iCloud's url
-                    libraryPath = Path.Combine(libraryPath, "..", "Library");
-                    libraryPath = Foundation.NSFileManager.DefaultManager.GetUrlForUbiquityContainer(null).AbsoluteString;
-#endif
-                    m_dbPath = Path.Combine(libraryPath, sqliteFilename);
-                }
-                Console.WriteLine("yyy Database path: {0}", m_dbPath);
-                return m_dbPath;
-            }
         }
     }
 }

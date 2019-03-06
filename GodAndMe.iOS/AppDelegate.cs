@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using Foundation;
-using SQLite;
 using UIKit;
-using Xamarin.Forms;
 
 namespace GodAndMe.iOS
 {
@@ -19,7 +15,8 @@ namespace GodAndMe.iOS
         public bool CheckingForiCloud { get; private set; }
 
         private NSUrl iCloudUrl;
-
+        private NSError error;
+        UIWindow window;
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -27,7 +24,7 @@ namespace GodAndMe.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
-        public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+        public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
@@ -36,7 +33,7 @@ namespace GodAndMe.iOS
             {
                 CheckingForiCloud = true;
                 Console.WriteLine("Checking for iCloud");
-                var uburl = NSFileManager.DefaultManager.GetUrlForUbiquityContainer(null);
+                NSUrl uburl = NSFileManager.DefaultManager.GetUrlForUbiquityContainer(null);
                 // OR instead of null you can specify "TEAMID.com.your-company.ApplicationName"
 
                 if (uburl == null)
@@ -44,29 +41,28 @@ namespace GodAndMe.iOS
                     HasiCloud = false;
                     Console.WriteLine("Can't find iCloud container, check your provisioning profile and entitlements");
 
+#if DEBUG
                     InvokeOnMainThread(() =>
                     {
-                        var alertController = UIAlertController.Create("No \uE049 available",
-                        "Check your Entitlements.plist, BundleId, TeamId and Provisioning Profile!", UIAlertControllerStyle.Alert);
+                        UIAlertController alertController = UIAlertController.Create("No \uE049 available", "Check your Entitlements.plist, BundleId, TeamId and Provisioning Profile!", UIAlertControllerStyle.Alert);
                         alertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Destructive, null));
-                        app.InputViewController.PresentViewController(alertController, false, null);
+                        this.Window.RootViewController.PresentViewController(alertController, true, null);
                     });
+#endif
                 }
                 else
                 {
                     // iCloud enabled, store the NSURL for later use
                     HasiCloud = true;
                     iCloudUrl = uburl;
+#if DEBUG
                     Console.WriteLine("yyy Yes iCloud! {0}", uburl);
-
-                    SQLiteConnectionString connectionString = new SQLiteConnectionString(CommonFunctions.dbPath, true,
-key: "password");
-                    db = new SQLiteAsyncConnection(connectionString);
+#endif
                 }
                 CheckingForiCloud = false;
             });
 
-            return base.FinishedLaunching(app, options);
+            return base.FinishedLaunching(uiApplication, launchOptions);
         }
     }
 }

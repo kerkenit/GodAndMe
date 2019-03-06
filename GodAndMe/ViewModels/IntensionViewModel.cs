@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using System.Linq;
-using Xamarin.Forms;
-
+using System.Threading.Tasks;
 using GodAndMe.Models;
 using GodAndMe.Views;
+using Xamarin.Forms;
 
 namespace GodAndMe.ViewModels
 {
-    public class IntentionsViewModel : BaseViewModel
+    public class IntentionViewModel : BaseViewModel
     {
         public ObservableCollection<Intention> Intentions { get; set; }
         public Command LoadIntentionsCommand { get; set; }
 
-        public IntentionsViewModel()
+        public IntentionViewModel()
         {
             Intentions = new ObservableCollection<Intention>();
             LoadIntentionsCommand = new Command(async () => await ExecuteLoadIntentionsCommand());
 
-            MessagingCenter.Subscribe<NewIntentionPage, Intention>(this, "AddItem", async (obj, item) =>
+            MessagingCenter.Subscribe<IntentionPageNew, Intention>(this, "AddItem", async (obj, item) =>
             {
                 var newIntention = item as Intention;
                 if (Intentions.Count > 0 && Intentions.Any(x => x.Id == item.Id))
@@ -40,7 +39,7 @@ namespace GodAndMe.ViewModels
                 }
             });
 
-            MessagingCenter.Subscribe<IntentionsPage, Intention>(this, "DeleteItem", async (obj, item) =>
+            MessagingCenter.Subscribe<IntentionPage, Intention>(this, "DeleteItem", async (obj, item) =>
             {
                 Intention oldIntention = item as Intention;
                 Intentions.Remove(oldIntention);

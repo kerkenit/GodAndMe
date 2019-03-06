@@ -1,13 +1,11 @@
-﻿using System;
-
-using GodAndMe.Models;
+﻿using GodAndMe.Models;
 
 namespace GodAndMe.ViewModels
 {
-    public class IntentionsDetailViewModel : BaseViewModel
+    public class IntentionDetailViewModel : BaseViewModel
     {
         public Intention Item { get; set; }
-        public IntentionsDetailViewModel(Intention item = null)
+        public IntentionDetailViewModel(Intention item = null)
         {
             Title = item?.Text;
             Item = item;
