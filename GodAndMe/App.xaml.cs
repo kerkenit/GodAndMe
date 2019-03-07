@@ -15,6 +15,9 @@ namespace GodAndMe
         static ITouchID touchId = DependencyService.Get<ITouchID>();
         static UIView unlockView;
         bool appLocked = false;
+        public static bool justShowedUnlockView = false;
+        public static bool justUnlocked = false;
+        public const int DELAY = 780;
         public App()
         {
             InitializeComponent();
@@ -47,6 +50,7 @@ namespace GodAndMe
 
         protected override void OnStart()
         {
+            justUnlocked = true;
             Device.BeginInvokeOnMainThread(async () =>
             {
                 appLocked = await AuthenticatedWithTouchID();
@@ -57,6 +61,7 @@ namespace GodAndMe
         {
             // Handle when your app sleeps
             appLocked = true;
+            justUnlocked = true;
             if (touchId.CanAuthenticateUserIDWithTouchID())
             {
                 Blur();
@@ -81,58 +86,72 @@ namespace GodAndMe
 
         public static Task<bool> AuthenticatedWithTouchID()
         {
+
             TaskCompletionSource<bool> taskSource = new TaskCompletionSource<bool>();
-
-            // Handle when your app starts
-            Device.BeginInvokeOnMainThread(async () =>
+            if (!justShowedUnlockView)
             {
-                UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
-
-                if (unlockView != null)
+                // Handle when your app starts
+                Device.BeginInvokeOnMainThread(async () =>
                 {
-                    foreach (UIView view in yourController.View.Subviews)
+                    UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+
+                    if (unlockView != null)
                     {
-                        if (view.GetType() == typeof(UIVisualEffectView))
+                        foreach (UIView view in yourController.View.Subviews)
                         {
-                            view.RemoveFromSuperview();
+                            if (view.GetType() == typeof(UIVisualEffectView))
+                            {
+                                view.RemoveFromSuperview();
+                            }
                         }
+                        unlockView.RemoveFromSuperview();
+                        Blur();
                     }
-                    unlockView.RemoveFromSuperview();
-                    Blur();
-                }
 
-                bool _authenticatedWithTouchID = await touchId.AuthenticateUserIDWithTouchID();
-                if (_authenticatedWithTouchID)
-                {
-                    Sharpen();
-                    taskSource.SetResult(false);
-                }
-                else
-                {
-                    Unlock();
-                    taskSource.SetResult(true);
-                }
-            });
+
+                    bool _authenticatedWithTouchID = await touchId.AuthenticateUserIDWithTouchID();
+                    if (_authenticatedWithTouchID)
+                    {
+                        Sharpen();
+                        taskSource.SetResult(false);
+                    }
+                    else
+                    {
+                        Unlock();
+                        taskSource.SetResult(true);
+                    }
+                });
+            }
+            else
+            {
+                taskSource.SetResult(true);
+            }
             return taskSource.Task;
         }
 
         public static void Blur()
         {
-            Device.BeginInvokeOnMainThread(() =>
+            if (!justShowedUnlockView)
             {
-                UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
-
-                UIVisualEffect blurEffect = UIBlurEffect.FromStyle(UIBlurEffectStyle.Light);
-                UIVisualEffectView visualEffectView = new UIVisualEffectView(blurEffect)
+                Device.BeginInvokeOnMainThread(() =>
                 {
-                    Frame = yourController.View.Bounds
-                };
-                yourController.View.AddSubview(visualEffectView);
-            });
+                    UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+
+                    UIVisualEffect blurEffect = UIBlurEffect.FromStyle(UIBlurEffectStyle.Light);
+                    UIVisualEffectView visualEffectView = new UIVisualEffectView(blurEffect)
+                    {
+                        Frame = yourController.View.Bounds,
+
+                    };
+                    yourController.View.AddSubview(visualEffectView);
+                    UIApplication.SharedApplication.KeyWindow.BringSubviewToFront(visualEffectView);
+                });
+            }
         }
 
         public static void Sharpen()
         {
+            justShowedUnlockView = true;
             Device.BeginInvokeOnMainThread(() =>
             {
                 UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
@@ -144,27 +163,31 @@ namespace GodAndMe
                         view.RemoveFromSuperview();
                     }
                 }
-
-                ////yourController.View.Subviews[yourController.View.Subviews.Length - 1].RemoveFromSuperview();
+            });
+            Task.Factory.StartNew(() =>
+            {
+                Task.Delay(DELAY).Wait();
+                justShowedUnlockView = false;
+                justUnlocked = false;
             });
         }
 
         private static void Unlock()
         {
+            justShowedUnlockView = true;
             Device.BeginInvokeOnMainThread(() =>
             {
                 UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
-
-                UIVisualEffect blurEffect = UIBlurEffect.FromStyle(UIBlurEffectStyle.Light);
-                UIVisualEffectView visualEffectView = new UIVisualEffectView(blurEffect)
-                {
-                    Frame = yourController.View.Bounds
-                };
-
                 UIStoryboard storyboard = UIStoryboard.FromName("UnlockScreen", null);
                 UIViewController viewController = storyboard.InstantiateViewController("UnlockScreen");
                 unlockView = viewController.View;
                 yourController.View.AddSubview(unlockView);
+                UIApplication.SharedApplication.KeyWindow.BringSubviewToFront(unlockView);
+            });
+            Task.Factory.StartNew(() =>
+            {
+                Task.Delay(DELAY).Wait();
+                justShowedUnlockView = false;
             });
         }
     }

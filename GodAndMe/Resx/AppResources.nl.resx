@@ -42,6 +42,9 @@
     <data name="NewIntention" xml:space="preserve">
     <value>Nieuwe intentie</value>
   </data>
+    <data name="EditIntention" xml:space="preserve">
+    <value>Bewerk intentie</value>
+  </data>
     <data name="More" xml:space="preserve">
     <value>Meer</value>
   </data>
@@ -77,5 +80,14 @@
   </data>
     <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
     <value>Om je persoonlijke communicatie met God in te zien.</value>
+  </data>
+    <data name="PrayerFor" xml:space="preserve">
+    <value>Gebed voor</value>
+  </data>
+    <data name="PrayerRequiredAt" xml:space="preserve">
+    <value>Gebedsverhoring nodig op</value>
+  </data>
+    <data name="PrayerIntention" xml:space="preserve">
+    <value>Gebedsintentie</value>
   </data>
 </root>

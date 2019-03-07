@@ -5,9 +5,8 @@ namespace GodAndMe.ViewModels
     public class IntentionDetailViewModel : BaseViewModel
     {
         public Intention Item { get; set; }
-        public IntentionDetailViewModel(Intention item = null)
+        public IntentionDetailViewModel(Intention item)
         {
-            Title = item?.Text;
             Item = item;
         }
     }

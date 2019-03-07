@@ -5,16 +5,22 @@
              xmlns:local="clr-namespace:GodAndMe"
              xmlns:resX="clr-namespace:GodAndMe.Resx"
              x:Class="GodAndMe.Views.IntentionPageNew"
-             Title="{resX:TranslateExtension NewIntention}">
+             Title="{Binding Title}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:TranslateExtension Cancel}" Clicked="Cancel_Clicked" IsDestructive="true" Priority="-1" />
-        <ToolbarItem Text="{resX:TranslateExtension Save}" Clicked="Save_Clicked" />
+        <ToolbarItem Text="{resX:TranslateExtension Save}" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand">
             <ScrollView>
                 <StackLayout Spacing="5" Padding="15" Orientation="Vertical">
-                    <Label Text="{resX:TranslateExtension For}" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Text="{resX:TranslateExtension PrayerFor}" FontSize="Medium" FontAttributes="Bold" />
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
@@ -27,11 +33,10 @@
                         <Button x:Name="btPerson" Text="" Image="contact.png" Grid.Row="0" Grid.Column="1" VerticalOptions="Start" />
                         <Picker x:Name="ddlPerson" IsVisible="false" Grid.Row="0" Grid.Column="1" />
                     </Grid>
-                    <Label Text="{resX:TranslateExtension Title}" FontSize="Medium" FontAttributes="Bold" />
-                    <Entry Text="{Binding Item.Text}" FontSize="Small" Margin="0,0,0,15" />
-                    <Label Text="{resX:TranslateExtension Start}" FontSize="Medium" FontAttributes="Bold" />
-                    <DatePicker Format="D" FontSize="Small" Date="{Binding Item.Start}" Margin="0,0,0,15" />
-                    <Label Text="{resX:TranslateExtension Intention}" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Text="{resX:TranslateExtension PrayerRequiredAt}" FontSize="Medium" FontAttributes="Bold" />
+                    <Entry x:Name="tbStart" Text="{Binding Item.Start, StringFormat='{0:D}'}" FontSize="Small" Margin="0,0,0,15" />
+                    <DatePicker x:Name="ddlStart" Format="D" FontSize="Small" Date="{Binding Item.Start}" IsVisible="false" />
+                    <Label Text="{resX:TranslateExtension PrayerIntention}" FontSize="Medium" FontAttributes="Bold" />
                     <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1">
                         <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0,0,0,15" VerticalOptions="Start" />
                     </Frame>

@@ -25,7 +25,7 @@ namespace GodAndMe.Views
 
             Intention = new Intention
             {
-                Text = "",
+                //Text = "",
                 Description = "",
                 Id = Guid.NewGuid().ToString(),
                 Start = null
@@ -37,8 +37,12 @@ namespace GodAndMe.Views
 
         async void EditItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new IntentionPageNew(this.viewModel.Item)));
+            if ((viewModel != null) && (viewModel.Item != null) && (viewModel.IntentionDataStore != null))
+            {
+                Intention = await viewModel.IntentionDataStore.GetItemAsync(viewModel.Item.Id);
+            }
 
+            await Navigation.PushAsync(new IntentionPageNew(CommonFunctions.i18n("EditIntention"), Intention));
         }
     }
 }

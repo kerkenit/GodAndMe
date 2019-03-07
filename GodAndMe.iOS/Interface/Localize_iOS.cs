@@ -18,6 +18,10 @@ namespace GodAndMe.iOS
 
         public CultureInfo GetCurrentCultureInfo()
         {
+
+#if DEBUG
+            return new CultureInfo("es");
+#endif
             var netLanguage = "en";
             if (NSLocale.PreferredLanguages.Length > 0)
             {

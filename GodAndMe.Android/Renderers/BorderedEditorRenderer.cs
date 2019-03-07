@@ -1,9 +1,9 @@
-﻿using GodAndMe.Extensions;
-using GodAndMe.Android.Renderers;
+﻿using GodAndMe.Android.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Android.Content;
 using Android.Graphics;
+using GodAndMe.Extensions;
 
 [assembly: ExportRenderer(typeof(BorderedEditor), typeof(BorderedEditorRenderer))]
 namespace GodAndMe.Android.Renderers

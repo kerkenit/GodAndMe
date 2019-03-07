@@ -14,17 +14,20 @@ namespace GodAndMe.iOS
         public Task<bool> AuthenticateUserIDWithTouchID()
         {
             var taskSource = new TaskCompletionSource<bool>();
-
-            var context = new LAContext();
-            if (context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out NSError AuthError))
+            if (App.justUnlocked)
             {
-                var replyHandler = new LAContextReplyHandler((success, error) =>
+                var context = new LAContext();
+                if (context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out NSError AuthError))
                 {
-                    taskSource.SetResult(success);
-                });
-                context.EvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, CommonFunctions.i18n("AuthenticationWithBiometricsMessage"), replyHandler); //Todo: translate
-            };
 
+                    var replyHandler = new LAContextReplyHandler((success, error) =>
+                    {
+                        App.justUnlocked = success;
+                        taskSource.SetResult(success);
+                    });
+                    context.EvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, CommonFunctions.i18n("AuthenticationWithBiometricsMessage"), replyHandler); //Todo: translate
+                };
+            }
             return taskSource.Task;
         }
 

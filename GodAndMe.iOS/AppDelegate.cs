@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading;
 using Foundation;
+using GodAndMe.iOS.Interface;
 using UIKit;
+using Xamarin.Forms;
 
 namespace GodAndMe.iOS
 {
@@ -27,6 +29,10 @@ namespace GodAndMe.iOS
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            DependencyService.Register<FileStore>();
+            DependencyService.Register<Share>();
+
             LoadApplication(new App());
             // GetUrlForUbiquityContainer is blocking, Apple recommends background thread or your UI will freeze
             ThreadPool.QueueUserWorkItem(_ =>

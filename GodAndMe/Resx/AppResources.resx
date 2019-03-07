@@ -36,6 +36,9 @@
     <data name="NewIntention" xml:space="preserve">
     <value>New intention</value>
   </data>
+    <data name="EditIntention" xml:space="preserve">
+    <value>Edit intention</value>
+  </data>
     <data name="Intention" xml:space="preserve">
     <value>Intention</value>
   </data>
@@ -77,5 +80,14 @@
   </data>
     <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
     <value>To see your personal communication with God.</value>
+  </data>
+    <data name="PrayerFor" xml:space="preserve">
+    <value>Prayer for</value>
+  </data>
+    <data name="PrayerRequiredAt" xml:space="preserve">
+    <value>Prayer required at</value>
+  </data>
+    <data name="PrayerIntention" xml:space="preserve">
+    <value>Prayer intention</value>
   </data>
 </root>

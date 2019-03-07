@@ -95,6 +95,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string EditIntention {
+            get {
+                return ResourceManager.GetString("EditIntention", resourceCulture);
+            }
+        }
+        
         internal static string Intention {
             get {
                 return ResourceManager.GetString("Intention", resourceCulture);
@@ -176,6 +182,24 @@ namespace GodAndMe.Resx {
         internal static string AuthenticationWithBiometricsMessage {
             get {
                 return ResourceManager.GetString("AuthenticationWithBiometricsMessage", resourceCulture);
+            }
+        }
+        
+        internal static string PrayerFor {
+            get {
+                return ResourceManager.GetString("PrayerFor", resourceCulture);
+            }
+        }
+        
+        internal static string PrayerRequiredAt {
+            get {
+                return ResourceManager.GetString("PrayerRequiredAt", resourceCulture);
+            }
+        }
+        
+        internal static string PrayerIntention {
+            get {
+                return ResourceManager.GetString("PrayerIntention", resourceCulture);
             }
         }
     }

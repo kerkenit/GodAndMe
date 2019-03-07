@@ -3,6 +3,9 @@ using System.Threading.Tasks;
 using AddressBook;
 using Foundation;
 using UIKit;
+using System.Linq;
+using Contacts;
+using ContactsUI;
 
 [assembly: Xamarin.Forms.Dependency(typeof(GodAndMe.iOS.AddressBookInformation))]
 namespace GodAndMe.iOS
@@ -11,26 +14,63 @@ namespace GodAndMe.iOS
     {
         ABPerson[] myContacts;
 
-        public List<string> GetContacts()
+        Task<List<string>> IAddressBookInformation.GetContacts()
         {
             TaskCompletionSource<List<string>> taskSource = new TaskCompletionSource<List<string>>();
             NSError error;
+            List<string> items = new List<string>();
 
-            ABAddressBook iPhoneAddressBook = ABAddressBook.Create(out error);
-            myContacts = iPhoneAddressBook.GetPeople();
-
-            List<string> peopleList = new List<string>();
-            foreach (ABPerson contact in myContacts)
+            if (false && UIDevice.CurrentDevice.CheckSystemVersion(9, 0))
             {
-                if (contact.PersonKind != ABPersonKind.Organization)
+                UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+
+
+                // Create a new picker
+                var picker = new CNContactPickerViewController();
+                // Select property to pick
+                picker.DisplayedPropertyKeys = new NSString[] { CNContactKey.GivenName };
+                //picker.PredicateForEnablingContact = NSPredicate.FromFormat("emailAddresses.@count > 0");
+                // picker.PredicateForSelectionOfContact = NSPredicate.FromFormat("emailAddresses.@count == 1");
+                var contactPickerDelegate = new ContactPickerDelegate();
+
+                // Respond to selection
+                picker.Delegate = contactPickerDelegate;
+                // Display picker
+                yourController.PresentViewController(picker, true, null);
+            }
+            else
+            {
+                ABAddressBook iPhoneAddressBook = ABAddressBook.Create(out error);
+                myContacts = iPhoneAddressBook.GetPeople();
+
+                Dictionary<string, string> peopleList = new Dictionary<string, string>();
+                foreach (ABPerson contact in myContacts)
                 {
-                    peopleList.Add((contact.FirstName + " " + contact.MiddleName).Trim() + " " + contact.LastName);
+                    if (contact.PersonKind == ABPersonKind.Person && contact.Type == ABRecordType.Person)
+                    {
+                        string key = ((contact.LastName + " " + contact.MiddleName).Trim() + " " + contact.FirstName).Trim();
+                        if (!peopleList.ContainsKey(key))
+                        {
+                            peopleList.Add(key, (contact.FirstName + " " + contact.MiddleName).Trim() + " " + contact.LastName);
+                        }
+                    }
+                }
+                List<string> list = peopleList.Keys.ToList();
+                list.Sort();
+
+                foreach (string key in list)
+                {
+                    if (!string.IsNullOrEmpty(peopleList[key]))
+                    {
+                        items.Add(peopleList[key]);
+                    }
                 }
             }
-            taskSource.SetResult(peopleList);
-            return peopleList;
-            //return taskSource.Task;
+            taskSource.SetResult(items);
+            //return items;
+            return taskSource.Task;
         }
+
 
         public Task<bool> RequestAccess()
         {

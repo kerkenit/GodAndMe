@@ -27,7 +27,7 @@ namespace GodAndMe.Services
             {
                 new Intention {
                     Id = Guid.NewGuid().ToString(),
-                    Text = "Sexueel misbruik",
+                   // Text = "Sexueel misbruik",
                     Description="Om verlichting van de Heilige Geest bij de afgelopen synode",
                     Person="Paus Fransiscus",
                     Completed=true,
@@ -35,7 +35,7 @@ namespace GodAndMe.Services
                 },
                 new Intention {
                     Id = Guid.NewGuid().ToString(),
-                    Text = "Vriendin",
+                    //Text = "Vriendin",
                     Description="Dat zij Uw wil mogen doen",
                     Person="Tom",
                     Completed=false,
@@ -43,7 +43,7 @@ namespace GodAndMe.Services
                 },
                  new Intention {
                     Id = Guid.NewGuid().ToString(),
-                    Text = "ID kaart",
+                    //Text = "ID kaart",
                     Description="Dat het goed mag gaan met het aanvragen van de ID kaart",
                     Person="Mónica Ruiz",
                     Completed=false,
@@ -51,7 +51,7 @@ namespace GodAndMe.Services
                 },
                 new Intention {
                     Id = Guid.NewGuid().ToString(),
-                    Text = "Retraite",
+                    //Text = "Retraite",
                     Description="Dat er veel jongeren mogen komen",
                     Person="Mónica Ruiz",
                     Completed=false,
@@ -59,7 +59,7 @@ namespace GodAndMe.Services
                 },
                 new Intention {
                     Id = Guid.NewGuid().ToString(),
-                    Text = "Pijn",
+                    //Text = "Pijn",
                     Description="Dat ze kracht naar kruis mag krijgen",
                     Person="Mama",
                     Completed=false,
@@ -79,7 +79,7 @@ namespace GodAndMe.Services
         {
             if (item != null)
             {
-                if (!string.IsNullOrEmpty(item.Text))
+                if (!string.IsNullOrEmpty(item.Description))
                 {
                     if (items.Any(x => x.Id == item.Id))
                     {
@@ -90,8 +90,8 @@ namespace GodAndMe.Services
                         db.Insert(item); // after creating the newStock object
                         items.Add(item);
                     }
+                    return await Task.FromResult(true);
                 }
-                return await Task.FromResult(true);
             }
             return await Task.FromResult(false);
         }

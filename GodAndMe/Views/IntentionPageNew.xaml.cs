@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using GodAndMe.Models;
+using GodAndMe.Services;
 using GodAndMe.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 namespace GodAndMe.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -13,16 +13,17 @@ namespace GodAndMe.Views
         IntentionDetailViewModel viewModel;
         public Intention Intention { get; set; }
 
-        public IntentionPageNew(IntentionDetailViewModel viewModel)
+        //public IntentionPageNew(IntentionDetailViewModel viewModel, string title)
+        //{
+        //    InitializeComponent();
+        //    viewModel.Title = title;
+        //    BindingContext = this.viewModel = viewModel;
+        //}
+
+        public IntentionPageNew(string title, Intention intention = null)
         {
             InitializeComponent();
 
-            BindingContext = this.viewModel = viewModel;
-        }
-
-        public IntentionPageNew(Intention intention = null)
-        {
-            InitializeComponent();
             if (intention != null)
             {
                 Intention = intention;
@@ -31,7 +32,7 @@ namespace GodAndMe.Views
             {
                 Intention = new Intention
                 {
-                    Text = "",
+                    //Text = "",
                     Description = "",
                     Id = Guid.NewGuid().ToString(),
                     Start = null
@@ -44,7 +45,7 @@ namespace GodAndMe.Views
                 {
                     if (ddlPerson.ItemsSource == null || ddlPerson.ItemsSource.Count == 0)
                     {
-                        List<string> persons = DependencyService.Get<IAddressBookInformation>().GetContacts();
+                        List<string> persons = await DependencyService.Get<IAddressBookInformation>().GetContacts();
                         persons.Insert(0, "- " + CommonFunctions.i18n("ChooseOther") + " -");
                         ddlPerson.ItemsSource = persons;
                     }
@@ -69,20 +70,48 @@ namespace GodAndMe.Views
                     }
                 }
             };
+
+            //ddlStart.Unfocused += (object sender, FocusEventArgs e) =>
+            //{
+            //    tbStart.Text = string.Empty;
+            //};
+
+            ddlStart.DateSelected += (object sender, DateChangedEventArgs e) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    tbStart.Text = string.Format("{0:D}", ddlStart.Date);
+                });
+            };
+            tbStart.Focused += (object sender, FocusEventArgs e) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    ddlStart.Focus();
+                });
+            };
             viewModel = new IntentionDetailViewModel(Intention);
+            viewModel.Title = title;
             BindingContext = viewModel;
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            //if ((viewModel != null) && (viewModel.Item != null))
+            //{
+            //    Intention = await viewModel.IntentionDataStore.GetItemAsync(Intention.Id);
+            //    viewModel.Item = Intention;
+            //    BindingContext = viewModel.Item;
+            //}
+            //MessagingCenter.Send(this, "GetItem", Intention);
+            await Navigation.PopAsync();
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
             Intention = viewModel.Item;
             MessagingCenter.Send(this, "AddItem", Intention);
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

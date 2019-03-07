@@ -84,11 +84,13 @@
         <Compile Include="Interface\TouchID_iOS.cs" />
         <Compile Include="Interface\DatabaseConnection_iOS.cs" />
         <Compile Include="Interface\AddressBookInformation_iOS.cs" />
-        <None Include="Renderers\BorderedEditorRenderer.cs" />
         <Compile Include="UnlockViewController.cs" />
         <Compile Include="UnlockViewController.designer.cs">
           <DependentUpon>UnlockViewController.cs</DependentUpon>
         </Compile>
+        <Compile Include="Interface\Share_iOS.cs" />
+        <Compile Include="Interface\FileStore_iOS.cs" />
+        <Compile Include="ContactPickerDelegate.cs" />
     </ItemGroup>
     <ItemGroup>
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">

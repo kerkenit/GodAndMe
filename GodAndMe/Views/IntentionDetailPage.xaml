@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:i18n="clr-namespace:GodAndMe" 
@@ -17,13 +17,11 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Spacing="5" Padding="15">
-            <Label Text="{resX:TranslateExtension For}" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{resX:TranslateExtension PrayerFor}" FontSize="Medium" FontAttributes="Bold" />
             <Label Text="{Binding Item.Person}" LineBreakMode="NoWrap" FontSize="Small" Margin="0,0,0,15" />
-            <Label Text="{resX:TranslateExtension Title}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.Text}" LineBreakMode="NoWrap" FontSize="Small" Margin="0,0,0,15" />
-            <Label Text="{resX:TranslateExtension Start}" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{resX:TranslateExtension PrayerRequiredAt}" FontSize="Medium" FontAttributes="Bold" />
             <Label Text="{Binding Item.Start, StringFormat='{0:D}'}" FontSize="Small" Margin="0,0,0,15" />
-            <Label Text="{resX:TranslateExtension Intention}" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{resX:TranslateExtension PrayerIntention}" FontSize="Medium" FontAttributes="Bold" />
             <Label Text="{Binding Item.Description}" LineBreakMode="WordWrap" FontSize="Small" Margin="0,0,0,15" />
         </StackLayout>
     </ContentPage.Content>

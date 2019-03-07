@@ -33,7 +33,7 @@ namespace GodAndMe.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new IntentionPageNew()));
+            await Navigation.PushAsync(new IntentionPageNew(CommonFunctions.i18n("NewIntention")));
         }
 
         public void OnMore(object sender, EventArgs e)

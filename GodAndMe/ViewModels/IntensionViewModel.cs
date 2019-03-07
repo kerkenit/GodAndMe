@@ -45,6 +45,16 @@ namespace GodAndMe.ViewModels
                 Intentions.Remove(oldIntention);
                 await IntentionDataStore.DeleteItemAsync(oldIntention.Id);
             });
+
+            MessagingCenter.Subscribe<IntentionPageNew, Intention>(this, "GetItem", async (obj, item) =>
+            {
+                Intention oldIntention = item as Intention;
+                if (Intentions.Any((arg) => arg.Id == oldIntention.Id))
+                {
+                    Intentions.Remove(oldIntention);
+                }
+                Intentions.Add(await IntentionDataStore.GetItemAsync(oldIntention.Id));
+            });
         }
 
         async Task ExecuteLoadIntentionsCommand()

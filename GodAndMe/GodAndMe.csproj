@@ -106,6 +106,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interface\ITouchID.cs" />
     <Compile Include="Interface\IDatabase­Connection.cs" />
     <Compile Include="Interface\IAddressBookInformation.cs" />
+    <Compile Include="Interface\IShare.cs" />
+    <Compile Include="Interface\IFileStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml">
