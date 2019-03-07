@@ -20,7 +20,7 @@ namespace GodAndMe.iOS
         {
 
 #if DEBUG
-            return new CultureInfo("es");
+            // return new CultureInfo("es");
 #endif
             var netLanguage = "en";
             if (NSLocale.PreferredLanguages.Length > 0)
