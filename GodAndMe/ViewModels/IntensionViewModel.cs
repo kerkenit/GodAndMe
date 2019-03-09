@@ -37,6 +37,13 @@ namespace GodAndMe.ViewModels
                     }
                     await IntentionDataStore.AddItemAsync(newIntention);
                 }
+                Intentions.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+            });
+
+            MessagingCenter.Subscribe<IntentionPage, Intention>(this, "UpdateItem", async (obj, item) =>
+            {
+                await IntentionDataStore.UpdateItemAsync(item);
+                Intentions.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
             });
 
             MessagingCenter.Subscribe<IntentionPage, Intention>(this, "DeleteItem", async (obj, item) =>
@@ -44,6 +51,8 @@ namespace GodAndMe.ViewModels
                 Intention oldIntention = item as Intention;
                 Intentions.Remove(oldIntention);
                 await IntentionDataStore.DeleteItemAsync(oldIntention.Id);
+                Intentions.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+
             });
 
             MessagingCenter.Subscribe<IntentionPageNew, Intention>(this, "GetItem", async (obj, item) =>
@@ -54,6 +63,7 @@ namespace GodAndMe.ViewModels
                     Intentions.Remove(oldIntention);
                 }
                 Intentions.Add(await IntentionDataStore.GetItemAsync(oldIntention.Id));
+                Intentions.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
             });
         }
 

@@ -27,15 +27,25 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="30" />
                         </Grid.ColumnDefinitions>
                         <Entry x:Name="tbPerson" Text="{Binding Item.Person}" FontSize="Small" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
-                        <Button x:Name="btPerson" Text="" Image="contact.png" Grid.Row="0" Grid.Column="1" VerticalOptions="Start" />
+                        <Button x:Name="btPerson" Text="" Image="contact.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TranslationY="-7" />
                         <Picker x:Name="ddlPerson" IsVisible="false" Grid.Row="0" Grid.Column="1" />
                     </Grid>
                     <Label Text="{resX:TranslateExtension PrayerRequiredAt}" FontSize="Medium" FontAttributes="Bold" />
-                    <Entry x:Name="tbStart" Text="{Binding Item.Start, StringFormat='{0:D}'}" FontSize="Small" Margin="0,0,0,15" />
-                    <DatePicker x:Name="ddlStart" Format="D" FontSize="Small" Date="{Binding Item.Start}" IsVisible="false" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="30" />
+                        </Grid.ColumnDefinitions>
+                        <Entry x:Name="tbStart" Text="{Binding Item.Start, StringFormat='{0:D}'}" FontSize="Small" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
+                        <Button x:Name="btStart" Text="" Image="delete.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TranslationY="-7" IsEnabled="false" />
+                        <DatePicker x:Name="ddlStart" Format="D" FontSize="Small" Date="{Binding Item.Start}" IsVisible="false" Grid.Row="0" Grid.Column="1" />
+                    </Grid>
                     <Label Text="{resX:TranslateExtension PrayerIntention}" FontSize="Medium" FontAttributes="Bold" />
                     <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1">
                         <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0,0,0,15" VerticalOptions="Start" />

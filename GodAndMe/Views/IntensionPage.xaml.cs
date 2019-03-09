@@ -36,7 +36,20 @@ namespace GodAndMe.Views
             await Navigation.PushAsync(new IntentionPageNew(CommonFunctions.i18n("NewIntention")));
         }
 
-        public void OnMore(object sender, EventArgs e)
+        public void OnArchive(object sender, EventArgs e)
+        {
+            //viewModel.IsBusy = true;
+
+            var mi = ((MenuItem)sender);
+            var item = viewModel.Intentions.First(x => x.Id == mi.CommandParameter.ToString()) as Intention;
+            item.Completed = true;
+            MessagingCenter.Send(this, "UpdateItem", item);
+            //viewModel.Intentions.Remove(item);
+
+            //viewModel.IsBusy = false;
+        }
+
+        public void OnShare(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
             var item = viewModel.Intentions.Select(x => x.Id == mi.CommandParameter.ToString()) as Intention;
@@ -44,14 +57,14 @@ namespace GodAndMe.Views
 
         public void OnDelete(object sender, EventArgs e)
         {
-            viewModel.IsBusy = true;
+            //viewModel.IsBusy = true;
 
             var mi = ((MenuItem)sender);
             var item = viewModel.Intentions.First(x => x.Id == mi.CommandParameter.ToString()) as Intention;
             MessagingCenter.Send(this, "DeleteItem", item);
             viewModel.Intentions.Remove(item);
 
-            viewModel.IsBusy = false;
+            //viewModel.IsBusy = false;
         }
 
         protected override void OnAppearing()

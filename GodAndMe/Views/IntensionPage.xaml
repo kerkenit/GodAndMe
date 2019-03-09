@@ -23,13 +23,20 @@
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
-                                <MenuItem Clicked="OnMore" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension More}" />
-                                <MenuItem Clicked="OnDelete" CommandParameter="{Binding Id}" Icon="trash.png" Text="{resX:TranslateExtension Delete}" IsDestructive="True" />
+                                <MenuItem x:Name="Archive" Clicked="OnArchive" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Archive}" IsDestructive="false" />
+                                <MenuItem x:Name="Share" Clicked="OnShare" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Share}" />
+                                <MenuItem x:Name="Delete" Clicked="OnDelete" CommandParameter="{Binding Id}" Icon="trash.png" Text="{resX:TranslateExtension Delete}" IsDestructive="True">
+                                    <MenuItem.Icon>
+                                        <OnPlatform x:TypeArguments="FileImageSource">
+                                            <On Platform="iOS" Value="trash.png" />
+                                        </OnPlatform>
+                                    </MenuItem.Icon>
+                                </MenuItem>
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Person}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="20" FontAttributes="Bold" />
-                                <Label Text="{Binding Start, StringFormat='{0:D}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="12" />
-                                <Label Text="{Binding Description}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="16" />
+                                <Label Text="{Binding Person}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="20" FontAttributes="Bold" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Start, StringFormat='{0:D}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="12" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Description}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="16" TextColor="{Binding TextColor}" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

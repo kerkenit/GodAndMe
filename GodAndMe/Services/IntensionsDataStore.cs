@@ -33,38 +33,38 @@ namespace GodAndMe.Services
                     Completed=true,
                     Start= new DateTime(2019,2,25)
                 },
-                new Intention {
-                    Id = Guid.NewGuid().ToString(),
-                    //Text = "Vriendin",
-                    Description="Dat zij Uw wil mogen doen",
-                    Person="Tom",
-                    Completed=false,
-                    Start= new DateTime(2019,2,17)
-                },
-                 new Intention {
-                    Id = Guid.NewGuid().ToString(),
-                    //Text = "ID kaart",
-                    Description="Dat het goed mag gaan met het aanvragen van de ID kaart",
-                    Person="Mónica Ruiz",
-                    Completed=false,
-                    Start= new DateTime(2019,3,11)
-                },
-                new Intention {
-                    Id = Guid.NewGuid().ToString(),
-                    //Text = "Retraite",
-                    Description="Dat er veel jongeren mogen komen",
-                    Person="Mónica Ruiz",
-                    Completed=false,
-                    Start= new DateTime(2019,3,1)
-                },
-                new Intention {
-                    Id = Guid.NewGuid().ToString(),
-                    //Text = "Pijn",
-                    Description="Dat ze kracht naar kruis mag krijgen",
-                    Person="Mama",
-                    Completed=false,
-                  Start= null
-                },
+                //new Intention {
+                //    Id = Guid.NewGuid().ToString(),
+                //    //Text = "Vriendin",
+                //    Description="Dat zij Uw wil mogen doen",
+                //    Person="Tom",
+                //    Completed=false,
+                //    Start= new DateTime(2019,2,17)
+                //},
+                // new Intention {
+                //    Id = Guid.NewGuid().ToString(),
+                //    //Text = "ID kaart",
+                //    Description="Dat het goed mag gaan met het aanvragen van de ID kaart",
+                //    Person="Mónica Ruiz",
+                //    Completed=false,
+                //    Start= new DateTime(2019,3,11)
+                //},
+                //new Intention {
+                //    Id = Guid.NewGuid().ToString(),
+                //    //Text = "Retraite",
+                //    Description="Dat er veel jongeren mogen komen",
+                //    Person="Mónica Ruiz",
+                //    Completed=false,
+                //    Start= new DateTime(2019,3,1)
+                //},
+                //new Intention {
+                //    Id = Guid.NewGuid().ToString(),
+                //    //Text = "Pijn",
+                //    Description="Dat ze kracht naar kruis mag krijgen",
+                //    Person="Mama",
+                //    Completed=false,
+                //  Start= null
+                //},
             };
                 db.InsertAll(IntentionItems);
                 foreach (var item in IntentionItems)

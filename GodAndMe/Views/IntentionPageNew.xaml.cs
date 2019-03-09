@@ -81,7 +81,14 @@ namespace GodAndMe.Views
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     tbStart.Text = string.Format("{0:D}", ddlStart.Date);
+                    btStart.IsEnabled = true;
                 });
+            };
+            btStart.Clicked += (object sender, EventArgs e) =>
+            {
+                btStart.IsEnabled = false;
+                Intention.Start = null;
+                tbStart.Text = string.Empty;
             };
             tbStart.Focused += (object sender, FocusEventArgs e) =>
             {
@@ -90,6 +97,7 @@ namespace GodAndMe.Views
                     ddlStart.Focus();
                 });
             };
+            btStart.IsEnabled = Intention.Start != null;
             viewModel = new IntentionDetailViewModel(Intention);
             viewModel.Title = title;
             BindingContext = viewModel;

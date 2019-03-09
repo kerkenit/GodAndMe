@@ -18,5 +18,13 @@ namespace GodAndMe.Models
         public DateTime? Start { get; set; }
         [Column("completed_yn")]
         public bool Completed { get; set; }
+
+        public string TextColor
+        {
+            get
+            {
+                return Completed ? "Gray" : "Black";
+            }
+        }
     }
 }
