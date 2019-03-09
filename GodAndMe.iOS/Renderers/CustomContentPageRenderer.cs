@@ -34,7 +34,9 @@ namespace GodAndMe.iOS.Renderers
                 // add left side items, keep any already there
                 var leftItems = orderedItems.Where(x => x.Priority < 0).Select(x => x.ToUIBarButtonItem()).ToArray();
                 if (navigationItem.LeftBarButtonItems != null)
-                    leftItems = navigationItem.LeftBarButtonItems.Union(leftItems).ToArray();
+                {
+                    //   leftItems = navigationItem.LeftBarButtonItems.Union(leftItems).ToArray();
+                }
                 navigationItem.SetLeftBarButtonItems(leftItems, false);
             }
         }

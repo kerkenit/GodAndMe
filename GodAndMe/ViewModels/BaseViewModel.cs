@@ -12,6 +12,7 @@ namespace GodAndMe.ViewModels
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
         public IDataStore<Intention> IntentionDataStore => DependencyService.Get<IDataStore<Intention>>() ?? new IntentionsDataStore();
+        public IDataStore<Lent> LentDataStore => DependencyService.Get<IDataStore<Lent>>() ?? new LentDataStore();
 
         bool isBusy = false;
         public bool IsBusy

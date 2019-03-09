@@ -49,9 +49,14 @@ namespace GodAndMe.iOS
                     if (contact.PersonKind == ABPersonKind.Person && contact.Type == ABRecordType.Person)
                     {
                         string key = ((contact.LastName + " " + contact.MiddleName).Trim() + " " + contact.FirstName).Trim();
+                        if (Settings.ContactSort == ContactSort.First)
+                        {
+                            key = (contact.FirstName + " " + contact.MiddleName).Trim() + " " + contact.LastName;
+                        }
+                        key = key.Trim();
                         if (!peopleList.ContainsKey(key))
                         {
-                            peopleList.Add(key, (contact.FirstName + " " + contact.MiddleName).Trim() + " " + contact.LastName);
+                            peopleList.Add(key, ((contact.FirstName + " " + contact.MiddleName).Trim() + " " + contact.LastName).Trim());
                         }
                     }
                 }
@@ -60,7 +65,7 @@ namespace GodAndMe.iOS
 
                 foreach (string key in list)
                 {
-                    if (!string.IsNullOrEmpty(peopleList[key]))
+                    if (!string.IsNullOrWhiteSpace(peopleList[key]))
                     {
                         items.Add(peopleList[key]);
                     }

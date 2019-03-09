@@ -17,8 +17,13 @@ namespace GodAndMe.iOS
         public bool CheckingForiCloud { get; private set; }
 
         private NSUrl iCloudUrl;
-        private NSError error;
-        UIWindow window;
+        // private NSError error;
+        // UIWindow window;
+
+        // class-level declarations
+        NSObject observer;
+
+        public override UIWindow Window { get; set; }
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -29,6 +34,10 @@ namespace GodAndMe.iOS
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            Settings.LoadDefaultValues();
+            observer = NSNotificationCenter.DefaultCenter.AddObserver((NSString)"NSUserDefaultsDidChangeNotification", DefaultsChanged);
+            DefaultsChanged(null);
 
             DependencyService.Register<FileStore>();
             DependencyService.Register<Share>();
@@ -47,7 +56,7 @@ namespace GodAndMe.iOS
                     HasiCloud = false;
                     Console.WriteLine("Can't find iCloud container, check your provisioning profile and entitlements");
 
-#if DEBUG
+#if DEBUG_NOP
                     InvokeOnMainThread(() =>
                     {
                         UIAlertController alertController = UIAlertController.Create("No \uE049 available", "Check your Entitlements.plist, BundleId, TeamId and Provisioning Profile!", UIAlertControllerStyle.Alert);
@@ -69,6 +78,24 @@ namespace GodAndMe.iOS
             });
 
             return base.FinishedLaunching(uiApplication, launchOptions);
+        }
+
+        /// <summary>
+        /// This method is called when the application is about to terminate. Save data, if needed.
+        /// </summary>
+        /// <seealso cref="DidEnterBackground"/>
+        public override void WillTerminate(UIApplication application)
+        {
+            if (observer != null)
+            {
+                NSNotificationCenter.DefaultCenter.RemoveObserver(observer);
+                observer = null;
+            }
+        }
+
+        void DefaultsChanged(NSNotification obj)
+        {
+            Settings.SetupByPreferences();
         }
     }
 }

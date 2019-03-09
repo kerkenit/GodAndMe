@@ -11,6 +11,16 @@
                 <views:IntentionPage Title="{resX:TranslateExtension Intentions}" />
             </x:Arguments>
         </NavigationPage>
+         <NavigationPage Title="{resX:TranslateExtension Lent}">
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="tab_lent.png" />
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:LentPage Title="{resX:TranslateExtension Lent}" />
+            </x:Arguments>
+        </NavigationPage>
         <NavigationPage Title="{resX:TranslateExtension Diary}">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">

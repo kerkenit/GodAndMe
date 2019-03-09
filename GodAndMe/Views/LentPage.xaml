@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:i18n="clr-namespace:GodAndMe"
+             xmlns:local="clr-namespace:GodAndMe"
+             xmlns:resX="clr-namespace:GodAndMe.Resx"
+             x:Class="GodAndMe.Views.LentPage" 
+             Title="{Binding Title}" 
+             x:Name="BrowseLentPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{resX:TranslateExtension Add}" Clicked="AddItem_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="add.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="LentListView" ItemsSource="{Binding Lent}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadLentCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem x:Name="Delete" Clicked="OnDelete" CommandParameter="{Binding Id}" Icon="trash.png" Text="{resX:TranslateExtension Delete}" IsDestructive="True">
+                                    <MenuItem.Icon>
+                                        <OnPlatform x:TypeArguments="FileImageSource">
+                                            <On Platform="iOS" Value="trash.png" />
+                                        </OnPlatform>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="20" FontAttributes="Bold" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Start, StringFormat='{0:D}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="12" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Text}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="16" TextColor="{Binding TextColor}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

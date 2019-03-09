@@ -59,6 +59,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string Archive {
+            get {
+                return ResourceManager.GetString("Archive", resourceCulture);
+            }
+        }
+        
         internal static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
@@ -116,6 +122,12 @@ namespace GodAndMe.Resx {
         internal static string More {
             get {
                 return ResourceManager.GetString("More", resourceCulture);
+            }
+        }
+        
+        internal static string Share {
+            get {
+                return ResourceManager.GetString("Share", resourceCulture);
             }
         }
         
@@ -200,6 +212,60 @@ namespace GodAndMe.Resx {
         internal static string PrayerIntention {
             get {
                 return ResourceManager.GetString("PrayerIntention", resourceCulture);
+            }
+        }
+        
+        internal static string Lent {
+            get {
+                return ResourceManager.GetString("Lent", resourceCulture);
+            }
+        }
+        
+        internal static string AddSavings {
+            get {
+                return ResourceManager.GetString("AddSavings", resourceCulture);
+            }
+        }
+        
+        internal static string EditSavings {
+            get {
+                return ResourceManager.GetString("EditSavings", resourceCulture);
+            }
+        }
+        
+        internal static string OriginalPrice {
+            get {
+                return ResourceManager.GetString("OriginalPrice", resourceCulture);
+            }
+        }
+        
+        internal static string Payed {
+            get {
+                return ResourceManager.GetString("Payed", resourceCulture);
+            }
+        }
+        
+        internal static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        internal static string SavedAt {
+            get {
+                return ResourceManager.GetString("SavedAt", resourceCulture);
+            }
+        }
+        
+        internal static string SavedMoney {
+            get {
+                return ResourceManager.GetString("SavedMoney", resourceCulture);
+            }
+        }
+        
+        internal static string ISavedXThisYear {
+            get {
+                return ResourceManager.GetString("ISavedXThisYear", resourceCulture);
             }
         }
     }

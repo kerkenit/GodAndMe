@@ -18,6 +18,9 @@
     <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+    <data name="Archive" xml:space="preserve">
+    <value>Archive</value>
+  </data>
     <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
@@ -47,6 +50,9 @@
   </data>
     <data name="More" xml:space="preserve">
     <value>More</value>
+  </data>
+    <data name="Share" xml:space="preserve">
+    <value>Share</value>
   </data>
     <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -89,5 +95,32 @@
   </data>
     <data name="PrayerIntention" xml:space="preserve">
     <value>Prayer intention</value>
+  </data>
+    <data name="Lent" xml:space="preserve">
+    <value>Lent</value>
+  </data>
+    <data name="AddSavings" xml:space="preserve">
+    <value>Add savings</value>
+  </data>
+    <data name="EditSavings" xml:space="preserve">
+    <value>Edit savings</value>
+  </data>
+    <data name="OriginalPrice" xml:space="preserve">
+    <value>Original price</value>
+  </data>
+    <data name="Payed" xml:space="preserve">
+    <value>Payed</value>
+  </data>
+    <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+    <data name="SavedAt" xml:space="preserve">
+    <value>Saved at</value>
+  </data>
+    <data name="SavedMoney" xml:space="preserve">
+    <value>Saved money</value>
+  </data>
+    <data name="ISavedXThisYear" xml:space="preserve">
+    <value>I saved {0:C} this year</value>
   </data>
 </root>

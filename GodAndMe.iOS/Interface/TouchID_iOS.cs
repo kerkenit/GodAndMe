@@ -14,7 +14,7 @@ namespace GodAndMe.iOS
         public Task<bool> AuthenticateUserIDWithTouchID()
         {
             var taskSource = new TaskCompletionSource<bool>();
-            if (App.justUnlocked)
+            if (Settings.TouchID && App.justUnlocked)
             {
                 var context = new LAContext();
                 if (context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out NSError AuthError))
@@ -35,7 +35,7 @@ namespace GodAndMe.iOS
         {
             try
             {
-                return (new LAContext()).CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out NSError AuthError);
+                return Settings.TouchID && (new LAContext()).CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out NSError AuthError);
             }
             catch (Exception ex)
             {

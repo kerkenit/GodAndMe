@@ -18,6 +18,9 @@
     <data name="Add" xml:space="preserve">
     <value>Toevoegen</value>
   </data>
+    <data name="Archive" xml:space="preserve">
+    <value>Archief</value>
+  </data>
     <data name="Edit" xml:space="preserve">
     <value>Wijzig</value>
   </data>
@@ -47,6 +50,9 @@
   </data>
     <data name="More" xml:space="preserve">
     <value>Meer</value>
+  </data>
+    <data name="Share" xml:space="preserve">
+    <value>Delen</value>
   </data>
     <data name="Name" xml:space="preserve">
     <value>Naam</value>
@@ -89,5 +95,32 @@
   </data>
     <data name="PrayerIntention" xml:space="preserve">
     <value>Gebedsintentie</value>
+  </data>
+    <data name="Lent" xml:space="preserve">
+    <value>Vasten</value>
+  </data>
+    <data name="AddSavings" xml:space="preserve">
+    <value>Besparing toevoegen</value>
+  </data>
+    <data name="EditSavings" xml:space="preserve">
+    <value>Bewerk besparing</value>
+  </data>
+    <data name="OriginalPrice" xml:space="preserve">
+    <value>Origineel bedrag</value>
+  </data>
+    <data name="Payed" xml:space="preserve">
+    <value>Betaald</value>
+  </data>
+    <data name="Description" xml:space="preserve">
+    <value>Omschrijving</value>
+  </data>
+    <data name="SavedAt" xml:space="preserve">
+    <value>Bespaard op</value>
+  </data>
+    <data name="SavedMoney" xml:space="preserve">
+    <value>Bespaad bedrag</value>
+  </data>
+    <data name="ISavedXThisYear" xml:space="preserve">
+    <value>Ik heb dit jaar {0:C} bespaard</value>
   </data>
 </root>

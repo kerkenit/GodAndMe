@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Reflection;
 using System.Threading.Tasks;
 using GodAndMe.DependencyServices;

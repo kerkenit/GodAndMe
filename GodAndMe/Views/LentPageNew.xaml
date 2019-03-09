@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:i18n="clr-namespace:GodAndMe"
+             xmlns:local="clr-namespace:GodAndMe"
+             xmlns:resX="clr-namespace:GodAndMe.Resx"
+             x:Class="GodAndMe.Views.LentPageNew"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{resX:TranslateExtension Cancel}" Clicked="Cancel_Clicked" IsDestructive="true" Priority="-1" />
+        <ToolbarItem Text="{resX:TranslateExtension Save}" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="5" Padding="15" Orientation="Vertical">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="{resX:TranslateExtension OriginalPrice}" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="{resX:TranslateExtension Payed}" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="2"/>
+                <Entry x:Name="tbMoneyFrom" Text="{Binding Item.MoneyFrom, StringFormat='{0:C}'}" Keyboard="Numeric" FontSize="Small" Grid.Row="1" Grid.Column="0" />
+                <Entry x:Name="tbMoneyTo" Text="{Binding Item.MoneyTo, StringFormat='{0:C}'}" Keyboard="Numeric" FontSize="Small" Grid.Row="1" Grid.Column="2" />
+            </Grid>
+            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" FontAttributes="Bold" />
+            <Entry Text="{Binding Item.Text}" FontSize="Small" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -91,6 +91,9 @@
         <Compile Include="Interface\Share_iOS.cs" />
         <Compile Include="Interface\FileStore_iOS.cs" />
         <Compile Include="ContactPickerDelegate.cs" />
+        <Compile Include="Helpers\Settings.cs" />
+        <Compile Include="Settings.cs" />
+        <Compile Include="Renderers\CustomViewCellRenderer.cs" />
     </ItemGroup>
     <ItemGroup>
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -173,6 +176,16 @@
         <BundleResource Include="Resources\es.lproj\UnlockScreen.strings" />
         <BundleResource Include="Resources\en.lproj\UnlockScreen.strings" />
         <InterfaceDefinition Include="Base.lproj\UnlockScreen.storyboard" />
+        <BundleResource Include="Resources\delete%403x.png" />
+        <BundleResource Include="Resources\delete%402x.png" />
+        <BundleResource Include="Resources\delete.png" />
+        <BundleResource Include="Settings.bundle\Root.plist" />
+        <BundleResource Include="Settings.bundle\en.lproj\Root.strings" />
+        <BundleResource Include="Settings.bundle\nl.lproj\Root.strings" />
+        <BundleResource Include="Settings.bundle\es.lproj\Root.strings" />
+        <BundleResource Include="Resources\tab_lent%403x.png" />
+        <BundleResource Include="Resources\tab_lent%402x.png" />
+        <BundleResource Include="Resources\tab_lent.png" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="System" />
@@ -181,9 +194,12 @@
         <Reference Include="Xamarin.iOS" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
+        <PackageReference Include="Xamarin.Forms" Version="3.6.0.220655" />
         <PackageReference Include="sqlite-net-pcl">
             <Version>1.5.231</Version>
+        </PackageReference>
+        <PackageReference Include="Xam.Plugins.Settings">
+          <Version>3.1.1</Version>
         </PackageReference>
     </ItemGroup>
     <ItemGroup>
@@ -193,6 +209,9 @@
         <Folder Include="Resources\en.lproj\" />
         <Folder Include="Resources\nl.lproj\" />
         <Folder Include="Base.lproj\" />
+        <Folder Include="Helpers\" />
+        <Folder Include="Settings.bundle\nl.lproj\" />
+        <Folder Include="Settings.bundle\es.lproj\" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\GodAndMe\GodAndMe.csproj">
