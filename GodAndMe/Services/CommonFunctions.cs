@@ -14,7 +14,7 @@ namespace GodAndMe
 #if DEBUG
 #if __ANDROID__
         public const bool SCREENSHOT = true;
-#elif __IOS__
+#elif __iOS__
         public const bool SCREENSHOT = false;
 #endif
 #else

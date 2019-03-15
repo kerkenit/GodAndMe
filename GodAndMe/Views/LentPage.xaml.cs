@@ -15,7 +15,17 @@ namespace GodAndMe.Views
         public LentPage()
         {
             InitializeComponent();
-
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                var toolbarItem = new ToolbarItem();
+                toolbarItem.Icon = "hamburger.png";
+                toolbarItem.Priority = -1;
+                toolbarItem.Clicked += (object sender, EventArgs e) =>
+                {
+                    ((MasterDetailPage)App.Current.MainPage).IsPresented = true;
+                };
+                ToolbarItems.Add(toolbarItem);
+            }
             BindingContext = viewModel = new LentViewModel();
         }
 

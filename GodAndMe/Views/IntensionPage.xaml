@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:GodAndMe"
              xmlns:resX="clr-namespace:GodAndMe.Resx"
              x:Class="GodAndMe.Views.IntentionPage" 
-             Title="{Binding Title}" 
+             Title="{resX:TranslateExtension Intentions}"
              x:Name="BrowseIntentionsPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:TranslateExtension Add}" Clicked="AddItem_Clicked">

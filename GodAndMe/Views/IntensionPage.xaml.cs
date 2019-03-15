@@ -15,6 +15,17 @@ namespace GodAndMe.Views
         public IntentionPage()
         {
             InitializeComponent();
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                var toolbarItem = new ToolbarItem();
+                toolbarItem.Icon = "hamburger.png";
+                toolbarItem.Priority = -1;
+                toolbarItem.Clicked += (object sender, EventArgs e) =>
+                {
+                    ((MasterDetailPage)App.Current.MainPage).IsPresented = true;
+                };
+                ToolbarItems.Add(toolbarItem);
+            }
 
             BindingContext = viewModel = new IntentionViewModel();
             if (viewModel != null && viewModel.Items != null && viewModel.Items.Count == 0 && viewModel.LoadIntentionsCommand != null)

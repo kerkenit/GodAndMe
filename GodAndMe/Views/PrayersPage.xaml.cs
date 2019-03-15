@@ -8,11 +8,11 @@ using Xamarin.Forms.Xaml;
 namespace GodAndMe.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DiaryPage : ContentPage
+    public partial class PrayersPage : ContentPage
     {
-        DiaryViewModel viewModel;
+        PrayersViewModel viewModel;
 
-        public DiaryPage()
+        public PrayersPage()
         {
             InitializeComponent();
             if (Device.RuntimePlatform == Device.iOS)
@@ -26,16 +26,16 @@ namespace GodAndMe.Views
                 };
                 ToolbarItems.Add(toolbarItem);
             }
-            BindingContext = viewModel = new DiaryViewModel();
+            BindingContext = viewModel = new PrayersViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Diary;
+            var item = args.SelectedItem as Prayers;
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new DiaryDetailPage(new DiaryDetailViewModel(item)));
+            await Navigation.PushAsync(new PrayersDetailPage(new PrayersDetailViewModel(item)));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
@@ -43,7 +43,7 @@ namespace GodAndMe.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DiaryPageNew(CommonFunctions.i18n("NewIntention")));
+            await Navigation.PushAsync(new PrayersPageNew(CommonFunctions.i18n("NewIntention")));
         }
 
         public void OnDelete(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace GodAndMe.Views
             //viewModel.IsBusy = true;
 
             var mi = ((MenuItem)sender);
-            var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString()) as Diary;
+            var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString()) as Prayers;
             MessagingCenter.Send(this, "DeleteItem", item);
             viewModel.Items.Remove(item);
 

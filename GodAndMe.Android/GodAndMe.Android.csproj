@@ -158,6 +158,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\tab_intention.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\tab_lent.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\trash.png" />
+    <AndroidResource Include="Resources\drawable\hamburger.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />

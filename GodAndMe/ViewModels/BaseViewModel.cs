@@ -10,9 +10,11 @@ namespace GodAndMe.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Diary> DiaryDataStore => DependencyService.Get<IDataStore<Diary>>() ?? new DiaryDataStore();
         public IDataStore<Intention> IntentionDataStore => DependencyService.Get<IDataStore<Intention>>() ?? new IntentionsDataStore();
         public IDataStore<Lent> LentDataStore => DependencyService.Get<IDataStore<Lent>>() ?? new LentDataStore();
+        public IDataStore<Diary> DiaryDataStore => DependencyService.Get<IDataStore<Diary>>() ?? new DiaryDataStore();
+        public IDataStore<Sins> SinsDataStore => DependencyService.Get<IDataStore<Sins>>() ?? new SinsDataStore();
+        public IDataStore<Prayers> PrayersDataStore => DependencyService.Get<IDataStore<Prayers>>() ?? new PrayersDataStore();
 
         bool isBusy = false;
         public bool IsBusy

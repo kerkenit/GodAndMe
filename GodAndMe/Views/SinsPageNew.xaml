@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:i18n="clr-namespace:GodAndMe"
+             xmlns:local="clr-namespace:GodAndMe"
+             xmlns:resX="clr-namespace:GodAndMe.Resx"
+             Title="{resX:TranslateExtension Sin}"
+             x:Class="GodAndMe.Views.SinsPageNew">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{resX:TranslateExtension Cancel}" Clicked="Cancel_Clicked" IsDestructive="true" Priority="-1" />
+        <ToolbarItem Text="{resX:TranslateExtension Save}" Clicked="Save_Clicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="UWP" Value="save.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" />
+             <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1">
+                <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0,0,0,15" VerticalOptions="Start" />
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

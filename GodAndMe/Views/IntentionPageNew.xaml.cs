@@ -5,6 +5,7 @@ using GodAndMe.Services;
 using GodAndMe.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Linq;
 namespace GodAndMe.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -46,7 +47,26 @@ namespace GodAndMe.Views
                     if (ddlPerson.ItemsSource == null || ddlPerson.ItemsSource.Count == 0)
                     {
                         List<string> persons = await DependencyService.Get<IAddressBookInformation>().GetContacts();
+
+                        IEnumerable<Intention> existingItems = await viewModel.IntentionDataStore.GetItemsAsync(true);
+
+                        var existingPersons =
+    from intension in existingItems
+    group intension by intension.Person into Intensions
+    select new
+    {
+        Name = Intensions.Key,
+        Count = Intensions.Count(),
+    };
                         persons.Insert(0, "- " + CommonFunctions.i18n("ChooseOther") + " -");
+
+
+                        foreach (var person in existingPersons.OrderBy((arg) => arg.Count))
+                        {
+                            persons.Remove(person.Name);
+                            persons.Insert(0, person.Name);
+                        }
+
                         ddlPerson.ItemsSource = persons;
                         if (!string.IsNullOrWhiteSpace(tbPerson.Text))
                         {

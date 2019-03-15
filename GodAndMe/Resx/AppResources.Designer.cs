@@ -268,5 +268,65 @@ namespace GodAndMe.Resx {
                 return ResourceManager.GetString("SavedXThisYear", resourceCulture);
             }
         }
+        
+        internal static string Sins {
+            get {
+                return ResourceManager.GetString("Sins", resourceCulture);
+            }
+        }
+        
+        internal static string Sin {
+            get {
+                return ResourceManager.GetString("Sin", resourceCulture);
+            }
+        }
+        
+        internal static string Prayer {
+            get {
+                return ResourceManager.GetString("Prayer", resourceCulture);
+            }
+        }
+        
+        internal static string Prayers {
+            get {
+                return ResourceManager.GetString("Prayers", resourceCulture);
+            }
+        }
+        
+        internal static string MyIntentions {
+            get {
+                return ResourceManager.GetString("MyIntentions", resourceCulture);
+            }
+        }
+        
+        internal static string MyPeriodOfLent {
+            get {
+                return ResourceManager.GetString("MyPeriodOfLent", resourceCulture);
+            }
+        }
+        
+        internal static string MyReligiousDiary {
+            get {
+                return ResourceManager.GetString("MyReligiousDiary", resourceCulture);
+            }
+        }
+        
+        internal static string MySins {
+            get {
+                return ResourceManager.GetString("MySins", resourceCulture);
+            }
+        }
+        
+        internal static string MyPrayers {
+            get {
+                return ResourceManager.GetString("MyPrayers", resourceCulture);
+            }
+        }
+        
+        internal static string Menu {
+            get {
+                return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
     }
 }

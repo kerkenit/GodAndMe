@@ -186,6 +186,15 @@
         <BundleResource Include="Resources\tab_lent%403x.png" />
         <BundleResource Include="Resources\tab_lent%402x.png" />
         <BundleResource Include="Resources\tab_lent.png" />
+        <BundleResource Include="Resources\hamburger.png" />
+        <BundleResource Include="Resources\hamburger%402x.png" />
+        <BundleResource Include="Resources\hamburger%403x.png" />
+        <BundleResource Include="Resources\tab_prayers%403x.png" />
+        <BundleResource Include="Resources\tab_prayers%402x.png" />
+        <BundleResource Include="Resources\tab_prayers.png" />
+        <BundleResource Include="Resources\tab_sins%403x.png" />
+        <BundleResource Include="Resources\tab_sins%402x.png" />
+        <BundleResource Include="Resources\tab_sins.png" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="System" />

@@ -123,4 +123,34 @@
     <data name="SavedXThisYear" xml:space="preserve">
     <value>Saved {0:C} this year</value>
   </data>
+    <data name="Sins" xml:space="preserve">
+    <value>Sins</value>
+  </data>
+    <data name="Sin" xml:space="preserve">
+    <value>Sin</value>
+  </data>
+    <data name="Prayer" xml:space="preserve">
+    <value>Prayer</value>
+  </data>
+    <data name="Prayers" xml:space="preserve">
+    <value>Prayers</value>
+  </data>
+    <data name="MyIntentions" xml:space="preserve">
+    <value>My intentions</value>
+  </data>
+    <data name="MyPeriodOfLent" xml:space="preserve">
+    <value>My period of Lent</value>
+  </data>
+    <data name="MyReligiousDiary" xml:space="preserve">
+    <value>My religious diary</value>
+  </data>
+    <data name="MySins" xml:space="preserve">
+    <value>My sins</value>
+  </data>
+    <data name="MyPrayers" xml:space="preserve">
+    <value>My prayers</value>
+  </data>
+    <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
 </root>

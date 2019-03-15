@@ -5,7 +5,7 @@
              xmlns:i18n="clr-namespace:GodAndMe"
              xmlns:local="clr-namespace:GodAndMe"
              xmlns:resX="clr-namespace:GodAndMe.Resx"
-             Title="{Binding Title}" x:Name="BrowseDiaryPage">
+             Title="{resX:TranslateExtension Diary}" x:Name="BrowseDiaryPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:Translate Add}" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
