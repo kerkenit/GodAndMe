@@ -5,6 +5,7 @@
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_intention.png" />
+                    <On Platform="Android" Value="tab_intention.png" />
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
@@ -15,6 +16,7 @@
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_lent.png" />
+                    <On Platform="Android" Value="tab_lent.png" />
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
@@ -25,16 +27,18 @@
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_diary.png" />
+                    <On Platform="Android" Value="tab_diary.png" />
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:DiaryPage />
+                <views:DiaryPage Title="{resX:TranslateExtension Diary}" />
             </x:Arguments>
         </NavigationPage>
         <NavigationPage Title="{resX:TranslateExtension About}">
             <NavigationPage.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="iOS" Value="tab_about.png" />
+                    <On Platform="Android" Value="tab_about.png" />
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>

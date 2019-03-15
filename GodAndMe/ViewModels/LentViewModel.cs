@@ -17,7 +17,7 @@ namespace GodAndMe.ViewModels
         public LentViewModel()
         {
             Lent = new ObservableCollection<Lent>();
-            LoadLentCommand = new Command(async () => await ExecuteLoadLentCommand());
+            LoadLentCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<LentPageNew, Lent>(this, "AddItem", async (obj, item) =>
             {
@@ -38,12 +38,14 @@ namespace GodAndMe.ViewModels
                     await LentDataStore.AddItemAsync(newLent);
                 }
                 Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+                await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<LentPage, Lent>(this, "UpdateItem", async (obj, item) =>
             {
                 await LentDataStore.UpdateItemAsync(item);
                 Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+                await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<LentPage, Lent>(this, "DeleteItem", async (obj, item) =>
@@ -52,7 +54,7 @@ namespace GodAndMe.ViewModels
                 Lent.Remove(oldLent);
                 await LentDataStore.DeleteItemAsync(oldLent.Id);
                 Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
-
+                await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<LentPageNew, Lent>(this, "GetItem", async (obj, item) =>
@@ -67,7 +69,7 @@ namespace GodAndMe.ViewModels
             });
         }
 
-        async Task ExecuteLoadLentCommand()
+        async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
                 return;

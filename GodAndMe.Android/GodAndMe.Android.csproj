@@ -61,6 +61,12 @@
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Plugin.CurrentActivity">
+      <Version>2.1.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.Svg">
+      <Version>1.0.0.27</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -71,6 +77,10 @@
     <Compile Include="Interface\Share_Android.cs" />
     <Compile Include="Interface\FileStore_Android.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Interface\Localize_Andoid.cs" />
+    <Compile Include="Interface\TouchID_Android.cs" />
+    <Compile Include="Interface\AddressBookInformation_Android.cs" />
+    <Compile Include="Helpers\PermissionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -94,7 +104,60 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
+    <AndroidResource Include="Resources\drawable\GodAndMe_logo.png" />
+    <AndroidResource Include="Resources\drawable-es\GodAndMe_logo.png" />
+    <AndroidResource Include="Resources\drawable-nl\GodAndMe_logo.png" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\values-es\Strings.xml" />
+    <AndroidResource Include="Resources\values-nl\Strings.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_lent.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_diary.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\trash.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_intention.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_about.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\locked.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\delete.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\delete.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\locked.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_about.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_diary.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_intention.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_lent.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\trash.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\delete.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\locked.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\tab_about.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\tab_diary.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\tab_intention.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\tab_lent.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\trash.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\delete.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\locked.gif" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_about.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_diary.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_intention.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_lent.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\trash.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\delete.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\locked.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_about.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_diary.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_intention.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_lent.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\trash.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\delete.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\locked.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\tab_about.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\tab_diary.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\tab_intention.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\tab_lent.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\trash.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />
@@ -104,6 +167,8 @@
     <Folder Include="Interface\" />
     <Folder Include="Renderers\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Resources\drawable-es\" />
+    <Folder Include="Resources\drawable-nl\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GodAndMe\GodAndMe.csproj">

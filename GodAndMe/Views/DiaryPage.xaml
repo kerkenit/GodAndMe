@@ -2,9 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="GodAndMe.Views.DiaryPage" 
-             Title="{Binding Title}" x:Name="BrowseItemsPage">
+             xmlns:i18n="clr-namespace:GodAndMe"
+             xmlns:local="clr-namespace:GodAndMe"
+             xmlns:resX="clr-namespace:GodAndMe.Resx"
+             Title="{Binding Title}" x:Name="BrowseDiaryPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
+        <ToolbarItem Text="{resX:Translate Add}" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="add.png" />
@@ -15,12 +18,22 @@
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
-                <ListView.ItemTemplate>
+                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem x:Name="Delete" Clicked="OnDelete" CommandParameter="{Binding Id}" Icon="trash.png" Text="{resX:TranslateExtension Delete}" IsDestructive="True">
+                                    <MenuItem.Icon>
+                                        <OnPlatform x:TypeArguments="FileImageSource">
+                                            <On Platform="iOS" Value="trash.png" />
+                                            <On Platform="Android" Value="trash.png" />
+                                        </OnPlatform>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ViewCell.ContextActions>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Text}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />
-                                <Label Text="{Binding Description}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                <Label Text="{Binding Start, StringFormat='{0:D}'}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="20" FontAttributes="Bold" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Description}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="16" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

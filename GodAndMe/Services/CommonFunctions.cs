@@ -11,6 +11,15 @@ namespace GodAndMe
         static CultureInfo ci = null;
         static Lazy<ResourceManager> ResMgr = new Lazy<ResourceManager>(() => new ResourceManager("GodAndMe.Resx.AppResources", typeof(GodAndMe.Resx.AppResources).GetTypeInfo().Assembly));
         const string ResourceId = "GodAndMe.Resx.AppResources";
+#if DEBUG
+#if __ANDROID__
+        public const bool SCREENSHOT = true;
+#elif __IOS__
+        public const bool SCREENSHOT = false;
+#endif
+#else
+        public const bool SCREENSHOT = false;
+#endif
 
         public static string i18n(string Text)
         {

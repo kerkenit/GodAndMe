@@ -61,7 +61,7 @@ namespace GodAndMe.Views
                 double SavedMoney = viewModel.Lent.Where((arg) => arg.Start.Year == DateTime.Today.Year).Sum((arg) => arg.SavedMoney);
                 if (SavedMoney > 0)
                 {
-                    Title = string.Format(CommonFunctions.i18n("ISavedXThisYear"), SavedMoney);
+                    Title = string.Format(CommonFunctions.i18n("SavedXThisYear"), SavedMoney);
                 }
             }
         }

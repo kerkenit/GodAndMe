@@ -26,5 +26,15 @@ namespace GodAndMe.Models
                 return Completed ? "Gray" : "Black";
             }
         }
+
+        public bool EmptyDate
+        {
+            get
+            {
+                return Start != null;
+            }
+        }
+
+
     }
 }

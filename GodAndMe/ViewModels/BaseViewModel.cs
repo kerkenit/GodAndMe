@@ -10,7 +10,7 @@ namespace GodAndMe.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public IDataStore<Diary> DiaryDataStore => DependencyService.Get<IDataStore<Diary>>() ?? new DiaryDataStore();
         public IDataStore<Intention> IntentionDataStore => DependencyService.Get<IDataStore<Intention>>() ?? new IntentionsDataStore();
         public IDataStore<Lent> LentDataStore => DependencyService.Get<IDataStore<Lent>>() ?? new LentDataStore();
 

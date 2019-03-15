@@ -1,4 +1,5 @@
-﻿using GodAndMe.Models;
+﻿using System;
+using GodAndMe.Models;
 using GodAndMe.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -8,12 +9,13 @@ namespace GodAndMe.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DiaryDetailPage : ContentPage
     {
-        ItemDetailViewModel viewModel;
+        DiaryDetailViewModel viewModel;
+        public Diary Item { get; set; }
 
-        public DiaryDetailPage(ItemDetailViewModel viewModel)
+        public DiaryDetailPage(DiaryDetailViewModel viewModel)
         {
             InitializeComponent();
-
+            Title = string.Format("{0:D}", viewModel.Item.Start);
             BindingContext = this.viewModel = viewModel;
         }
 
@@ -21,14 +23,24 @@ namespace GodAndMe.Views
         {
             InitializeComponent();
 
-            var item = new Item
+            Item = new Diary
             {
-                Text = "Item 1",
-                Description = "This is an item description."
+                Id = Guid.NewGuid().ToString(),
+                Start = DateTime.Now
             };
 
-            viewModel = new ItemDetailViewModel(item);
+            viewModel = new DiaryDetailViewModel(Item);
             BindingContext = viewModel;
+        }
+
+        async void EditItem_Clicked(object sender, EventArgs e)
+        {
+            if ((viewModel != null) && (viewModel.Item != null) && (viewModel.DiaryDataStore != null))
+            {
+                Item = await viewModel.DiaryDataStore.GetItemAsync(viewModel.Item.Id);
+            }
+
+            await Navigation.PushAsync(new DiaryPageNew(Title, Item));
         }
     }
 }

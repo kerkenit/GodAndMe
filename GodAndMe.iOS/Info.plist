@@ -46,5 +46,17 @@
 	<string>en</string>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
+	<key>NSUbiquitousContainerIsDocumentScopePublic</key>
+	<dict>
+		<key>iCloud.nl.kerkenit.God-and-me</key>
+		<dict>
+			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
+			<true/>
+			<key>NSUbiquitousContainerSupportedFolderLevels</key>
+			<string>Any</string>
+			<key>NSUbiquitousContainerName</key>
+			<string>God &amp; Me</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

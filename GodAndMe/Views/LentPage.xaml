@@ -27,6 +27,7 @@
                                     <MenuItem.Icon>
                                         <OnPlatform x:TypeArguments="FileImageSource">
                                             <On Platform="iOS" Value="trash.png" />
+                                            <On Platform="Android" Value="trash.png" />
                                         </OnPlatform>
                                     </MenuItem.Icon>
                                 </MenuItem>

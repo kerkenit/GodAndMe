@@ -4,7 +4,9 @@ using System.Reflection;
 using System.Threading.Tasks;
 using GodAndMe.DependencyServices;
 using GodAndMe.Views;
+#if __IOS__
 using UIKit;
+#endif
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,7 +16,9 @@ namespace GodAndMe
     public partial class App : Application
     {
         static ITouchID touchId = DependencyService.Get<ITouchID>();
+#if __IOS__
         static UIView unlockView;
+#endif
         bool appLocked = false;
         public static bool justShowedUnlockView = false;
         public static bool justUnlocked = false;
@@ -49,9 +53,12 @@ namespace GodAndMe
             MainPage = new MainPage();
         }
 
+
+
         protected override void OnStart()
         {
             justUnlocked = true;
+
             Device.BeginInvokeOnMainThread(async () =>
             {
                 appLocked = await AuthenticatedWithTouchID();
@@ -94,6 +101,7 @@ namespace GodAndMe
                 // Handle when your app starts
                 Device.BeginInvokeOnMainThread(async () =>
                 {
+#if __IOS__
                     UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
                     if (unlockView != null)
@@ -108,7 +116,7 @@ namespace GodAndMe
                         unlockView.RemoveFromSuperview();
                         Blur();
                     }
-
+#endif
 
                     bool _authenticatedWithTouchID = await touchId.AuthenticateUserIDWithTouchID();
                     if (_authenticatedWithTouchID)
@@ -134,6 +142,7 @@ namespace GodAndMe
         {
             if (!justShowedUnlockView)
             {
+#if __IOS__
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
@@ -147,12 +156,14 @@ namespace GodAndMe
                     yourController.View.AddSubview(visualEffectView);
                     UIApplication.SharedApplication.KeyWindow.BringSubviewToFront(visualEffectView);
                 });
+#endif
             }
         }
 
         public static void Sharpen()
         {
             justShowedUnlockView = true;
+#if __IOS__
             Device.BeginInvokeOnMainThread(() =>
             {
                 UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
@@ -165,6 +176,7 @@ namespace GodAndMe
                     }
                 }
             });
+#endif
             Task.Factory.StartNew(() =>
             {
                 Task.Delay(DELAY).Wait();
@@ -176,6 +188,7 @@ namespace GodAndMe
         private static void Unlock()
         {
             justShowedUnlockView = true;
+#if __IOS__
             Device.BeginInvokeOnMainThread(() =>
             {
                 UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
@@ -185,6 +198,7 @@ namespace GodAndMe
                 yourController.View.AddSubview(unlockView);
                 UIApplication.SharedApplication.KeyWindow.BringSubviewToFront(unlockView);
             });
+#endif
             Task.Factory.StartNew(() =>
             {
                 Task.Delay(DELAY).Wait();

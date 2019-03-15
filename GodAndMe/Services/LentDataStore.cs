@@ -19,58 +19,125 @@ namespace GodAndMe.Services
             db = DependencyService.Get<IDatabaseConnection>().DbConnection();
             db.CreateTable<Lent>();
             items = db.Table<Lent>().ToList();
-            items = items.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start)).ToList<Lent>();
+            items = items.OrderBy((arg) => arg.Start).ToList();
 #if DEBUG
-            if (false && items.Count == 0)
+            if (CommonFunctions.SCREENSHOT)
             {
-                List<Lent> LentItems = new List<Lent>
+                db.DeleteAll<Lent>();
+                switch (System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.ToLower())
                 {
-                    //new Lent {
-                    //    Id = Guid.NewGuid().ToString(),
-                    //   Text = "Sexueel misbruik",
-                    //    Description="Om verlichting van de Heilige Geest bij de afgelopen synode",
-                    //    Person="Paus Fransiscus",
-                    //    Completed=true,
-                    //    Start= new DateTime(2019,2,25)
-                    //},
-                    //new Lent {
-                    //    Id = Guid.NewGuid().ToString(),
-                    //    //Text = "Vriendin",
-                    //    Description="Dat zij Uw wil mogen doen",
-                    //    Person="Tom",
-                    //    Completed=false,
-                    //    Start= new DateTime(2019,2,17)
-                    //},
-                    // new Lent {
-                    //    Id = Guid.NewGuid().ToString(),
-                    //    //Text = "ID kaart",
-                    //    Description="Dat het goed mag gaan met het aanvragen van de ID kaart",
-                    //    Person="Mónica Ruiz",
-                    //    Completed=false,
-                    //    Start= new DateTime(2019,3,11)
-                    //},
-                    //new Lent {
-                    //    Id = Guid.NewGuid().ToString(),
-                    //    //Text = "Retraite",
-                    //    Description="Dat er veel jongeren mogen komen",
-                    //    Person="Mónica Ruiz",
-                    //    Completed=false,
-                    //    Start= new DateTime(2019,3,1)
-                    //},
-                    //new Lent {
-                    //    Id = Guid.NewGuid().ToString(),
-                    //    //Text = "Pijn",
-                    //    Description="Dat ze kracht naar kruis mag krijgen",
-                    //    Person="Mama",
-                    //    Completed=false,
-                    //  Start= null
-                    //},
-                };
-                db.InsertAll(LentItems);
-                foreach (var item in LentItems)
-                {
-                    items.Add(item);
+                    case "nl":
+                        db.InsertAll(new List<Lent> {
+                            new Lent {
+                                Id = Guid.NewGuid().ToString(),
+                                Text = "Boter",
+                                MoneyFrom = 2.23,
+                                MoneyTo = 2.03,
+                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(1)
+                            },
+                            new Lent {
+                                Id = Guid.NewGuid().ToString(),
+                                Text = "Kaas",
+                                MoneyFrom = 1.03,
+                                MoneyTo = 0.00,
+                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(2)
+                            },
+                                new Lent {
+                                Id = Guid.NewGuid().ToString(),
+                                Text = "Eieren",
+                                MoneyFrom = 1.03,
+                                MoneyTo = 0.00,
+                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(3)
+                            },
+                        });
+                        break;
+                    case "en":
+                        db.InsertAll(new List<Lent> {
+                            new Lent {
+                                Id = Guid.NewGuid().ToString(),
+                                Text = "Butter",
+                                MoneyFrom = 2.23,
+                                MoneyTo = 2.03,
+                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(1)
+                            },
+                            new Lent {
+                                Id = Guid.NewGuid().ToString(),
+                                Text = "Cheese",
+                                MoneyFrom = 1.03,
+                                MoneyTo = 0.00,
+                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(2)
+                            },
+                            new Lent {
+                                Id = Guid.NewGuid().ToString(),
+                                Text = "Eggs",
+                                MoneyFrom = 1.03,
+                                MoneyTo = 0.00,
+                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(3)
+                            },
+                        });
+                        break;
+                    case "es":
+                        db.InsertAll(new List<Lent> {
+                            new Lent {
+                                Id = Guid.NewGuid().ToString(),
+                                Text = "Mantequilla",
+                                MoneyFrom = 2.23,
+                                MoneyTo = 2.03,
+                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(1)
+                            },
+                            new Lent {
+                                Id = Guid.NewGuid().ToString(),
+                                Text = "Queso",
+                                MoneyFrom = 1.03,
+                                MoneyTo = 0.00,
+                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(2)
+                            },
+                            new Lent {
+                                Id = Guid.NewGuid().ToString(),
+                                Text = "Huevos",
+                                MoneyFrom = 1.03,
+                                MoneyTo = 0.00,
+                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(3)
+                            },
+                        });
+                        break;
                 }
+
+            }
+
+            else if (true && items.Count == 0)
+            {
+                db.InsertAll(new List<Lent>
+                {
+                    new Lent {
+                        Id = Guid.NewGuid().ToString(),
+                        Text = "Jus de orange i.p.v. bananen sap",
+                        MoneyFrom = 2.23,
+                        MoneyTo = 2.03,
+                        Start = new DateTime(2019,3,9,15,0,1)
+                    },
+                    new Lent {
+                        Id = Guid.NewGuid().ToString(),
+                        Text = "Spa fruit",
+                        MoneyFrom = 1.03,
+                        MoneyTo = 0.00,
+                        Start = new DateTime(2019,3,9,15,0,2)
+                    },
+                    new Lent {
+                        Id = Guid.NewGuid().ToString(),
+                        Text = "Eieren",
+                        MoneyFrom = 1.89,
+                        MoneyTo = 0.00,
+                        Start = new DateTime(2019,3,9,15,0,3)
+                    },
+                    new Lent {
+                        Id = Guid.NewGuid().ToString(),
+                        Text = "Kaas van de Jumbo i.p.v. de markt",
+                        MoneyFrom = 9.00,
+                        MoneyTo = 5.43,
+                        Start = new DateTime(2019,3,9,15,0,4)
+                    },
+                });
             }
 #endif
         }

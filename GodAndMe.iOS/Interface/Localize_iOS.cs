@@ -13,7 +13,7 @@ namespace GodAndMe.iOS
             Thread.CurrentThread.CurrentCulture = ci;
             Thread.CurrentThread.CurrentUICulture = ci;
 
-            Console.WriteLine("CurrentCulture set: " + ci.Name);
+            //Console.WriteLine("CurrentCulture set: " + ci.Name);
         }
 
         public CultureInfo GetCurrentCultureInfo()
@@ -66,7 +66,7 @@ namespace GodAndMe.iOS
 
         string iOSToDotnetLanguage(string iOSLanguage)
         {
-            Console.WriteLine("iOS Language:" + iOSLanguage);
+            //Console.WriteLine("iOS Language:" + iOSLanguage);
             // .NET cultures don't support underscores
             string netLanguage = iOSLanguage.Replace("_", "-");
 
@@ -80,7 +80,7 @@ namespace GodAndMe.iOS
                     // ONLY use cultures that have been tested and known to work
             }
 
-            Console.WriteLine(".NET Language/Locale:" + netLanguage);
+            //Console.WriteLine(".NET Language/Locale:" + netLanguage);
             return netLanguage;
         }
         string ToDotnetFallbackLanguage(PlatformCulture platCulture)

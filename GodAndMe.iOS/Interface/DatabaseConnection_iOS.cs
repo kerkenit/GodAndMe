@@ -13,25 +13,25 @@ namespace LocalDataAccess.iOS
         public SQLiteConnection DbConnection()
         {
             string dbName = "GodAndMe.db3", path = null, libraryFolder = null;
-
             try
             {
-                libraryFolder = NSFileManager.DefaultManager.GetUrlForUbiquityContainer(null).AbsoluteString;
+                string docsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                libraryFolder = Path.Combine(docsPath, "..", "Library");
                 path = Path.Combine(libraryFolder, dbName);
             }
             catch (NullReferenceException)
             {
                 try
                 {
-                    libraryFolder = NSFileManager.DefaultManager.GetUrls(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomain.User)[0].AbsoluteString;
+                    libraryFolder = NSFileManager.DefaultManager.GetUrlForUbiquityContainer(null).AbsoluteString;
                     path = Path.Combine(libraryFolder, dbName);
+
                 }
                 catch (NullReferenceException)
                 {
                     try
                     {
-                        string docsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                        libraryFolder = Path.Combine(docsPath, "..", "Library");
+                        libraryFolder = NSFileManager.DefaultManager.GetUrls(NSSearchPathDirectory.LibraryDirectory, NSSearchPathDomain.User)[0].AbsoluteString;
                         path = Path.Combine(libraryFolder, dbName);
                     }
                     catch (NullReferenceException)

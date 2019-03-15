@@ -10,25 +10,53 @@ namespace GodAndMe.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class IntentionPage : ContentPage
     {
-        IntentionViewModel viewModel;
+        public IntentionViewModel viewModel;
 
         public IntentionPage()
         {
             InitializeComponent();
 
             BindingContext = viewModel = new IntentionViewModel();
+            if (viewModel != null && viewModel.Items != null && viewModel.Items.Count == 0 && viewModel.LoadIntentionsCommand != null)
+            {
+                viewModel.LoadIntentionsCommand.Execute(null);
+                if (IntentionsListView != null && IntentionsListView.ItemsSource != null && viewModel != null && viewModel.Items != null && viewModel.Items.Any((arg) => !arg.Completed))
+                {
+                    Intention firstIntension = IntentionsListView.ItemsSource.Cast<Intention>().OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start).FirstOrDefault((arg) => !arg.Completed);
+                    if (firstIntension != null)
+                    {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            if (IntentionsListView != null)
+                            {
+                                IntentionsListView.ScrollTo(firstIntension, ScrollToPosition.Start, false);
+                            }
+                        });
+                    }
+                }
+            }
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Intention;
+            Intention item = args.SelectedItem as Intention;
             if (item == null)
                 return;
 
             await Navigation.PushAsync(new IntentionDetailPage(new IntentionDetailViewModel(item)));
 
             // Manually deselect item.
-            IntentionsListView.SelectedItem = null;
+            if (IntentionsListView != null)
+            {
+                try
+                {
+                    IntentionsListView.SelectedItem = null;
+                }
+                finally
+                {
+
+                }
+            }
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
@@ -39,20 +67,24 @@ namespace GodAndMe.Views
         public void OnArchive(object sender, EventArgs e)
         {
             //viewModel.IsBusy = true;
-
             var mi = ((MenuItem)sender);
-            var item = viewModel.Intentions.First(x => x.Id == mi.CommandParameter.ToString()) as Intention;
-            item.Completed = true;
+            var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString()) as Intention;
+            item.Completed = !item.Completed;
             MessagingCenter.Send(this, "UpdateItem", item);
+            viewModel.LoadIntentionsCommand.Execute(null);
+            //Device.BeginInvokeOnMainThread(() =>
+            //{
+            //    IntentionsListView.Unfocus();
+            //});
             //viewModel.Intentions.Remove(item);
-
+            //viewModel.LoadIntentionsCommand.Execute(null);
             //viewModel.IsBusy = false;
         }
 
         public void OnShare(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
-            var item = viewModel.Intentions.Select(x => x.Id == mi.CommandParameter.ToString()) as Intention;
+            var item = viewModel.Items.Select(x => x.Id == mi.CommandParameter.ToString()) as Intention;
         }
 
         public void OnDelete(object sender, EventArgs e)
@@ -60,9 +92,9 @@ namespace GodAndMe.Views
             //viewModel.IsBusy = true;
 
             var mi = ((MenuItem)sender);
-            var item = viewModel.Intentions.First(x => x.Id == mi.CommandParameter.ToString()) as Intention;
+            var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString()) as Intention;
             MessagingCenter.Send(this, "DeleteItem", item);
-            viewModel.Intentions.Remove(item);
+            viewModel.Items.Remove(item);
 
             //viewModel.IsBusy = false;
         }
@@ -71,8 +103,10 @@ namespace GodAndMe.Views
         {
             base.OnAppearing();
 
-            if (viewModel.Intentions.Count == 0)
+            if (viewModel != null && viewModel.Items != null && viewModel.Items.Count == 0 && viewModel.LoadIntentionsCommand != null)
+            {
                 viewModel.LoadIntentionsCommand.Execute(null);
+            }
         }
     }
 }

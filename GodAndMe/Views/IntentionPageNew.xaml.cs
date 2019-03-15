@@ -10,8 +10,8 @@ namespace GodAndMe.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class IntentionPageNew : ContentPage
     {
-        IntentionDetailViewModel viewModel;
-        public Intention Intention { get; set; }
+        public IntentionDetailViewModel viewModel;
+        public Intention Item { get; set; }
 
         //public IntentionPageNew(IntentionDetailViewModel viewModel, string title)
         //{
@@ -20,17 +20,17 @@ namespace GodAndMe.Views
         //    BindingContext = this.viewModel = viewModel;
         //}
 
-        public IntentionPageNew(string title, Intention intention = null)
+        public IntentionPageNew(string title, Intention item = null)
         {
             InitializeComponent();
 
-            if (intention != null)
+            if (item != null)
             {
-                Intention = intention;
+                Item = item;
             }
             else
             {
-                Intention = new Intention
+                Item = new Intention
                 {
                     //Text = "",
                     Description = "",
@@ -48,6 +48,10 @@ namespace GodAndMe.Views
                         List<string> persons = await DependencyService.Get<IAddressBookInformation>().GetContacts();
                         persons.Insert(0, "- " + CommonFunctions.i18n("ChooseOther") + " -");
                         ddlPerson.ItemsSource = persons;
+                        if (!string.IsNullOrWhiteSpace(tbPerson.Text))
+                        {
+                            ddlPerson.SelectedItem = tbPerson.Text;
+                        }
                     }
                     if (ddlPerson.ItemsSource != null && ddlPerson.ItemsSource.Count > 0)
                     {
@@ -71,10 +75,14 @@ namespace GodAndMe.Views
                 }
             };
 
-            //ddlStart.Unfocused += (object sender, FocusEventArgs e) =>
-            //{
-            //    tbStart.Text = string.Empty;
-            //};
+            ddlStart.Unfocused += (object sender, FocusEventArgs e) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    tbStart.Text = string.Format("{0:D}", ddlStart.Date);
+                    btStart.IsEnabled = true;
+                });
+            };
 
             ddlStart.DateSelected += (object sender, DateChangedEventArgs e) =>
             {
@@ -86,9 +94,12 @@ namespace GodAndMe.Views
             };
             btStart.Clicked += (object sender, EventArgs e) =>
             {
-                btStart.IsEnabled = false;
-                Intention.Start = null;
-                tbStart.Text = string.Empty;
+                Item.Start = null;
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    btStart.IsEnabled = false;
+                    tbStart.Text = string.Empty;
+                });
             };
             tbStart.Focused += (object sender, FocusEventArgs e) =>
             {
@@ -97,29 +108,22 @@ namespace GodAndMe.Views
                     ddlStart.Focus();
                 });
             };
-            btStart.IsEnabled = Intention.Start != null;
-            viewModel = new IntentionDetailViewModel(Intention);
+            btStart.IsEnabled = Item.Start != null;
+            viewModel = new IntentionDetailViewModel(Item);
             viewModel.Title = title;
             BindingContext = viewModel;
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)
         {
-            //if ((viewModel != null) && (viewModel.Item != null))
-            //{
-            //    Intention = await viewModel.IntentionDataStore.GetItemAsync(Intention.Id);
-            //    viewModel.Item = Intention;
-            //    BindingContext = viewModel.Item;
-            //}
-            //MessagingCenter.Send(this, "GetItem", Intention);
-            await Navigation.PopAsync();
+            await Navigation.PopToRootAsync();
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            Intention = viewModel.Item;
-            MessagingCenter.Send(this, "AddItem", Intention);
-            await Navigation.PopAsync();
+            Item = viewModel.Item;
+            MessagingCenter.Send(this, "AddItem", Item);
+            await Navigation.PopToRootAsync();
         }
     }
 }

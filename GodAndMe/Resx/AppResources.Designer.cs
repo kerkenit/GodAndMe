@@ -263,9 +263,9 @@ namespace GodAndMe.Resx {
             }
         }
         
-        internal static string ISavedXThisYear {
+        internal static string SavedXThisYear {
             get {
-                return ResourceManager.GetString("ISavedXThisYear", resourceCulture);
+                return ResourceManager.GetString("SavedXThisYear", resourceCulture);
             }
         }
     }

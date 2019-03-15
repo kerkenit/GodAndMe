@@ -2,12 +2,12 @@
 
 namespace GodAndMe.ViewModels
 {
-    public class ItemDetailViewModel : BaseViewModel
+    public class DiaryDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public Diary Item { get; set; }
+        public DiaryDetailViewModel(Diary item = null)
         {
-            Title = item?.Text;
+            //Title = item?.Text;
             Item = item;
         }
     }

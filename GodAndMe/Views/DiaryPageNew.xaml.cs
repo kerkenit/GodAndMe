@@ -1,5 +1,6 @@
 ﻿using System;
 using GodAndMe.Models;
+using GodAndMe.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,25 +9,41 @@ namespace GodAndMe.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DiaryPageNew : ContentPage
     {
-        public Item Item { get; set; }
+        public DiaryDetailViewModel viewModel;
+        public Diary Item { get; set; }
 
-        public DiaryPageNew()
+        public DiaryPageNew(string title, Diary item = null)
         {
             InitializeComponent();
 
-            Item = new Item
+            Title = title;
+            if (item != null)
             {
-                Text = "Item name",
-                Description = "This is an item description."
-            };
+                Item = item;
+            }
+            else
+            {
+                Item = new Diary
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Start = DateTime.Now
+                };
+            }
 
-            BindingContext = this;
+            viewModel = new DiaryDetailViewModel(Item);
+            BindingContext = viewModel;
+        }
+
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopToRootAsync();
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
+            Item = viewModel.Item;
             MessagingCenter.Send(this, "AddItem", Item);
-            await Navigation.PopModalAsync();
+            await Navigation.PopToRootAsync();
         }
     }
 }

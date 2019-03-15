@@ -10,7 +10,7 @@ namespace GodAndMe.Views
     public partial class IntentionDetailPage : ContentPage
     {
         IntentionDetailViewModel viewModel;
-        public Intention Intention { get; set; }
+        public Intention Item { get; set; }
 
         public IntentionDetailPage(IntentionDetailViewModel viewModel)
         {
@@ -23,7 +23,7 @@ namespace GodAndMe.Views
         {
             InitializeComponent();
 
-            Intention = new Intention
+            Item = new Intention
             {
                 //Text = "",
                 Description = "",
@@ -31,7 +31,7 @@ namespace GodAndMe.Views
                 Start = null
             };
 
-            viewModel = new IntentionDetailViewModel(Intention);
+            viewModel = new IntentionDetailViewModel(Item);
             BindingContext = viewModel;
         }
 
@@ -39,10 +39,10 @@ namespace GodAndMe.Views
         {
             if ((viewModel != null) && (viewModel.Item != null) && (viewModel.IntentionDataStore != null))
             {
-                Intention = await viewModel.IntentionDataStore.GetItemAsync(viewModel.Item.Id);
+                Item = await viewModel.IntentionDataStore.GetItemAsync(viewModel.Item.Id);
             }
 
-            await Navigation.PushAsync(new IntentionPageNew(CommonFunctions.i18n("EditIntention"), Intention));
+            await Navigation.PushAsync(new IntentionPageNew(CommonFunctions.i18n("EditIntention"), Item));
         }
     }
 }

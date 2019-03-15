@@ -120,7 +120,7 @@
     <data name="SavedMoney" xml:space="preserve">
     <value>Saved money</value>
   </data>
-    <data name="ISavedXThisYear" xml:space="preserve">
-    <value>I saved {0:C} this year</value>
+    <data name="SavedXThisYear" xml:space="preserve">
+    <value>Saved {0:C} this year</value>
   </data>
 </root>

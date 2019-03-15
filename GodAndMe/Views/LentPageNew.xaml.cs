@@ -13,7 +13,7 @@ namespace GodAndMe.Views
     public partial class LentPageNew : ContentPage
     {
         LentDetailViewModel viewModel;
-        public Lent Lent { get; set; }
+        public Lent Item { get; set; }
 
         //public LentPageNew(LentDetailViewModel viewModel, string title)
         //{
@@ -29,11 +29,11 @@ namespace GodAndMe.Views
 
             if (lent != null)
             {
-                Lent = lent;
+                Item = lent;
             }
             else
             {
-                Lent = new Lent
+                Item = new Lent
                 {
                     Text = "",
                     MoneyFrom = null,
@@ -102,34 +102,27 @@ namespace GodAndMe.Views
             //    });
             //};
             //btStart.IsEnabled = Lent.Start != null;
-            viewModel = new LentDetailViewModel(Lent);
+            viewModel = new LentDetailViewModel(Item);
             viewModel.Title = title;
             BindingContext = viewModel;
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                tbMoneyFrom.Focus();
-            });
+            Device.BeginInvokeOnMainThread(() =>
+           {
+               tbMoneyFrom.Focus();
+           });
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)
         {
-            //if ((viewModel != null) && (viewModel.Item != null))
-            //{
-            //    Lent = await viewModel.LentDataStore.GetItemAsync(Lent.Id);
-            //    viewModel.Item = Lent;
-            //    BindingContext = viewModel.Item;
-            //}
-            //MessagingCenter.Send(this, "GetItem", Lent);
-            await Navigation.PopAsync();
+            await Navigation.PopToRootAsync();
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
             viewModel.Item.MoneyFrom = double.Parse(tbMoneyFrom.Text, NumberStyles.Currency);
             viewModel.Item.MoneyTo = double.Parse(tbMoneyTo.Text, NumberStyles.Currency);
-            Lent = viewModel.Item;
-            MessagingCenter.Send(this, "AddItem", Lent);
-            await Navigation.PopAsync();
+            Item = viewModel.Item;
+            MessagingCenter.Send(this, "AddItem", Item);
+            await Navigation.PopToRootAsync();
         }
     }
 }
