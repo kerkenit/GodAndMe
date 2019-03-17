@@ -21,7 +21,7 @@
                      HeightRequest="65">
 
           <Label Text="{resX:TranslateExtension ApplicationTitle}"
-                 FontSize="20"
+                 FontSize="Large"
                  Margin="0,20,0,0"
                  VerticalOptions="CenterAndExpand"
                  TextColor="Black"
@@ -50,7 +50,7 @@
                          VerticalOptions="Center" />
 
                   <Label Text="{Binding Title}"
-                         FontSize="Medium"
+                         FontSize="Default"
                          VerticalOptions="Center"
                          TextColor="Black"/>
                 </StackLayout>

@@ -18,12 +18,12 @@
     <ContentPage.Content>
         <StackLayout Spacing="5" Padding="15">
             <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.Text}" LineBreakMode="WordWrap" FontSize="Small" Margin="0,0,0,15" />
+            <Label Text="{Binding Item.Text}" LineBreakMode="WordWrap" FontSize="Default" Margin="0,0,0,15" />
 
             <Label Text="{resX:TranslateExtension SavedMoney}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" FontSize="Small" Margin="0,0,0,15" />
+            <Label Text="{Binding Item.SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" FontSize="Default" Margin="0,0,0,15" />
             <Label Text="{resX:TranslateExtension SavedAt}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.Start, StringFormat='{0:D}'}" FontSize="Small" Margin="0,0,0,15" />
+            <Label Text="{Binding Item.Start, StringFormat='{0:D}'}" FontSize="Default" Margin="0,0,0,15" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using GodAndMe.Extensions;
+using GodAndMe.Models;
+using GodAndMe.Services;
 using GodAndMe.ViewModels;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 
@@ -71,6 +75,41 @@ namespace GodAndMe.Views
             if (Device.RuntimePlatform == Device.UWP)
             {
                 MasterBehavior = MasterBehavior.Popover;
+            }
+        }
+
+        public void OpenBase64(string base64)
+        {
+            object sender = null;
+            try
+            {
+                sender = JsonConvert.DeserializeObject(StringExtensions.Base64Decode(base64), typeof(Intention));
+            }
+            catch (Exception ex)
+            {
+                sender = null;
+            }
+            try
+            {
+                if (sender.GetType() == typeof(Intention))
+                {
+                    Intention intention = sender as Intention;
+                    intention.Completed = false;
+                    IDataStore<Intention> IntentionDataStore = new IntentionsDataStore();
+                    IntentionDataStore.AddItemAsync(intention);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                sender = null;
+            }
+            finally
+            {
+                if (sender == null)
+                {
+
+                }
             }
         }
 

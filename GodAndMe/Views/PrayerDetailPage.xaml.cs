@@ -15,7 +15,7 @@ namespace GodAndMe.Views
         public PrayersDetailPage(PrayersDetailViewModel viewModel)
         {
             InitializeComponent();
-            Title = string.Format("{0:D}", viewModel.Item.Title);
+            Title = viewModel.Item.Title;
             BindingContext = this.viewModel = viewModel;
         }
 

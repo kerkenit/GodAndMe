@@ -89,11 +89,11 @@
           <DependentUpon>UnlockViewController.cs</DependentUpon>
         </Compile>
         <Compile Include="Interface\Share_iOS.cs" />
-        <Compile Include="Interface\FileStore_iOS.cs" />
         <Compile Include="ContactPickerDelegate.cs" />
         <Compile Include="Helpers\Settings.cs" />
         <Compile Include="Settings.cs" />
         <Compile Include="Renderers\CustomViewCellRenderer.cs" />
+        <None Include="Helpers\StringExtensions.cs" />
     </ItemGroup>
     <ItemGroup>
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -195,6 +195,7 @@
         <BundleResource Include="Resources\tab_sins%403x.png" />
         <BundleResource Include="Resources\tab_sins%402x.png" />
         <BundleResource Include="Resources\tab_sins.png" />
+        <BundleResource Include="Resources\Icon58.png" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="System" />

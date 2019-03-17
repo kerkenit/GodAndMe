@@ -25,8 +25,7 @@ namespace GodAndMe.ViewModels
                 if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
                 {
                     Intention oldItem = Items.First(x => x.Id == item.Id);
-                    Items.Remove(oldItem);
-                    Items.Add(newItem);
+                    Items[Items.IndexOf(oldItem)] = newItem;
                     await IntentionDataStore.UpdateItemAsync(newItem);
                 }
                 else
@@ -38,14 +37,20 @@ namespace GodAndMe.ViewModels
                     await IntentionDataStore.AddItemAsync(newItem);
                 }
                 Items.OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start);
-                await ExecuteLoadItemsCommand();
+                //await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<IntentionPage, Intention>(this, "UpdateItem", async (obj, item) =>
             {
+                var newItem = item as Intention;
+                if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
+                {
+                    Intention oldItem = Items.First(x => x.Id == item.Id);
+                    Items[Items.IndexOf(oldItem)] = newItem;
+                }
                 await IntentionDataStore.UpdateItemAsync(item);
                 Items.OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start);
-                await ExecuteLoadItemsCommand();
+                //await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<IntentionPage, Intention>(this, "DeleteItem", async (obj, item) =>
@@ -54,7 +59,7 @@ namespace GodAndMe.ViewModels
                 Items.Remove(oldItem);
                 await IntentionDataStore.DeleteItemAsync(oldItem.Id);
                 Items.OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start);
-                await ExecuteLoadItemsCommand();
+                //await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<IntentionPageNew, Intention>(this, "GetItem", async (obj, item) =>

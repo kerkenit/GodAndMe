@@ -2,6 +2,7 @@
 using System.Threading;
 using Foundation;
 using GodAndMe.iOS.Interface;
+using GodAndMe.Views;
 using UIKit;
 using Xamarin.Forms;
 
@@ -14,7 +15,7 @@ namespace GodAndMe.iOS
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
 
-
+        const string URLSHEME = "GodAndMe://";
         // class-level declarations
         NSObject observer;
 
@@ -34,7 +35,6 @@ namespace GodAndMe.iOS
             observer = NSNotificationCenter.DefaultCenter.AddObserver((NSString)"NSUserDefaultsDidChangeNotification", DefaultsChanged);
             DefaultsChanged(null);
 
-            DependencyService.Register<FileStore>();
             DependencyService.Register<Share>();
 
             LoadApplication(new App());
@@ -42,6 +42,26 @@ namespace GodAndMe.iOS
 
 
             return base.FinishedLaunching(uiApplication, launchOptions);
+        }
+
+        /// <summary>
+        /// Opens the URL.
+        /// </summary>
+        /// <returns><c>true</c>, if URL was opened, <c>false</c> otherwise.</returns>
+        /// <param name="application">Application.</param>
+        /// <param name="url">URL.</param>
+        /// <param name="sourceApplication">Source application.</param>
+        /// <param name="annotation">Annotation.</param>
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            string base64 = url.ToString().Substring(URLSHEME.Length, url.ToString().Length - URLSHEME.Length);
+            if ((Xamarin.Forms.Application.Current != null) && (Xamarin.Forms.Application.Current.MainPage != null))
+            // custom stuff here using different properties of the url passed in
+            {
+                // custom stuff here using different properties of the url passed in
+                ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenBase64(base64);
+            }
+            return true;
         }
 
         /// <summary>

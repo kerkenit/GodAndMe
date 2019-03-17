@@ -13,114 +13,153 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="About" xml:space="preserve">
-    <value>Over</value>
-  </data>
-    <data name="Add" xml:space="preserve">
-    <value>Toevoegen</value>
-  </data>
-    <data name="Archive" xml:space="preserve">
-    <value>Archief</value>
-  </data>
-    <data name="Edit" xml:space="preserve">
-    <value>Wijzig</value>
-  </data>
-    <data name="ApplicationTitle" xml:space="preserve">
-    <value>God &amp; Ik</value>
-  </data>
-    <data name="Cancel" xml:space="preserve">
-    <value>Annuleren</value>
-  </data>
-    <data name="Delete" xml:space="preserve">
-    <value>Verwijderen</value>
-  </data>
-    <data name="Done" xml:space="preserve">
-    <value>Klaar</value>
-  </data>
-    <data name="Intention" xml:space="preserve">
-    <value>Intentie</value>
-  </data>
-    <data name="Intentions" xml:space="preserve">
-    <value>Intenties</value>
-  </data>
-    <data name="NewIntention" xml:space="preserve">
-    <value>Nieuwe intentie</value>
-  </data>
-    <data name="EditIntention" xml:space="preserve">
-    <value>Bewerk intentie</value>
-  </data>
-    <data name="More" xml:space="preserve">
-    <value>Meer</value>
-  </data>
-    <data name="Share" xml:space="preserve">
-    <value>Delen</value>
-  </data>
-    <data name="Name" xml:space="preserve">
-    <value>Naam</value>
-  </data>
-    <data name="Notes" xml:space="preserve">
-    <value>Notitie</value>
-  </data>
-    <data name="Save" xml:space="preserve">
-    <value>Opslaan</value>
-  </data>
-    <data name="LearnMore" xml:space="preserve">
-    <value>Lees meer...</value>
-  </data>
+        <value>Over</value>
+    </data>
     <data name="AboutText" xml:space="preserve">
-    <value>Deze app is gebouwd op privacy. Alles werkt offline en er worden geen gevens gedeelt. Alles is tussen God en jou.</value>
-  </data>
-    <data name="For" xml:space="preserve">
-    <value>Voor</value>
-  </data>
-    <data name="Title" xml:space="preserve">
-    <value>Titel</value>
-  </data>
-    <data name="Start" xml:space="preserve">
-    <value>Start</value>
-  </data>
-    <data name="Diary" xml:space="preserve">
-    <value>Dagboek</value>
-  </data>
-    <data name="ChooseOther" xml:space="preserve">
-    <value>Kies andere</value>
-  </data>
-    <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
-    <value>Om je persoonlijke communicatie met God in te zien.</value>
-  </data>
-    <data name="PrayerFor" xml:space="preserve">
-    <value>Gebed voor</value>
-  </data>
-    <data name="PrayerRequiredAt" xml:space="preserve">
-    <value>Gebedsverhoring nodig op</value>
-  </data>
-    <data name="PrayerIntention" xml:space="preserve">
-    <value>Gebedsintentie</value>
-  </data>
-    <data name="Lent" xml:space="preserve">
-    <value>Vasten</value>
-  </data>
+        <value>Deze app is gebouwd op privacy. Alles werkt offline en er worden geen gevens gedeelt. Alles is tussen God en jou.</value>
+    </data>
+    <data name="Add" xml:space="preserve">
+        <value>Toevoegen</value>
+    </data>
     <data name="AddSavings" xml:space="preserve">
-    <value>Besparing toevoegen</value>
-  </data>
-    <data name="EditSavings" xml:space="preserve">
-    <value>Bewerk besparing</value>
-  </data>
-    <data name="OriginalPrice" xml:space="preserve">
-    <value>Origineel bedrag</value>
-  </data>
-    <data name="Payed" xml:space="preserve">
-    <value>Betaald</value>
-  </data>
+        <value>Besparing toevoegen</value>
+    </data>
+    <data name="ApplicationTitle" xml:space="preserve">
+        <value>God &amp; Ik</value>
+    </data>
+    <data name="Archive" xml:space="preserve">
+        <value>Archief</value>
+    </data>
+    <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
+        <value>Om je persoonlijke communicatie met God in te zien.</value>
+    </data>
+    <data name="Cancel" xml:space="preserve">
+        <value>Annuleren</value>
+    </data>
+    <data name="ChooseOther" xml:space="preserve">
+        <value>Kies andere</value>
+    </data>
+    <data name="ChooseRecent" xml:space="preserve">
+        <value>Kies recente contacten</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+        <value>Verwijderen</value>
+    </data>
     <data name="Description" xml:space="preserve">
-    <value>Omschrijving</value>
-  </data>
+        <value>Omschrijving</value>
+    </data>
+    <data name="Diary" xml:space="preserve">
+        <value>Dagboek</value>
+    </data>
+    <data name="Done" xml:space="preserve">
+        <value>Klaar</value>
+    </data>
+    <data name="Edit" xml:space="preserve">
+        <value>Wijzig</value>
+    </data>
+    <data name="EditIntention" xml:space="preserve">
+        <value>Bewerk intentie</value>
+    </data>
+    <data name="EditSavings" xml:space="preserve">
+        <value>Bewerk besparing</value>
+    </data>
+    <data name="For" xml:space="preserve">
+        <value>Voor</value>
+    </data>
+    <data name="Intention" xml:space="preserve">
+        <value>Intentie</value>
+    </data>
+    <data name="Intentions" xml:space="preserve">
+        <value>Intenties</value>
+    </data>
+    <data name="LearnMore" xml:space="preserve">
+        <value>Lees meer...</value>
+    </data>
+    <data name="Lent" xml:space="preserve">
+        <value>Vasten</value>
+    </data>
+    <data name="Menu" xml:space="preserve">
+        <value>Menu</value>
+    </data>
+    <data name="More" xml:space="preserve">
+        <value>Meer</value>
+    </data>
+    <data name="MyIntentions" xml:space="preserve">
+        <value>Mijn intenties</value>
+    </data>
+    <data name="MyPeriodOfLent" xml:space="preserve">
+        <value>Mijn vastentijd</value>
+    </data>
+    <data name="MyPrayers" xml:space="preserve">
+        <value>Mijn gebeden</value>
+    </data>
+    <data name="MyReligiousDiary" xml:space="preserve">
+        <value>Mijn religieus dagboek</value>
+    </data>
+    <data name="MySins" xml:space="preserve">
+        <value>Mijn zonden</value>
+    </data>
+    <data name="Name" xml:space="preserve">
+        <value>Naam</value>
+    </data>
+    <data name="NewIntention" xml:space="preserve">
+        <value>Nieuwe intentie</value>
+    </data>
+    <data name="NewPrayer" xml:space="preserve">
+        <value>Nieuw gebed</value>
+    </data>
+    <data name="NewSin" xml:space="preserve">
+        <value>Nieuwe zonde</value>
+    </data>
+    <data name="Notes" xml:space="preserve">
+        <value>Notitie</value>
+    </data>
+    <data name="OriginalPrice" xml:space="preserve">
+        <value>Origineel bedrag</value>
+    </data>
+    <data name="Payed" xml:space="preserve">
+        <value>Betaald</value>
+    </data>
+    <data name="Prayer" xml:space="preserve">
+        <value>Gebed</value>
+    </data>
+    <data name="PrayerFor" xml:space="preserve">
+        <value>Gebed voor</value>
+    </data>
+    <data name="PrayerIntention" xml:space="preserve">
+        <value>Gebedsintentie</value>
+    </data>
+    <data name="PrayerRequiredAt" xml:space="preserve">
+        <value>Gebedsverhoring nodig op</value>
+    </data>
+    <data name="Prayers" xml:space="preserve">
+        <value>Gebeden</value>
+    </data>
+    <data name="Save" xml:space="preserve">
+        <value>Opslaan</value>
+    </data>
     <data name="SavedAt" xml:space="preserve">
-    <value>Bespaard op</value>
-  </data>
+        <value>Bespaard op</value>
+    </data>
     <data name="SavedMoney" xml:space="preserve">
-    <value>Bespaad bedrag</value>
-  </data>
+        <value>Bespaad bedrag</value>
+    </data>
     <data name="SavedXThisYear" xml:space="preserve">
-    <value>Dit jaar {0:C} bespaard</value>
-  </data>
+        <value>Dit jaar {0:C} bespaard</value>
+    </data>
+    <data name="Share" xml:space="preserve">
+        <value>Delen</value>
+    </data>
+    <data name="Sin" xml:space="preserve">
+        <value>Zonde</value>
+    </data>
+    <data name="Sins" xml:space="preserve">
+        <value>Zonden</value>
+    </data>
+    <data name="Start" xml:space="preserve">
+        <value>Start</value>
+    </data>
+    <data name="Title" xml:space="preserve">
+        <value>Titel</value>
+    </data>
 </root>

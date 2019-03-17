@@ -94,13 +94,24 @@ namespace GodAndMe.Services
 
             else if (true && items.Count == 0)
             {
-                //db.InsertAll(new List<Prayers> { new Prayers { Id = Guid.NewGuid().ToString(), Start=new DateTime(2019,3,12, 8,50,0), Description="Bewuster het Onze Vader bidden en mij dat diep op mij in laten werken. Dus niet snel opriedelen, maar met het hart bidden." },
-                //    //new Prayers { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                //    //new Prayers { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                //    //new Prayers { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                //    //new Prayers { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                //    //new Prayers { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
-                //});
+                db.InsertAll(new List<Prayers> {
+                            new Prayers {
+                                Id = Guid.NewGuid().ToString(),
+                                Title="Noveengebed tot O.L. Vrouw van de Wonderdadige Medaille",
+                                Description="Onbevlekte Maagd Maria - Moeder van Jezus Christus en Moeder van ons - wij hebben het grootste vertrouwen in uw voorspraak. U kunt van uw Zoon alles verkrijgen, wat goed is voor ons.\n\nWij danken U, dat U ons daaraan herinnert - door de medaille, waarop onze verlossing is afgebeeld. U houdt van ons, wij vertrouwen op U. Wil voor ons uw kinderen de genade verkrijgen, waarom wij nederig vragen.\n\n(Hier maakt men zijn/haar intenties).\n\nMoeder Maria - verkrijg voor ons niet alleen tijdelijke gunsten - maar vooral dat wij bereid mogen zijn tot gebed en offer. Zo alleen zullen wij in staat zijn - tot ware liefde voor uw Zoon - en tot oprechte liefde voor de evenmens. Dan zullen wij het geluk van de hemel verkrijgen - dat U reeds bezit als onze Koningin en Moeder. Amen.\n\nSchietgebed:\nO Maria, zonder zonden ontvangen, bid voor ons, die onze toevlucht tot U nemen. (3x)",
+                            },
+                            new Prayers {
+                                Id = Guid.NewGuid().ToString(),
+                                Title="Heilige Aartsengel Michaël",
+                                Description="Heilige Aartsengel Michaël, verdedig ons in de strijd; wees onze bescherming tegen de boosheid en de listen van de duivel. Wij smeken ootmoedig dat God hem Zijn macht doe gevoelen. En gij, vorst van de hemelse legerscharen, drijf Satan en andere boze geesten, die tot verderf van de zielen over de wereld rondgaan, door de goddelijke kracht in de hel terug. Amen.",
+                            },
+
+                            new Prayers {
+                                Id = Guid.NewGuid().ToString(),
+                                Title="Kom Heilige Geest",
+                                Description="Kom, Heilige Geest, vervul de harten van uw gelovigen, en ontsteek in hen het vuur van uw liefde.\nV. Zend uw Geest uit en alles zal herschapen worden.\nA. En Gij zult het aanschijn van de aarde vernieuwen.\n\nLaat ons bidden\nGod Gij hebt de harten van de gelovigen door de verlichting van de Heilige Geest onderwezen: geef dat wij door die Heilige Geest de ware wijsheid mogen bezitten, en ons altijd over zijn vertroosting mogen verblijden. Door Christus onze Heer.\n\nAmen.",
+                            },
+                        });
             }
 #endif
         }

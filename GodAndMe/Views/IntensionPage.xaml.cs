@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Linq;
+using GodAndMe.Extensions;
+using GodAndMe.Interface;
 using GodAndMe.Models;
 using GodAndMe.ViewModels;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -50,22 +53,25 @@ namespace GodAndMe.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            Intention item = args.SelectedItem as Intention;
-            if (item == null)
-                return;
-
-            await Navigation.PushAsync(new IntentionDetailPage(new IntentionDetailViewModel(item)));
-
-            // Manually deselect item.
-            if (IntentionsListView != null)
+            if (args != null && args.SelectedItem != null && args.SelectedItem.GetType() == typeof(Intention))
             {
-                try
-                {
-                    IntentionsListView.SelectedItem = null;
-                }
-                finally
-                {
+                Intention item = args.SelectedItem as Intention;
+                if (item == null)
+                    return;
 
+                await Navigation.PushAsync(new IntentionDetailPage(new IntentionDetailViewModel(item)));
+
+                // Manually deselect item.
+                if (IntentionsListView != null)
+                {
+                    try
+                    {
+                        IntentionsListView.SelectedItem = null;
+                    }
+                    finally
+                    {
+
+                    }
                 }
             }
         }
@@ -95,7 +101,16 @@ namespace GodAndMe.Views
         public void OnShare(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
-            var item = viewModel.Items.Select(x => x.Id == mi.CommandParameter.ToString()) as Intention;
+            var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString()) as Intention;
+            try
+            {
+                string url = "GodAndMe://" + StringExtensions.Base64Encode(JsonConvert.SerializeObject(item));
+                DependencyService.Get<IShare>().Show(item.Person, item.Description, url);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public void OnDelete(object sender, EventArgs e)

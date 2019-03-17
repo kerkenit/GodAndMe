@@ -17,10 +17,13 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
+        <StackLayout Spacing="20" Padding="15" VerticalOptions="FillAndExpand">
+            <Label Text="{resX:TranslateExtension Title}" FontSize="Medium" FontAttributes="Bold" />
+            <Entry Text="{Binding Item.Title}" FontSize="Default" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
+       
             <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" />
-             <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1">
-                <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0,0,0,15" VerticalOptions="Start" />
+             <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1" VerticalOptions="FillAndExpand">
+                <Editor Text="{Binding Item.Description}" FontSize="Default" Margin="0,0,0,15" VerticalOptions="FillAndExpand" />
             </Frame>
         </StackLayout>
     </ContentPage.Content>

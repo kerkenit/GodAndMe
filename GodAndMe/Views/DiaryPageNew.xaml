@@ -20,7 +20,7 @@
         <StackLayout Spacing="20" Padding="15">
             <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" />
              <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1">
-                <Editor Text="{Binding Item.Description}" FontSize="Small" Margin="0,0,0,15" VerticalOptions="Start" />
+                <Editor Text="{Binding Item.Description}" FontSize="Default" Margin="0,0,0,15" VerticalOptions="Start" />
             </Frame>
         </StackLayout>
     </ContentPage.Content>

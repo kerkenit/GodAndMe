@@ -24,11 +24,11 @@
         </StackLayout>
         <ScrollView Grid.Row="1">
             <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
-                <Label FontSize="22">
+                <Label FontSize="Large">
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="{resX:TranslateExtension ApplicationTitle}" FontAttributes="Bold" FontSize="22" />
+                                <Span Text="{resX:TranslateExtension ApplicationTitle}" FontAttributes="Bold" FontSize="Large" />
                                 <Span Text=" " />
                                 <Span x:Name="lblVersionNumber" Text="1.0" ForegroundColor="{StaticResource LightTextColor}" />
                             </FormattedString.Spans>

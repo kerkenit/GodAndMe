@@ -58,5 +58,20 @@
 			<string>God &amp; Me</string>
 		</dict>
 	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>nl.kerkenit.GodAndMe</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>GodAndMe</string>
+			</array>
+			<key>CFBundleURLTypes</key>
+			<string>Viewer</string>
+			<key>CFBundleURLIconFile</key>
+			<string>Icon58</string>
+		</dict>
+	</array>
 </dict>
 </plist>

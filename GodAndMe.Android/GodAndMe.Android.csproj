@@ -75,7 +75,6 @@
     <Compile Include="Interface\VersionAndBuild_Android.cs" />
     <Compile Include="Interface\DatabaseConnection_Android.cs" />
     <Compile Include="Interface\Share_Android.cs" />
-    <Compile Include="Interface\FileStore_Android.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Interface\Localize_Andoid.cs" />
     <Compile Include="Interface\TouchID_Android.cs" />

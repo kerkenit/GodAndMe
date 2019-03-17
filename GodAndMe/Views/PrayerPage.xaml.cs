@@ -43,7 +43,7 @@ namespace GodAndMe.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PrayersPageNew(CommonFunctions.i18n("NewIntention")));
+            await Navigation.PushAsync(new PrayersPageNew(CommonFunctions.i18n("NewPrayer")));
         }
 
         public void OnDelete(object sender, EventArgs e)

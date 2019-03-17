@@ -5,7 +5,7 @@
              xmlns:local="clr-namespace:GodAndMe"
              xmlns:resX="clr-namespace:GodAndMe.Resx"
              x:Class="GodAndMe.Views.PrayersDetailPage" 
-             Title="{resX:TranslateExtension Payer}">
+             Title="{resX:TranslateExtension Prayer}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:TranslateExtension Edit}" Clicked="EditItem_Clicked">
             <ToolbarItem.Icon>
@@ -17,8 +17,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Spacing="5" Padding="15">
-            <Label Text="{resX:Translate Description}" FontSize="Medium" />
-            <Label Text="{Binding Item.Description}" FontSize="Small" />
+            <Label Text="{Binding Item.Description}" FontSize="Medium" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

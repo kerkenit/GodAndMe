@@ -13,144 +13,153 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="About" xml:space="preserve">
-    <value>About</value>
-  </data>
-    <data name="Add" xml:space="preserve">
-    <value>Add</value>
-  </data>
-    <data name="Archive" xml:space="preserve">
-    <value>Archive</value>
-  </data>
-    <data name="Edit" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-    <data name="ApplicationTitle" xml:space="preserve">
-    <value>God &amp; Me</value>
-  </data>
-    <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-    <data name="Delete" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-    <data name="Done" xml:space="preserve">
-    <value>Done</value>
-  </data>
-    <data name="NewIntention" xml:space="preserve">
-    <value>New intention</value>
-  </data>
-    <data name="EditIntention" xml:space="preserve">
-    <value>Edit intention</value>
-  </data>
-    <data name="Intention" xml:space="preserve">
-    <value>Intention</value>
-  </data>
-    <data name="Intentions" xml:space="preserve">
-    <value>Intentions</value>
-  </data>
-    <data name="More" xml:space="preserve">
-    <value>More</value>
-  </data>
-    <data name="Share" xml:space="preserve">
-    <value>Share</value>
-  </data>
-    <data name="Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-    <data name="Notes" xml:space="preserve">
-    <value>Notes</value>
-  </data>
-    <data name="Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-    <data name="LearnMore" xml:space="preserve">
-    <value>Learn more...</value>
-  </data>
+        <value>About</value>
+    </data>
     <data name="AboutText" xml:space="preserve">
-    <value>This app is built on privacy. Everything works offline and no data is shared. Everything is between God and you.</value>
-  </data>
-    <data name="For" xml:space="preserve">
-    <value>For</value>
-  </data>
-    <data name="Title" xml:space="preserve">
-    <value>Title</value>
-  </data>
-    <data name="Start" xml:space="preserve">
-    <value>Start</value>
-  </data>
-    <data name="Diary" xml:space="preserve">
-    <value>Diary</value>
-  </data>
-    <data name="ChooseOther" xml:space="preserve">
-    <value>Choose other</value>
-  </data>
-    <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
-    <value>To see your personal communication with God.</value>
-  </data>
-    <data name="PrayerFor" xml:space="preserve">
-    <value>Prayer for</value>
-  </data>
-    <data name="PrayerRequiredAt" xml:space="preserve">
-    <value>Prayer required at</value>
-  </data>
-    <data name="PrayerIntention" xml:space="preserve">
-    <value>Prayer intention</value>
-  </data>
-    <data name="Lent" xml:space="preserve">
-    <value>Lent</value>
-  </data>
+        <value>This app is built on privacy. Everything works offline and no data is shared. Everything is between God and you.</value>
+    </data>
+    <data name="Add" xml:space="preserve">
+        <value>Add</value>
+    </data>
     <data name="AddSavings" xml:space="preserve">
-    <value>Add savings</value>
-  </data>
-    <data name="EditSavings" xml:space="preserve">
-    <value>Edit savings</value>
-  </data>
-    <data name="OriginalPrice" xml:space="preserve">
-    <value>Original price</value>
-  </data>
-    <data name="Payed" xml:space="preserve">
-    <value>Payed</value>
-  </data>
+        <value>Add savings</value>
+    </data>
+    <data name="ApplicationTitle" xml:space="preserve">
+        <value>God &amp; Me</value>
+    </data>
+    <data name="Archive" xml:space="preserve">
+        <value>Archive</value>
+    </data>
+    <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
+        <value>To see your personal communication with God.</value>
+    </data>
+    <data name="Cancel" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="ChooseOther" xml:space="preserve">
+        <value>Choose other</value>
+    </data>
+    <data name="ChooseRecent" xml:space="preserve">
+        <value>Choose recent contacts</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+        <value>Delete</value>
+    </data>
     <data name="Description" xml:space="preserve">
-    <value>Description</value>
-  </data>
-    <data name="SavedAt" xml:space="preserve">
-    <value>Saved at</value>
-  </data>
-    <data name="SavedMoney" xml:space="preserve">
-    <value>Saved money</value>
-  </data>
-    <data name="SavedXThisYear" xml:space="preserve">
-    <value>Saved {0:C} this year</value>
-  </data>
-    <data name="Sins" xml:space="preserve">
-    <value>Sins</value>
-  </data>
-    <data name="Sin" xml:space="preserve">
-    <value>Sin</value>
-  </data>
-    <data name="Prayer" xml:space="preserve">
-    <value>Prayer</value>
-  </data>
-    <data name="Prayers" xml:space="preserve">
-    <value>Prayers</value>
-  </data>
-    <data name="MyIntentions" xml:space="preserve">
-    <value>My intentions</value>
-  </data>
-    <data name="MyPeriodOfLent" xml:space="preserve">
-    <value>My period of Lent</value>
-  </data>
-    <data name="MyReligiousDiary" xml:space="preserve">
-    <value>My religious diary</value>
-  </data>
-    <data name="MySins" xml:space="preserve">
-    <value>My sins</value>
-  </data>
-    <data name="MyPrayers" xml:space="preserve">
-    <value>My prayers</value>
-  </data>
+        <value>Description</value>
+    </data>
+    <data name="Diary" xml:space="preserve">
+        <value>Diary</value>
+    </data>
+    <data name="Done" xml:space="preserve">
+        <value>Done</value>
+    </data>
+    <data name="Edit" xml:space="preserve">
+        <value>Edit</value>
+    </data>
+    <data name="EditIntention" xml:space="preserve">
+        <value>Edit intention</value>
+    </data>
+    <data name="EditSavings" xml:space="preserve">
+        <value>Edit savings</value>
+    </data>
+    <data name="For" xml:space="preserve">
+        <value>For</value>
+    </data>
+    <data name="Intention" xml:space="preserve">
+        <value>Intention</value>
+    </data>
+    <data name="Intentions" xml:space="preserve">
+        <value>Intentions</value>
+    </data>
+    <data name="LearnMore" xml:space="preserve">
+        <value>Learn more...</value>
+    </data>
+    <data name="Lent" xml:space="preserve">
+        <value>Lent</value>
+    </data>
     <data name="Menu" xml:space="preserve">
-    <value>Menu</value>
-  </data>
+        <value>Menu</value>
+    </data>
+    <data name="More" xml:space="preserve">
+        <value>More</value>
+    </data>
+    <data name="MyIntentions" xml:space="preserve">
+        <value>My intentions</value>
+    </data>
+    <data name="MyPeriodOfLent" xml:space="preserve">
+        <value>My period of Lent</value>
+    </data>
+    <data name="MyPrayers" xml:space="preserve">
+        <value>My prayers</value>
+    </data>
+    <data name="MyReligiousDiary" xml:space="preserve">
+        <value>My religious diary</value>
+    </data>
+    <data name="MySins" xml:space="preserve">
+        <value>My sins</value>
+    </data>
+    <data name="Name" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="NewIntention" xml:space="preserve">
+        <value>New intention</value>
+    </data>
+    <data name="NewPrayer" xml:space="preserve">
+        <value>New prayer</value>
+    </data>
+    <data name="NewSin" xml:space="preserve">
+        <value>New sin</value>
+    </data>
+    <data name="Notes" xml:space="preserve">
+        <value>Notes</value>
+    </data>
+    <data name="OriginalPrice" xml:space="preserve">
+        <value>Original price</value>
+    </data>
+    <data name="Payed" xml:space="preserve">
+        <value>Payed</value>
+    </data>
+    <data name="Prayer" xml:space="preserve">
+        <value>Prayer</value>
+    </data>
+    <data name="PrayerFor" xml:space="preserve">
+        <value>Prayer for</value>
+    </data>
+    <data name="PrayerIntention" xml:space="preserve">
+        <value>Prayer intention</value>
+    </data>
+    <data name="PrayerRequiredAt" xml:space="preserve">
+        <value>Prayer required at</value>
+    </data>
+    <data name="Prayers" xml:space="preserve">
+        <value>Prayers</value>
+    </data>
+    <data name="Save" xml:space="preserve">
+        <value>Save</value>
+    </data>
+    <data name="SavedAt" xml:space="preserve">
+        <value>Saved at</value>
+    </data>
+    <data name="SavedMoney" xml:space="preserve">
+        <value>Saved money</value>
+    </data>
+    <data name="SavedXThisYear" xml:space="preserve">
+        <value>Saved {0:C} this year</value>
+    </data>
+    <data name="Share" xml:space="preserve">
+        <value>Share</value>
+    </data>
+    <data name="Sin" xml:space="preserve">
+        <value>Sin</value>
+    </data>
+    <data name="Sins" xml:space="preserve">
+        <value>Sins</value>
+    </data>
+    <data name="Start" xml:space="preserve">
+        <value>Start</value>
+    </data>
+    <data name="Title" xml:space="preserve">
+        <value>Title</value>
+    </data>
 </root>

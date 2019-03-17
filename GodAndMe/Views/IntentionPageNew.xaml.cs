@@ -42,6 +42,10 @@ namespace GodAndMe.Views
 
             btPerson.Clicked += async (object sender, EventArgs e) =>
             {
+                string ChooseOther = "- " + CommonFunctions.i18n("ChooseOther") + " -";
+                string ChooseRecent = "- " + CommonFunctions.i18n("ChooseRecent") + " -";
+
+
                 if ((ddlPerson.ItemsSource != null && ddlPerson.ItemsSource.Count > 0) || await DependencyService.Get<IAddressBookInformation>().RequestAccess())
                 {
                     if (ddlPerson.ItemsSource == null || ddlPerson.ItemsSource.Count == 0)
@@ -49,8 +53,7 @@ namespace GodAndMe.Views
                         List<string> persons = await DependencyService.Get<IAddressBookInformation>().GetContacts();
 
                         IEnumerable<Intention> existingItems = await viewModel.IntentionDataStore.GetItemsAsync(true);
-
-                        var existingPersons =
+                        var recentPersons =
     from intension in existingItems
     group intension by intension.Person into Intensions
     select new
@@ -58,15 +61,18 @@ namespace GodAndMe.Views
         Name = Intensions.Key,
         Count = Intensions.Count(),
     };
-                        persons.Insert(0, "- " + CommonFunctions.i18n("ChooseOther") + " -");
+                        persons.Insert(0, ChooseOther);
 
 
-                        foreach (var person in existingPersons.OrderBy((arg) => arg.Count))
+                        foreach (var person in recentPersons.OrderBy((arg) => arg.Count))
                         {
                             persons.Remove(person.Name);
                             persons.Insert(0, person.Name);
                         }
-
+                        if (recentPersons.Any())
+                        {
+                            persons.Insert(0, ChooseRecent);
+                        }
                         ddlPerson.ItemsSource = persons;
                         if (!string.IsNullOrWhiteSpace(tbPerson.Text))
                         {
@@ -79,7 +85,7 @@ namespace GodAndMe.Views
                         {
                             ddlPerson.Unfocused += (object sender1, FocusEventArgs e1) =>
                             {
-                                if (ddlPerson.SelectedItem != null && ddlPerson.SelectedIndex > 0)
+                                if (ddlPerson.SelectedItem != null && ddlPerson.SelectedItem.ToString() != ChooseOther && ddlPerson.SelectedItem.ToString() != ChooseRecent)
                                 {
                                     tbPerson.Text = ddlPerson.SelectedItem.ToString();
                                 }

@@ -18,7 +18,7 @@
     <ContentPage.Content>
         <StackLayout Spacing="5" Padding="15">
             <Label Text="{resX:Translate Description}" FontSize="Medium" />
-            <Label Text="{Binding Item.Description}" FontSize="Small" />
+            <Label Text="{Binding Item.Description}" FontSize="Default" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

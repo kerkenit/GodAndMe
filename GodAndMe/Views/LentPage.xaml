@@ -33,9 +33,9 @@
                                 </MenuItem>
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="20" FontAttributes="Bold" TextColor="{Binding TextColor}" />
-                                <Label Text="{Binding Start, StringFormat='{0:D}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="12" TextColor="{Binding TextColor}" />
-                                <Label Text="{Binding Text}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="16" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Medium" FontAttributes="Bold" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Start, StringFormat='{0:D}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Text}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" TextColor="{Binding TextColor}" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
