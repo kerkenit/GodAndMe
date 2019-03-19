@@ -7,7 +7,6 @@
              Title="{resX:TranslateExtension Sin}"
              x:Class="GodAndMe.Views.SinsPageNew">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{resX:TranslateExtension Cancel}" Clicked="Cancel_Clicked" IsDestructive="true" Priority="-1" />
         <ToolbarItem Text="{resX:TranslateExtension Save}" Clicked="Save_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -17,11 +16,19 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15" VerticalOptions="FillAndExpand">
-            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" />
+        <StackLayout Spacing="20" Padding="15" VerticalOptions="Fill">
+            <Label Text="{resX:TranslateExtension Date}" FontSize="Medium" FontAttributes="Bold" />
+            <DatePicker x:Name="ddlStart" Format="D" FontSize="Default" Date="{Binding Item.Start}"  />
+        
+            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" FontAttributes="Bold" />
              <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1" VerticalOptions="FillAndExpand">
-                <Editor Text="{Binding Item.Description}" FontSize="Default" Margin="0,0,0,15" VerticalOptions="FillAndExpand" />
-            </Frame>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <ScrollView VerticalOptions="StartAndExpand" Orientation="Vertical">
+                    <local:MyEditor x:Name="tbDescription" Text="{Binding Item.Description}" FontSize="Default" VerticalOptions="FillAndExpand" TextChanged="OnTextChanged" />
+                </ScrollView>
+             </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

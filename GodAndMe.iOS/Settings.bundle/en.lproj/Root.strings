@@ -1,6 +1,6 @@
-"MyName" = "My name";
+"Contacts" = "Contacts";
 "Firstname" = "Firstname";
 "Lastname" = "Lastname";
+"MyName" = "My name";
 "OrderBy" = "Order by";
-"Contacts" = "Contacts";
-"Touch-ID Enabled" = "Touch-ID Enabled";
+"TouchIDEnabled" = "Touch-ID enabled";

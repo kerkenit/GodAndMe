@@ -57,6 +57,12 @@ namespace GodAndMe.Views
             });
             menuList.Add(new MasterPageItem
             {
+                Title = CommonFunctions.i18n("Settings"),
+                IconSource = "tab_settings.png",
+                TargetType = typeof(SettingsPage)
+            });
+            menuList.Add(new MasterPageItem
+            {
                 Title = CommonFunctions.i18n("About"),
                 IconSource = "tab_about.png",
                 TargetType = typeof(AboutPage)
@@ -97,8 +103,9 @@ namespace GodAndMe.Views
                     intention.Completed = false;
                     IDataStore<Intention> IntentionDataStore = new IntentionsDataStore();
                     IntentionDataStore.AddItemAsync(intention);
-                }
+                    Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
 
+                }
             }
             catch (Exception ex)
             {

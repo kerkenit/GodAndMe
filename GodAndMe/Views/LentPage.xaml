@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:i18n="clr-namespace:GodAndMe"
@@ -18,7 +18,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="LentListView" ItemsSource="{Binding Lent}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadLentCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+            <ListView x:Name="LentListView" ItemsSource="{Binding Lent}" VerticalOptions="StartAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadLentCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -33,9 +33,19 @@
                                 </MenuItem>
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Medium" FontAttributes="Bold" TextColor="{Binding TextColor}" />
-                                <Label Text="{Binding Start, StringFormat='{0:D}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" TextColor="{Binding TextColor}" />
-                                <Label Text="{Binding Text}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" TextColor="{Binding TextColor}" />
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="75" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Start, StringFormat='{0:D}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" FontAttributes="Bold" TextColor="{Binding TextColor}" Grid.Row="0" Grid.Column="0" />
+                                    <Label Text="{Binding SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" FontAttributes="Bold" TextColor="{Binding TextColor}" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding Text}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" TextColor="{Binding TextColor}" Grid.Row="1" Grid.Column="0" />
+                                </Grid>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

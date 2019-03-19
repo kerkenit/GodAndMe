@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <root>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
@@ -42,6 +42,12 @@
     <data name="ChooseRecent" xml:space="preserve">
         <value>Kies recente contacten</value>
     </data>
+    <data name="Contacts" xml:space="preserve">
+        <value>Contacten</value>
+    </data>
+    <data name="Date" xml:space="preserve">
+        <value>Datum</value>
+    </data>
     <data name="Delete" xml:space="preserve">
         <value>Verwijderen</value>
     </data>
@@ -54,6 +60,9 @@
     <data name="Done" xml:space="preserve">
         <value>Klaar</value>
     </data>
+    <data name="DownloadApp" xml:space="preserve">
+        <value>Download de God &amp; Ik app via http://onelink.to/godandme</value>
+    </data>
     <data name="Edit" xml:space="preserve">
         <value>Wijzig</value>
     </data>
@@ -63,6 +72,9 @@
     <data name="EditSavings" xml:space="preserve">
         <value>Bewerk besparing</value>
     </data>
+    <data name="Firstname" xml:space="preserve">
+        <value>Voornaam</value>
+    </data>
     <data name="For" xml:space="preserve">
         <value>Voor</value>
     </data>
@@ -71,6 +83,9 @@
     </data>
     <data name="Intentions" xml:space="preserve">
         <value>Intenties</value>
+    </data>
+    <data name="Lastname" xml:space="preserve">
+        <value>Achternaam</value>
     </data>
     <data name="LearnMore" xml:space="preserve">
         <value>Lees meer...</value>
@@ -83,6 +98,9 @@
     </data>
     <data name="More" xml:space="preserve">
         <value>Meer</value>
+    </data>
+    <data name="MyName" xml:space="preserve">
+        <value>Mijn naam</value>
     </data>
     <data name="MyIntentions" xml:space="preserve">
         <value>Mijn intenties</value>
@@ -105,6 +123,9 @@
     <data name="NewIntention" xml:space="preserve">
         <value>Nieuwe intentie</value>
     </data>
+    <data name="NewMessage" xml:space="preserve">
+        <value>Nieuw bericht</value>
+    </data>
     <data name="NewPrayer" xml:space="preserve">
         <value>Nieuw gebed</value>
     </data>
@@ -113,6 +134,9 @@
     </data>
     <data name="Notes" xml:space="preserve">
         <value>Notitie</value>
+    </data>
+    <data name="OrderBy" xml:space="preserve">
+        <value>Sorteer op</value>
     </data>
     <data name="OriginalPrice" xml:space="preserve">
         <value>Origineel bedrag</value>
@@ -142,10 +166,13 @@
         <value>Bespaard op</value>
     </data>
     <data name="SavedMoney" xml:space="preserve">
-        <value>Bespaad bedrag</value>
+        <value>Bespaard bedrag</value>
     </data>
     <data name="SavedXThisYear" xml:space="preserve">
         <value>Dit jaar {0:C} bespaard</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Instellingen</value>
     </data>
     <data name="Share" xml:space="preserve">
         <value>Delen</value>
@@ -161,5 +188,14 @@
     </data>
     <data name="Title" xml:space="preserve">
         <value>Titel</value>
+    </data>
+    <data name="TouchIDEnabled" xml:space="preserve">
+        <value>Touch-ID geactiveerd</value>
+    </data>
+    <data name="UnlockToOpenGodAndMe" xml:space="preserve">
+        <value>Ontgrendel om God &amp; Ik te openen</value>
+    </data>
+    <data name="WouldYouPrayForX" xml:space="preserve">
+        <value>Zou je voor {0} willen bidden?</value>
     </data>
 </root>

@@ -14,14 +14,14 @@ namespace GodAndMe.Droid.Interface
             _context = Application.Context;
         }
 
-        public Task Show(string title, string message, string url)
+        public Task Show(string title, string message, string url, string app)
         {
 
             var intent = new Intent(Intent.ActionSend);
 
-            intent.SetType(contentType);
+            intent.SetType("text/plain");
             intent.PutExtra(Intent.ExtraStream, Uri.Parse(url));
-            intent.PutExtra(Intent.ExtraText, string.Empty);
+            intent.PutExtra(Intent.ExtraText, app ?? string.Empty);
             intent.PutExtra(Intent.ExtraSubject, message ?? string.Empty);
 
             var chooserIntent = Intent.CreateChooser(intent, title ?? string.Empty);

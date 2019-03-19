@@ -107,6 +107,18 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string Contacts {
+            get {
+                return ResourceManager.GetString("Contacts", resourceCulture);
+            }
+        }
+        
+        internal static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
         internal static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
@@ -131,6 +143,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string DownloadApp {
+            get {
+                return ResourceManager.GetString("DownloadApp", resourceCulture);
+            }
+        }
+        
         internal static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
@@ -149,6 +167,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string Firstname {
+            get {
+                return ResourceManager.GetString("Firstname", resourceCulture);
+            }
+        }
+        
         internal static string For {
             get {
                 return ResourceManager.GetString("For", resourceCulture);
@@ -164,6 +188,12 @@ namespace GodAndMe.Resx {
         internal static string Intentions {
             get {
                 return ResourceManager.GetString("Intentions", resourceCulture);
+            }
+        }
+        
+        internal static string Lastname {
+            get {
+                return ResourceManager.GetString("Lastname", resourceCulture);
             }
         }
         
@@ -188,6 +218,12 @@ namespace GodAndMe.Resx {
         internal static string More {
             get {
                 return ResourceManager.GetString("More", resourceCulture);
+            }
+        }
+        
+        internal static string MyName {
+            get {
+                return ResourceManager.GetString("MyName", resourceCulture);
             }
         }
         
@@ -233,6 +269,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string NewMessage {
+            get {
+                return ResourceManager.GetString("NewMessage", resourceCulture);
+            }
+        }
+        
         internal static string NewPrayer {
             get {
                 return ResourceManager.GetString("NewPrayer", resourceCulture);
@@ -248,6 +290,12 @@ namespace GodAndMe.Resx {
         internal static string Notes {
             get {
                 return ResourceManager.GetString("Notes", resourceCulture);
+            }
+        }
+        
+        internal static string OrderBy {
+            get {
+                return ResourceManager.GetString("OrderBy", resourceCulture);
             }
         }
         
@@ -317,6 +365,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
         internal static string Share {
             get {
                 return ResourceManager.GetString("Share", resourceCulture);
@@ -344,6 +398,24 @@ namespace GodAndMe.Resx {
         internal static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        internal static string TouchIDEnabled {
+            get {
+                return ResourceManager.GetString("TouchIDEnabled", resourceCulture);
+            }
+        }
+        
+        internal static string UnlockToOpenGodAndMe {
+            get {
+                return ResourceManager.GetString("UnlockToOpenGodAndMe", resourceCulture);
+            }
+        }
+        
+        internal static string WouldYouPrayForX {
+            get {
+                return ResourceManager.GetString("WouldYouPrayForX", resourceCulture);
             }
         }
     }

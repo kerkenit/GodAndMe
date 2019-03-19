@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <style name="MainTheme" parent="MainTheme.Base">
     </style>
@@ -20,7 +20,7 @@
         <item name="colorControlHighlight">@color/colorAccent</item>
         <item name="colorControlNormal">@color/primaryColor</item>
         <item name="colorSwitchThumbNormal">@color/primaryColor</item>
-        <item name="colorControlActivated">@color/primaryLightColor</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
         <item name="android:colorPressedHighlight">@color/ListViewSelected</item>
         <item name="android:colorLongPressedHighlight">@color/ListViewHighlighted</item>
         <item name="android:colorFocusedHighlight">@color/ListViewSelected</item>

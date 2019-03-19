@@ -50,9 +50,8 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<PrayersPage, Prayers>(this, "DeleteItem", async (obj, item) =>
             {
-                var oldItem = item as Prayers;
-                //Items.Remove(oldItem);
-                await PrayersDataStore.DeleteItemAsync(oldItem.Id);
+                //Items.Remove(item);
+                await PrayersDataStore.DeleteItemAsync(item.Id);
                 Items.OrderBy((arg) => arg.Title);
                 await ExecuteLoadItemsCommand();
             });

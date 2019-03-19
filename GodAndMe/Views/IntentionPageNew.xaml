@@ -7,7 +7,6 @@
              x:Class="GodAndMe.Views.IntentionPageNew"
              Title="{Binding Title}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{resX:TranslateExtension Cancel}" Clicked="Cancel_Clicked" IsDestructive="true" Priority="-1" />
         <ToolbarItem Text="{resX:TranslateExtension Save}" Clicked="Save_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -16,42 +15,48 @@
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+          <OnPlatform x:Key="GridSize"   x:TypeArguments="GridLength"  iOS="45"  Android="60" WinPhone="60" />
+        </ResourceDictionary>
+      </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand">
-            <ScrollView>
-                <StackLayout Spacing="5" Padding="15" Orientation="Vertical">
-                    <Label Text="{resX:TranslateExtension PrayerFor}" FontSize="Medium" FontAttributes="Bold" />
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="45" />
-                        </Grid.ColumnDefinitions>
-                        <Entry x:Name="tbPerson" Text="{Binding Item.Person}" FontSize="Default" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
-                        <Button x:Name="btPerson" Text="" Image="contact.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TranslationY="-7" BackgroundColor="Transparent"  />
-                        <Picker x:Name="ddlPerson" IsVisible="false" Grid.Row="0" Grid.Column="1" />
-                    </Grid>
-                    <Label Text="{resX:TranslateExtension PrayerRequiredAt}" FontSize="Medium" FontAttributes="Bold" />
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="45"  />
-                        </Grid.ColumnDefinitions>
-                        <Entry x:Name="tbStart" Text="{Binding Item.Start, StringFormat='{0:D}'}" FontSize="Default" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
-                        <Button x:Name="btStart" Text="" Image="delete.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TranslationY="-7" IsEnabled="false" BackgroundColor="Transparent" />
-                        <DatePicker x:Name="ddlStart" Format="D" FontSize="Default" Date="{Binding Item.Start}" IsVisible="false" Grid.Row="0" Grid.Column="1" />
-                    </Grid>
-                    <Label Text="{resX:TranslateExtension PrayerIntention}" FontSize="Medium" FontAttributes="Bold" />
-                    <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1">
-                        <Editor Text="{Binding Item.Description}" FontSize="Default" Margin="0,0,0,15" VerticalOptions="Start" />
-                    </Frame>
-                </StackLayout>
-            </ScrollView>
+        <StackLayout Spacing="5" Padding="15" Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <Label Text="{resX:TranslateExtension PrayerFor}" FontSize="Medium" FontAttributes="Bold" />
+            <Grid>
+                <Grid.RowDefinitions>
+                   <RowDefinition Height="{StaticResource GridSize}" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="45" />
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="tbPerson" Text="{Binding Item.Person}" FontSize="Default" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
+                <Button x:Name="btPerson" Text="" Image="contact.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TranslationY="-7" BackgroundColor="Transparent"  />
+                <Picker x:Name="ddlPerson" IsVisible="false" Grid.Row="0" Grid.Column="1" />
+            </Grid>
+            <Label Text="{resX:TranslateExtension PrayerRequiredAt}" FontSize="Medium" FontAttributes="Bold" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{StaticResource GridSize}" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="45"  />
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="tbStart" Text="{Binding Item.Start, StringFormat='{0:D}'}" FontSize="Default" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
+                <Button x:Name="btStart" Text="" Image="delete.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TranslationY="-7" IsEnabled="false" BackgroundColor="Transparent" />
+                <DatePicker x:Name="ddlStart" Format="D" FontSize="Default" Date="{Binding Item.Start}" IsVisible="false" Grid.Row="0" Grid.Column="1" />
+            </Grid>
+            <Label Text="{resX:TranslateExtension PrayerIntention}" FontSize="Medium" FontAttributes="Bold" />
+            <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1" VerticalOptions="FillAndExpand">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <ScrollView VerticalOptions="StartAndExpand">
+                        <local:MyEditor x:Name="tbDescription" Text="{Binding Item.Description}" FontSize="Default" VerticalOptions="FillAndExpand" TextChanged="OnTextChanged" />
+                </ScrollView>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -21,21 +21,20 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<SinsPageNew, Sins>(this, "AddItem", async (obj, item) =>
             {
-                var newItem = item as Sins;
                 if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
                 {
                     Sins oldItem = Items.First(x => x.Id == item.Id);
                     Items.Remove(oldItem);
-                    Items.Add(newItem);
-                    await SinsDataStore.UpdateItemAsync(newItem);
+                    Items.Add(item);
+                    await SinsDataStore.UpdateItemAsync(item);
                 }
                 else
                 {
-                    if (!Items.Any(x => x.Id == newItem.Id))
+                    if (!Items.Any(x => x.Id == item.Id))
                     {
-                        Items.Add(newItem);
+                        Items.Add(item);
                     }
-                    await SinsDataStore.AddItemAsync(newItem);
+                    await SinsDataStore.AddItemAsync(item);
                 }
                 Items.OrderBy((arg) => arg.Start);
                 await ExecuteLoadItemsCommand();
@@ -50,9 +49,8 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<SinsPage, Sins>(this, "DeleteItem", async (obj, item) =>
             {
-                var oldItem = item as Sins;
-                //Items.Remove(oldItem);
-                await SinsDataStore.DeleteItemAsync(oldItem.Id);
+                //Items.Remove(item);
+                await SinsDataStore.DeleteItemAsync(item.Id);
                 Items.OrderBy((arg) => arg.Start);
                 await ExecuteLoadItemsCommand();
             });

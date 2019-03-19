@@ -7,7 +7,6 @@
              Title="{resX:TranslateExtension Prayer}" 
              x:Class="GodAndMe.Views.PrayersPageNew">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{resX:TranslateExtension Cancel}" Clicked="Cancel_Clicked" IsDestructive="true" Priority="-1" />
         <ToolbarItem Text="{resX:TranslateExtension Save}" Clicked="Save_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
@@ -17,13 +16,18 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15" VerticalOptions="FillAndExpand">
+        <StackLayout Spacing="5" Padding="15" VerticalOptions="Fill">
             <Label Text="{resX:TranslateExtension Title}" FontSize="Medium" FontAttributes="Bold" />
-            <Entry Text="{Binding Item.Title}" FontSize="Default" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
+            <Entry Text="{Binding Item.Title}" FontSize="Default" />
        
-            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" />
-             <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1" VerticalOptions="FillAndExpand">
-                <Editor Text="{Binding Item.Description}" FontSize="Default" Margin="0,0,0,15" VerticalOptions="FillAndExpand" />
+            <Label Text="{resX:TranslateExtension Prayer}" FontSize="Medium" FontAttributes="Bold" />
+            <Frame x:Name="pnlDescription" BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1" VerticalOptions="FillAndExpand">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" />
+                </Frame.GestureRecognizers>
+                <ScrollView VerticalOptions="StartAndExpand" Orientation="Vertical">
+                    <local:MyEditor x:Name="tbDescription" Text="{Binding Item.Description}" FontSize="Default" VerticalOptions="FillAndExpand" TextChanged="OnTextChanged" />
+                </ScrollView>
             </Frame>
         </StackLayout>
     </ContentPage.Content>

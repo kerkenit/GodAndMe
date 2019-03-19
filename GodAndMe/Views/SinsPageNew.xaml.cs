@@ -16,6 +16,22 @@ namespace GodAndMe.Views
         {
             InitializeComponent();
 
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                ToolbarItem btCancel = new ToolbarItem()
+                {
+                    Text = CommonFunctions.i18n("Cancel"),
+                    IsDestructive = true,
+                    Priority = -1
+                };
+
+                btCancel.Clicked += async (object sender, EventArgs e) =>
+                {
+                    await Navigation.PopToRootAsync();
+                };
+                this.ToolbarItems.Add(btCancel);
+            }
+
             Title = title;
             if (item != null)
             {
@@ -26,21 +42,37 @@ namespace GodAndMe.Views
                 Item = new Sins
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Start = DateTime.Now
+                    Start = DateTime.Now,
+                    Description = string.Empty,
+
                 };
             }
 
             viewModel = new SinsDetailViewModel(Item);
             BindingContext = viewModel;
+
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                tbDescription.Focus();
+            });
         }
 
-        async void Cancel_Clicked(object sender, EventArgs e)
+        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            await Navigation.PopToRootAsync();
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                tbDescription.Focus();
+            });
+        }
+
+        void OnTextChanged(Object sender, TextChangedEventArgs e)
+        {
+            tbDescription.InvalidateLayout();
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
+            viewModel.Item.Description = viewModel.Item.Description.Trim().Trim(Environment.NewLine.ToCharArray()).Trim();
             Item = viewModel.Item;
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopToRootAsync();

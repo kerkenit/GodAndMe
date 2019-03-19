@@ -19,9 +19,7 @@ namespace GodAndMe.iOS
         public static string YourName { get; private set; }
         public static ContactSort ContactSort { get; private set; }
 
-        const string touchIDKey = "touchIDKey";
-        const string yourNameKey = "yourNameKey";
-        const string contactSortKey = "contactSortKey";
+
 
         public static void LoadDefaultValues()
         {
@@ -38,31 +36,31 @@ namespace GodAndMe.iOS
                 var val = prefItem["DefaultValue"];
                 switch (key.ToString())
                 {
-                    case touchIDKey:
+                    case CommonFunctions.TOUCHID:
                         bool touch_id = false;
                         if (bool.TryParse(val.ToString(), out touch_id))
                         {
                             TouchID = touch_id;
                         }
                         break;
-                    case yourNameKey:
+                    case CommonFunctions.YOURNAME:
                         YourName = val.ToString();
                         break;
-                    case contactSortKey:
+                    case CommonFunctions.CONTACTS_ORDERBY:
                         ContactSort = (ContactSort)((NSNumber)val).Int32Value;
                         break;
                 }
             }
-            var appDefaults = new NSDictionary(touchIDKey, TouchID, yourNameKey, YourName, contactSortKey, (int)ContactSort);
+            var appDefaults = new NSDictionary(CommonFunctions.TOUCHID, TouchID, CommonFunctions.YOURNAME, YourName, CommonFunctions.CONTACTS_ORDERBY, (int)ContactSort);
 
             NSUserDefaults.StandardUserDefaults.RegisterDefaults(appDefaults);
         }
 
         public static void SetupByPreferences()
         {
-            TouchID = NSUserDefaults.StandardUserDefaults.BoolForKey(touchIDKey);
-            YourName = NSUserDefaults.StandardUserDefaults.StringForKey(yourNameKey);
-            ContactSort = (ContactSort)(int)NSUserDefaults.StandardUserDefaults.IntForKey(contactSortKey);
+            TouchID = NSUserDefaults.StandardUserDefaults.BoolForKey(CommonFunctions.TOUCHID);
+            YourName = NSUserDefaults.StandardUserDefaults.StringForKey(CommonFunctions.YOURNAME);
+            ContactSort = (ContactSort)(int)NSUserDefaults.StandardUserDefaults.IntForKey(CommonFunctions.CONTACTS_ORDERBY);
         }
     }
 }

@@ -9,9 +9,9 @@ namespace GodAndMe.iOS.Interface
     public class Share : IShare
     {
         // MUST BE CALLED FROM THE UI THREAD
-        public async Task Show(string title, string message, string url)
+        public async Task Show(string title, string message, string url, string app)
         {
-            NSObject[] items = new NSObject[] { NSUrl.FromString(url) };
+            NSObject[] items = new NSObject[] { NSObject.FromObject(title), NSUrl.FromString(url), NSObject.FromObject(app) };
             UIActivityViewController activityController = new UIActivityViewController(items, null);
             UIViewController vc = GetVisibleViewController();
 

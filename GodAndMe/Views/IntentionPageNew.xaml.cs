@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using GodAndMe.Models;
-using GodAndMe.Services;
 using GodAndMe.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using System.Linq;
 namespace GodAndMe.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -14,16 +13,25 @@ namespace GodAndMe.Views
         public IntentionDetailViewModel viewModel;
         public Intention Item { get; set; }
 
-        //public IntentionPageNew(IntentionDetailViewModel viewModel, string title)
-        //{
-        //    InitializeComponent();
-        //    viewModel.Title = title;
-        //    BindingContext = this.viewModel = viewModel;
-        //}
-
         public IntentionPageNew(string title, Intention item = null)
         {
             InitializeComponent();
+
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                ToolbarItem btCancel = new ToolbarItem()
+                {
+                    Text = CommonFunctions.i18n("Cancel"),
+                    IsDestructive = true,
+                    Priority = -1
+                };
+
+                btCancel.Clicked += async (object sender, EventArgs e) =>
+                {
+                    await Navigation.PopToRootAsync();
+                };
+                this.ToolbarItems.Add(btCancel);
+            }
 
             if (item != null)
             {
@@ -53,21 +61,24 @@ namespace GodAndMe.Views
                         List<string> persons = await DependencyService.Get<IAddressBookInformation>().GetContacts();
 
                         IEnumerable<Intention> existingItems = await viewModel.IntentionDataStore.GetItemsAsync(true);
-                        var recentPersons =
-    from intension in existingItems
-    group intension by intension.Person into Intensions
-    select new
-    {
-        Name = Intensions.Key,
-        Count = Intensions.Count(),
-    };
+
+                        var recentPersons = from intension in existingItems
+                                            group intension by intension.Person into Intensions
+                                            select new
+                                            {
+                                                Name = Intensions.Key,
+                                                Count = Intensions.Count(),
+                                            };
                         persons.Insert(0, ChooseOther);
 
 
                         foreach (var person in recentPersons.OrderBy((arg) => arg.Count))
                         {
-                            persons.Remove(person.Name);
-                            persons.Insert(0, person.Name);
+                            if (persons.Any(x => x == person.Name))
+                            {
+                                persons.Remove(person.Name);
+                                persons.Insert(0, person.Name);
+                            }
                         }
                         if (recentPersons.Any())
                         {
@@ -134,15 +145,24 @@ namespace GodAndMe.Views
                     ddlStart.Focus();
                 });
             };
+
             btStart.IsEnabled = Item.Start != null;
             viewModel = new IntentionDetailViewModel(Item);
             viewModel.Title = title;
             BindingContext = viewModel;
         }
 
-        async void Cancel_Clicked(object sender, EventArgs e)
+        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            await Navigation.PopToRootAsync();
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                tbDescription.Focus();
+            });
+        }
+
+        void OnTextChanged(Object sender, TextChangedEventArgs e)
+        {
+            tbDescription.InvalidateLayout();
         }
 
         async void Save_Clicked(object sender, EventArgs e)

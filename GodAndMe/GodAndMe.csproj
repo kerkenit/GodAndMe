@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug iOS</Configuration>
@@ -95,6 +95,10 @@
           <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
         </EmbeddedResource>
         <EmbeddedResource Include="Views\PrayerPageNew.xaml">
+          <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Views\SettingsPage.xaml">
+          <SubType>Designer</SubType>
           <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
         </EmbeddedResource>
     </ItemGroup>
@@ -200,6 +204,11 @@
         <Compile Include="Services\PrayersDataStore.cs" />
         <Compile Include="Models\Prayers.cs" />
         <Compile Include="Extensions\StringExtensions.cs" />
+        <Compile Include="Extensions\EditorExtension.cs" />
+        <Compile Include="Interface\ISettings.cs" />
+        <Compile Include="Views\SettingsPage.xaml.cs">
+          <DependentUpon>SettingsPage.xaml</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml">
@@ -260,7 +269,6 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="project.json" />
-        <None Include="$(MSBuildThisFileDirectory)Extensions\BorderedEditor.cs" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="Xamarin.iOS">

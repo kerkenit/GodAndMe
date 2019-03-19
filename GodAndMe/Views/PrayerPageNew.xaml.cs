@@ -16,6 +16,22 @@ namespace GodAndMe.Views
         {
             InitializeComponent();
 
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                ToolbarItem btCancel = new ToolbarItem()
+                {
+                    Text = CommonFunctions.i18n("Cancel"),
+                    IsDestructive = true,
+                    Priority = -1
+                };
+
+                btCancel.Clicked += async (object sender, EventArgs e) =>
+                {
+                    await Navigation.PopToRootAsync();
+                };
+                this.ToolbarItems.Add(btCancel);
+            }
+
             Title = title;
             if (item != null)
             {
@@ -33,9 +49,17 @@ namespace GodAndMe.Views
             BindingContext = viewModel;
         }
 
-        async void Cancel_Clicked(object sender, EventArgs e)
+        void OnTapGestureRecognizerTapped(object sender, EventArgs args)
         {
-            await Navigation.PopToRootAsync();
+            Device.BeginInvokeOnMainThread(() =>
+           {
+               tbDescription.Focus();
+           });
+        }
+
+        void OnTextChanged(Object sender, TextChangedEventArgs e)
+        {
+            tbDescription.InvalidateLayout();
         }
 
         async void Save_Clicked(object sender, EventArgs e)

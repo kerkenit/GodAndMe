@@ -21,21 +21,20 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<DiaryPageNew, Diary>(this, "AddItem", async (obj, item) =>
             {
-                var newItem = item as Diary;
                 if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
                 {
                     Diary oldItem = Items.First(x => x.Id == item.Id);
                     Items.Remove(oldItem);
-                    Items.Add(newItem);
-                    await DiaryDataStore.UpdateItemAsync(newItem);
+                    Items.Add(item);
+                    await DiaryDataStore.UpdateItemAsync(item);
                 }
                 else
                 {
-                    if (!Items.Any(x => x.Id == newItem.Id))
+                    if (!Items.Any(x => x.Id == item.Id))
                     {
-                        Items.Add(newItem);
+                        Items.Add(item);
                     }
-                    await DiaryDataStore.AddItemAsync(newItem);
+                    await DiaryDataStore.AddItemAsync(item);
                 }
                 Items.OrderBy((arg) => arg.Start);
                 await ExecuteLoadItemsCommand();
@@ -50,9 +49,8 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<DiaryPage, Diary>(this, "DeleteItem", async (obj, item) =>
             {
-                var oldItem = item as Diary;
-                //Items.Remove(oldItem);
-                await DiaryDataStore.DeleteItemAsync(oldItem.Id);
+                //Items.Remove(item);
+                await DiaryDataStore.DeleteItemAsync(item.Id);
                 Items.OrderBy((arg) => arg.Start);
                 await ExecuteLoadItemsCommand();
             });

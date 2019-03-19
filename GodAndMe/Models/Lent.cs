@@ -21,7 +21,11 @@ namespace GodAndMe.Models
         {
             get
             {
-                return (MoneyFrom == null ? 0 : (double)MoneyFrom) - (MoneyTo == null ? 0 : (double)MoneyTo);
+                return ((MoneyFrom == null ? 0 : (double)MoneyFrom) - (MoneyTo == null ? 0 : (double)MoneyTo))
+#if DEBUG
+                    //   * (double)(new Random().Next(50, 100))
+#endif
+                    ;
             }
         }
 

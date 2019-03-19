@@ -206,7 +206,7 @@ namespace GodAndMe.Services
         {
             if (item != null)
             {
-                if (!string.IsNullOrEmpty(item.Description))
+                if (!string.IsNullOrWhiteSpace(item.Description))
                 {
                     if (items.Any(x => x.Id == item.Id))
                     {

@@ -4,7 +4,9 @@ using System.Reflection;
 using System.Threading.Tasks;
 using GodAndMe.DependencyServices;
 using GodAndMe.Views;
-#if __IOS__
+using MvvmCross.Platform;
+using Plugin.Fingerprint.Abstractions;
+#if __iOS__
 using UIKit;
 #endif
 using Xamarin.Forms;
@@ -16,7 +18,7 @@ namespace GodAndMe
     public partial class App : Application
     {
         static ITouchID touchId = DependencyService.Get<ITouchID>();
-#if __IOS__
+#if __iOS__
         static UIView unlockView;
 #endif
         bool appLocked = false;
@@ -101,7 +103,7 @@ namespace GodAndMe
                 // Handle when your app starts
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-#if __IOS__
+#if __iOS__
                     UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
                     if (unlockView != null)
@@ -117,18 +119,30 @@ namespace GodAndMe
                         Blur();
                     }
 #endif
+                    IFingerprint fingerPrintService = Mvx.Resolve<IFingerprint>(); // or use dependency injection and inject IFingerprint
 
-                    bool _authenticatedWithTouchID = await touchId.AuthenticateUserIDWithTouchID();
-                    if (_authenticatedWithTouchID)
+                    FingerprintAuthenticationResult result = await fingerPrintService.AuthenticateAsync(CommonFunctions.i18n("UnlockToOpenGodAndMe"));
+                    if (result.Authenticated)
                     {
                         Sharpen();
                         taskSource.SetResult(false);
                     }
-                    else
-                    {
-                        Unlock();
-                        taskSource.SetResult(true);
-                    }
+                    //else
+                    //{
+                    //    Unlock();
+                    //    taskSource.SetResult(true);
+                    //}
+                    //bool _authenticatedWithTouchID = await touchId.AuthenticateUserIDWithTouchID();
+                    //if (_authenticatedWithTouchID)
+                    //{
+                    //    Sharpen();
+                    //    taskSource.SetResult(false);
+                    //}
+                    //else
+                    //{
+                    //    Unlock();
+                    //    taskSource.SetResult(true);
+                    //}
                 });
             }
             else
@@ -142,7 +156,7 @@ namespace GodAndMe
         {
             if (!justShowedUnlockView)
             {
-#if __IOS__
+#if __iOS__
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
@@ -163,7 +177,7 @@ namespace GodAndMe
         public static void Sharpen()
         {
             justShowedUnlockView = true;
-#if __IOS__
+#if __iOS__
             Device.BeginInvokeOnMainThread(() =>
             {
                 UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
@@ -188,7 +202,7 @@ namespace GodAndMe
         private static void Unlock()
         {
             justShowedUnlockView = true;
-#if __IOS__
+#if __iOS__
             Device.BeginInvokeOnMainThread(() =>
             {
                 UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;

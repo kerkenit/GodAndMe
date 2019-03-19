@@ -5,6 +5,6 @@ namespace GodAndMe.Interface
 {
     public interface IShare
     {
-        Task Show(string title, string message, string url);
+        Task Show(string title, string message, string url, string app);
     }
 }

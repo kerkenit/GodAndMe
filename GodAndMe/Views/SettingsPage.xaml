@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:i18n="clr-namespace:GodAndMe"
+             xmlns:local="clr-namespace:GodAndMe"
+             xmlns:resX="clr-namespace:GodAndMe.Resx"
+             x:Class="GodAndMe.Views.SettingsPage"
+             Title="{resX:TranslateExtension Settings}">
+    <ContentPage.Content>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection x:Name="tblCommon">
+                    <SwitchCell x:Name="TouchIDEnabled" Text="{resX:TranslateExtension TouchIDEnabled}" />
+                    <EntryCell x:Name="MyName" Label="{resX:TranslateExtension MyName}" />
+                </TableSection>
+                <TableSection Title="{resX:TranslateExtension Contacts}">
+                    <SwitchCell x:Name="OrderBy" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

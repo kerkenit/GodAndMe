@@ -21,21 +21,20 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<LentPageNew, Lent>(this, "AddItem", async (obj, item) =>
             {
-                var newLent = item as Lent;
                 if (Lent.Count > 0 && Lent.Any(x => x.Id == item.Id))
                 {
                     Lent oldLent = Lent.First(x => x.Id == item.Id);
                     Lent.Remove(oldLent);
-                    Lent.Add(newLent);
-                    await LentDataStore.UpdateItemAsync(newLent);
+                    Lent.Add(item);
+                    await LentDataStore.UpdateItemAsync(item);
                 }
                 else
                 {
-                    if (!Lent.Any(x => x.Id == newLent.Id))
+                    if (!Lent.Any(x => x.Id == item.Id))
                     {
-                        Lent.Add(newLent);
+                        Lent.Add(item);
                     }
-                    await LentDataStore.AddItemAsync(newLent);
+                    await LentDataStore.AddItemAsync(item);
                 }
                 Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
                 await ExecuteLoadItemsCommand();
@@ -50,21 +49,19 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<LentPage, Lent>(this, "DeleteItem", async (obj, item) =>
             {
-                Lent oldLent = item as Lent;
-                Lent.Remove(oldLent);
-                await LentDataStore.DeleteItemAsync(oldLent.Id);
+                Lent.Remove(item);
+                await LentDataStore.DeleteItemAsync(item.Id);
                 Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
                 await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<LentPageNew, Lent>(this, "GetItem", async (obj, item) =>
             {
-                Lent oldLent = item as Lent;
-                if (Lent.Any((arg) => arg.Id == oldLent.Id))
+                if (Lent.Any((arg) => arg.Id == item.Id))
                 {
-                    Lent.Remove(oldLent);
+                    Lent.Remove(item);
                 }
-                Lent.Add(await LentDataStore.GetItemAsync(oldLent.Id));
+                Lent.Add(await LentDataStore.GetItemAsync(item.Id));
                 Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
             });
         }

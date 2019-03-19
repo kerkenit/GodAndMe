@@ -15,6 +15,11 @@ namespace GodAndMe.Views
         public SinsPage()
         {
             InitializeComponent();
+
+            App.justUnlocked = true;
+            App.justShowedUnlockView = false;
+            App.AuthenticatedWithTouchID();
+
             if (Device.RuntimePlatform == Device.iOS)
             {
                 var toolbarItem = new ToolbarItem();

@@ -21,20 +21,27 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<IntentionPageNew, Intention>(this, "AddItem", async (obj, item) =>
             {
-                var newItem = item as Intention;
-                if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
+                if (!string.IsNullOrWhiteSpace(item.Description))
                 {
-                    Intention oldItem = Items.First(x => x.Id == item.Id);
-                    Items[Items.IndexOf(oldItem)] = newItem;
-                    await IntentionDataStore.UpdateItemAsync(newItem);
-                }
-                else
-                {
-                    if (!Items.Any(x => x.Id == newItem.Id))
+                    if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
                     {
-                        Items.Add(newItem);
+                        Intention oldItem = Items.First(x => x.Id == item.Id);
+                        Items[Items.IndexOf(oldItem)] = item;
+                        await IntentionDataStore.UpdateItemAsync(item);
                     }
-                    await IntentionDataStore.AddItemAsync(newItem);
+                    else
+                    {
+                        if (!Items.Any(x => x.Id == item.Id))
+                        {
+                            Items.Add(item);
+                        }
+                        await IntentionDataStore.AddItemAsync(item);
+                    }
+                }
+                if (string.IsNullOrWhiteSpace(item.Description) && string.IsNullOrWhiteSpace(item.Person) && item.Start == null)
+                {
+                    Items.Remove(item);
+                    await IntentionDataStore.DeleteItemAsync(item.Id);
                 }
                 Items.OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start);
                 //await ExecuteLoadItemsCommand();
@@ -42,34 +49,39 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<IntentionPage, Intention>(this, "UpdateItem", async (obj, item) =>
             {
-                var newItem = item as Intention;
-                if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
+                if (!string.IsNullOrWhiteSpace(item.Description))
                 {
-                    Intention oldItem = Items.First(x => x.Id == item.Id);
-                    Items[Items.IndexOf(oldItem)] = newItem;
+                    if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
+                    {
+                        Intention oldItem = Items.First(x => x.Id == item.Id);
+                        Items[Items.IndexOf(oldItem)] = item;
+                    }
+                    await IntentionDataStore.UpdateItemAsync(item);
                 }
-                await IntentionDataStore.UpdateItemAsync(item);
+                if (string.IsNullOrWhiteSpace(item.Description) && string.IsNullOrWhiteSpace(item.Person) && item.Start == null)
+                {
+                    Items.Remove(item);
+                    await IntentionDataStore.DeleteItemAsync(item.Id);
+                }
                 Items.OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start);
                 //await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<IntentionPage, Intention>(this, "DeleteItem", async (obj, item) =>
             {
-                var oldItem = item as Intention;
-                Items.Remove(oldItem);
-                await IntentionDataStore.DeleteItemAsync(oldItem.Id);
+                Items.Remove(item);
+                await IntentionDataStore.DeleteItemAsync(item.Id);
                 Items.OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start);
                 //await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<IntentionPageNew, Intention>(this, "GetItem", async (obj, item) =>
             {
-                var oldItem = item as Intention;
-                if (Items.Any((arg) => arg.Id == oldItem.Id))
+                if (Items.Any((arg) => arg.Id == item.Id))
                 {
-                    Items.Remove(oldItem);
+                    Items.Remove(item);
                 }
-                Items.Add(await IntentionDataStore.GetItemAsync(oldItem.Id));
+                Items.Add(await IntentionDataStore.GetItemAsync(item.Id));
                 Items.OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start);
             });
         }

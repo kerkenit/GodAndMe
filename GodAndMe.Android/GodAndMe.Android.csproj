@@ -80,6 +80,7 @@
     <Compile Include="Interface\TouchID_Android.cs" />
     <Compile Include="Interface\AddressBookInformation_Android.cs" />
     <Compile Include="Helpers\PermissionUtil.cs" />
+    <Compile Include="Interface\Settings_Android.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -135,7 +136,6 @@
     <AndroidResource Include="Resources\drawable-ldpi\trash.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\contact.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\delete.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\locked.gif" />
     <AndroidResource Include="Resources\drawable-xhdpi\tab_about.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\tab_diary.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\tab_intention.png" />
@@ -158,6 +158,25 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\tab_lent.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\trash.png" />
     <AndroidResource Include="Resources\drawable\hamburger.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\tab_prayers.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\tab_settings.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\tab_sins.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_prayers.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_settings.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_sins.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_prayers.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_settings.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\tab_sins.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\locked.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_prayers.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_settings.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_sins.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_prayers.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_settings.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_sins.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\tab_prayers.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\tab_settings.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\tab_sins.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />

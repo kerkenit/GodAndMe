@@ -8,7 +8,7 @@
 			<key>Key</key>
 			<string>touchIDKey</string>
 			<key>Title</key>
-			<string>Touch-ID Enabled</string>
+			<string>TouchIDEnabled</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>DefaultValue</key>
@@ -50,8 +50,6 @@
 				<integer>2</integer>
 			</array>
 		</dict>
-
-
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>
