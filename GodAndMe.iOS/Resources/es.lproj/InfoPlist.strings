@@ -1,2 +1,3 @@
 "CFBundleDisplayName" = "Dios & Yo";
 "NSContactsUsageDescription" = "para seleccionar el nombre y apellido de tus contactos.";
+"NSMotionUsageDescription" = "para ver tu comunicación personal con Dios.";

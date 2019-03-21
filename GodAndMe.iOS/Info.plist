@@ -36,6 +36,8 @@
 	<string>0.1</string>
 	<key>NSContactsUsageDescription</key>
 	<string>To select the first and last name of your contacts</string>
+	<key>NSMotionUsageDescription</key>
+	<string>to see your personal communication with God.</string>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
