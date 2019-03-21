@@ -24,6 +24,12 @@ namespace GodAndMe.Views
                     ((MasterDetailPage)App.Current.MainPage).IsPresented = true;
                 };
                 ToolbarItems.Add(toolbarItem);
+                tblCommon.Remove(MyName);
+            }
+            else
+            {
+                tblCommon.Remove(TouchIDEnabled);
+                tblCommon.Remove(MyName);
             }
 
             tblCommon.Title = string.Format("{0}-{1}", CommonFunctions.i18n("ApplicationTitle"), CommonFunctions.i18n("Settings"));
