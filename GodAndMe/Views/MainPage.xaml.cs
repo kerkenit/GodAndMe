@@ -91,7 +91,7 @@ namespace GodAndMe.Views
             {
                 sender = JsonConvert.DeserializeObject(StringExtensions.Base64Decode(base64), typeof(Intention));
             }
-            catch (Exception ex)
+            catch
             {
                 sender = null;
             }
@@ -107,7 +107,7 @@ namespace GodAndMe.Views
 
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 sender = null;
             }

@@ -33,7 +33,7 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleVersion</key>
-	<string>0.1</string>
+	<string>0.9</string>
 	<key>NSContactsUsageDescription</key>
 	<string>To select the first and last name of your contacts</string>
 	<key>NSMotionUsageDescription</key>
@@ -48,18 +48,6 @@
 	<string>en</string>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
-	<key>NSUbiquitousContainerIsDocumentScopePublic</key>
-	<dict>
-		<key>iCloud.nl.kerkenit.God-and-me</key>
-		<dict>
-			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
-			<true/>
-			<key>NSUbiquitousContainerSupportedFolderLevels</key>
-			<string>Any</string>
-			<key>NSUbiquitousContainerName</key>
-			<string>God &amp; Me</string>
-		</dict>
-	</dict>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

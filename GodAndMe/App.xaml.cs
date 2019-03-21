@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Drawing;
 using System.Reflection;
 using System.Threading.Tasks;
 using GodAndMe.DependencyServices;
 using GodAndMe.Views;
-using MvvmCross.Platform;
-using Plugin.Fingerprint.Abstractions;
 #if __iOS__
 using UIKit;
 #endif
@@ -119,30 +116,18 @@ namespace GodAndMe
                         Blur();
                     }
 #endif
-                    IFingerprint fingerPrintService = Mvx.Resolve<IFingerprint>(); // or use dependency injection and inject IFingerprint
 
-                    FingerprintAuthenticationResult result = await fingerPrintService.AuthenticateAsync(CommonFunctions.i18n("UnlockToOpenGodAndMe"));
-                    if (result.Authenticated)
+                    bool _authenticatedWithTouchID = await touchId.AuthenticateUserIDWithTouchID();
+                    if (_authenticatedWithTouchID)
                     {
                         Sharpen();
                         taskSource.SetResult(false);
                     }
-                    //else
-                    //{
-                    //    Unlock();
-                    //    taskSource.SetResult(true);
-                    //}
-                    //bool _authenticatedWithTouchID = await touchId.AuthenticateUserIDWithTouchID();
-                    //if (_authenticatedWithTouchID)
-                    //{
-                    //    Sharpen();
-                    //    taskSource.SetResult(false);
-                    //}
-                    //else
-                    //{
-                    //    Unlock();
-                    //    taskSource.SetResult(true);
-                    //}
+                    else
+                    {
+                        Unlock();
+                        taskSource.SetResult(true);
+                    }
                 });
             }
             else
