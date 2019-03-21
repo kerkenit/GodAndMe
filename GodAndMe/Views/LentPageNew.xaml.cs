@@ -52,6 +52,26 @@ namespace GodAndMe.Views
             viewModel = new LentDetailViewModel(Item);
             viewModel.Title = title;
             BindingContext = viewModel;
+            tbMoneyTo.Focused += (object sender, FocusEventArgs e) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    if (tbMoneyTo.Text == string.Format("{0:C}", 0))
+                    {
+                        tbMoneyTo.Text = string.Empty;
+                    }
+                });
+            };
+            tbMoneyTo.Unfocused += (object sender, FocusEventArgs e) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    if (tbMoneyTo.Text == string.Empty)
+                    {
+                        tbMoneyTo.Text = string.Format("{0:C}", 0);
+                    }
+                });
+            };
             Device.BeginInvokeOnMainThread(() =>
            {
                tbMoneyFrom.Focus();
