@@ -21,7 +21,7 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<IntentionPageNew, Intention>(this, "AddItem", async (obj, item) =>
             {
-                if (!string.IsNullOrWhiteSpace(item.Description))
+                if (!string.IsNullOrWhiteSpace(item.Description) || !string.IsNullOrWhiteSpace(item.Person))
                 {
                     if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
                     {
@@ -49,7 +49,7 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<IntentionPage, Intention>(this, "UpdateItem", async (obj, item) =>
             {
-                if (!string.IsNullOrWhiteSpace(item.Description))
+                if (!string.IsNullOrWhiteSpace(item.Description) || !string.IsNullOrWhiteSpace(item.Person))
                 {
                     if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
                     {

@@ -206,7 +206,7 @@ namespace GodAndMe.Services
         {
             if (item != null)
             {
-                if (!string.IsNullOrWhiteSpace(item.Description))
+                if (!string.IsNullOrWhiteSpace(item.Description) || !string.IsNullOrWhiteSpace(item.Person))
                 {
                     if (items.Any(x => x.Id == item.Id))
                     {
@@ -214,7 +214,7 @@ namespace GodAndMe.Services
                     }
                     else
                     {
-                        db.Insert(item); // after creating the newStock object
+                        db.Insert(item);
                         items.Add(item);
                     }
                     return await Task.FromResult(true);
