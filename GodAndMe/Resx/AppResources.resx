@@ -192,6 +192,9 @@
     <data name="TouchIDEnabled" xml:space="preserve">
         <value>Touch-ID enabled</value>
     </data>
+    <data name="UnlockToOpenGodAndMe" xml:space="preserve">
+        <value>Unlock to open God &amp; Me</value>
+    </data>
     <data name="WouldYouPrayForX" xml:space="preserve">
         <value>Would you pray for {0}?</value>
     </data>
