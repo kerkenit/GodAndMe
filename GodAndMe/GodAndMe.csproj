@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug iOS</Configuration>
@@ -10,6 +10,7 @@
         <AssemblyName>GodAndMe</AssemblyName>
         <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
         <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+        <ReleaseVersion>0.9</ReleaseVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug iOS|AnyCPU' ">
         <DebugSymbols>true</DebugSymbols>
@@ -159,7 +160,6 @@
         <Compile Include="Interface\IDatabase­Connection.cs" />
         <Compile Include="Interface\IAddressBookInformation.cs" />
         <Compile Include="Interface\IShare.cs" />
-        <Compile Include="Helpers\Settings.cs" />
         <Compile Include="Views\LentPage.xaml.cs">
             <DependentUpon>LentPage.xaml</DependentUpon>
         </Compile>
@@ -209,6 +209,7 @@
         <Compile Include="Views\SettingsPage.xaml.cs">
           <DependentUpon>SettingsPage.xaml</DependentUpon>
         </Compile>
+        <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml">
@@ -277,6 +278,7 @@
         <Reference Include="Mono.Android">
             <HintPath>..\..\..\..\..\..\..\Library\Frameworks\Xamarin.Android.framework\Versions\9.1.8-0\lib\xamarin.android\xbuild-frameworks\MonoAndroid\v8.1\Mono.Android.dll</HintPath>
         </Reference>
+        <None Include="Helpers\Settings.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
