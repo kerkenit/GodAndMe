@@ -27,6 +27,14 @@ namespace GodAndMe.Models
             }
         }
 
+        public bool EmptyPerson
+        {
+            get
+            {
+                return !string.IsNullOrWhiteSpace(Person);
+            }
+        }
+
         public bool EmptyDate
         {
             get
@@ -35,6 +43,12 @@ namespace GodAndMe.Models
             }
         }
 
-
+        public bool EmptyDescription
+        {
+            get
+            {
+                return !string.IsNullOrWhiteSpace(Description);
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:i18n="clr-namespace:GodAndMe"
@@ -35,9 +35,9 @@
                                 </MenuItem>
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Person}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Medium" FontAttributes="Bold" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Person}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Medium" FontAttributes="Bold" TextColor="{Binding TextColor}" IsVisible="{Binding EmptPerson}" />
                                 <Label Text="{Binding Start, StringFormat='{0:D}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" TextColor="{Binding TextColor}" IsVisible="{Binding EmptyDate}" />
-                                <Label Text="{Binding Description}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Description}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" TextColor="{Binding TextColor}" IsVisible="{Binding EmptyDescription}" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
