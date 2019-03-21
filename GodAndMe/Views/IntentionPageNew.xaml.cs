@@ -71,16 +71,17 @@ namespace GodAndMe.Views
                                             };
                         persons.Insert(0, ChooseOther);
 
-
+                        bool anyRecentPersons = false;
                         foreach (var person in recentPersons.OrderBy((arg) => arg.Count))
                         {
                             if (persons.Any(x => x == person.Name))
                             {
                                 persons.Remove(person.Name);
                                 persons.Insert(0, person.Name);
+                                anyRecentPersons = true;
                             }
                         }
-                        if (recentPersons.Any())
+                        if (anyRecentPersons)
                         {
                             persons.Insert(0, ChooseRecent);
                         }
