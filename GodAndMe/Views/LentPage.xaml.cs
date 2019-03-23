@@ -36,7 +36,7 @@ namespace GodAndMe.Views
                 return;
 
             await Navigation.PushAsync(new LentDetailPage(new LentDetailViewModel(item)));
-            GetTitle();
+            GetPageTitle();
             // Manually deselect item.
             LentListView.SelectedItem = null;
         }
@@ -44,7 +44,7 @@ namespace GodAndMe.Views
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LentPageNew(CommonFunctions.i18n("AddSavings")));
-            GetTitle();
+            GetPageTitle();
         }
 
         public void OnDuplicate(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace GodAndMe.Views
                 Text = oldItem.Text
             };
             MessagingCenter.Send(this, "AddItem", newItem);
-            GetTitle();
+            GetPageTitle();
         }
 
         public void OnDelete(object sender, EventArgs e)
@@ -69,10 +69,10 @@ namespace GodAndMe.Views
             var item = viewModel.Lent.First(x => x.Id == mi.CommandParameter.ToString()) as Lent;
             MessagingCenter.Send(this, "DeleteItem", item);
             viewModel.Lent.Remove(item);
-            GetTitle();
+            GetPageTitle();
         }
 
-        private void GetTitle()
+        private void GetPageTitle()
         {
             if (viewModel.Lent.Count > 0)
             {
@@ -92,7 +92,7 @@ namespace GodAndMe.Views
             {
                 viewModel.LoadLentCommand.Execute(null);
             }
-            GetTitle();
+            GetPageTitle();
         }
     }
 }
