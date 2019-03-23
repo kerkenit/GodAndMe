@@ -63,6 +63,9 @@
     <data name="DownloadApp" xml:space="preserve">
         <value>Descargue la aplicación Dios &amp; Yo a través de http://onelink.to/godandme</value>
     </data>
+    <data name="Duplicate" xml:space="preserve">
+        <value>Duplicado</value>
+    </data>
     <data name="Edit" xml:space="preserve">
         <value>Editar</value>
     </data>

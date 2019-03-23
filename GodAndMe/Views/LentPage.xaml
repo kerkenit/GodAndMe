@@ -23,6 +23,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
+                                <MenuItem x:Name="Duplicate" Clicked="OnDuplicate" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Duplicate}" IsDestructive="false" />
+
                                 <MenuItem x:Name="Delete" Clicked="OnDelete" CommandParameter="{Binding Id}" Icon="trash.png" Text="{resX:TranslateExtension Delete}" IsDestructive="True">
                                     <MenuItem.Icon>
                                         <OnPlatform x:TypeArguments="FileImageSource">

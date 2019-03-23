@@ -149,6 +149,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string Duplicate {
+            get {
+                return ResourceManager.GetString("Duplicate", resourceCulture);
+            }
+        }
+        
         internal static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);

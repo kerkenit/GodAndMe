@@ -40,6 +40,27 @@ namespace GodAndMe.ViewModels
                 await ExecuteLoadItemsCommand();
             });
 
+            MessagingCenter.Subscribe<LentPage, Lent>(this, "AddItem", async (obj, item) =>
+            {
+                if (Lent.Count > 0 && Lent.Any(x => x.Id == item.Id))
+                {
+                    Lent oldLent = Lent.First(x => x.Id == item.Id);
+                    Lent.Remove(oldLent);
+                    Lent.Add(item);
+                    await LentDataStore.UpdateItemAsync(item);
+                }
+                else
+                {
+                    if (!Lent.Any(x => x.Id == item.Id))
+                    {
+                        Lent.Add(item);
+                    }
+                    await LentDataStore.AddItemAsync(item);
+                }
+                Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+                await ExecuteLoadItemsCommand();
+            });
+
             MessagingCenter.Subscribe<LentPage, Lent>(this, "UpdateItem", async (obj, item) =>
             {
                 await LentDataStore.UpdateItemAsync(item);

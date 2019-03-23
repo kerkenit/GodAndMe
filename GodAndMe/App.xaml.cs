@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using GodAndMe.DependencyServices;
 using GodAndMe.Views;
-#if __iOS__
+#if __IOS__
 using UIKit;
 #endif
 using Xamarin.Forms;
@@ -15,7 +15,7 @@ namespace GodAndMe
     public partial class App : Application
     {
         static ITouchID touchId = DependencyService.Get<ITouchID>();
-#if __iOS__
+#if __IOS__
         static UIView unlockView;
 #endif
         bool appLocked = false;
@@ -100,7 +100,7 @@ namespace GodAndMe
                 // Handle when your app starts
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-#if __iOS__
+#if __IOS__
                     UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
                     if (unlockView != null)
@@ -141,7 +141,7 @@ namespace GodAndMe
         {
             if (!justShowedUnlockView)
             {
-#if __iOS__
+#if __IOS__
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
@@ -162,7 +162,7 @@ namespace GodAndMe
         public static void Sharpen()
         {
             justShowedUnlockView = true;
-#if __iOS__
+#if __IOS__
             Device.BeginInvokeOnMainThread(() =>
             {
                 UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
@@ -187,7 +187,7 @@ namespace GodAndMe
         private static void Unlock()
         {
             justShowedUnlockView = true;
-#if __iOS__
+#if __IOS__
             Device.BeginInvokeOnMainThread(() =>
             {
                 UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;

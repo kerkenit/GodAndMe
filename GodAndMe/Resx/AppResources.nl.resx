@@ -63,6 +63,9 @@
     <data name="DownloadApp" xml:space="preserve">
         <value>Download de God &amp; Ik app via http://onelink.to/godandme</value>
     </data>
+    <data name="Duplicate" xml:space="preserve">
+        <value>Dupliceren</value>
+    </data>
     <data name="Edit" xml:space="preserve">
         <value>Wijzig</value>
     </data>

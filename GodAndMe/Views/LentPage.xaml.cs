@@ -36,7 +36,7 @@ namespace GodAndMe.Views
                 return;
 
             await Navigation.PushAsync(new LentDetailPage(new LentDetailViewModel(item)));
-
+            GetTitle();
             // Manually deselect item.
             LentListView.SelectedItem = null;
         }
@@ -44,18 +44,44 @@ namespace GodAndMe.Views
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LentPageNew(CommonFunctions.i18n("AddSavings")));
+            GetTitle();
+        }
+
+        public void OnDuplicate(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            Lent oldItem = viewModel.Lent.First(x => x.Id == mi.CommandParameter.ToString());
+            Lent newItem = new Lent()
+            {
+                Id = Guid.NewGuid().ToString(),
+                Start = DateTime.Now,
+                MoneyFrom = oldItem.MoneyFrom,
+                MoneyTo = oldItem.MoneyTo,
+                Text = oldItem.Text
+            };
+            MessagingCenter.Send(this, "AddItem", newItem);
+            GetTitle();
         }
 
         public void OnDelete(object sender, EventArgs e)
         {
-            //viewModel.IsBusy = true;
-
             var mi = ((MenuItem)sender);
             var item = viewModel.Lent.First(x => x.Id == mi.CommandParameter.ToString()) as Lent;
             MessagingCenter.Send(this, "DeleteItem", item);
             viewModel.Lent.Remove(item);
+            GetTitle();
+        }
 
-            //viewModel.IsBusy = false;
+        private void GetTitle()
+        {
+            if (viewModel.Lent.Count > 0)
+            {
+                double SavedMoney = viewModel.Lent.Where((arg) => arg.Start.Year == DateTime.Today.Year).Sum((arg) => arg.SavedMoney);
+                if (SavedMoney > 0)
+                {
+                    Title = string.Format(CommonFunctions.i18n("SavedXThisYear"), SavedMoney);
+                }
+            }
         }
 
         protected override void OnAppearing()
@@ -66,14 +92,7 @@ namespace GodAndMe.Views
             {
                 viewModel.LoadLentCommand.Execute(null);
             }
-            if (viewModel.Lent.Count > 0)
-            {
-                double SavedMoney = viewModel.Lent.Where((arg) => arg.Start.Year == DateTime.Today.Year).Sum((arg) => arg.SavedMoney);
-                if (SavedMoney > 0)
-                {
-                    Title = string.Format(CommonFunctions.i18n("SavedXThisYear"), SavedMoney);
-                }
-            }
+            GetTitle();
         }
     }
 }
