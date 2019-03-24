@@ -13,7 +13,6 @@
         <ReleaseVersion>0.9</ReleaseVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-      <DebugType>full</DebugType>
       <OutputPath>bin\Debug</OutputPath>
       <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;DEBUG</DefineConstants>
     </PropertyGroup>

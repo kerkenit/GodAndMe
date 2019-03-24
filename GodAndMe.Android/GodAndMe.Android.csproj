@@ -28,7 +28,7 @@
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;__ANDROID__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
 <AndroidSigningKeyStore>/Users/marcovantklooster/Sites/DESIGN/God and Me/4 Aangeleverde content/GodAndMe.keystore</AndroidSigningKeyStore>
@@ -40,10 +40,13 @@
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>__ANDROID__;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
 <AndroidSupportedAbis>armeabi-v7a;arm64-v8a;x86;x86_64</AndroidSupportedAbis>
 <AndroidLinkSkip>GodAndMe</AndroidLinkSkip>
+<AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -143,7 +146,6 @@
     <AndroidResource Include="Resources\drawable-ldpi\tab_diary.png" />
     <AndroidResource Include="Resources\drawable-ldpi\tab_intention.png" />
     <AndroidResource Include="Resources\drawable-ldpi\tab_lent.png" />
-    <AndroidResource Include="Resources\drawable-ldpi\trash.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\contact.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\delete.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\tab_about.png" />
@@ -196,6 +198,7 @@
     <AndroidResource Include="Resources\drawable\tab_intention.png" />
     <AndroidResource Include="Resources\drawable\tab_lent.png" />
     <AndroidResource Include="Resources\drawable\trash.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\trash.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />

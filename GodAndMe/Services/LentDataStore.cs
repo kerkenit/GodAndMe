@@ -20,91 +20,36 @@ namespace GodAndMe.Services
             db.CreateTable<Lent>();
             items = db.Table<Lent>().ToList();
             items = items.OrderBy((arg) => arg.Start).ToList();
-#if DEBUG
+
             if (CommonFunctions.SCREENSHOT)
             {
                 db.DeleteAll<Lent>();
-                switch (System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.ToLower())
-                {
-                    case "nl":
-                        db.InsertAll(new List<Lent> {
-                            new Lent {
-                                Id = Guid.NewGuid().ToString(),
-                                Text = "Boter",
-                                MoneyFrom = 2.23,
-                                MoneyTo = 2.03,
-                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(1)
-                            },
-                            new Lent {
-                                Id = Guid.NewGuid().ToString(),
-                                Text = "Kaas",
-                                MoneyFrom = 1.03,
-                                MoneyTo = 0.00,
-                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(2)
-                            },
-                                new Lent {
-                                Id = Guid.NewGuid().ToString(),
-                                Text = "Eieren",
-                                MoneyFrom = 1.03,
-                                MoneyTo = 0.00,
-                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(3)
-                            },
-                        });
-                        break;
-                    case "en":
-                        db.InsertAll(new List<Lent> {
-                            new Lent {
-                                Id = Guid.NewGuid().ToString(),
-                                Text = "Butter",
-                                MoneyFrom = 2.23,
-                                MoneyTo = 2.03,
-                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(1)
-                            },
-                            new Lent {
-                                Id = Guid.NewGuid().ToString(),
-                                Text = "Cheese",
-                                MoneyFrom = 1.03,
-                                MoneyTo = 0.00,
-                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(2)
-                            },
-                            new Lent {
-                                Id = Guid.NewGuid().ToString(),
-                                Text = "Eggs",
-                                MoneyFrom = 1.03,
-                                MoneyTo = 0.00,
-                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(3)
-                            },
-                        });
-                        break;
-                    case "es":
-                        db.InsertAll(new List<Lent> {
-                            new Lent {
-                                Id = Guid.NewGuid().ToString(),
-                                Text = "Mantequilla",
-                                MoneyFrom = 2.23,
-                                MoneyTo = 2.03,
-                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(1)
-                            },
-                            new Lent {
-                                Id = Guid.NewGuid().ToString(),
-                                Text = "Queso",
-                                MoneyFrom = 1.03,
-                                MoneyTo = 0.00,
-                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(2)
-                            },
-                            new Lent {
-                                Id = Guid.NewGuid().ToString(),
-                                Text = "Huevos",
-                                MoneyFrom = 1.03,
-                                MoneyTo = 0.00,
-                                Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(3)
-                            },
-                        });
-                        break;
-                }
+                db.InsertAll(new List<Lent> {
+                    new Lent {
+                        Id = Guid.NewGuid().ToString(),
+                        Text = CommonFunctions.i18n("SCREENSHOT_Lent_1_Text"),
+                        MoneyFrom = ((double)new Random().Next(150, 300)) / 100,
+                        MoneyTo = ((double)new Random().Next(0, 100)) / 100,
+                        Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(1)
+                    },
+                    new Lent {
+                        Id = Guid.NewGuid().ToString(),
+                        Text = CommonFunctions.i18n("SCREENSHOT_Lent_2_Text"),
+                        MoneyFrom = ((double)new Random().Next(200, 400)) / 100,
+                        MoneyTo = 0.00,
+                        Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(2)
+                    },
+                    new Lent {
+                        Id = Guid.NewGuid().ToString(),
+                        Text = CommonFunctions.i18n("SCREENSHOT_Lent_3_Text"),
+                        MoneyFrom = ((double)new Random().Next(50, 300)) / 100,
+                        MoneyTo = 0.00,
+                        Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(3)
+                    },
+                });
 
             }
-
+#if DEBUG
             else if (true && items.Count == 0)
             {
                 db.InsertAll(new List<Lent>

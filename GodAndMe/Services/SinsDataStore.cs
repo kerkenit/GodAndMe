@@ -21,76 +21,29 @@ namespace GodAndMe.Services
             db.CreateTable<Sins>();
             items = db.Table<Sins>().ToList();
             items = items.OrderBy((arg) => arg.Start).ToList();
-#if DEBUG
+
             if (CommonFunctions.SCREENSHOT)
             {
                 db.DeleteAll<Sins>();
-                switch (System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.ToLower())
-                {
-                    case "nl":
-                        db.InsertAll(new List<Sins> {
-                            new Sins {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Boos geworden",
-                                Start= DateTime.Today.AddDays(-1)
-                            },
-                            new Sins {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Te lang in bed gelegen",
-                                Start= DateTime.Today.AddDays(-2)
-                            },
-
-                            new Sins {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Niet goed voor de schepping gezorgd",
-                                Start= DateTime.Today.AddDays(-3)
-                            },
-                        });
-                        break;
-                    case "en":
-                        db.InsertAll(new List<Sins> {
-                           new Sins {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Become angry",
-                                Start= DateTime.Today.AddDays(-1)
-                            },
-                            new Sins {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Lying in bed too long",
-                                Start= DateTime.Today.AddDays(-2)
-                            },
-
-                            new Sins {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Not well taken care of God's creation",
-                                Start= DateTime.Today.AddDays(-3)
-                            },
-                        });
-                        break;
-                    case "es":
-                        db.InsertAll(new List<Sins> {
-                            new Sins {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Enfadarse",
-                                Start= DateTime.Today.AddDays(-1)
-                            },
-                            new Sins {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Acostado en la cama demasiado tiempo",
-                                Start= DateTime.Today.AddDays(-2)
-                            },
-
-                            new Sins {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Not well taken care of creation",
-                                Start= DateTime.Today.AddDays(-3)
-                            },
-                        });
-                        break;
-                }
-
+                db.InsertAll(new List<Sins> {
+                    new Sins {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Sins_1_Description"),
+                        Start= DateTime.Today.AddDays(-1)
+                    },
+                    new Sins {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Sins_2_Description"),
+                        Start = DateTime.Today.AddDays(-2)
+                    },
+                    new Sins {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Sins_3_Description"),
+                        Start = DateTime.Today.AddDays(-3)
+                    },
+                });
             }
-
+#if DEBUG
             else if (true && items.Count == 0)
             {
                 //db.InsertAll(new List<Sins> { new Sins { Id = Guid.NewGuid().ToString(), Start=new DateTime(2019,3,12, 8,50,0), Description="Bewuster het Onze Vader bidden en mij dat diep op mij in laten werken. Dus niet snel opriedelen, maar met het hart bidden." },

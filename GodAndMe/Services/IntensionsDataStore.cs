@@ -21,94 +21,35 @@ namespace GodAndMe.Services
             items = db.Table<Intention>().ToList();
             items = items.OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start).ToList();
 
-#if DEBUG
+
             if (CommonFunctions.SCREENSHOT)
             {
                 db.DeleteAll<Intention>();
-                switch (System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.ToLower())
-                {
-                    case "nl":
-                        db.InsertAll(new List<Intention> {
-                            new Intention {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Om verlichting van de Heilige Geest bij de afgelopen synode over het sexueel misbruik bij minderjarige",
-                                Person="Paus Fransiscus",
-                                Completed=true,
-                                Start= new DateTime(2019,2,25)
-                            },
-                            new Intention {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Voor een spoedig herstel na de zware operatie",
-                                Person="Jan Jansen",
-                                Completed=false,
-                                Start= DateTime.Today.AddDays(-9)
-                            },
-
-                            new Intention {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Dat ze kracht naar kruis mag krijgen en het lijden mag aanvaarden",
-                                Person="Mama",
-                                Completed=false,
-                                Start= null
-                            }
-                        });
-                        break;
-                    case "en":
-                        db.InsertAll(new List<Intention> {
-                            new Intention {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="To enlighten the Holy Spirit at the last synod about the sexual abuse of children",
-                                Person="Pope Francis",
-                                Completed=true,
-                                Start= new DateTime(2019,2,25)
-                            },
-                            new Intention {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="For a speedy recovery after the major operation",
-                                Person="John Doe",
-                                Completed=false,
-                                Start= DateTime.Today.AddDays(-9)
-                            },
-
-                            new Intention {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="That she may gain strength and accept suffering",
-                                Person="Mom",
-                                Completed=false,
-                                Start= null
-                            }
-                        });
-                        break;
-                    case "es":
-                        db.InsertAll(new List<Intention> {
-                            new Intention {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Ilumina señor al papa francisco para tenga sabiduria para llevar los casos de abusos a niñas y niños",
-                                Person="Papa Francisco",
-                                Completed=true,
-                                Start= new DateTime(2019,2,25)
-                            },
-                            new Intention {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Para la recuperación de una operación",
-                                Person="José Rodríguez",
-                                Completed=false,
-                                Start= DateTime.Today.AddDays(-9)
-                            },
-
-                            new Intention {
-                                Id = Guid.NewGuid().ToString(),
-                                Description="Que gane fuerza y acepte el sufrimiento.",
-                                Person="Mamá",
-                                Completed=false,
-                                Start= null
-                            }
-                        });
-                        break;
-                }
-
+                db.InsertAll(new List<Intention> {
+                    new Intention {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Intention_1_Description"),
+                        Person = CommonFunctions.i18n("SCREENSHOT_Intention_1_Person"),
+                        Completed = true,
+                        Start = new DateTime(2019,2,25)
+                    },
+                    new Intention {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Intention_2_Description"),
+                        Person = CommonFunctions.i18n("SCREENSHOT_Intention_2_Person"),
+                        Completed = false,
+                        Start = DateTime.Today.AddDays(-9)
+                    },
+                    new Intention {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Intention_3_Description"),
+                        Person = CommonFunctions.i18n("SCREENSHOT_Intention_3_Person"),
+                        Completed = false,
+                        Start = null
+                    }
+                });
             }
-
+#if DEBUG
             else if (true && items.Count == 0)
             {
                 db.InsertAll(new List<Intention> {

@@ -102,11 +102,11 @@
     <data name="More" xml:space="preserve">
         <value>Más</value>
     </data>
-    <data name="MyName" xml:space="preserve">
-        <value>Mi nombre</value>
-    </data>
     <data name="MyIntentions" xml:space="preserve">
         <value>Mis intenciones</value>
+    </data>
+    <data name="MyName" xml:space="preserve">
+        <value>Mi nombre</value>
     </data>
     <data name="MyPeriodOfLent" xml:space="preserve">
         <value>Mi periodo de Cuaresma</value>
@@ -161,6 +161,99 @@
     </data>
     <data name="Prayers" xml:space="preserve">
         <value>Oraciones</value>
+    </data>
+    <data name="SCREENSHOT_Diary_1_Description" xml:space="preserve">
+        <value>Reza más conscientemente la oración del Señor y deja que me afecte. Entonces no ores rápido, sino ora con tu corazón.</value>
+    </data>
+    <data name="SCREENSHOT_Diary_2_Description" xml:space="preserve">
+        <value>El Señor es mi pastor, nada me falta</value>
+    </data>
+    <data name="SCREENSHOT_Diary_3_Description" xml:space="preserve">
+        <value>Como el ciervo busca por las aguas,
+Así clama mi alma por ti Señor
+Día y noche yo tengo sed de ti
+
+Y sólo a ti buscaré
+Llename, llename Señor
+Dame más, más de tu amor
+Yo tengo sed sólo de ti</value>
+    </data>
+    <data name="SCREENSHOT_Intention_1_Description" xml:space="preserve">
+        <value>Ilumina señor al papa francisco para tenga sabiduria para llevar los casos de abusos a niñas y niños</value>
+    </data>
+    <data name="SCREENSHOT_Intention_1_Person" xml:space="preserve">
+        <value>Papa Francisco</value>
+    </data>
+    <data name="SCREENSHOT_Intention_2_Description" xml:space="preserve">
+        <value>Para la recuperación de una operación</value>
+    </data>
+    <data name="SCREENSHOT_Intention_2_Person" xml:space="preserve">
+        <value>José Rodríguez</value>
+    </data>
+    <data name="SCREENSHOT_Intention_3_Description" xml:space="preserve">
+        <value>Que gane fuerza y acepte el sufrimiento.</value>
+    </data>
+    <data name="SCREENSHOT_Intention_3_Person" xml:space="preserve">
+        <value>Mamá</value>
+    </data>
+    <data name="SCREENSHOT_Lent_1_Text" xml:space="preserve">
+        <value>Mantequilla</value>
+    </data>
+    <data name="SCREENSHOT_Lent_2_Text" xml:space="preserve">
+        <value>Queso</value>
+    </data>
+    <data name="SCREENSHOT_Lent_3_Text" xml:space="preserve">
+        <value>Huevos</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_1_Description" xml:space="preserve">
+        <value>San Miguel arcángel, defiéndenos en batalla,
+sé nuestro amparo contra las maldades y acechanzas del diablo,
+que Dios le reprenda, es nuestra humilde súplica;
+y tú, Príncipe de las huestes celestiales,
+por el poder de Dios,
+arroja al Infierno a Satanás y a los demás espíritus malignos,
+que rondan por el mundo buscando la ruina de las almas.
+Amén.</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_1_Title" xml:space="preserve">
+        <value>Oración a san Miguel arcángel</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_2_Description" xml:space="preserve">
+        <value>Ven Espíritu Santo,
+Venid a llenar los corazones de todos tus fieles,
+Y enciende en ellos,
+El verdadero fuego de tu amor,
+Envía Señor tu Espíritu,
+Y que renueve toda la faz de la tierra.
+
+ORACIÓN
+
+¡Oh mi amado Dios!
+Que sumergiste los corazones de todos tus fieles,
+Con la divina luz del Espíritu Santo,
+Ayúdanos que guiados por el mismo Espíritu,
+Sigamos tu rectitud y disfrutemos siempre,
+De tu consuelo y de tu amor.
+Por Nuestro Señor Jesucristo,
+Amén.</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_2_Title" xml:space="preserve">
+        <value>Ven Espíritu Santo</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_3_Description" xml:space="preserve">
+        <value>Oh gloriosísimo Padre de Jesús, Esposo de María. Patriarca y Protector de la Santa Iglesia, a quien el Padre Eterno confió el cuidado de gobernar, regir y defender en la tierra la Sagrada Familia; protégenos también a nosotros, que pertenecemos, como fieles católicos. a la santa familia de tu Hijo que es la Iglesia, y alcánzanos los bienes necesarios de esta vida, y sobre todo los auxilios espirituales para la vida eterna. Alcánzanos especialmente estas tres gracias, la de no cometer jamás ningún pecado mortal, principalmente contra la castidad; la de un sincero amor y devoción a Jesús y María, y la de una buena muerte, recibiendo bien los últimos Sacramentos. Concédenos además la gracia especial que te pedimos cada uno en esta novena.</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_3_Title" xml:space="preserve">
+        <value>Novena a San Joseph</value>
+    </data>
+    <data name="SCREENSHOT_Sins_1_Description" xml:space="preserve">
+        <value>Enfadarse</value>
+    </data>
+    <data name="SCREENSHOT_Sins_2_Description" xml:space="preserve">
+        <value>Acostado en la cama demasiado tiempo</value>
+    </data>
+    <data name="SCREENSHOT_Sins_3_Description" xml:space="preserve">
+        <value>Not well taken care of creation</value>
     </data>
     <data name="Save" xml:space="preserve">
         <value>Guarda</value>

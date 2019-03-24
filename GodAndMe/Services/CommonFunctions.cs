@@ -18,7 +18,7 @@ namespace GodAndMe
         public const string CONTACTS_ORDERBY = "contactSortKey";
 #if DEBUG
 #if __ANDROID__
-        public const bool SCREENSHOT = false;
+        public const bool SCREENSHOT = true;
 #elif __IOS__
         public const bool SCREENSHOT = false;
 #endif

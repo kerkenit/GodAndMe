@@ -102,11 +102,11 @@
     <data name="More" xml:space="preserve">
         <value>More</value>
     </data>
-    <data name="MyName" xml:space="preserve">
-        <value>My name</value>
-    </data>
     <data name="MyIntentions" xml:space="preserve">
         <value>My intentions</value>
+    </data>
+    <data name="MyName" xml:space="preserve">
+        <value>My name</value>
     </data>
     <data name="MyPeriodOfLent" xml:space="preserve">
         <value>My period of Lent</value>
@@ -161,6 +161,101 @@
     </data>
     <data name="Prayers" xml:space="preserve">
         <value>Prayers</value>
+    </data>
+    <data name="SCREENSHOT_Diary_1_Description" xml:space="preserve">
+        <value>More consciously pray the Lord's Prayer and allow it to work deeper on me. So don't pray quickly but pray with your heart.</value>
+    </data>
+    <data name="SCREENSHOT_Diary_2_Description" xml:space="preserve">
+        <value>The Lord is my shepherd, I lack nothing.</value>
+    </data>
+    <data name="SCREENSHOT_Diary_3_Description" xml:space="preserve">
+        <value>As the deer panteth for the water
+So my soul longeth after thee
+Thou alone are my heart's desire
+And I long to worship thee
+
+Thou alone are my strength, my shield
+To Thee alone may my spirit yield
+Thou alone are my heart's desire
+And I long to worship thee
+
+Thou art my friend and you are my brother
+Even though Thou are a king
+I love Thee more than any other
+So much more than anything</value>
+    </data>
+    <data name="SCREENSHOT_Intention_1_Description" xml:space="preserve">
+        <value>To enlighten the Holy Spirit at the last synod about the sexual abuse of children</value>
+    </data>
+    <data name="SCREENSHOT_Intention_1_Person" xml:space="preserve">
+        <value>Pope Francis</value>
+    </data>
+    <data name="SCREENSHOT_Intention_2_Description" xml:space="preserve">
+        <value>For a speedy recovery after the major operation</value>
+    </data>
+    <data name="SCREENSHOT_Intention_2_Person" xml:space="preserve">
+        <value>John Doe</value>
+    </data>
+    <data name="SCREENSHOT_Intention_3_Description" xml:space="preserve">
+        <value>That she may gain strength and accept suffering</value>
+    </data>
+    <data name="SCREENSHOT_Intention_3_Person" xml:space="preserve">
+        <value>Mom</value>
+    </data>
+    <data name="SCREENSHOT_Lent_1_Text" xml:space="preserve">
+        <value>Butter</value>
+    </data>
+    <data name="SCREENSHOT_Lent_2_Text" xml:space="preserve">
+        <value>Cheese</value>
+    </data>
+    <data name="SCREENSHOT_Lent_3_Text" xml:space="preserve">
+        <value>Eggs</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_1_Description" xml:space="preserve">
+        <value>Remember, O most pure spouse of the Blessed Virgin Mary,
+my sweet protector St. Joseph
+that no one ever had recourse to thy protection
+or implored thy aid without obtaining relief.
+Confiding therefore in thy goodness,
+I come before thee, and humbly supplicate thee.
+Oh, despise not my petitions,
+foster-father of the Redeemer,
+but graciously receive them.
+Amen.</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_1_Title" xml:space="preserve">
+        <value>Novena to Saint Joseph</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_2_Description" xml:space="preserve">
+        <value>Saint Michael the Archangel, defend us in battle, be our protection against the wickedness and snares of the devil;
+may God rebuke him, we humbly pray; and do thou, O Prince of the heavenly host,by the power of God, cast into hell Satan and all the evil spirits who prowl through the world seeking the ruin of souls.
+Amen</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_2_Title" xml:space="preserve">
+        <value>Prayer to Saint Michael</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_3_Description" xml:space="preserve">
+        <value>Come, Holy Spirit, fill the hearts of Thy faithful and enkindle in them the fire of Thy love.
+
+℣. Send forth Thy Spirit and they shall be created.
+℟. And Thou shalt renew the face of the earth.
+
+Let us pray.
+O God, Who didst instruct the hearts of the faithful by the light of the Holy Spirit, grant us in the same Spirit to be truly wise, and ever to rejoice in His consolation.
+Through Christ, our Lord.
+Amen.</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_3_Title" xml:space="preserve">
+        <value>Come, Holy Spirit</value>
+    </data>
+    <data name="SCREENSHOT_Sins_1_Description" xml:space="preserve">
+        <value>Become angry</value>
+    </data>
+    <data name="SCREENSHOT_Sins_2_Description" xml:space="preserve">
+        <value>Lying in bed too long</value>
+    </data>
+    <data name="SCREENSHOT_Sins_3_Description" xml:space="preserve">
+        <value>Not well taken care of God's creation</value>
     </data>
     <data name="Save" xml:space="preserve">
         <value>Save</value>

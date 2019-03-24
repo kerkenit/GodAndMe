@@ -102,11 +102,11 @@
     <data name="More" xml:space="preserve">
         <value>Meer</value>
     </data>
-    <data name="MyName" xml:space="preserve">
-        <value>Mijn naam</value>
-    </data>
     <data name="MyIntentions" xml:space="preserve">
         <value>Mijn intenties</value>
+    </data>
+    <data name="MyName" xml:space="preserve">
+        <value>Mijn naam</value>
     </data>
     <data name="MyPeriodOfLent" xml:space="preserve">
         <value>Mijn vastentijd</value>
@@ -161,6 +161,96 @@
     </data>
     <data name="Prayers" xml:space="preserve">
         <value>Gebeden</value>
+    </data>
+    <data name="SCREENSHOT_Diary_1_Description" xml:space="preserve">
+        <value>Bewuster het Onze Vader bidden en dieper op mij laten inwerken. Dus niet snel bidden maar met het hart bidden.</value>
+    </data>
+    <data name="SCREENSHOT_Diary_2_Description" xml:space="preserve">
+        <value>De Heer is mijn herder, mij zal niets ontbreken</value>
+    </data>
+    <data name="SCREENSHOT_Diary_3_Description" xml:space="preserve">
+        <value>Als een hert dat verlangt naar water,
+zo verlangt mijn ziel naar U.
+U alleen kunt mijn hart vervullen,
+mijn aanbidding is voor U.
+
+U alleen bent mijn Kracht, mijn Schild.
+Aan U alleen geef ik mij geheel.
+U alleen kunt mijn hart vervullen,
+mijn aanbidding is voor U.</value>
+    </data>
+    <data name="SCREENSHOT_Intention_1_Description" xml:space="preserve">
+        <value>Om verlichting van de Heilige Geest bij de afgelopen synode over het sexueel misbruik bij minderjarige</value>
+    </data>
+    <data name="SCREENSHOT_Intention_1_Person" xml:space="preserve">
+        <value>Paus Fransiscus</value>
+    </data>
+    <data name="SCREENSHOT_Intention_2_Description" xml:space="preserve">
+        <value>Voor een spoedig herstel na de zware operatie</value>
+    </data>
+    <data name="SCREENSHOT_Intention_2_Person" xml:space="preserve">
+        <value>Jan Jansen</value>
+    </data>
+    <data name="SCREENSHOT_Intention_3_Description" xml:space="preserve">
+        <value>Dat ze kracht naar kruis mag krijgen en het lijden mag aanvaarden</value>
+    </data>
+    <data name="SCREENSHOT_Intention_3_Person" xml:space="preserve">
+        <value>Mama</value>
+    </data>
+    <data name="SCREENSHOT_Lent_1_Text" xml:space="preserve">
+        <value>Boter</value>
+    </data>
+    <data name="SCREENSHOT_Lent_2_Text" xml:space="preserve">
+        <value>Kaas</value>
+    </data>
+    <data name="SCREENSHOT_Lent_3_Text" xml:space="preserve">
+        <value>Eieren</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_1_Description" xml:space="preserve">
+        <value>Onbevlekte Maagd Maria - Moeder van Jezus Christus en Moeder van ons - wij hebben het grootste vertrouwen in uw voorspraak. U kunt van uw Zoon alles verkrijgen, wat goed is voor ons.
+
+Wij danken U, dat U ons daaraan herinnert - door de medaille, waarop onze verlossing is afgebeeld. U houdt van ons, wij vertrouwen op U. Wil voor ons uw kinderen de genade verkrijgen, waarom wij nederig vragen.
+
+(Hier maakt men zijn/haar intenties).
+
+Moeder Maria - verkrijg voor ons niet alleen tijdelijke gunsten - maar vooral dat wij bereid mogen zijn tot gebed en offer. Zo alleen zullen wij in staat zijn - tot ware liefde voor uw Zoon - en tot oprechte liefde voor de evenmens. Dan zullen wij het geluk van de hemel verkrijgen - dat U reeds bezit als onze Koningin en Moeder.
+Amen.
+
+Schietgebed:
+O Maria, zonder zonden ontvangen, bid voor ons, die onze toevlucht tot U nemen. (3x)</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_1_Title" xml:space="preserve">
+        <value>Noveengebed tot O.L. Vrouw van de Wonderdadige Medaille</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_2_Description" xml:space="preserve">
+        <value>Heilige Aartsengel Michaël, verdedig ons in de strijd;
+wees onze bescherming tegen de boosheid en de listen van de duivel. Wij smeken ootmoedig dat God hem Zijn macht doe gevoelen. En gij, vorst van de hemelse legerscharen, drijf Satan en andere boze geesten, die tot verderf van de zielen over de wereld rondgaan, door de goddelijke kracht in de hel terug.
+Amen.</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_2_Title" xml:space="preserve">
+        <value>Heilige Aartsengel Michaël</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_3_Description" xml:space="preserve">
+        <value>Kom, Heilige Geest, vervul de harten van uw gelovigen, en ontsteek in hen het vuur van uw liefde.
+
+℣. Zend uw Geest uit en alles zal herschapen worden.
+℟. En Gij zult het aanschijn van de aarde vernieuwen.
+
+Laat ons bidden
+God Gij hebt de harten van de gelovigen door de verlichting van de Heilige Geest onderwezen: geef dat wij door die Heilige Geest de ware wijsheid mogen bezitten, en ons altijd over zijn vertroosting mogen verblijden. Door Christus onze Heer.
+Amen.</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_3_Title" xml:space="preserve">
+        <value>Kom Heilige Geest</value>
+    </data>
+    <data name="SCREENSHOT_Sins_1_Description" xml:space="preserve">
+        <value>Boos geworden</value>
+    </data>
+    <data name="SCREENSHOT_Sins_2_Description" xml:space="preserve">
+        <value>Te lang in bed gelegen</value>
+    </data>
+    <data name="SCREENSHOT_Sins_3_Description" xml:space="preserve">
+        <value>Niet goed voor de schepping gezorgd</value>
     </data>
     <data name="Save" xml:space="preserve">
         <value>Opslaan</value>

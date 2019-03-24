@@ -105,11 +105,17 @@ namespace GodAndMe.Views
             try
             {
                 string url = (CommonFunctions.URLSHEME + StringExtensions.Base64Encode(JsonConvert.SerializeObject(item))).Trim();
-                DependencyService.Get<IShare>().Show(string.Format(CommonFunctions.i18n("WouldYouPrayForX"), item.Person) + Environment.NewLine + item.Description + Environment.NewLine + Environment.NewLine, item.Description, url, Environment.NewLine + Environment.NewLine + CommonFunctions.i18n("DownloadApp"));
+                var share = DependencyService.Get<IShare>();
+                share.Show(
+                    string.Format(CommonFunctions.i18n("WouldYouPrayForX"), item.Person),
+                    item.Description,
+                    url,
+                    Environment.NewLine + Environment.NewLine + CommonFunctions.i18n("DownloadApp")
+                );
             }
-            catch
+            catch (Exception ex)
             {
-
+                System.Diagnostics.Debug.WriteLine(ex);
             }
         }
 

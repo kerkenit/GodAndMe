@@ -227,15 +227,15 @@ namespace GodAndMe.Resx {
             }
         }
         
-        internal static string MyName {
-            get {
-                return ResourceManager.GetString("MyName", resourceCulture);
-            }
-        }
-        
         internal static string MyIntentions {
             get {
                 return ResourceManager.GetString("MyIntentions", resourceCulture);
+            }
+        }
+        
+        internal static string MyName {
+            get {
+                return ResourceManager.GetString("MyName", resourceCulture);
             }
         }
         
@@ -344,6 +344,132 @@ namespace GodAndMe.Resx {
         internal static string Prayers {
             get {
                 return ResourceManager.GetString("Prayers", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Diary_1_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Diary_1_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Diary_2_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Diary_2_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Diary_3_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Diary_3_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_1_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_1_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_1_Person {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_1_Person", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_2_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_2_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_2_Person {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_2_Person", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_3_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_3_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_3_Person {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_3_Person", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Lent_1_Text {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Lent_1_Text", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Lent_2_Text {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Lent_2_Text", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Lent_3_Text {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Lent_3_Text", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_1_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_1_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_1_Title {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_1_Title", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_2_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_2_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_2_Title {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_2_Title", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_3_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_3_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_3_Title {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_3_Title", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Sins_1_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Sins_1_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Sins_2_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Sins_2_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Sins_3_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Sins_3_Description", resourceCulture);
             }
         }
         
