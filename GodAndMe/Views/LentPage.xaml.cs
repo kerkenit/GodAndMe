@@ -50,7 +50,7 @@ namespace GodAndMe.Views
         public void OnDuplicate(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
-            Lent oldItem = viewModel.Lent.First(x => x.Id == mi.CommandParameter.ToString());
+            Lent oldItem = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString());
             Lent newItem = new Lent()
             {
                 Id = Guid.NewGuid().ToString(),
@@ -66,17 +66,23 @@ namespace GodAndMe.Views
         public void OnDelete(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
-            var item = viewModel.Lent.First(x => x.Id == mi.CommandParameter.ToString()) as Lent;
-            MessagingCenter.Send(this, "DeleteItem", item);
-            viewModel.Lent.Remove(item);
+            var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString());
+            if (item != null)
+            {
+                MessagingCenter.Send(this, "DeleteItem", item);
+                if (viewModel.Items.Contains(item))
+                {
+                    viewModel.Items.Remove(item);
+                }
+            }
             GetPageTitle();
         }
 
         private void GetPageTitle()
         {
-            if (viewModel.Lent.Count > 0)
+            if (viewModel.Items.Count > 0)
             {
-                double SavedMoney = viewModel.Lent.Where((arg) => arg.Start.Year == DateTime.Today.Year).Sum((arg) => arg.SavedMoney);
+                double SavedMoney = viewModel.Items.Where((arg) => arg.Start.Year == DateTime.Today.Year).Sum((arg) => arg.SavedMoney);
                 if (SavedMoney > 0)
                 {
                     Title = string.Format(CommonFunctions.i18n("SavedXThisYear"), SavedMoney);
@@ -88,7 +94,7 @@ namespace GodAndMe.Views
         {
             base.OnAppearing();
 
-            if (viewModel.Lent.Count == 0)
+            if (viewModel.Items.Count == 0)
             {
                 viewModel.LoadLentCommand.Execute(null);
             }

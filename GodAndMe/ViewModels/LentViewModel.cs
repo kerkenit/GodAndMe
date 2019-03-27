@@ -11,79 +11,79 @@ namespace GodAndMe.ViewModels
 {
     public class LentViewModel : BaseViewModel
     {
-        public ObservableCollection<Lent> Lent { get; set; }
+        public ObservableCollection<Lent> Items { get; set; }
         public Command LoadLentCommand { get; set; }
 
         public LentViewModel()
         {
-            Lent = new ObservableCollection<Lent>();
+            Items = new ObservableCollection<Lent>();
             LoadLentCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<LentPageNew, Lent>(this, "AddItem", async (obj, item) =>
             {
-                if (Lent.Count > 0 && Lent.Any(x => x.Id == item.Id))
+                if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
                 {
-                    Lent oldLent = Lent.First(x => x.Id == item.Id);
-                    Lent.Remove(oldLent);
-                    Lent.Add(item);
+                    Lent oldLent = Items.First(x => x.Id == item.Id);
+                    Items.Remove(oldLent);
+                    Items.Add(item);
                     await LentDataStore.UpdateItemAsync(item);
                 }
                 else
                 {
-                    if (!Lent.Any(x => x.Id == item.Id))
+                    if (!Items.Any(x => x.Id == item.Id))
                     {
-                        Lent.Add(item);
+                        Items.Add(item);
                     }
                     await LentDataStore.AddItemAsync(item);
                 }
-                Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+                Items.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
                 await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<LentPage, Lent>(this, "AddItem", async (obj, item) =>
             {
-                if (Lent.Count > 0 && Lent.Any(x => x.Id == item.Id))
+                if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
                 {
-                    Lent oldLent = Lent.First(x => x.Id == item.Id);
-                    Lent.Remove(oldLent);
-                    Lent.Add(item);
+                    Lent oldLent = Items.First(x => x.Id == item.Id);
+                    Items.Remove(oldLent);
+                    Items.Add(item);
                     await LentDataStore.UpdateItemAsync(item);
                 }
                 else
                 {
-                    if (!Lent.Any(x => x.Id == item.Id))
+                    if (!Items.Any(x => x.Id == item.Id))
                     {
-                        Lent.Add(item);
+                        Items.Add(item);
                     }
                     await LentDataStore.AddItemAsync(item);
                 }
-                Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+                Items.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
                 await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<LentPage, Lent>(this, "UpdateItem", async (obj, item) =>
             {
                 await LentDataStore.UpdateItemAsync(item);
-                Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+                Items.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
                 await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<LentPage, Lent>(this, "DeleteItem", async (obj, item) =>
             {
-                Lent.Remove(item);
+                Items.Remove(item);
                 await LentDataStore.DeleteItemAsync(item.Id);
-                Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+                Items.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
                 await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<LentPageNew, Lent>(this, "GetItem", async (obj, item) =>
             {
-                if (Lent.Any((arg) => arg.Id == item.Id))
+                if (Items.Any((arg) => arg.Id == item.Id))
                 {
-                    Lent.Remove(item);
+                    Items.Remove(item);
                 }
-                Lent.Add(await LentDataStore.GetItemAsync(item.Id));
-                Lent.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+                Items.Add(await LentDataStore.GetItemAsync(item.Id));
+                Items.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
             });
         }
 
@@ -96,12 +96,14 @@ namespace GodAndMe.ViewModels
 
             try
             {
-                Lent.Clear();
+                Items.Clear();
                 var items = await LentDataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
-                    Lent.Add(item);
+                    Items.Add(item);
                 }
+                Items.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start));
+
             }
             catch (Exception ex)
             {

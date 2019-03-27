@@ -18,8 +18,6 @@ namespace GodAndMe.Services
             items = new List<Lent>();
             db = DependencyService.Get<IDatabaseConnection>().DbConnection();
             db.CreateTable<Lent>();
-            items = db.Table<Lent>().ToList();
-            items = items.OrderBy((arg) => arg.Start).ToList();
 
             if (CommonFunctions.SCREENSHOT)
             {
@@ -85,6 +83,9 @@ namespace GodAndMe.Services
                 });
             }
 #endif
+
+            items = db.Table<Lent>().ToList();
+            items = items.OrderBy((arg) => arg.Start).ToList();
         }
 
         public async Task<bool> AddItemAsync(Lent item)
