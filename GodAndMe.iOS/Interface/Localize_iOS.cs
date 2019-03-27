@@ -53,14 +53,7 @@ namespace GodAndMe.iOS
                     ci = new System.Globalization.CultureInfo("en");
                 }
             }
-            try
-            {
-                ci = new CultureInfo(ci.TwoLetterISOLanguageName);
-            }
-            catch (CultureNotFoundException)
-            {
-                ci = new System.Globalization.CultureInfo("en");
-            }
+
             return ci;
         }
 
