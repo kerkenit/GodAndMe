@@ -53,14 +53,16 @@ namespace GodAndMe.Views
 
         public void OnDelete(object sender, EventArgs e)
         {
-            //viewModel.IsBusy = true;
-
             var mi = ((MenuItem)sender);
-            var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString()) as Sins;
-            MessagingCenter.Send(this, "DeleteItem", item);
-            viewModel.Items.Remove(item);
-
-            //viewModel.IsBusy = false;
+            var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString());
+            if (item != null)
+            {
+                MessagingCenter.Send(this, "DeleteItem", item);
+                if (viewModel.Items.Contains(item))
+                {
+                    viewModel.Items.Remove(item);
+                }
+            }
         }
 
         protected override void OnAppearing()
