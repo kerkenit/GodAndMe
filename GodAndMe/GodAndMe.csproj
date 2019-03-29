@@ -18,6 +18,7 @@
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
       <OutputPath>bin\Release</OutputPath>
+      <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;</DefineConstants>
     </PropertyGroup>
     <ItemGroup>
         <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
