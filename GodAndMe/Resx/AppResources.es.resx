@@ -15,6 +15,9 @@
     <data name="About" xml:space="preserve">
         <value>Sobre</value>
     </data>
+    <data name="About" xml:space="preserve">
+        <value>Sobre</value>
+    </data>
     <data name="AboutText" xml:space="preserve">
         <value>Esta aplicación está construida sobre la privacidad. Todo funciona sin conexión y no se comparten datos. Todo es entre dios y tu.</value>
     </data>
@@ -75,11 +78,23 @@
     <data name="EditSavings" xml:space="preserve">
         <value>Editar ahorros</value>
     </data>
+    <data name="Export" xml:space="preserve">
+        <value>Exportar</value>
+    </data>
     <data name="Firstname" xml:space="preserve">
         <value>Primer nombre</value>
     </data>
     <data name="For" xml:space="preserve">
         <value>Para</value>
+    </data>
+    <data name="Importar" xml:space="preserve">
+        <value>Importeren</value>
+    </data>
+    <data name="Importación y exportación" xml:space="preserve">
+        <value>Importeren &amp; Exporteren</value>
+    </data>
+    <data name="ImportAndExportText" xml:space="preserve">
+        <value>Aquí puede importar sus datos desde otro dispositivo o importar a otro dispositivo.</value>
     </data>
     <data name="Intention" xml:space="preserve">
         <value>Intención</value>
@@ -285,6 +300,15 @@ Amén.</value>
     <data name="Title" xml:space="preserve">
         <value>Título</value>
     </data>
+    <data name="Today" xml:space="preserve">
+        <value>Hoy</value>
+    </data>
+    <data name="Tomorrow" xml:space="preserve">
+        <value>Mañana</value>
+    </data>
+    <data name="TomorrowDayAfter" xml:space="preserve">
+        <value>Pasado mañana</value>
+    </data>
     <data name="TouchIDEnabled" xml:space="preserve">
         <value>Touch-ID habilitado</value>
     </data>
@@ -293,5 +317,11 @@ Amén.</value>
     </data>
     <data name="WouldYouPrayForX" xml:space="preserve">
         <value>¿Te gustaría orar por {0}?</value>
+    </data>
+    <data name="Yesterday" xml:space="preserve">
+        <value>Ayer</value>
+    </data>
+    <data name="YesterdayDayBefore" xml:space="preserve">
+        <value>Anteayer</value>
     </data>
 </root>

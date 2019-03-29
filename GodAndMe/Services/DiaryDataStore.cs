@@ -91,11 +91,14 @@ namespace GodAndMe.Services
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldItem = items.FirstOrDefault((Diary arg) => arg.Id == id);
-            if (oldItem != null)
+            if (items.Any(x => x.Id == id))
             {
-                items.Remove(oldItem);
-                db.Delete(oldItem);
+                var oldItem = items.FirstOrDefault((Diary arg) => arg.Id == id);
+                if (oldItem != null)
+                {
+                    items.Remove(oldItem);
+                    db.Delete(oldItem);
+                }
             }
             return await Task.FromResult(true);
         }

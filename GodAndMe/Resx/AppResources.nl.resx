@@ -75,11 +75,23 @@
     <data name="EditSavings" xml:space="preserve">
         <value>Bewerk besparing</value>
     </data>
+    <data name="Export" xml:space="preserve">
+        <value>Exporteren</value>
+    </data>
     <data name="Firstname" xml:space="preserve">
         <value>Voornaam</value>
     </data>
     <data name="For" xml:space="preserve">
         <value>Voor</value>
+    </data>
+    <data name="Import" xml:space="preserve">
+        <value>Importeren</value>
+    </data>
+    <data name="ImportAndExport" xml:space="preserve">
+        <value>Importeren &amp; Exporteren</value>
+    </data>
+    <data name="ImportAndExportText" xml:space="preserve">
+        <value>Hier kan je je gegevens importeren vanaf een ander apparaat of importeren naar een ander apparaat.</value>
     </data>
     <data name="Intention" xml:space="preserve">
         <value>Intentie</value>
@@ -282,6 +294,15 @@ Amen.</value>
     <data name="Title" xml:space="preserve">
         <value>Titel</value>
     </data>
+    <data name="Today" xml:space="preserve">
+        <value>Vandaag</value>
+    </data>
+    <data name="Tomorrow" xml:space="preserve">
+        <value>Morgen</value>
+    </data>
+    <data name="TomorrowDayAfter" xml:space="preserve">
+        <value>Overmorgen</value>
+    </data>
     <data name="TouchIDEnabled" xml:space="preserve">
         <value>Touch-ID geactiveerd</value>
     </data>
@@ -290,5 +311,11 @@ Amen.</value>
     </data>
     <data name="WouldYouPrayForX" xml:space="preserve">
         <value>Zou je voor {0} willen bidden?</value>
+    </data>
+    <data name="Yesterday" xml:space="preserve">
+        <value>Gisteren</value>
+    </data>
+    <data name="YesterdayDayBefore" xml:space="preserve">
+        <value>Eergisteren</value>
     </data>
 </root>

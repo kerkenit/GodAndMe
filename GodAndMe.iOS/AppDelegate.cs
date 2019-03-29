@@ -64,6 +64,19 @@ namespace GodAndMe.iOS
             return true;
         }
 
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+            {
+                using (NSData dataToShare = NSFileManager.DefaultManager.Contents(url.Path))
+                {
+                    ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenJson(dataToShare.ToString());
+                }
+            }
+            return true;
+        }
+
+
         /// <summary>
         /// This method is called when the application is about to terminate. Save data, if needed.
         /// </summary>

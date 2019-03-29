@@ -26,6 +26,8 @@ namespace GodAndMe.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::PCLStorage.Resource.String.ApplicationName = global::GodAndMe.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::GodAndMe.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_in = global::GodAndMe.Droid.Resource.Animation.abc_fade_in;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_out = global::GodAndMe.Droid.Resource.Animation.abc_fade_out;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::GodAndMe.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -7597,6 +7599,12 @@ namespace GodAndMe.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f0a004f
+			public const int ApplicationName = 2131361871;
+			
+			// aapt resource value: 0x7f0a004e
+			public const int Hello = 2131361870;
+			
 			// aapt resource value: 0x7f0a0018
 			public const int abc_action_bar_home_description = 2131361816;
 			
@@ -7714,8 +7722,8 @@ namespace GodAndMe.Droid
 			// aapt resource value: 0x7f0a0032
 			public const int abc_toolbar_collapse_description = 2131361842;
 			
-			// aapt resource value: 0x7f0a004e
-			public const int app_name = 2131361870;
+			// aapt resource value: 0x7f0a0050
+			public const int app_name = 2131361872;
 			
 			// aapt resource value: 0x7f0a0040
 			public const int appbar_scrolling_view_behavior = 2131361856;

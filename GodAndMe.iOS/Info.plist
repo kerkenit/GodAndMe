@@ -32,8 +32,6 @@
 	<string>God and Me</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
-	<key>CFBundleVersion</key>
-	<string>0.9</string>
 	<key>NSContactsUsageDescription</key>
 	<string>To select the first and last name of your contacts</string>
 	<key>NSMotionUsageDescription</key>
@@ -58,9 +56,107 @@
 				<string>GodAndMe</string>
 			</array>
 			<key>CFBundleURLTypes</key>
-			<string>Viewer</string>
+			<string>Editor</string>
 			<key>CFBundleURLIconFile</key>
-			<string>Icon58</string>
+			<string>icon58x58</string>
+		</dict>
+	</array>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1</string>
+	<key>CFBundleVersion</key>
+	<string>4</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>nl.kerkenit.GodAndMe</string>
+			<key>UTTypeDescription</key>
+			<string>God and Me Document</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>com.apple.ostype</key>
+				<string>json</string>
+				<key>public.filename-extension</key>
+				<array>
+					<string>god</string>
+				</array>
+				<key>public.mime-type</key>
+				<string>application/json</string>
+			</dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.content</string>
+			</array>
+			<key>CFBundleName</key>
+			<string>God &amp; Me</string>
+			<key>CFBundleTypeName</key>
+			<string>God &amp; Me Document</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>document</string>
+			<key>UTTypeSize64IconFile</key>
+			<string>UTTypeSize64IconFile</string>
+			<key>UTTypeSize320IconFile</key>
+			<string>UTTypeSize320IconFile</string>
+		</dict>
+	</array>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>nl.kerkenit.GodAndMe</string>
+			<key>UTTypeDescription</key>
+			<string>God and Me Document</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>com.apple.ostype</key>
+				<string>json</string>
+				<key>public.filename-extension</key>
+				<array>
+					<string>god</string>
+				</array>
+				<key>public.mime-type</key>
+				<string>application/json</string>
+			</dict>
+			<key>UTTypeSize64IconFile</key>
+			<string>UTTypeSize64IconFile</string>
+			<key>UTTypeSize320IconFile</key>
+			<string>UTTypeSize320IconFile</string>
+			<key>UTTypeIconFile</key>
+			<string>document</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.content</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>application/json</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>God and Me Document</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>NSExportableTypes</key>
+			<array>
+				<string>public.data</string>
+				<string>public.content</string>
+			</array>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>nl.kerkenit.GodAndMe</string>
+			</array>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>icon512x512</string>
+			</array>
 		</dict>
 	</array>
 </dict>

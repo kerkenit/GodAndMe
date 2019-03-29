@@ -173,6 +173,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string Export {
+            get {
+                return ResourceManager.GetString("Export", resourceCulture);
+            }
+        }
+        
         internal static string Firstname {
             get {
                 return ResourceManager.GetString("Firstname", resourceCulture);
@@ -182,6 +188,24 @@ namespace GodAndMe.Resx {
         internal static string For {
             get {
                 return ResourceManager.GetString("For", resourceCulture);
+            }
+        }
+        
+        internal static string Import {
+            get {
+                return ResourceManager.GetString("Import", resourceCulture);
+            }
+        }
+        
+        internal static string ImportAndExport {
+            get {
+                return ResourceManager.GetString("ImportAndExport", resourceCulture);
+            }
+        }
+        
+        internal static string ImportAndExportText {
+            get {
+                return ResourceManager.GetString("ImportAndExportText", resourceCulture);
             }
         }
         
@@ -533,6 +557,24 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string Today {
+            get {
+                return ResourceManager.GetString("Today", resourceCulture);
+            }
+        }
+        
+        internal static string Tomorrow {
+            get {
+                return ResourceManager.GetString("Tomorrow", resourceCulture);
+            }
+        }
+        
+        internal static string TomorrowDayAfter {
+            get {
+                return ResourceManager.GetString("TomorrowDayAfter", resourceCulture);
+            }
+        }
+        
         internal static string TouchIDEnabled {
             get {
                 return ResourceManager.GetString("TouchIDEnabled", resourceCulture);
@@ -548,6 +590,18 @@ namespace GodAndMe.Resx {
         internal static string WouldYouPrayForX {
             get {
                 return ResourceManager.GetString("WouldYouPrayForX", resourceCulture);
+            }
+        }
+        
+        internal static string Yesterday {
+            get {
+                return ResourceManager.GetString("Yesterday", resourceCulture);
+            }
+        }
+        
+        internal static string YesterdayDayBefore {
+            get {
+                return ResourceManager.GetString("YesterdayDayBefore", resourceCulture);
             }
         }
     }

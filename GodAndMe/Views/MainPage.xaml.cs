@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GodAndMe.Extensions;
+using GodAndMe.Interface;
 using GodAndMe.Models;
 using GodAndMe.Services;
 using GodAndMe.ViewModels;
@@ -103,6 +104,61 @@ namespace GodAndMe.Views
                     intention.Completed = false;
                     IDataStore<Intention> IntentionDataStore = new IntentionsDataStore();
                     IntentionDataStore.AddItemAsync(intention);
+                    Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
+
+                }
+            }
+            catch
+            {
+                sender = null;
+            }
+            finally
+            {
+                if (sender == null)
+                {
+
+                }
+            }
+        }
+
+        public void OpenJson(string json)
+        {
+            object sender = null;
+            try
+            {
+                sender = JsonConvert.DeserializeObject(json, typeof(Base));
+            }
+            catch
+            {
+                sender = null;
+            }
+            try
+            {
+                if (sender.GetType() == typeof(Base))
+                {
+                    Base BaseJson = (Base)sender;
+                    SQLite.SQLiteConnection db = DependencyService.Get<IDatabaseConnection>().DbConnection();
+
+                    db.CreateTable<Intention>();
+                    db.DeleteAll<Intention>();
+                    db.InsertAll(BaseJson.intention);
+
+                    db.CreateTable<Diary>();
+                    db.DeleteAll<Diary>();
+                    db.InsertAll(BaseJson.diary);
+
+                    db.CreateTable<Lent>();
+                    db.DeleteAll<Lent>();
+                    db.InsertAll(BaseJson.lent);
+
+                    db.CreateTable<Prayers>();
+                    db.DeleteAll<Prayers>();
+                    db.InsertAll(BaseJson.prayers);
+
+                    db.CreateTable<Sins>();
+                    db.DeleteAll<Sins>();
+                    db.InsertAll(BaseJson.sins);
+
                     Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
 
                 }
