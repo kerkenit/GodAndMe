@@ -21,7 +21,7 @@ namespace GodAndMe
         bool appLocked = false;
         public static bool justShowedUnlockView = false;
         public static bool justUnlocked = false;
-        public const int DELAY = 780;
+        public const int DELAY = 123;
         public App()
         {
             InitializeComponent();
@@ -87,7 +87,15 @@ namespace GodAndMe
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     appLocked = await AuthenticatedWithTouchID();
+                    if (!appLocked)
+                    {
+                        Sharpen();
+                    }
                 });
+            }
+            else
+            {
+                Sharpen();
             }
         }
 
