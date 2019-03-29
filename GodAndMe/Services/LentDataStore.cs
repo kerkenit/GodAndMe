@@ -18,7 +18,7 @@ namespace GodAndMe.Services
             items = new List<Lent>();
             db = DependencyService.Get<IDatabaseConnection>().DbConnection();
             db.CreateTable<Lent>();
-
+            items = db.Table<Lent>().ToList();
             if (CommonFunctions.SCREENSHOT)
             {
                 db.DeleteAll<Lent>();
@@ -46,6 +46,7 @@ namespace GodAndMe.Services
                     },
                 });
 
+                items = db.Table<Lent>().ToList();
             }
 #if DEBUG
             else if (true && items.Count == 0)
@@ -84,7 +85,6 @@ namespace GodAndMe.Services
             }
 #endif
 
-            items = db.Table<Lent>().ToList();
             items = items.OrderBy((arg) => arg.Start).ToList();
         }
 
