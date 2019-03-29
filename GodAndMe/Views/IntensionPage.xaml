@@ -4,9 +4,15 @@
              xmlns:i18n="clr-namespace:GodAndMe"
              xmlns:local="clr-namespace:GodAndMe"
              xmlns:resX="clr-namespace:GodAndMe.Resx"
+             xmlns:converters="clr-namespace:GodAndMe.Converters"
              x:Class="GodAndMe.Views.IntentionPage" 
              Title="{resX:TranslateExtension Intentions}"
              x:Name="BrowseIntentionsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+          <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:TranslateExtension Add}" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
@@ -36,7 +42,7 @@
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10">
                                 <Label Text="{Binding Person}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Medium" FontAttributes="Bold" TextColor="{Binding TextColor}" IsVisible="{Binding EmptPerson}" />
-                                <Label Text="{Binding Start, StringFormat='{0:D}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" TextColor="{Binding TextColor}" IsVisible="{Binding EmptyDate}" />
+                                <Label Text="{Binding Start, Converter={StaticResource DateConverter}}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" TextColor="{Binding TextColor}" />
                                 <Label Text="{Binding Description}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" TextColor="{Binding TextColor}" IsVisible="{Binding EmptyDescription}" />
                             </StackLayout>
                         </ViewCell>
