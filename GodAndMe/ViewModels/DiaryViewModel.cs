@@ -49,10 +49,12 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<DiaryPage, Diary>(this, "DeleteItem", async (obj, item) =>
             {
-                //Items.Remove(item);
-                await DiaryDataStore.DeleteItemAsync(item.Id);
-                Items.OrderBy((arg) => arg.Start);
-                await ExecuteLoadItemsCommand();
+                if (Items.Any(x => x.Id == item.Id))
+                {
+                    await DiaryDataStore.DeleteItemAsync(item.Id);
+                    Items.OrderBy((arg) => arg.Start);
+                    await ExecuteLoadItemsCommand();
+                }
             });
         }
 

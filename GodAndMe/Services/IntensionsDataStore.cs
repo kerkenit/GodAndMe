@@ -176,9 +176,13 @@ namespace GodAndMe.Services
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldItem = items.FirstOrDefault((Intention arg) => arg.Id == id);
-            items.Remove(oldItem);
-            db.Delete(oldItem);
+            if (items.Any(x => x.Id == id))
+            {
+                var oldItem = items.FirstOrDefault((Intention arg) => arg.Id == id);
+
+                items.Remove(oldItem);
+                db.Delete(oldItem);
+            }
             return await Task.FromResult(true);
         }
 

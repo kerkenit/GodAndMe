@@ -49,10 +49,12 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<SinsPage, Sins>(this, "DeleteItem", async (obj, item) =>
             {
-                //Items.Remove(item);
-                await SinsDataStore.DeleteItemAsync(item.Id);
-                Items.OrderBy((arg) => arg.Start);
-                await ExecuteLoadItemsCommand();
+                if (Items.Any(x => x.Id == item.Id))
+                {
+                    await SinsDataStore.DeleteItemAsync(item.Id);
+                    Items.OrderBy((arg) => arg.Start);
+                    await ExecuteLoadItemsCommand();
+                }
             });
         }
 

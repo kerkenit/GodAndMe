@@ -69,10 +69,13 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<IntentionPage, Intention>(this, "DeleteItem", async (obj, item) =>
             {
-                Items.Remove(item);
-                await IntentionDataStore.DeleteItemAsync(item.Id);
-                Items.OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start);
-                //await ExecuteLoadItemsCommand();
+                if (Items.Any(x => x.Id == item.Id))
+                {
+                    Items.Remove(item);
+                    await IntentionDataStore.DeleteItemAsync(item.Id);
+                    Items.OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start);
+                    //await ExecuteLoadItemsCommand();
+                }
             });
 
             MessagingCenter.Subscribe<IntentionPageNew, Intention>(this, "GetItem", async (obj, item) =>
