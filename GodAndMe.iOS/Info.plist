@@ -63,8 +63,6 @@
 	</array>
 	<key>CFBundleShortVersionString</key>
 	<string>1.1</string>
-	<key>CFBundleVersion</key>
-	<string>4</string>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
@@ -159,5 +157,9 @@
 			</array>
 		</dict>
 	</array>
+	<key>UISupportsDocumentBrowser</key>
+	<true/>
+	<key>CFBundleVersion</key>
+	<string>6</string>
 </dict>
 </plist>

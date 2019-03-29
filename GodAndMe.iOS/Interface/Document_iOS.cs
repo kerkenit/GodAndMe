@@ -28,20 +28,20 @@ namespace GodAndMe.iOS.Interface
                 {
                     Console.WriteLine("url = {0}", e.Urls[0].AbsoluteString);
                     //bool success = await MoveFileToApp(didPickDocArgs.Url);
-                    var success = true;
+                    //var success = true;
                     string filename = e.Urls[0].LastPathComponent;
                     using (NSData dataToShare = NSFileManager.DefaultManager.Contents(e.Urls[0].Path))
                     {
                         taskSource.SetResult(dataToShare.ToString());
                     }
-                    string msg = success ? string.Format("Successfully imported file '{0}'", filename) : string.Format("Failed to import file '{0}'", filename);
-                    var alertController = UIAlertController.Create("import", msg, UIAlertControllerStyle.Alert);
-                    var okButton = UIAlertAction.Create("OK", UIAlertActionStyle.Default, (obj) =>
-                    {
-                        alertController.DismissViewController(true, null);
-                    });
-                    alertController.AddAction(okButton);
-                    vc.PresentViewController(alertController, true, null);
+                    //string msg = success ? string.Format("Successfully imported file '{0}'", filename) : string.Format("Failed to import file '{0}'", filename);
+                    //var alertController = UIAlertController.Create("import", msg, UIAlertControllerStyle.Alert);
+                    //var okButton = UIAlertAction.Create("OK", UIAlertActionStyle.Default, (obj) =>
+                    //{
+                    //    alertController.DismissViewController(true, null);
+                    //});
+                    //alertController.AddAction(okButton);
+                    //vc.PresentViewController(alertController, true, null);
                 };
                 vc.PresentViewControllerAsync(docPicker, true);
             }
