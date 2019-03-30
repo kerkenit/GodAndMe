@@ -45,19 +45,6 @@ namespace GodAndMe.Services
                 });
 #pragma warning restore CS0162 // Unreachable code detected
             }
-#if DEBUG
-
-            else if (ObjCRuntime.Runtime.Arch == ObjCRuntime.Arch.SIMULATOR && items.Count == 0)
-            {
-                db.InsertAll(new List<Diary> { new Diary { Id = Guid.NewGuid().ToString(), Start=new DateTime(2019,3,12, 8,50,0), Description="Bewuster het Onze Vader bidden en mij dat diep op mij in laten werken. Dus niet snel opriedelen, maar met het hart bidden." },
-                    //new Diary { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                    //new Diary { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                    //new Diary { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                    //new Diary { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                    //new Diary { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
-                });
-            }
-#endif
         }
 
         public async Task<bool> AddItemAsync(Diary item)
