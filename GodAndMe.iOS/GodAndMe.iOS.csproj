@@ -78,6 +78,8 @@
       <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
       <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
       <CodesignProvision>God and Me iOS Distribution</CodesignProvision>
+      <MtouchUseLlvm>true</MtouchUseLlvm>
+      <MtouchUseThumb>true</MtouchUseThumb>
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="Main.cs" />
