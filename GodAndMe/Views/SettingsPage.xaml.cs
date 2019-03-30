@@ -78,7 +78,9 @@ namespace GodAndMe.Views
             {
                 export.intention = db.Table<Intention>().ToList();
             }
+#pragma warning disable CS0168 // Variable is declared but never used
             catch (SQLiteException ex)
+#pragma warning restore CS0168 // Variable is declared but never used
             {
 #if DEBUG
                 throw ex;
@@ -88,7 +90,9 @@ namespace GodAndMe.Views
             {
                 export.lent = db.Table<Lent>().ToList();
             }
+#pragma warning disable CS0168 // Variable is declared but never used
             catch (SQLiteException ex)
+#pragma warning restore CS0168 // Variable is declared but never used
             {
 #if DEBUG
                 throw ex;
@@ -98,7 +102,9 @@ namespace GodAndMe.Views
             {
                 export.diary = db.Table<Diary>().ToList();
             }
+#pragma warning disable CS0168 // Variable is declared but never used
             catch (SQLiteException ex)
+#pragma warning restore CS0168 // Variable is declared but never used
             {
 #if DEBUG
                 throw ex;
@@ -108,7 +114,9 @@ namespace GodAndMe.Views
             {
                 export.sins = db.Table<Sins>().ToList();
             }
+#pragma warning disable CS0168 // Variable is declared but never used
             catch (SQLiteException ex)
+#pragma warning restore CS0168 // Variable is declared but never used
             {
 #if DEBUG
                 throw ex;
@@ -118,7 +126,9 @@ namespace GodAndMe.Views
             {
                 export.prayers = db.Table<Prayers>().ToList();
             }
+#pragma warning disable CS0168 // Variable is declared but never used
             catch (SQLiteException ex)
+#pragma warning restore CS0168 // Variable is declared but never used
             {
 #if DEBUG
                 throw ex;
