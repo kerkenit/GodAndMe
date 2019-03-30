@@ -277,7 +277,7 @@
     <ItemGroup>
         <None Include="project.json" />
     </ItemGroup>
-    <ItemGroup>
+    <ItemGroup Condition="'$(Platform)'=='iPhone' Or '$(Platform)'=='iPhoneSimulator'">
         <Reference Include="Xamarin.iOS">
             <HintPath>..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\12.2.1.16\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
         </Reference>
