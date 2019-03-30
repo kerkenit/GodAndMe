@@ -22,8 +22,8 @@
             <StackLayout x:Name="pnlImportAndExport" Orientation="Vertical" VerticalOptions="StartAndExpand" Padding="16,40,16,40" Spacing="10" IsVisible="false">
                 <Label Text="{resX:TranslateExtension ImportAndExport}" FontSize="Medium" />
                 <Label Text="{resX:TranslateExtension ImportAndExportText}" FontSize="Default" />
-                <Button x:Name="btImport" Margin="0,10,0,0" Text="{resX:TranslateExtension Import}" BackgroundColor="{StaticResource Primary}" TextColor="Black" Clicked="btImport_Clicked" />
-                <Button x:Name="btExport" Margin="0,10,0,0" Text="{resX:TranslateExtension Export}" BackgroundColor="{StaticResource Primary}" TextColor="Black" Clicked="btExport_Clicked" />
+                <Button x:Name="btImport" Margin="0,10,0,0" Text="{resX:TranslateExtension Import}" BackgroundColor="{StaticResource Primary}" TextColor="Black" Clicked="Import_Clicked" />
+                <Button x:Name="btExport" Margin="0,10,0,0" Text="{resX:TranslateExtension Export}" BackgroundColor="{StaticResource Primary}" TextColor="Black" Clicked="Export_Clicked" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

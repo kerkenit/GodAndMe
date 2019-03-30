@@ -68,10 +68,12 @@ namespace GodAndMe.iOS
         {
             if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
             {
+#pragma warning disable XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
                 using (NSData dataToShare = NSFileManager.DefaultManager.Contents(url.Path))
                 {
                     ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenJson(dataToShare.ToString());
                 }
+#pragma warning restore XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
             }
             return true;
         }

@@ -24,6 +24,7 @@ namespace GodAndMe.Services
 
             if (CommonFunctions.SCREENSHOT)
             {
+#pragma warning disable CS0162 // Unreachable code detected
                 db.DeleteAll<Sins>();
                 db.InsertAll(new List<Sins> {
                     new Sins {
@@ -42,6 +43,7 @@ namespace GodAndMe.Services
                         Start = DateTime.Today.AddDays(-3)
                     },
                 });
+#pragma warning restore CS0162 // Unreachable code detected
             }
 #if DEBUG
             else if (true && items.Count == 0)

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using GodAndMe.Extensions;
 using GodAndMe.Interface;
 using GodAndMe.Models;
 using Newtonsoft.Json;
@@ -17,30 +20,30 @@ namespace GodAndMe.Views
         public SettingsPage()
         {
             InitializeComponent();
-            if (Device.RuntimePlatform == Device.iOS)
-            {
-                var toolbarItem = new ToolbarItem();
-                toolbarItem.Icon = "hamburger.png";
-                toolbarItem.Priority = -1;
-                toolbarItem.Clicked += (object sender, EventArgs e) =>
-                {
-                    ((MasterDetailPage)App.Current.MainPage).IsPresented = true;
-                };
-                ToolbarItems.Add(toolbarItem);
-                tblCommon.Remove(MyName);
 #if __IOS__
-                if (UIKit.UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
-                {
-
-                    pnlImportAndExport.IsVisible = true;
-                }
-#endif
-            }
-            else
+            var toolbarItem = new ToolbarItem();
+            toolbarItem.Icon = "hamburger.png";
+            toolbarItem.Priority = -1;
+            toolbarItem.Clicked += (object sender, EventArgs e) =>
             {
-                tblCommon.Remove(TouchIDEnabled);
-                tblCommon.Remove(MyName);
+                ((MasterDetailPage)Application.Current.MainPage).IsPresented = true;
+            };
+            ToolbarItems.Add(toolbarItem);
+            tblCommon.Remove(MyName);
+
+            if (UIKit.UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+            {
+
+                pnlImportAndExport.IsVisible = true;
             }
+#elif __ANDROID__
+        tblCommon.Remove(TouchIDEnabled);
+                tblCommon.Remove(MyName);
+#if DEBUG
+                pnlImportAndExport.IsVisible = true;
+#endif
+#endif
+
 
             tblCommon.Title = string.Format("{0}-{1}", CommonFunctions.i18n("ApplicationTitle"), CommonFunctions.i18n("Settings"));
 
@@ -66,7 +69,7 @@ namespace GodAndMe.Views
             };
         }
 
-        void btExport_Clicked(object sender, System.EventArgs e)
+        void Export_Clicked(object sender, EventArgs e)
         {
             db = DependencyService.Get<IDatabaseConnection>().DbConnection();
 
@@ -75,55 +78,78 @@ namespace GodAndMe.Views
             {
                 export.intention = db.Table<Intention>().ToList();
             }
-            catch (SQLiteException)
+            catch (SQLiteException ex)
             {
-
+#if DEBUG
+                throw ex;
+#endif
             }
             try
             {
                 export.lent = db.Table<Lent>().ToList();
             }
-            catch (SQLiteException)
+            catch (SQLiteException ex)
             {
-
+#if DEBUG
+                throw ex;
+#endif
             }
             try
             {
                 export.diary = db.Table<Diary>().ToList();
             }
-            catch (SQLiteException)
+            catch (SQLiteException ex)
             {
-
+#if DEBUG
+                throw ex;
+#endif
             }
             try
             {
                 export.sins = db.Table<Sins>().ToList();
             }
-            catch (SQLiteException)
+            catch (SQLiteException ex)
             {
-
+#if DEBUG
+                throw ex;
+#endif
             }
             try
             {
                 export.prayers = db.Table<Prayers>().ToList();
             }
-            catch (SQLiteException)
+            catch (SQLiteException ex)
             {
-
+#if DEBUG
+                throw ex;
+#endif
             }
 
-
-
-
+            //Task.Factory.StartNew((async () =>
+            //{
+            //    string url = await GetFilePath(export);
+            //    Device.BeginInvokeOnMainThread(async () =>
+            //    {
+            //        IShare share = DependencyService.Get<IShare>();
+            //        await share.Show(
+            //           string.Format("Backup {0} op {1:D}", CommonFunctions.i18n("ApplicationTitle"), DateTime.Now),
+            //           null,
+            //           url,
+            //           null
+            //       );
+            //    });
+            //}), TaskCreationOptions.LongRunning);
             Device.BeginInvokeOnMainThread(async () =>
             {
+                string result = CryptFile.Encrypt(JsonConvert.SerializeObject(export));
                 IFileSystem fileSystem = FileSystem.Current;
 
                 // Get the root directory of the file system for our application.
                 IFolder rootFolder = fileSystem.LocalStorage;
                 IFolder exportFolder = await rootFolder.CreateFolderAsync("export", CreationCollisionOption.OpenIfExists);
                 IFile jsonFile = await exportFolder.CreateFileAsync(DateTime.Now.ToString("F") + ".god", CreationCollisionOption.ReplaceExisting);
-                await jsonFile.WriteAllTextAsync(JsonConvert.SerializeObject(export));
+                await jsonFile.WriteAllTextAsync(result);
+
                 IShare share = DependencyService.Get<IShare>();
                 await share.Show(
                    string.Format("Backup {0} op {1:D}", CommonFunctions.i18n("ApplicationTitle"), DateTime.Now),
@@ -132,10 +158,47 @@ namespace GodAndMe.Views
                    null
                );
             });
-
         }
 
-        void btImport_Clicked(object sender, EventArgs e)
+
+        //        async Task<string> GetFilePath(object export)
+        //        {
+        //            TaskCompletionSource<string> taskSource = new TaskCompletionSource<string>();
+
+        //            try
+        //            {
+        //                IFile jsonFile = null;
+        //                Device.BeginInvokeOnMainThread(async () =>
+        //                {
+        //                    IFileSystem fileSystem = FileSystem.Current;
+
+        //                    // Get the root directory of the file system for our application.
+        //                    IFolder rootFolder = fileSystem.LocalStorage;
+        //                    IFolder exportFolder = await rootFolder.CreateFolderAsync("export", CreationCollisionOption.OpenIfExists);
+        //                    jsonFile = await exportFolder.CreateFileAsync(DateTime.Now.ToString("F") + ".god", CreationCollisionOption.ReplaceExisting);
+        //                });
+        //                CryptFile cryptFile = new CryptFile(CommonFunctions.CRYPTOKEY);
+        //                string result = cryptFile.Encrypt(JsonConvert.SerializeObject(export));
+        //                if (result != null)
+        //                {
+        //                    await jsonFile.WriteAllTextAsync(result);
+
+        //                    taskSource.SetResult(jsonFile.Path);
+        //                }
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //#if DEBUG
+        //                System.Diagnostics.Debug.WriteLine(ex);
+        //                taskSource.SetResult(null);
+        //#else
+        //                 taskSource.SetResult(null);
+        //#endif
+        //    }
+        //    return taskSource.Task.Result;
+        //}
+
+        void Import_Clicked(object sender, EventArgs e)
         {
             Device.BeginInvokeOnMainThread(async () =>
             {

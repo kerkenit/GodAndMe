@@ -20,10 +20,11 @@ namespace GodAndMe.Resx
 
         public TranslateExtension()
         {
-            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
-            {
-                ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
-            }
+#if __IOS__
+            ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+#elif __ANDROID__
+            ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+#endif
         }
 
         public object ProvideValue(IServiceProvider serviceProvider)

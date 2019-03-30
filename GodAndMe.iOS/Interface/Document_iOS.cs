@@ -30,10 +30,13 @@ namespace GodAndMe.iOS.Interface
                     //bool success = await MoveFileToApp(didPickDocArgs.Url);
                     //var success = true;
                     string filename = e.Urls[0].LastPathComponent;
+#pragma warning disable XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
                     using (NSData dataToShare = NSFileManager.DefaultManager.Contents(e.Urls[0].Path))
                     {
                         taskSource.SetResult(dataToShare.ToString());
                     }
+#pragma warning restore XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
+
                     //string msg = success ? string.Format("Successfully imported file '{0}'", filename) : string.Format("Failed to import file '{0}'", filename);
                     //var alertController = UIAlertController.Create("import", msg, UIAlertControllerStyle.Alert);
                     //var okButton = UIAlertAction.Create("OK", UIAlertActionStyle.Default, (obj) =>

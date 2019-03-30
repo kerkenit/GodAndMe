@@ -24,6 +24,7 @@ namespace GodAndMe.Services
 
             if (CommonFunctions.SCREENSHOT)
             {
+#pragma warning disable CS0162 // Unreachable code detected
                 db.DeleteAll<Prayers>();
                 db.InsertAll(new List<Prayers> {
                     new Prayers {
@@ -42,6 +43,7 @@ namespace GodAndMe.Services
                         Description = CommonFunctions.i18n("SCREENSHOT_Prayers_3_Description"),
                     },
                 });
+#pragma warning restore CS0162 // Unreachable code detected
             }
 #if DEBUG
             else if (true && items.Count == 0)

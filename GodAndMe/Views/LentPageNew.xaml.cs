@@ -17,21 +17,20 @@ namespace GodAndMe.Views
         {
             InitializeComponent();
 
-            if (Device.RuntimePlatform == Device.iOS)
+#if __IOS__
+            ToolbarItem btCancel = new ToolbarItem()
             {
-                ToolbarItem btCancel = new ToolbarItem()
-                {
-                    Text = CommonFunctions.i18n("Cancel"),
-                    IsDestructive = true,
-                    Priority = -1
-                };
+                Text = CommonFunctions.i18n("Cancel"),
+                IsDestructive = true,
+                Priority = -1
+            };
 
-                btCancel.Clicked += async (object sender, EventArgs e) =>
-                {
-                    await Navigation.PopToRootAsync();
-                };
-                this.ToolbarItems.Add(btCancel);
-            }
+            btCancel.Clicked += async (object sender, EventArgs e) =>
+            {
+                await Navigation.PopToRootAsync();
+            };
+            this.ToolbarItems.Add(btCancel);
+#endif
 
             if (lent != null)
             {

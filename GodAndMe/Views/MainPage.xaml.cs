@@ -132,9 +132,21 @@ namespace GodAndMe.Views
             {
                 sender = null;
             }
+            if (sender == null)
+            {
+                try
+                {
+                    sender = JsonConvert.DeserializeObject(CryptFile.Decrypt(json), typeof(Base));
+                }
+                catch
+                {
+                    sender = null;
+                }
+            }
+
             try
             {
-                if (sender.GetType() == typeof(Base))
+                if (sender != null && sender.GetType() == typeof(Base))
                 {
                     Base BaseJson = (Base)sender;
                     SQLite.SQLiteConnection db = DependencyService.Get<IDatabaseConnection>().DbConnection();

@@ -36,13 +36,18 @@ namespace GodAndMe
             System.Diagnostics.Debug.WriteLine("====================================");
 #endif
             // This lookup NOT required for Windows platforms - the Culture will be automatically set
-            if (Device.RuntimePlatform == Device.iOS || Device.RuntimePlatform == Device.Android)
-            {
-                // determine the correct, supported .NET culture
-                var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
-                GodAndMe.Resx.AppResources.Culture = ci; // set the RESX for resource localization
-                DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
-            }
+
+#if __IOS__
+            // determine the correct, supported .NET culture
+            var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+            GodAndMe.Resx.AppResources.Culture = ci; // set the RESX for resource localization
+            DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
+#elif __ANDROID__
+            // determine the correct, supported .NET culture
+            var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+            GodAndMe.Resx.AppResources.Culture = ci; // set the RESX for resource localization
+            DependencyService.Get<ILocalize>().SetLocale(ci); // set the Thread for locale-aware methods
+#endif
 
             if (touchId.CanAuthenticateUserIDWithTouchID())
             {

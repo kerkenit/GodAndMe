@@ -30,37 +30,45 @@ namespace GodAndMe.iOS.Interface
                 //IFile json = await fileSystem.GetFileFromPathAsync(url);
                 //string text = await json.ReadAllTextAsync();
 
-
-                items = new NSObject[] { NSUrl.FromFilename(url) };
-
-                if (items == null)
+                if (url != null)
                 {
-                    if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+                    items = new NSObject[] { NSUrl.FromFilename(url) };
+
+                    if (items == null)
                     {
-                        using (NSData dataToShare = NSFileManager.DefaultManager.Contents(url))
+#pragma warning disable XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
+                        if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
                         {
-                            items = new NSObject[] { dataToShare };
+                            using (NSData dataToShare = NSFileManager.DefaultManager.Contents(url))
+                            {
+                                items = new NSObject[] { dataToShare };
+                            }
                         }
+#pragma warning restore XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
+
                     }
                 }
 
             }
-            UIActivityViewController activityController = new UIActivityViewController(items, null);
-            UIViewController vc = GetVisibleViewController();
-
-            NSString[] excludedActivityTypes = null;
-
-            if (excludedActivityTypes != null && excludedActivityTypes.Length > 0)
-                activityController.ExcludedActivityTypes = excludedActivityTypes;
-
-            if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+            if (items != null)
             {
-                if (activityController.PopoverPresentationController != null)
+                UIActivityViewController activityController = new UIActivityViewController(items, null);
+                UIViewController vc = GetVisibleViewController();
+
+                NSString[] excludedActivityTypes = null;
+
+                if (excludedActivityTypes != null && excludedActivityTypes.Length > 0)
+                    activityController.ExcludedActivityTypes = excludedActivityTypes;
+
+                if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
                 {
-                    activityController.PopoverPresentationController.SourceView = vc.View;
+                    if (activityController.PopoverPresentationController != null)
+                    {
+                        activityController.PopoverPresentationController.SourceView = vc.View;
+                    }
                 }
+                await vc.PresentViewControllerAsync(activityController, true);
             }
-            await vc.PresentViewControllerAsync(activityController, true);
         }
 
         UIViewController GetVisibleViewController()
