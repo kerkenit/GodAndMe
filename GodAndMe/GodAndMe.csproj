@@ -211,7 +211,7 @@
         <Compile Include="Models\Base.cs" />
         <Compile Include="Converters\Date.cs" />
         <Compile Include="Interface\IDocument.cs" />
-        <Compile Include="Extensions\File.cs" />
+        <Compile Include="Extensions\CryptFile.cs" />
         <Compile Include="GlobalSuppressions.cs" />
     </ItemGroup>
     <ItemGroup>
