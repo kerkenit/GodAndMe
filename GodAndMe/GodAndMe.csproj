@@ -277,9 +277,9 @@
     <ItemGroup>
         <None Include="project.json" />
     </ItemGroup>
-    <ItemGroup Condition="'$(Platform)'=='iPhone' Or '$(Platform)'=='iPhoneSimulator'">
+    <ItemGroup Condition=" '$(Configuration)' == 'Debug iPhoneSimulator' Or '$(Configuration)' == 'Debug iPhone' Or '$(Configuration)' == 'Release iPhone' ">
         <Reference Include="Xamarin.iOS">
-            <HintPath>..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\12.2.1.16\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
+            <HintPath>..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\Current\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
         </Reference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

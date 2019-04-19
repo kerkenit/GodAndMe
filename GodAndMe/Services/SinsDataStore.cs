@@ -20,7 +20,6 @@ namespace GodAndMe.Services
             db = DependencyService.Get<IDatabaseConnection>().DbConnection();
             db.CreateTable<Sins>();
             items = db.Table<Sins>().ToList();
-            items = items.OrderBy((arg) => arg.Start).ToList();
 
             if (CommonFunctions.SCREENSHOT)
             {
@@ -48,15 +47,26 @@ namespace GodAndMe.Services
 #if DEBUG
             else if (true && items.Count == 0)
             {
-                //db.InsertAll(new List<Sins> { new Sins { Id = Guid.NewGuid().ToString(), Start=new DateTime(2019,3,12, 8,50,0), Description="Bewuster het Onze Vader bidden en mij dat diep op mij in laten werken. Dus niet snel opriedelen, maar met het hart bidden." },
-                //    //new Sins { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                //    //new Sins { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                //    //new Sins { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                //    //new Sins { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                //    //new Sins { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
-                //});
+                db.InsertAll(new List<Sins> {
+                    new Sins {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Sins_1_Description"),
+                        Start= DateTime.Today.AddDays(-1)
+                    },
+                    new Sins {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Sins_2_Description"),
+                        Start = DateTime.Today.AddDays(-2)
+                    },
+                    new Sins {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Sins_3_Description"),
+                        Start = DateTime.Today.AddDays(-3)
+                    },
+                });
             }
 #endif
+            items = items.OrderBy((arg) => arg.Start).ToList();
         }
 
         public async Task<bool> AddItemAsync(Sins item)

@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:GodAndMe"
              xmlns:resX="clr-namespace:GodAndMe.Resx"
              xmlns:converters="clr-namespace:GodAndMe.Converters"
-             Title="{resX:TranslateExtension Diary}" x:Name="BrowseDiaryPage">
+             Title="{resX:TranslateExtension Diary}"
+             x:Name="BrowseDiaryPage">
     <ContentPage.Resources>
         <ResourceDictionary>
           <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>

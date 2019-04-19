@@ -30,8 +30,7 @@ namespace GodAndMe.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Diary;
-            if (item == null)
+            if (!(args.SelectedItem is Diary item))
                 return;
 
             await Navigation.PushAsync(new DiaryDetailPage(new DiaryDetailViewModel(item)));

@@ -53,41 +53,35 @@ namespace GodAndMe.Services
 #if DEBUG
             else if (true && items.Count == 0)
             {
-                db.InsertAll(new List<Lent>
-                {
+                db.InsertAll(new List<Lent> {
                     new Lent {
                         Id = Guid.NewGuid().ToString(),
-                        Text = "Jus de orange i.p.v. bananen sap",
-                        MoneyFrom = 2.23,
-                        MoneyTo = 2.03,
-                        Start = new DateTime(2019,3,9,15,0,1)
+                        Text = CommonFunctions.i18n("SCREENSHOT_Lent_1_Text"),
+                        MoneyFrom = ((double)new Random().Next(150, 300)) / 100,
+                        MoneyTo = ((double)new Random().Next(0, 100)) / 100,
+                        Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(1)
                     },
                     new Lent {
                         Id = Guid.NewGuid().ToString(),
-                        Text = "Spa fruit",
-                        MoneyFrom = 1.03,
+                        Text = CommonFunctions.i18n("SCREENSHOT_Lent_2_Text"),
+                        MoneyFrom = ((double)new Random().Next(200, 400)) / 100,
                         MoneyTo = 0.00,
-                        Start = new DateTime(2019,3,9,15,0,2)
+                        Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(2)
                     },
                     new Lent {
                         Id = Guid.NewGuid().ToString(),
-                        Text = "Eieren",
-                        MoneyFrom = 1.89,
+                        Text = CommonFunctions.i18n("SCREENSHOT_Lent_3_Text"),
+                        MoneyFrom = ((double)new Random().Next(50, 300)) / 100,
                         MoneyTo = 0.00,
-                        Start = new DateTime(2019,3,9,15,0,3)
-                    },
-                    new Lent {
-                        Id = Guid.NewGuid().ToString(),
-                        Text = "Kaas van de Jumbo i.p.v. de markt",
-                        MoneyFrom = 9.00,
-                        MoneyTo = 5.43,
-                        Start = new DateTime(2019,3,9,15,0,4)
+                        Start = DateTime.Today.AddDays(-4).AddHours(9).AddMinutes(3)
                     },
                 });
+
+                items = db.Table<Lent>().ToList();
             }
 #endif
 
-            items = items.OrderBy((arg) => arg.Start).ToList();
+            items = items.OrderByDescending((arg) => arg.Start).ToList();
         }
 
         public async Task<bool> AddItemAsync(Lent item)

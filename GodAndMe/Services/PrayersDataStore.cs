@@ -20,7 +20,6 @@ namespace GodAndMe.Services
             db = DependencyService.Get<IDatabaseConnection>().DbConnection();
             db.CreateTable<Prayers>();
             items = db.Table<Prayers>().ToList();
-            items = items.OrderBy((arg) => arg.Title).ToList();
 
             if (CommonFunctions.SCREENSHOT)
             {
@@ -43,31 +42,36 @@ namespace GodAndMe.Services
                         Description = CommonFunctions.i18n("SCREENSHOT_Prayers_3_Description"),
                     },
                 });
+
+                items = db.Table<Prayers>().ToList();
 #pragma warning restore CS0162 // Unreachable code detected
             }
 #if DEBUG
             else if (true && items.Count == 0)
             {
                 db.InsertAll(new List<Prayers> {
-                            new Prayers {
-                                Id = Guid.NewGuid().ToString(),
-                                Title="Noveengebed tot O.L. Vrouw van de Wonderdadige Medaille",
-                                Description="Onbevlekte Maagd Maria - Moeder van Jezus Christus en Moeder van ons - wij hebben het grootste vertrouwen in uw voorspraak. U kunt van uw Zoon alles verkrijgen, wat goed is voor ons.\n\nWij danken U, dat U ons daaraan herinnert - door de medaille, waarop onze verlossing is afgebeeld. U houdt van ons, wij vertrouwen op U. Wil voor ons uw kinderen de genade verkrijgen, waarom wij nederig vragen.\n\n(Hier maakt men zijn/haar intenties).\n\nMoeder Maria - verkrijg voor ons niet alleen tijdelijke gunsten - maar vooral dat wij bereid mogen zijn tot gebed en offer. Zo alleen zullen wij in staat zijn - tot ware liefde voor uw Zoon - en tot oprechte liefde voor de evenmens. Dan zullen wij het geluk van de hemel verkrijgen - dat U reeds bezit als onze Koningin en Moeder. Amen.\n\nSchietgebed:\nO Maria, zonder zonden ontvangen, bid voor ons, die onze toevlucht tot U nemen. (3x)",
-                            },
-                            new Prayers {
-                                Id = Guid.NewGuid().ToString(),
-                                Title="Heilige Aartsengel Michaël",
-                                Description="Heilige Aartsengel Michaël, verdedig ons in de strijd; wees onze bescherming tegen de boosheid en de listen van de duivel. Wij smeken ootmoedig dat God hem Zijn macht doe gevoelen. En gij, vorst van de hemelse legerscharen, drijf Satan en andere boze geesten, die tot verderf van de zielen over de wereld rondgaan, door de goddelijke kracht in de hel terug. Amen.",
-                            },
+                    new Prayers {
+                        Id = Guid.NewGuid().ToString(),
+                        Title = CommonFunctions.i18n("SCREENSHOT_Prayers_1_Title"),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Prayers_1_Description"),
+                    },
+                    new Prayers {
+                        Id = Guid.NewGuid().ToString(),
+                        Title = CommonFunctions.i18n("SCREENSHOT_Prayers_2_Title"),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Prayers_2_Description"),
+                    },
+                    new Prayers {
+                        Id = Guid.NewGuid().ToString(),
+                        Title = CommonFunctions.i18n("SCREENSHOT_Prayers_3_Title"),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Prayers_3_Description"),
+                    },
+                });
 
-                            new Prayers {
-                                Id = Guid.NewGuid().ToString(),
-                                Title="Kom Heilige Geest",
-                                Description="Kom, Heilige Geest, vervul de harten van uw gelovigen, en ontsteek in hen het vuur van uw liefde.\nV. Zend uw Geest uit en alles zal herschapen worden.\nA. En Gij zult het aanschijn van de aarde vernieuwen.\n\nLaat ons bidden\nGod Gij hebt de harten van de gelovigen door de verlichting van de Heilige Geest onderwezen: geef dat wij door die Heilige Geest de ware wijsheid mogen bezitten, en ons altijd over zijn vertroosting mogen verblijden. Door Christus onze Heer.\n\nAmen.",
-                            },
-                        });
+                items = db.Table<Prayers>().ToList();
             }
 #endif
+
+            items = items.OrderBy((arg) => arg.Title).ToList();
         }
 
         public async Task<bool> AddItemAsync(Prayers item)

@@ -54,8 +54,7 @@ namespace GodAndMe.Views
         {
             if (args != null && args.SelectedItem != null && args.SelectedItem.GetType() == typeof(Intention))
             {
-                Intention item = args.SelectedItem as Intention;
-                if (item == null)
+                if (!(args.SelectedItem is Intention item))
                     return;
 
                 await Navigation.PushAsync(new IntentionDetailPage(new IntentionDetailViewModel(item)));

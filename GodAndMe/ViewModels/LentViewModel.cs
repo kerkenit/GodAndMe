@@ -36,7 +36,7 @@ namespace GodAndMe.ViewModels
                     }
                     await LentDataStore.AddItemAsync(item);
                 }
-                Items.OrderBy((arg) => arg.Start);
+                Items.OrderByDescending((arg) => arg.Start);
                 await ExecuteLoadItemsCommand();
             });
 
@@ -57,14 +57,14 @@ namespace GodAndMe.ViewModels
                     }
                     await LentDataStore.AddItemAsync(item);
                 }
-                Items.OrderBy((arg) => arg.Start);
+                Items.OrderByDescending((arg) => arg.Start);
                 await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<LentPage, Lent>(this, "UpdateItem", async (obj, item) =>
             {
                 await LentDataStore.UpdateItemAsync(item);
-                Items.OrderBy((arg) => arg.Start);
+                Items.OrderByDescending((arg) => arg.Start);
                 await ExecuteLoadItemsCommand();
             });
 
@@ -74,7 +74,7 @@ namespace GodAndMe.ViewModels
                 {
                     Items.Remove(item);
                     await LentDataStore.DeleteItemAsync(item.Id);
-                    Items.OrderBy((arg) => arg.Start);
+                    Items.OrderByDescending((arg) => arg.Start);
                     await ExecuteLoadItemsCommand();
                 }
             });
@@ -86,7 +86,7 @@ namespace GodAndMe.ViewModels
                     Items.Remove(item);
                 }
                 Items.Add(await LentDataStore.GetItemAsync(item.Id));
-                Items.OrderBy((arg) => arg.Start);
+                Items.OrderByDescending((arg) => arg.Start);
             });
         }
 
@@ -105,7 +105,7 @@ namespace GodAndMe.ViewModels
                 {
                     Items.Add(item);
                 }
-                Items.OrderBy((arg) => arg.Start);
+                Items.OrderByDescending((arg) => arg.Start);
 
             }
             catch (Exception ex)

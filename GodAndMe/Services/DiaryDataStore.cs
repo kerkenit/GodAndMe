@@ -20,7 +20,6 @@ namespace GodAndMe.Services
             db = DependencyService.Get<IDatabaseConnection>().DbConnection();
             db.CreateTable<Diary>();
             items = db.Table<Diary>().ToList();
-            items = items.OrderByDescending((arg) => arg.Start).ToList();
 
             if (CommonFunctions.SCREENSHOT)
             {
@@ -43,8 +42,36 @@ namespace GodAndMe.Services
                         Start = DateTime.Today.AddDays(-3)
                     },
                 });
+                items = db.Table<Diary>().ToList();
 #pragma warning restore CS0162 // Unreachable code detected
             }
+#if DEBUG
+            else if (true && items.Count == 0)
+            {
+#pragma warning disable CS0162 // Unreachable code detected
+                db.InsertAll(new List<Diary> {
+                    new Diary {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Diary_1_Description"),
+                        Start = DateTime.Today.AddDays(-1)
+                    },
+                    new Diary {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Diary_2_Description"),
+                        Start = DateTime.Today.AddDays(-2)
+                    },
+                    new Diary {
+                        Id = Guid.NewGuid().ToString(),
+                        Description = CommonFunctions.i18n("SCREENSHOT_Diary_3_Description"),
+                        Start = DateTime.Today.AddDays(-3)
+                    },
+                });
+                items = db.Table<Diary>().ToList();
+#pragma warning restore CS0162 // Unreachable code detected
+            }
+#endif
+
+            items = items.OrderByDescending((arg) => arg.Start).ToList();
         }
 
         public async Task<bool> AddItemAsync(Diary item)
