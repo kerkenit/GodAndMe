@@ -20,7 +20,7 @@ namespace GodAndMe.Services
             db = DependencyService.Get<IDatabaseConnection>().DbConnection();
             db.CreateTable<Diary>();
             items = db.Table<Diary>().ToList();
-            items = items.OrderBy((arg) => arg.Start).ToList();
+            items = items.OrderByDescending((arg) => arg.Start).ToList();
 
             if (CommonFunctions.SCREENSHOT)
             {
@@ -104,7 +104,7 @@ namespace GodAndMe.Services
             {
                 items = db.Table<Diary>().ToList();
             }
-            return await Task.FromResult(items.OrderBy((arg) => arg.Start));
+            return await Task.FromResult(items.OrderByDescending((arg) => arg.Start));
         }
     }
 }
