@@ -160,6 +160,6 @@
 	<key>UISupportsDocumentBrowser</key>
 	<true/>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>8</string>
 </dict>
 </plist>
