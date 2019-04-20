@@ -90,26 +90,24 @@ namespace GodAndMe.Views
 
         public void OpenBase64(string base64)
         {
+            string json = CryptFile.Decrypt(base64);
             object sender = null;
             try
             {
-                sender = JsonConvert.DeserializeObject(CryptFile.Decrypt(base64), typeof(Intention)); ;
+                if (json.Contains("Committed"))
+                {
+                    sender = JsonConvert.DeserializeObject<Sins>(json);
+                }
+                else
+                {
+                    sender = JsonConvert.DeserializeObject<Intention>(json);
+                }
             }
             catch
             {
                 sender = null;
             }
-            if (sender == null)
-            {
-                try
-                {
-                    sender = JsonConvert.DeserializeObject(CryptFile.Decrypt(base64), typeof(Sins));
-                }
-                catch (Exception ex)
-                {
-                    sender = null;
-                }
-            }
+
             try
             {
                 if (sender != null && sender.GetType() == typeof(Intention))
@@ -124,9 +122,10 @@ namespace GodAndMe.Views
                 {
                     Sins sin = sender as Sins;
                     sin.Confessed = false;
+                    sin.Id = Guid.NewGuid().ToString();
                     IDataStore<Sins> SinsDataStore = new SinsDataStore();
                     SinsDataStore.AddItemAsync(sin);
-                    Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(Sins)));
+                    Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(SinsPage)));
                 }
             }
             catch
@@ -178,66 +177,43 @@ namespace GodAndMe.Views
 
             try
             {
+
                 if (sender != null && sender.GetType() == typeof(Base) && (((Base)sender).intention != null || ((Base)sender).lent != null || ((Base)sender).diary != null || ((Base)sender).sins != null || ((Base)sender).prayers != null))
                 {
-                    Base BaseJson = (Base)sender;
-                    SQLite.SQLiteConnection db = DependencyService.Get<IDatabaseConnection>().DbConnection();
-
-                    db.CreateTable<Intention>();
-                    db.DeleteAll<Intention>();
-                    db.InsertAll(BaseJson.intention);
-
-                    db.CreateTable<Diary>();
-                    db.DeleteAll<Diary>();
-                    db.InsertAll(BaseJson.diary);
-
-                    db.CreateTable<Lent>();
-                    db.DeleteAll<Lent>();
-                    db.InsertAll(BaseJson.lent);
-
-                    db.CreateTable<Prayers>();
-                    db.DeleteAll<Prayers>();
-                    db.InsertAll(BaseJson.prayers);
-
-                    db.CreateTable<Sins>();
-                    db.DeleteAll<Sins>();
-                    db.InsertAll(BaseJson.sins);
-
-
-                }
-                else
-                {
-                    try
+                    Device.BeginInvokeOnMainThread(async () =>
                     {
-                        sender = JsonConvert.DeserializeObject(CryptFile.Decrypt(json), typeof(Intention));
-                    }
-                    catch (Exception ex)
-                    {
-                        sender = null;
-                    }
+                        if (await DisplayAlert(CommonFunctions.i18n("Import"), CommonFunctions.i18n("AllDataWillBeDeletedContinue"), CommonFunctions.i18n("Yes"), CommonFunctions.i18n("No")))
+                        {
+                            Base BaseJson = (Base)sender;
+                            SQLite.SQLiteConnection db = DependencyService.Get<IDatabaseConnection>().DbConnection();
 
+                            db.CreateTable<Intention>();
+                            db.DeleteAll<Intention>();
+                            db.InsertAll(BaseJson.intention);
 
+                            db.CreateTable<Diary>();
+                            db.DeleteAll<Diary>();
+                            db.InsertAll(BaseJson.diary);
 
-                    if (sender != null && sender.GetType() == typeof(Intention))
-                    {
-                        SQLite.SQLiteConnection db = DependencyService.Get<IDatabaseConnection>().DbConnection();
+                            db.CreateTable<Lent>();
+                            db.DeleteAll<Lent>();
+                            db.InsertAll(BaseJson.lent);
 
-                        db.CreateTable<Intention>();
-                        db.Insert(sender);
-                    }
+                            db.CreateTable<Prayers>();
+                            db.DeleteAll<Prayers>();
+                            db.InsertAll(BaseJson.prayers);
 
+                            db.CreateTable<Sins>();
+                            db.DeleteAll<Sins>();
+                            db.InsertAll(BaseJson.sins);
+                            Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
+                        }
+                    });
                 }
             }
             catch
             {
                 sender = null;
-            }
-            finally
-            {
-                if (sender != null)
-                {
-                    Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
-                }
             }
         }
 

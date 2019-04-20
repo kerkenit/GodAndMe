@@ -24,6 +24,9 @@
     <data name="AddSavings" xml:space="preserve">
         <value>Besparing toevoegen</value>
     </data>
+    <data name="AllDataWillBeDeletedContinue" xml:space="preserve">
+        <value>Alle gegevens worden gewist. Doorgaan?</value>
+    </data>
     <data name="ApplicationTitle" xml:space="preserve">
         <value>God &amp; Ik</value>
     </data>
@@ -146,6 +149,9 @@
     </data>
     <data name="NewSin" xml:space="preserve">
         <value>Nieuwe zonde</value>
+    </data>
+    <data name="No" xml:space="preserve">
+        <value>Nee</value>
     </data>
     <data name="Notes" xml:space="preserve">
         <value>Notitie</value>
@@ -311,6 +317,9 @@ Amen.</value>
     </data>
     <data name="WouldYouPrayForX" xml:space="preserve">
         <value>Zou je voor {0} willen bidden?</value>
+    </data>
+    <data name="Yes" xml:space="preserve">
+        <value>Ja</value>
     </data>
     <data name="Yesterday" xml:space="preserve">
         <value>Gisteren</value>

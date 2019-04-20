@@ -24,6 +24,9 @@
     <data name="AddSavings" xml:space="preserve">
         <value>Add savings</value>
     </data>
+    <data name="AllDataWillBeDeletedContinue" xml:space="preserve">
+        <value>All data will be deleted. Continue?</value>
+    </data>
     <data name="ApplicationTitle" xml:space="preserve">
         <value>God &amp; Me</value>
     </data>
@@ -146,6 +149,9 @@
     </data>
     <data name="NewSin" xml:space="preserve">
         <value>New sin</value>
+    </data>
+    <data name="No" xml:space="preserve">
+        <value>No</value>
     </data>
     <data name="Notes" xml:space="preserve">
         <value>Notes</value>
@@ -316,6 +322,9 @@ Amen.</value>
     </data>
     <data name="WouldYouPrayForX" xml:space="preserve">
         <value>Would you pray for {0}?</value>
+    </data>
+    <data name="Yes" xml:space="preserve">
+        <value>Yes</value>
     </data>
     <data name="Yesterday" xml:space="preserve">
         <value>Yesterday</value>

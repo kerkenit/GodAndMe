@@ -67,24 +67,44 @@ namespace GodAndMe.iOS
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
-            if (!string.IsNullOrWhiteSpace(url.Path) && UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+            string dataToShare = null;
+            if (!string.IsNullOrWhiteSpace(url.AbsoluteString))
+            {
+                dataToShare = url.AbsoluteString;
+            }
+            if (string.IsNullOrWhiteSpace(dataToShare) && !string.IsNullOrWhiteSpace(url.Host))
+            {
+                dataToShare = url.Host;
+            }
+            if (dataToShare.StartsWith(CommonFunctions.URLSHEME, StringComparison.Ordinal))
+            {
+
+                ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenBase64(dataToShare.Substring(CommonFunctions.URLSHEME.Length, dataToShare.Length - CommonFunctions.URLSHEME.Length));
+            }
+            else
             {
 
 #pragma warning disable XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
-                string dataToShare = File.ReadAllText(url.AbsoluteString);
-                if (dataToShare != null)
+
+                if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
                 {
-                    ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenJson(dataToShare.ToString());
+
+                    string fname = url.Path;
+                    using (Stream stm = new FileStream(fname, FileMode.Open, FileAccess.Read))
+                    {
+                        using (StreamReader rdr = new StreamReader(stm))
+                        {
+                            dataToShare = rdr.ReadToEnd();
+                        }
+                    }
+
                 }
+
 #pragma warning restore XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
             }
-            else if (url.Host != null)
+            if (dataToShare != null)
             {
-                string dataToShare = url.Host;
-                if (dataToShare != null)
-                {
-                    ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenBase64(dataToShare.ToString());
-                }
+                ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenJson(dataToShare);
             }
             return true;
         }

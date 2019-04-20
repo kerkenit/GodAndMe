@@ -8,8 +8,6 @@ namespace GodAndMe.Models
     {
         [PrimaryKey, Column("id")]
         public string Id { get; set; }
-        //[Column("text")]
-        //public string Text { get; set; }
         [Column("description")]
         public string Description { get; set; }
         [Column("person")]

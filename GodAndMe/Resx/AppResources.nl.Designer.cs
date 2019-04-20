@@ -71,6 +71,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string AllDataWillBeDeletedContinue {
+            get {
+                return ResourceManager.GetString("AllDataWillBeDeletedContinue", resourceCulture);
+            }
+        }
+        
         internal static string ApplicationTitle {
             get {
                 return ResourceManager.GetString("ApplicationTitle", resourceCulture);
@@ -314,6 +320,12 @@ namespace GodAndMe.Resx {
         internal static string NewSin {
             get {
                 return ResourceManager.GetString("NewSin", resourceCulture);
+            }
+        }
+        
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -590,6 +602,12 @@ namespace GodAndMe.Resx {
         internal static string WouldYouPrayForX {
             get {
                 return ResourceManager.GetString("WouldYouPrayForX", resourceCulture);
+            }
+        }
+        
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
         

@@ -14,5 +14,9 @@ namespace GodAndMe.Models
         public DateTime Committed { get; set; }
         [Column("confessed_yn")]
         public bool Confessed { get; set; }
+        [Column("count")]
+        public int Count { get; set; }
+        [Column("lastcommitted")]
+        public DateTime LastCommitted { get; set; }
     }
 }
