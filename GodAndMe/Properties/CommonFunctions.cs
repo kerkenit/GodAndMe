@@ -29,6 +29,49 @@ namespace GodAndMe
         public const bool SCREENSHOT = false;
 #endif
 
+        public const int LentenSavingOffset = 7;
+
+        public static class LentenPeriod
+        {
+            public static DateTime Start
+            {
+                get
+                {
+                    return EasterSunday(DateTime.Today.Year).AddDays(-46).AddDays(LentenSavingOffset * -1);
+                }
+            }
+
+            public static DateTime End
+            {
+                get
+                {
+                    return EasterSunday(DateTime.Today.Year).AddDays(LentenSavingOffset);
+                }
+            }
+        }
+
+        public static DateTime EasterSunday(int year)
+        {
+            int day = 0;
+            int month = 0;
+
+            int g = year % 19;
+            int c = year / 100;
+            int h = (c - (int)(c / 4) - (int)((8 * c + 13) / 25) + 19 * g + 15) % 30;
+            int i = h - (int)(h / 28) * (1 - (int)(h / 28) * (int)(29 / (h + 1)) * (int)((21 - g) / 11));
+
+            day = i - ((year + (int)(year / 4) + i + 2 - c + (int)(c / 4)) % 7) + 28;
+            month = 3;
+
+            if (day > 31)
+            {
+                month++;
+                day -= 31;
+            }
+
+            return new DateTime(year, month, day);
+        }
+
         public static string i18n(string Text)
         {
             return i18n(Text, null);

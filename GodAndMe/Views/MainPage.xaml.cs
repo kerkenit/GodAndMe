@@ -32,12 +32,15 @@ namespace GodAndMe.Views
                 IconSource = "tab_intention.png",
                 TargetType = typeof(IntentionPage)
             });
-            menuList.Add(new MasterPageItem
+            if (DateTime.Today > CommonFunctions.LentenPeriod.Start && DateTime.Today < CommonFunctions.LentenPeriod.End)
             {
-                Title = CommonFunctions.i18n("MyPeriodOfLent"),
-                IconSource = "tab_lent.png",
-                TargetType = typeof(LentPage)
-            });
+                menuList.Add(new MasterPageItem
+                {
+                    Title = CommonFunctions.i18n("MyPeriodOfLent"),
+                    IconSource = "tab_lent.png",
+                    TargetType = typeof(LentPage)
+                });
+            }
             menuList.Add(new MasterPageItem
             {
                 Title = CommonFunctions.i18n("MyReligiousDiary"),
