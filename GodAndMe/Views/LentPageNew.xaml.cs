@@ -81,6 +81,7 @@ namespace GodAndMe.Views
         {
             viewModel.Item.MoneyFrom = double.Parse(tbMoneyFrom.Text, NumberStyles.Currency);
             viewModel.Item.MoneyTo = double.Parse(tbMoneyTo.Text, NumberStyles.Currency);
+            viewModel.Item.Start = ddlStart.Date;
             Item = viewModel.Item;
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopToRootAsync();

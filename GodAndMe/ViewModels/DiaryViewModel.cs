@@ -42,6 +42,11 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<DiaryPageNew, Diary>(this, "UpdateItem", async (obj, item) =>
             {
+                if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
+                {
+                    Diary oldItem = Items.First(x => x.Id == item.Id);
+                    Items[Items.IndexOf(oldItem)] = item;
+                }
                 await DiaryDataStore.UpdateItemAsync(item);
                 Items.OrderByDescending((arg) => arg.Start);
                 await ExecuteLoadItemsCommand();
@@ -51,6 +56,7 @@ namespace GodAndMe.ViewModels
             {
                 if (Items.Any(x => x.Id == item.Id))
                 {
+                    Items.Remove(item);
                     await DiaryDataStore.DeleteItemAsync(item.Id);
                     Items.OrderByDescending((arg) => arg.Start);
                     await ExecuteLoadItemsCommand();

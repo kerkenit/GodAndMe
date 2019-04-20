@@ -16,7 +16,7 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="5" Padding="15" Orientation="Vertical">
+        <StackLayout Spacing="5" Padding="15" Orientation="Vertical" VerticalOptions="Start">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -27,13 +27,15 @@
                     <ColumnDefinition Width="30" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="{resX:TranslateExtension OriginalPrice}" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"/>
-                <Label Text="{resX:TranslateExtension Payed}" FontSize="Medium" FontAttributes="Bold" Grid.Row="0" Grid.Column="2"/>
-                <Entry x:Name="tbMoneyFrom" Text="{Binding Item.MoneyFrom, StringFormat='{0:C}'}" Keyboard="Numeric" FontSize="Default" Grid.Row="1" Grid.Column="0" />
-                <Entry x:Name="tbMoneyTo" Text="{Binding Item.MoneyTo, StringFormat='{0:C}'}" Keyboard="Numeric" FontSize="Default" Grid.Row="1" Grid.Column="2" />
+                <Label Text="{resX:TranslateExtension OriginalPrice}" FontSize="Medium" FontAttributes="Bold" Margin="0" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="{resX:TranslateExtension Payed}" FontSize="Medium" FontAttributes="Bold" Margin="0" Grid.Row="0" Grid.Column="2"/>
+                <Entry x:Name="tbMoneyFrom" Text="{Binding Item.MoneyFrom, StringFormat='{0:C}'}" Margin="0" Keyboard="Numeric" FontSize="Default" Grid.Row="1" Grid.Column="0" />
+                <Entry x:Name="tbMoneyTo" Text="{Binding Item.MoneyTo, StringFormat='{0:C}'}" Margin="0" Keyboard="Numeric" FontSize="Default" Grid.Row="1" Grid.Column="2" />
             </Grid>
-            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" Margin="0,15,0,0" FontAttributes="Bold" />
             <Entry Text="{Binding Item.Text}" FontSize="Default" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
+            <Label Text="{resX:TranslateExtension SavedAt}" FontSize="Medium" FontAttributes="Bold" />
+            <DatePicker x:Name="ddlStart" Format="D" FontSize="Default" Date="{Binding Item.Start}"  />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

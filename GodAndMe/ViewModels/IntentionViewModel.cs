@@ -12,12 +12,12 @@ namespace GodAndMe.ViewModels
     public class IntentionViewModel : BaseViewModel
     {
         public ObservableCollection<Intention> Items { get; set; }
-        public Command LoadIntentionsCommand { get; set; }
+        public Command LoadItemsCommand { get; set; }
 
         public IntentionViewModel()
         {
             Items = new ObservableCollection<Intention>();
-            LoadIntentionsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<IntentionPageNew, Intention>(this, "AddItem", async (obj, item) =>
             {

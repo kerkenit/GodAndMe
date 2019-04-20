@@ -10,7 +10,9 @@ namespace GodAndMe.Models
         public string Id { get; set; }
         [Column("description")]
         public string Description { get; set; }
-        [Column("execution")]
-        public DateTime Start { get; set; }
+        [Column("committed")]
+        public DateTime Committed { get; set; }
+        [Column("confessed_yn")]
+        public bool Confessed { get; set; }
     }
 }

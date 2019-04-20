@@ -135,7 +135,7 @@ namespace GodAndMe.Services
             {
                 items = db.Table<Lent>().ToList();
             }
-            return await Task.FromResult(items.OrderBy((arg) => (arg.Start == null ? DateTime.Today : arg.Start)));
+            return await Task.FromResult(items.OrderByDescending((arg) => arg.Start));
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="GodAndMe.Views.SinsPage" 
@@ -22,6 +22,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
+                                <MenuItem x:Name="Archive" Clicked="OnArchive" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Archive}" IsDestructive="false" />
+                                <MenuItem x:Name="Share" Clicked="OnShare" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Share}" />
                                 <MenuItem x:Name="Delete" Clicked="OnDelete" CommandParameter="{Binding Id}" Icon="trash.png" Text="{resX:TranslateExtension Delete}" IsDestructive="True">
                                     <MenuItem.Icon>
                                         <OnPlatform x:TypeArguments="FileImageSource">

@@ -30,22 +30,27 @@ namespace GodAndMe.Views
 #endif
 
             BindingContext = viewModel = new IntentionViewModel();
-            if (viewModel != null && viewModel.Items != null && viewModel.Items.Count == 0 && viewModel.LoadIntentionsCommand != null)
+            if (viewModel != null && viewModel.Items != null && viewModel.Items.Count == 0 && viewModel.LoadItemsCommand != null)
             {
-                viewModel.LoadIntentionsCommand.Execute(null);
-                if (IntentionsListView != null && IntentionsListView.ItemsSource != null && viewModel != null && viewModel.Items != null && viewModel.Items.Any((arg) => !arg.Completed))
+                viewModel.LoadItemsCommand.Execute(null);
+                GoToToday();
+            }
+        }
+
+        void GoToToday()
+        {
+            if (IntentionsListView != null && IntentionsListView.ItemsSource != null && viewModel != null && viewModel.Items != null && viewModel.Items.Any((arg) => !arg.Completed))
+            {
+                Intention firstIntension = IntentionsListView.ItemsSource.Cast<Intention>().OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start).FirstOrDefault((arg) => !arg.Completed);
+                if (firstIntension != null)
                 {
-                    Intention firstIntension = IntentionsListView.ItemsSource.Cast<Intention>().OrderBy((arg) => arg.Completed ? DateTime.MinValue : arg.Start == null ? DateTime.Today : arg.Start).FirstOrDefault((arg) => !arg.Completed);
-                    if (firstIntension != null)
+                    Device.BeginInvokeOnMainThread(() =>
                     {
-                        Device.BeginInvokeOnMainThread(() =>
+                        if (IntentionsListView != null)
                         {
-                            if (IntentionsListView != null)
-                            {
-                                IntentionsListView.ScrollTo(firstIntension, ScrollToPosition.Start, false);
-                            }
-                        });
-                    }
+                            IntentionsListView.ScrollTo(firstIntension, ScrollToPosition.Start, false);
+                        }
+                    });
                 }
             }
         }
@@ -81,19 +86,12 @@ namespace GodAndMe.Views
 
         public void OnArchive(object sender, EventArgs e)
         {
-            //viewModel.IsBusy = true;
             var mi = ((MenuItem)sender);
             var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString()) as Intention;
             item.Completed = !item.Completed;
             MessagingCenter.Send(this, "UpdateItem", item);
-            viewModel.LoadIntentionsCommand.Execute(null);
-            //Device.BeginInvokeOnMainThread(() =>
-            //{
-            //    IntentionsListView.Unfocus();
-            //});
-            //viewModel.Intentions.Remove(item);
-            //viewModel.LoadIntentionsCommand.Execute(null);
-            //viewModel.IsBusy = false;
+            viewModel.LoadItemsCommand.Execute(null);
+            GoToToday();
         }
 
         public void OnShare(object sender, EventArgs e)
@@ -102,7 +100,7 @@ namespace GodAndMe.Views
             var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString()) as Intention;
             try
             {
-                string url = (CommonFunctions.URLSHEME + StringExtensions.Base64Encode(JsonConvert.SerializeObject(item))).Trim();
+                string url = (CommonFunctions.URLSHEME + CryptFile.Encrypt(JsonConvert.SerializeObject(item))).Trim();
                 var share = DependencyService.Get<IShare>();
                 share.Show(
                     string.Format(CommonFunctions.i18n("WouldYouPrayForX"), item.Person),
@@ -129,15 +127,16 @@ namespace GodAndMe.Views
                     viewModel.Items.Remove(item);
                 }
             }
+            GoToToday();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            if (viewModel != null && viewModel.Items != null && viewModel.Items.Count == 0 && viewModel.LoadIntentionsCommand != null)
+            if (viewModel != null && viewModel.Items != null && viewModel.Items.Count == 0 && viewModel.LoadItemsCommand != null)
             {
-                viewModel.LoadIntentionsCommand.Execute(null);
+                viewModel.LoadItemsCommand.Execute(null);
             }
         }
     }

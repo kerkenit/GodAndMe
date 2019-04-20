@@ -15,7 +15,7 @@ namespace GodAndMe.Views
         public SinsDetailPage(SinsDetailViewModel viewModel)
         {
             InitializeComponent();
-            Title = string.Format("{0:D}", viewModel.Item.Start);
+            Title = string.Format("{0:D}", viewModel.Item.Committed);
             BindingContext = this.viewModel = viewModel;
         }
 
@@ -26,7 +26,7 @@ namespace GodAndMe.Views
             Item = new Sins
             {
                 Id = Guid.NewGuid().ToString(),
-                Start = DateTime.Now
+                Committed = DateTime.Now
             };
 
             viewModel = new SinsDetailViewModel(Item);
@@ -40,7 +40,7 @@ namespace GodAndMe.Views
                 Item = await viewModel.SinsDataStore.GetItemAsync(viewModel.Item.Id);
             }
 
-            await Navigation.PushAsync(new SinsPageNew(Title, Item));
+            await Navigation.PushAsync(new SinsPageNew(CommonFunctions.i18n("Sin"), Item));
         }
     }
 }

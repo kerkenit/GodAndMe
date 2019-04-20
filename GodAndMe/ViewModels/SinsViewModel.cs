@@ -36,14 +36,31 @@ namespace GodAndMe.ViewModels
                     }
                     await SinsDataStore.AddItemAsync(item);
                 }
-                Items.OrderBy((arg) => arg.Start);
+                Items.OrderBy((arg) => arg.Committed);
                 await ExecuteLoadItemsCommand();
             });
 
             MessagingCenter.Subscribe<SinsPageNew, Sins>(this, "UpdateItem", async (obj, item) =>
             {
+                if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
+                {
+                    Sins oldItem = Items.First(x => x.Id == item.Id);
+                    Items[Items.IndexOf(oldItem)] = item;
+                }
                 await SinsDataStore.UpdateItemAsync(item);
-                Items.OrderBy((arg) => arg.Start);
+                Items.OrderBy((arg) => arg.Committed);
+                await ExecuteLoadItemsCommand();
+            });
+
+            MessagingCenter.Subscribe<SinsPage, Sins>(this, "UpdateItem", async (obj, item) =>
+            {
+                if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
+                {
+                    Sins oldItem = Items.First(x => x.Id == item.Id);
+                    Items[Items.IndexOf(oldItem)] = item;
+                }
+                await SinsDataStore.UpdateItemAsync(item);
+                Items.OrderBy((arg) => arg.Committed);
                 await ExecuteLoadItemsCommand();
             });
 
@@ -51,8 +68,9 @@ namespace GodAndMe.ViewModels
             {
                 if (Items.Any(x => x.Id == item.Id))
                 {
+                    Items.Remove(item);
                     await SinsDataStore.DeleteItemAsync(item.Id);
-                    Items.OrderBy((arg) => arg.Start);
+                    Items.OrderBy((arg) => arg.Committed);
                     await ExecuteLoadItemsCommand();
                 }
             });

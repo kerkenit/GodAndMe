@@ -16,7 +16,7 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15" VerticalOptions="Fill">
+        <StackLayout Spacing="5" Padding="15" VerticalOptions="Fill">
             <Label Text="{resX:TranslateExtension Date}" FontSize="Medium" FontAttributes="Bold" />
             <DatePicker x:Name="ddlStart" Format="D" FontSize="Default" Date="{Binding Item.Start}"  />
         

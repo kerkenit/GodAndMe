@@ -16,7 +16,10 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15" VerticalOptions="Fill">
+        <StackLayout Spacing="5" Padding="15" VerticalOptions="Fill">
+            <Label Text="{resX:TranslateExtension Date}" FontSize="Medium" FontAttributes="Bold" />
+            <DatePicker x:Name="ddlStart" Format="D" FontSize="Default" Date="{Binding Item.Start}"  />
+            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" FontAttributes="Bold" />
             <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1" VerticalOptions="FillAndExpand">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" />

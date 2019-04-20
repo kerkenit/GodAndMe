@@ -62,6 +62,8 @@ namespace GodAndMe.Views
             GetPageTitle();
         }
 
+
+
         public void OnDelete(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
@@ -95,7 +97,7 @@ namespace GodAndMe.Views
 
             if (viewModel.Items.Count == 0)
             {
-                viewModel.LoadLentCommand.Execute(null);
+                viewModel.LoadItemsCommand.Execute(null);
             }
             GetPageTitle();
         }

@@ -41,7 +41,7 @@ namespace GodAndMe.Views
                 Item = new Sins
                 {
                     Id = Guid.NewGuid().ToString(),
-                    Start = DateTime.Now,
+                    Committed = DateTime.Now,
                     Description = string.Empty,
 
                 };

@@ -12,12 +12,12 @@ namespace GodAndMe.ViewModels
     public class LentViewModel : BaseViewModel
     {
         public ObservableCollection<Lent> Items { get; set; }
-        public Command LoadLentCommand { get; set; }
+        public Command LoadItemsCommand { get; set; }
 
         public LentViewModel()
         {
             Items = new ObservableCollection<Lent>();
-            LoadLentCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<LentPageNew, Lent>(this, "AddItem", async (obj, item) =>
             {
@@ -63,6 +63,11 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<LentPage, Lent>(this, "UpdateItem", async (obj, item) =>
             {
+                if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
+                {
+                    Lent oldItem = Items.First(x => x.Id == item.Id);
+                    Items[Items.IndexOf(oldItem)] = item;
+                }
                 await LentDataStore.UpdateItemAsync(item);
                 Items.OrderByDescending((arg) => arg.Start);
                 await ExecuteLoadItemsCommand();
@@ -106,7 +111,6 @@ namespace GodAndMe.ViewModels
                     Items.Add(item);
                 }
                 Items.OrderByDescending((arg) => arg.Start);
-
             }
             catch (Exception ex)
             {

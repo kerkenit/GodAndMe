@@ -43,6 +43,11 @@ namespace GodAndMe.ViewModels
 
             MessagingCenter.Subscribe<PrayersPageNew, Prayers>(this, "UpdateItem", async (obj, item) =>
             {
+                if (Items.Count > 0 && Items.Any(x => x.Id == item.Id))
+                {
+                    Prayers oldItem = Items.First(x => x.Id == item.Id);
+                    Items[Items.IndexOf(oldItem)] = item;
+                }
                 await PrayersDataStore.UpdateItemAsync(item);
                 Items.OrderBy((arg) => arg.Title);
                 await ExecuteLoadItemsCommand();
@@ -52,6 +57,7 @@ namespace GodAndMe.ViewModels
             {
                 if (Items.Any(x => x.Id == item.Id))
                 {
+                    Items.Remove(item);
                     await PrayersDataStore.DeleteItemAsync(item.Id);
                     Items.OrderBy((arg) => arg.Title);
                     await ExecuteLoadItemsCommand();

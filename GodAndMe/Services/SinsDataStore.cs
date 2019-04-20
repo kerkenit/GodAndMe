@@ -19,7 +19,7 @@ namespace GodAndMe.Services
             items = new List<Sins>();
             db = DependencyService.Get<IDatabaseConnection>().DbConnection();
             db.CreateTable<Sins>();
-            items = db.Table<Sins>().ToList();
+            items = db.Table<Sins>().Where((arg) => !arg.Confessed).ToList();
 
             if (CommonFunctions.SCREENSHOT)
             {
@@ -29,19 +29,20 @@ namespace GodAndMe.Services
                     new Sins {
                         Id = Guid.NewGuid().ToString(),
                         Description = CommonFunctions.i18n("SCREENSHOT_Sins_1_Description"),
-                        Start= DateTime.Today.AddDays(-1)
+                        Committed= DateTime.Today.AddDays(-1)
                     },
                     new Sins {
                         Id = Guid.NewGuid().ToString(),
                         Description = CommonFunctions.i18n("SCREENSHOT_Sins_2_Description"),
-                        Start = DateTime.Today.AddDays(-2)
+                        Committed = DateTime.Today.AddDays(-2)
                     },
                     new Sins {
                         Id = Guid.NewGuid().ToString(),
                         Description = CommonFunctions.i18n("SCREENSHOT_Sins_3_Description"),
-                        Start = DateTime.Today.AddDays(-3)
+                        Committed = DateTime.Today.AddDays(-3)
                     },
                 });
+                items = db.Table<Sins>().Where((arg) => !arg.Confessed).ToList();
 #pragma warning restore CS0162 // Unreachable code detected
             }
 #if DEBUG
@@ -51,22 +52,23 @@ namespace GodAndMe.Services
                     new Sins {
                         Id = Guid.NewGuid().ToString(),
                         Description = CommonFunctions.i18n("SCREENSHOT_Sins_1_Description"),
-                        Start= DateTime.Today.AddDays(-1)
+                        Committed= DateTime.Today.AddDays(-1)
                     },
                     new Sins {
                         Id = Guid.NewGuid().ToString(),
                         Description = CommonFunctions.i18n("SCREENSHOT_Sins_2_Description"),
-                        Start = DateTime.Today.AddDays(-2)
+                        Committed = DateTime.Today.AddDays(-2)
                     },
                     new Sins {
                         Id = Guid.NewGuid().ToString(),
                         Description = CommonFunctions.i18n("SCREENSHOT_Sins_3_Description"),
-                        Start = DateTime.Today.AddDays(-3)
+                        Committed = DateTime.Today.AddDays(-3)
                     },
                 });
+                items = db.Table<Sins>().Where((arg) => !arg.Confessed).ToList();
             }
 #endif
-            items = items.OrderBy((arg) => arg.Start).ToList();
+            items = items.OrderBy((arg) => arg.Committed).ToList();
         }
 
         public async Task<bool> AddItemAsync(Sins item)
@@ -124,9 +126,9 @@ namespace GodAndMe.Services
         {
             if (forceRefresh)
             {
-                items = db.Table<Sins>().ToList();
+                items = db.Table<Sins>().Where((arg) => !arg.Confessed).ToList();
             }
-            return await Task.FromResult(items.OrderBy((arg) => arg.Start));
+            return await Task.FromResult(items.OrderBy((arg) => arg.Committed));
         }
     }
 }
