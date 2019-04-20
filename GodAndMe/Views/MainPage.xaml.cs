@@ -90,22 +90,40 @@ namespace GodAndMe.Views
             object sender = null;
             try
             {
-                sender = JsonConvert.DeserializeObject(StringExtensions.Base64Decode(base64), typeof(Intention));
+                sender = JsonConvert.DeserializeObject(CryptFile.Decrypt(base64), typeof(Intention)); ;
             }
             catch
             {
                 sender = null;
             }
+            if (sender == null)
+            {
+                try
+                {
+                    sender = JsonConvert.DeserializeObject(CryptFile.Decrypt(base64), typeof(Sins));
+                }
+                catch (Exception ex)
+                {
+                    sender = null;
+                }
+            }
             try
             {
-                if (sender.GetType() == typeof(Intention))
+                if (sender != null && sender.GetType() == typeof(Intention))
                 {
                     Intention intention = sender as Intention;
                     intention.Completed = false;
                     IDataStore<Intention> IntentionDataStore = new IntentionsDataStore();
                     IntentionDataStore.AddItemAsync(intention);
                     Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
-
+                }
+                else if (sender != null && sender.GetType() == typeof(Sins))
+                {
+                    Sins sin = sender as Sins;
+                    sin.Confessed = false;
+                    IDataStore<Sins> SinsDataStore = new SinsDataStore();
+                    SinsDataStore.AddItemAsync(sin);
+                    Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(Sins)));
                 }
             }
             catch
@@ -143,10 +161,21 @@ namespace GodAndMe.Views
                     sender = null;
                 }
             }
+            if (sender == null)
+            {
+                try
+                {
+                    sender = JsonConvert.DeserializeObject(CryptFile.Decrypt_Legacy(json), typeof(Base));
+                }
+                catch
+                {
+                    sender = null;
+                }
+            }
 
             try
             {
-                if (sender != null && sender.GetType() == typeof(Base))
+                if (sender != null && sender.GetType() == typeof(Base) && (((Base)sender).intention != null || ((Base)sender).lent != null || ((Base)sender).diary != null || ((Base)sender).sins != null || ((Base)sender).prayers != null))
                 {
                     Base BaseJson = (Base)sender;
                     SQLite.SQLiteConnection db = DependencyService.Get<IDatabaseConnection>().DbConnection();
@@ -171,7 +200,28 @@ namespace GodAndMe.Views
                     db.DeleteAll<Sins>();
                     db.InsertAll(BaseJson.sins);
 
-                    Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
+
+                }
+                else
+                {
+                    try
+                    {
+                        sender = JsonConvert.DeserializeObject(CryptFile.Decrypt(json), typeof(Intention));
+                    }
+                    catch (Exception ex)
+                    {
+                        sender = null;
+                    }
+
+
+
+                    if (sender != null && sender.GetType() == typeof(Intention))
+                    {
+                        SQLite.SQLiteConnection db = DependencyService.Get<IDatabaseConnection>().DbConnection();
+
+                        db.CreateTable<Intention>();
+                        db.Insert(sender);
+                    }
 
                 }
             }
@@ -181,9 +231,9 @@ namespace GodAndMe.Views
             }
             finally
             {
-                if (sender == null)
+                if (sender != null)
                 {
-
+                    Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
                 }
             }
         }

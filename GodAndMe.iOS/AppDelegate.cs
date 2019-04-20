@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading;
 using Foundation;
 using GodAndMe.iOS.Interface;
@@ -29,7 +30,7 @@ namespace GodAndMe.iOS
         //
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
-            global::Xamarin.Forms.Forms.Init();
+            Forms.Init();
 
             Settings.LoadDefaultValues();
             observer = NSNotificationCenter.DefaultCenter.AddObserver((NSString)"NSUserDefaultsDidChangeNotification", DefaultsChanged);
@@ -66,14 +67,24 @@ namespace GodAndMe.iOS
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
-            if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+            if (!string.IsNullOrWhiteSpace(url.Path) && UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
             {
+
 #pragma warning disable XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
-                using (NSData dataToShare = NSFileManager.DefaultManager.Contents(url.Path))
+                string dataToShare = File.ReadAllText(url.AbsoluteString);
+                if (dataToShare != null)
                 {
                     ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenJson(dataToShare.ToString());
                 }
 #pragma warning restore XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
+            }
+            else if (url.Host != null)
+            {
+                string dataToShare = url.Host;
+                if (dataToShare != null)
+                {
+                    ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenBase64(dataToShare.ToString());
+                }
             }
             return true;
         }
