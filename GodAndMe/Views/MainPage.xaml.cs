@@ -90,7 +90,7 @@ namespace GodAndMe.Views
 
         public void OpenBase64(string base64)
         {
-            string json = CryptFile.Decrypt(base64);
+            string json = CryptFile.Decrypt_Legacy(base64);
             object sender = null;
             try
             {

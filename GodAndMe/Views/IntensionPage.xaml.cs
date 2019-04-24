@@ -100,7 +100,7 @@ namespace GodAndMe.Views
             var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString()) as Intention;
             try
             {
-                string url = (CommonFunctions.URLSHEME + CryptFile.Encrypt(JsonConvert.SerializeObject(item))).Trim();
+                string url = ("https://godandme.app/share/" + CryptFile.Encrypt_Legacy(JsonConvert.SerializeObject(new string[] { item.Person, item.Description, item.Start == null ? string.Empty : ((DateTime)item.Start).ToString("yyyy-MM-dd") })) + "?lang=" + CommonFunctions.Culture.TwoLetterISOLanguageName).Trim();
                 var share = DependencyService.Get<IShare>();
                 share.Show(
                     string.Format(CommonFunctions.i18n("WouldYouPrayForX"), item.Person),

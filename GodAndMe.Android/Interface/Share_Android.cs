@@ -27,11 +27,27 @@ namespace GodAndMe.Android
         {
             try
             {
-                Intent intent = new Intent(Intent.ActionSend);
+                Intent intent = null;
 
-                intent.SetType("text/plain");
-                intent.PutExtra(Intent.ExtraText, title + Environment.NewLine + message + Environment.NewLine + Environment.NewLine + url + app);
-                intent.PutExtra(Intent.ExtraSubject, title ?? string.Empty);
+                if (message != null && app != null)
+                {
+                    intent = new Intent(Intent.ActionSend);
+                    intent.SetType("text/plain");
+                    intent.PutExtra(Intent.ExtraSubject, title ?? string.Empty);
+                    //intent.PutExtra(Intent.ExtraTitle, message + app ?? string.Empty);
+                    intent.PutExtra(Intent.ExtraText, url);
+                }
+                else
+                {
+                    Uri uri = Uri.Parse(url);
+                    intent = new Intent(Intent.ActionView);
+                    intent.SetDataAndType(uri, "application/godandme");
+                    //intent.SetData(uri);
+                    //intent.SetType("application/godandme");
+                    intent.SetFlags(ActivityFlags.ClearWhenTaskReset | ActivityFlags.NewTask | ActivityFlags.GrantReadUriPermission);
+                    //intent.PutExtra(Intent.ExtraStream, title + Environment.NewLine + message + Environment.NewLine + Environment.NewLine + url + app);
+                    // intent.PutExtra(Intent.ExtraSubject, title ?? string.Empty);
+                }
                 Intent chooserIntent = Intent.CreateChooser(intent, title ?? string.Empty);
                 chooserIntent.SetFlags(ActivityFlags.ClearTop);
                 chooserIntent.SetFlags(ActivityFlags.NewTask);

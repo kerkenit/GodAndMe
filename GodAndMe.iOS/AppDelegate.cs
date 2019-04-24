@@ -16,7 +16,7 @@ namespace GodAndMe.iOS
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
 
-        const string URLSHEME = "GodAndMe://";
+        const string URLSHEME = "godandme://";
         // class-level declarations
         NSObject observer;
 
@@ -55,12 +55,12 @@ namespace GodAndMe.iOS
         /// <param name="annotation">Annotation.</param>
         public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
         {
-            string base64 = url.ToString().Substring(URLSHEME.Length, url.ToString().Length - URLSHEME.Length);
+            string base64 = url.ToString();
             if ((Xamarin.Forms.Application.Current != null) && (Xamarin.Forms.Application.Current.MainPage != null))
             // custom stuff here using different properties of the url passed in
             {
                 // custom stuff here using different properties of the url passed in
-                ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenBase64(base64);
+                ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenBase64(base64.Substring(CommonFunctions.URLSHEME.Length, base64.Length - CommonFunctions.URLSHEME.Length));
             }
             return true;
         }
@@ -76,9 +76,9 @@ namespace GodAndMe.iOS
             {
                 dataToShare = url.Host;
             }
+
             if (dataToShare.StartsWith(CommonFunctions.URLSHEME, StringComparison.Ordinal))
             {
-
                 ((MainPage)Xamarin.Forms.Application.Current.MainPage).OpenBase64(dataToShare.Substring(CommonFunctions.URLSHEME.Length, dataToShare.Length - CommonFunctions.URLSHEME.Length));
             }
             else

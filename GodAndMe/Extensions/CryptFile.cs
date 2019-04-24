@@ -91,7 +91,7 @@ namespace GodAndMe.Extensions
         [Obsolete("Use Encrypt(string data, string password = \"G\", byte[] salt = null)", false)]
         public static string Encrypt_Legacy(string plainString)
         {
-            byte[] plain = Encoding.UTF8.GetBytes(CommonFunctions.CRYPTOKEY[0] + plainString + CommonFunctions.CRYPTOKEY[1]);
+            byte[] plain = Encoding.UTF8.GetBytes(plainString);
             return WebUtility.UrlEncode(Convert.ToBase64String(plain));
         }
 
@@ -104,8 +104,8 @@ namespace GodAndMe.Extensions
         public static string Decrypt_Legacy(string encryptedString)
         {
             byte[] encrypted = Convert.FromBase64String(WebUtility.UrlDecode(encryptedString));
-            var json = Encoding.UTF8.GetString(encrypted, 0, encrypted.Length).Remove(0, CommonFunctions.CRYPTOKEY[0].Length);
-            return json.Remove(json.Length - CommonFunctions.CRYPTOKEY[1].Length, CommonFunctions.CRYPTOKEY[1].Length);
+            var json = Encoding.UTF8.GetString(encrypted, 0, encrypted.Length);//.Remove(0, CommonFunctions.CRYPTOKEY[0].Length);
+            return json;//.Remove(json.Length - CommonFunctions.CRYPTOKEY[1].Length, CommonFunctions.CRYPTOKEY[1].Length);
         }
     }
 }

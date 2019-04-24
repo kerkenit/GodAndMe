@@ -18,7 +18,7 @@ namespace GodAndMe.iOS.Interface
             NSObject[] items = null;
             if (message != null && app != null)
             {
-                items = new NSObject[] { NSObject.FromObject((title + Environment.NewLine + message + app).Trim()), new NSString("\U0001F64F"), NSUrl.FromString(url) };
+                items = new NSObject[] { NSObject.FromObject(title), NSUrl.FromString(url) };
             }
             else
             {
