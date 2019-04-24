@@ -283,6 +283,7 @@
     <ItemGroup Condition=" '$(Configuration)' == 'Debug iPhoneSimulator' Or '$(Configuration)' == 'Debug iPhone' Or '$(Configuration)' == 'Release iPhone' ">
         <Reference Include="Xamarin.iOS">
             <HintPath>..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\Current\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
+            <Private>False</Private>
         </Reference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
