@@ -157,7 +157,7 @@ namespace GodAndMe.Views
                 // Get the root directory of the file system for our application.
                 IFolder rootFolder = fileSystem.LocalStorage;
                 IFolder exportFolder = await rootFolder.CreateFolderAsync("export", CreationCollisionOption.OpenIfExists);
-                IFile jsonFile = await exportFolder.CreateFileAsync(DateTime.Now.ToString("F") + ".god", CreationCollisionOption.ReplaceExisting);
+                IFile jsonFile = await exportFolder.CreateFileAsync(DateTime.Now.ToString("F") + CommonFunctions.EXTENSION, CreationCollisionOption.ReplaceExisting);
                 await jsonFile.WriteAllTextAsync(result);
 
                 IShare share = DependencyService.Get<IShare>();

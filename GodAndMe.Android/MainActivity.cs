@@ -1,6 +1,7 @@
 ﻿using System;
 using Android;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Plugin.CurrentActivity;
@@ -9,7 +10,13 @@ using RuntimePermissions;
 namespace GodAndMe.Droid
 {
 
-    [Activity(Label = "@string/app_name", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+
+    [Activity(Label = "@string/app_name", Name = "nl.kerkenit.god_and_me", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [IntentFilter(new[] { Intent.ActionSend, Intent.ActionView }, Categories = new[] { Intent.CategoryDefault }, DataMimeType = CommonFunctions.DATATYPE, DataPathPattern = "*" + CommonFunctions.EXTENSION, DataHost = "*")]
+    [IntentFilter(new[] { Intent.ActionView }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable }, DataSchemes = new[] { CommonFunctions.URLSCHEME }, DataHost = "path")]
+    //[IntentFilter(new[] { "android.intent.action.VIEW" }, Categories = new[] { "android.intent.category.DEFAULT", "android.intent.category.BROWSABLE" }, DataSchemes = new[] { "https" }, DataHosts = new[] { "app.godandme" })]
+
+
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public static readonly int REQUEST_CONTACTS = 1;
@@ -26,8 +33,50 @@ namespace GodAndMe.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
+
+
             base.OnCreate(savedInstanceState);
+
+
+
+            //string action = Intent.Action;
+            //string strLink = Intent.DataString;
+            //Intent intent = new Intent(Application.Context, typeof(MainActivity));
+            //if (Intent.ActionView == action && !string.IsNullOrWhiteSpace(strLink))
+            //{
+            //    intent.SetAction(Intent.ActionView);
+            //    intent.SetData(Intent.Data);
+            //}
+
+
             LoadApplication(new App());
+
+            var data = Intent?.Data?.EncodedAuthority;
+            if (!String.IsNullOrEmpty(data))
+            {
+                foreach (string key in Intent?.Data?.QueryParameterNames)
+                {
+                    switch (key)
+                    {
+                        case "intention":
+                            string base64 = Intent?.Data?.GetQueryParameter(key);
+                            Console.WriteLine(base64);
+                            if ((Xamarin.Forms.Application.Current != null) && (Xamarin.Forms.Application.Current.MainPage != null))
+                            // custom stuff here using different properties of the url passed in
+                            {
+                                // custom stuff here using different properties of the url passed in
+                                ((Views.MainPage)Xamarin.Forms.Application.Current.MainPage).OpenBase64(base64);
+                            }
+                            break;
+                        default:
+#if DEBUG
+                            throw new NotImplementedException(key);
+#endif
+                            break;
+                    }
+                }
+
+            }
         }
 
 

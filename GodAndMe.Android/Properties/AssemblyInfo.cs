@@ -6,19 +6,27 @@ using Android.App;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GodAndMe.Android")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("God & Me")]
+[assembly: AssemblyDescription("Everything between God and you")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GodAndMe.Android")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCompany("Kerk en IT")]
+[assembly: AssemblyProduct("God & Me")]
+[assembly: AssemblyCopyright("Copyright © Kerk en IT 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
+#if __ANDROID__
 #if DEBUG
-[assembly: Application(Debuggable = true)]
+[assembly: Application(Debuggable = true, Label = "@string/app_name")]
 #else
-[assembly: Application(Debuggable = false)]
+[assembly: Application(Debuggable = false, Label = "@string/app_name")]
+#endif
+#else
+#if DEBUG
+    [assembly: Application(Debuggable = true)]
+#else
+    [assembly: Application(Debuggable = false)]
+#endif
 #endif
 // Version information for an assembly consists of the following four values:
 //

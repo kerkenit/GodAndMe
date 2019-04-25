@@ -19,10 +19,10 @@ namespace GodAndMe
                     ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
                 }
 #elif __ANDROID__
-            if (ci == null)
-            {
-                ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
-            }
+                if (ci == null)
+                {
+                    ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+                }
 #endif
                 if (ci == null)
                 {
@@ -34,6 +34,9 @@ namespace GodAndMe
         static Lazy<ResourceManager> ResMgr = new Lazy<ResourceManager>(() => new ResourceManager("GodAndMe.Resx.AppResources", typeof(GodAndMe.Resx.AppResources).GetTypeInfo().Assembly));
         const string ResourceId = "GodAndMe.Resx.AppResources";
         public const string URLSHEME = "godandme://";
+        public const string URLSCHEME = "godandme";
+        public const string EXTENSION = ".god";
+        public const string DATATYPE = "application/godandme";
         public const string APPNAME = "GodAndMe";
         public const string TOUCHID = "touchIDKey";
         public const string YOURNAME = "yourNameKey";

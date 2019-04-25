@@ -41,7 +41,7 @@ namespace GodAndMe.Android
                 {
                     Uri uri = Uri.Parse(url);
                     intent = new Intent(Intent.ActionView);
-                    intent.SetDataAndType(uri, "application/godandme");
+                    intent.SetDataAndType(uri, CommonFunctions.DATATYPE);
                     //intent.SetData(uri);
                     //intent.SetType("application/godandme");
                     intent.SetFlags(ActivityFlags.ClearWhenTaskReset | ActivityFlags.NewTask | ActivityFlags.GrantReadUriPermission);
