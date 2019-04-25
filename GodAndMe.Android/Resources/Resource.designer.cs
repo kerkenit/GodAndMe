@@ -26,6 +26,8 @@ namespace GodAndMe.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::PCLCrypto.Resource.String.ApplicationName = global::GodAndMe.Droid.Resource.String.ApplicationName;
+			global::PCLCrypto.Resource.String.Hello = global::GodAndMe.Droid.Resource.String.Hello;
 			global::PCLStorage.Resource.String.ApplicationName = global::GodAndMe.Droid.Resource.String.ApplicationName;
 			global::PCLStorage.Resource.String.Hello = global::GodAndMe.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_in = global::GodAndMe.Droid.Resource.Animation.abc_fade_in;

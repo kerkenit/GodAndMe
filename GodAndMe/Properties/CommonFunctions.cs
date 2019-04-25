@@ -31,6 +31,7 @@ namespace GodAndMe
                 return ci;
             }
         }
+
         static Lazy<ResourceManager> ResMgr = new Lazy<ResourceManager>(() => new ResourceManager("GodAndMe.Resx.AppResources", typeof(GodAndMe.Resx.AppResources).GetTypeInfo().Assembly));
         const string ResourceId = "GodAndMe.Resx.AppResources";
         public const string URLSHEME = "godandme://";
@@ -48,7 +49,7 @@ namespace GodAndMe
 #elif __SIMULATOR__
         public const bool SCREENSHOT = false;
 #elif __IOS__
-            public const bool SCREENSHOT = false;
+        public const bool SCREENSHOT = false;
 #endif
 #else
         public const bool SCREENSHOT = false;

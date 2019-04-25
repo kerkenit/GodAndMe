@@ -8,11 +8,11 @@
     <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>GodAndMe.Droid</RootNamespace>
-    <AssemblyName>GodAndMe.Android</AssemblyName>
+    <AssemblyName>nl.kerkenit.god_and_me</AssemblyName>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
-    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidManifest></AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
@@ -24,24 +24,41 @@
     <AndroidLinkSkip></AndroidLinkSkip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Android|AnyCPU' ">
-    <DebugType></DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug Android</OutputPath>
-    <DefineConstants>__ANDROID__;__MOBILE__;__UNIFIED__;DEBUG</DefineConstants>
+    <OutputPath>.</OutputPath>
+    <DefineConstants>__ANDROID__;__MOBILE__;__UNIFIED__;DEBUG;</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <JavaMaximumHeapSize></JavaMaximumHeapSize>
     <AndroidManifest></AndroidManifest>
-    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+<AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
+<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+<AssemblyName>GodAndMe.Android</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release Android|AnyCPU' ">
     <DebugType></DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Release Android</OutputPath>
+    <OutputPath>.</OutputPath>
     <DefineConstants>__ANDROID__;__MOBILE__;__UNIFIED__;</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <JavaMaximumHeapSize></JavaMaximumHeapSize>
     <AndroidManifest></AndroidManifest>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+<AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+<AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+<AssemblyName>GodAndMe.Android</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+<DebugType></DebugType>
+<OutputPath>.</OutputPath>
+<AssemblyName>nl.kerkenit.god_and_me</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+<DebugType></DebugType>
+<AssemblyName>nl.kerkenit.god_and_me</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -91,6 +108,8 @@
     <Compile Include="Helpers\PermissionUtil.cs" />
     <Compile Include="Interface\Settings_Android.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
+    <Compile Include="Interface\Document_Android.cs" />
+    <Compile Include="Renderers\NullableDatePickerRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

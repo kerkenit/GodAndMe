@@ -19,6 +19,7 @@ namespace GodAndMe.Views
 
         public IntentionPageNew(string title, Intention item = null)
         {
+
             InitializeComponent();
 
 #if __IOS__
@@ -44,8 +45,6 @@ namespace GodAndMe.Views
             {
                 Item = new Intention
                 {
-                    //Text = "",
-                    Description = "",
                     Id = Guid.NewGuid().ToString(),
                     Start = null
                 };
