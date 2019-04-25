@@ -17,7 +17,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>
-          <OnPlatform x:Key="GridSize"   x:TypeArguments="GridLength"  iOS="45"  Android="60" WinPhone="60" />
+          <OnPlatform x:Key="GridSize" x:TypeArguments="GridLength"  iOS="45"  Android="60" WinPhone="60" />
         </ResourceDictionary>
       </ContentPage.Resources>
     <ContentPage.Content>
@@ -32,8 +32,8 @@
                     <ColumnDefinition Width="45" />
                 </Grid.ColumnDefinitions>
                 <Entry x:Name="tbPerson" Text="{Binding Item.Person}" FontSize="Default" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
+                <Picker x:Name="ddlPerson" IsVisible="false" Grid.Row="0" Grid.Column="0" FontSize="Default" Margin="0,0,0,15" />
                 <Button x:Name="btPerson" Text="" Image="contact.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TranslationY="-7" BackgroundColor="Transparent"  />
-                <Picker x:Name="ddlPerson" IsVisible="false" Grid.Row="0" Grid.Column="1" />
             </Grid>
             <Label Text="{resX:TranslateExtension PrayerRequiredAt}" FontSize="Medium" FontAttributes="Bold" />
             <Grid>

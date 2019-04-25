@@ -7,5 +7,6 @@ namespace GodAndMe
     {
         Task<List<string>> GetContacts();
         Task<bool> RequestAccess();
+        Task<bool> IsAuthorized();
     }
 }

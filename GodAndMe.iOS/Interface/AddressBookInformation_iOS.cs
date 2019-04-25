@@ -76,6 +76,21 @@ namespace GodAndMe.iOS
             return taskSource.Task;
         }
 
+        public Task<bool> IsAuthorized()
+        {
+            TaskCompletionSource<bool> taskSource = new TaskCompletionSource<bool>();
+            //NSError err;
+            ABAuthorizationStatus authStatus = ABAddressBook.GetAuthorizationStatus();
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            {
+                taskSource.SetResult(authStatus == ABAuthorizationStatus.Authorized);
+            }
+            else
+            {
+                taskSource.SetResult(true);
+            }
+            return taskSource.Task;
+        }
 
         public Task<bool> RequestAccess()
         {
@@ -83,7 +98,7 @@ namespace GodAndMe.iOS
 
             NSError err;
             ABAddressBook iPhoneAddressBook = ABAddressBook.Create(out err);
-            var authStatus = ABAddressBook.GetAuthorizationStatus();
+            ABAuthorizationStatus authStatus = ABAddressBook.GetAuthorizationStatus();
             if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
             {
                 if (authStatus != ABAuthorizationStatus.Authorized)

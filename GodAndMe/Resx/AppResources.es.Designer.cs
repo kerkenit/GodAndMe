@@ -113,6 +113,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
+            }
+        }
+        
         internal static string Contacts {
             get {
                 return ResourceManager.GetString("Contacts", resourceCulture);
@@ -335,6 +341,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
         internal static string OrderBy {
             get {
                 return ResourceManager.GetString("OrderBy", resourceCulture);
@@ -350,6 +362,12 @@ namespace GodAndMe.Resx {
         internal static string Payed {
             get {
                 return ResourceManager.GetString("Payed", resourceCulture);
+            }
+        }
+        
+        internal static string PermissionContactsRationale {
+            get {
+                return ResourceManager.GetString("PermissionContactsRationale", resourceCulture);
             }
         }
         

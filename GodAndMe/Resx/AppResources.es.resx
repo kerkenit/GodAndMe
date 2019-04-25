@@ -48,6 +48,9 @@
     <data name="ChooseRecent" xml:space="preserve">
         <value>Elige contactos recientes</value>
     </data>
+    <data name="Clear" xml:space="preserve">
+        <value>Claro</value>
+    </data>
     <data name="Contacts" xml:space="preserve">
         <value>Contactos</value>
     </data>
@@ -64,7 +67,7 @@
         <value>Diario</value>
     </data>
     <data name="Done" xml:space="preserve">
-        <value>Completa</value>
+        <value>Hecho</value>
     </data>
     <data name="DownloadApp" xml:space="preserve">
         <value>Descargue la aplicación Dios &amp; Yo a través de https://godandme.app/get</value>
@@ -159,6 +162,9 @@
     <data name="Notes" xml:space="preserve">
         <value>Notas</value>
     </data>
+    <data name="OK" xml:space="preserve">
+        <value>OK</value>
+    </data>
     <data name="OrderBy" xml:space="preserve">
         <value>Orden por</value>
     </data>
@@ -167,6 +173,9 @@
     </data>
     <data name="Payed" xml:space="preserve">
         <value>Pagado</value>
+    </data>
+    <data name="PermissionContactsRationale" xml:space="preserve">
+        <value>Se necesitan permisos para acceder a los contactos.</value>
     </data>
     <data name="Prayer" xml:space="preserve">
         <value>Oración</value>

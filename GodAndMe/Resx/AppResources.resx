@@ -45,6 +45,9 @@
     <data name="ChooseRecent" xml:space="preserve">
         <value>Choose recent contacts</value>
     </data>
+    <data name="Clear" xml:space="preserve">
+        <value>Clear</value>
+    </data>
     <data name="Contacts" xml:space="preserve">
         <value>Contacts</value>
     </data>
@@ -156,6 +159,9 @@
     <data name="Notes" xml:space="preserve">
         <value>Notes</value>
     </data>
+    <data name="OK" xml:space="preserve">
+        <value>OK</value>
+    </data>
     <data name="OrderBy" xml:space="preserve">
         <value>Order by</value>
     </data>
@@ -164,6 +170,9 @@
     </data>
     <data name="Payed" xml:space="preserve">
         <value>Payed</value>
+    </data>
+    <data name="PermissionContactsRationale" xml:space="preserve">
+        <value>Permissions are needed to access contacts.</value>
     </data>
     <data name="Prayer" xml:space="preserve">
         <value>Prayer</value>

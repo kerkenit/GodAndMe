@@ -11,6 +11,7 @@ using Android.Util;
 using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Content.PM;
+using Android.OS;
 
 [assembly: Xamarin.Forms.Dependency(typeof(GodAndMe.Android.AddressBookInformation))]
 namespace GodAndMe.Android
@@ -48,7 +49,7 @@ namespace GodAndMe.Android
 
             string[] projection = {
                 ContactsContract.Contacts.InterfaceConsts.Id,
-                ContactsContract.Contacts.InterfaceConsts.DisplayName
+                ContactsContract.Contacts.InterfaceConsts.DisplayName,
             };
 
 
@@ -61,9 +62,11 @@ namespace GodAndMe.Android
             if (CrossCurrentActivity.Current.Activity.CheckSelfPermission(Manifest.Permission.ReadContacts) != (int)Permission.Granted)
 
             {
+
                 // Contacts permissions have not been granted.
                 Console.WriteLine("Contact permissions has NOT been granted. Requesting permissions.");
                 RequestAccess();
+
             }
             else
             {
@@ -103,6 +106,13 @@ namespace GodAndMe.Android
             //return items;
             return taskSource.Task;
         }
+
+        public Task<bool> IsAuthorized()
+        {
+            TaskCompletionSource<bool> taskSource = new TaskCompletionSource<bool>();
+            taskSource.SetResult(CrossCurrentActivity.Current.Activity.CheckSelfPermission(Manifest.Permission.ReadContacts) == (int)Permission.Granted);
+            return taskSource.Task;
+        }
         /*
         * Requests the Contacts permissions.
         * If the permission has been denied previously, a SnackBar will prompt the user to grant the
@@ -111,27 +121,35 @@ namespace GodAndMe.Android
         public Task<bool> RequestAccess()
         {
             TaskCompletionSource<bool> taskSource = new TaskCompletionSource<bool>();
-
-            if (CrossCurrentActivity.Current.Activity.ShouldShowRequestPermissionRationale(Manifest.Permission.ReadContacts))
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
             {
+#pragma warning disable XA0001 // Find issues with Android API usage
+                if (CrossCurrentActivity.Current.Activity.ShouldShowRequestPermissionRationale(Manifest.Permission.ReadContacts))
+#pragma warning restore XA0001 // Find issues with Android API usage
+                {
 
-                // Provide an additional rationale to the user if the permission was not granted
-                // and the user would benefit from additional context for the use of the permission.
-                // For example, if the request has been denied previously.
-                Console.WriteLine("Displaying contacts permission rationale to provide additional context.");
+                    // Provide an additional rationale to the user if the permission was not granted
+                    // and the user would benefit from additional context for the use of the permission.
+                    // For example, if the request has been denied previously.
+                    Console.WriteLine("Displaying contacts permission rationale to provide additional context.");
 
-                //ProfileView pv = new ProfileView(this, null, temp, tempPd);
-                //// Display a SnackBar with an explanation and a button to trigger the request.
-                //Snackbar.Make(CrossCurrentActivity.Current.Activity.FindViewById(GetWindow().getDecorView().getRootView()).getRootView(), Resource.String.permission_contacts_rationale,
-                //Snackbar.LengthIndefinite).SetAction(Resource.String.ok, new Action<View>(delegate (View obj)
-                //{
-                //    CrossCurrentActivity.Current.Activity.RequestPermissions(PERMISSIONS_CONTACT, REQUEST_CONTACTS);
-                //})).Show();
-            }
-            else
-            {
-                // Contact permissions have not been granted yet. Request them directly.
-                CrossCurrentActivity.Current.Activity.RequestPermissions(PERMISSIONS_CONTACT, REQUEST_CONTACTS);
+                    //ProfileView pv = new ProfileView(this, null, temp, tempPd);
+                    //// Display a SnackBar with an explanation and a button to trigger the request.
+                    Snackbar.Make(Activity.CurrentFocus, CommonFunctions.i18n("PermissionContactsRationale"),
+                    Snackbar.LengthIndefinite).SetAction(CommonFunctions.i18n("OK"), new Action<View>(delegate (View obj)
+                    {
+#pragma warning disable XA0001 // Find issues with Android API usage
+                        CrossCurrentActivity.Current.Activity.RequestPermissions(PERMISSIONS_CONTACT, REQUEST_CONTACTS);
+#pragma warning restore XA0001 // Find issues with Android API usage
+                    })).Show();
+                }
+                else
+                {
+                    // Contact permissions have not been granted yet. Request them directly.
+#pragma warning disable XA0001 // Find issues with Android API usage
+                    CrossCurrentActivity.Current.Activity.RequestPermissions(PERMISSIONS_CONTACT, REQUEST_CONTACTS);
+#pragma warning restore XA0001 // Find issues with Android API usage
+                }
             }
             taskSource.SetResult(true);
 
