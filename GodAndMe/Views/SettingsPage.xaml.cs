@@ -37,10 +37,10 @@ namespace GodAndMe.Views
                 pnlImportAndExport.IsVisible = true;
             }
 #elif __ANDROID__
-        tblCommon.Remove(TouchIDEnabled);
-                tblCommon.Remove(MyName);
+            tblCommon.Remove(TouchIDEnabled);
+            tblCommon.Remove(MyName);
 #if DEBUG
-                pnlImportAndExport.IsVisible = true;
+            pnlImportAndExport.IsVisible = true;
 #endif
 #endif
 
