@@ -15,7 +15,7 @@ namespace GodAndMe.Views
         public SinsDetailPage(SinsDetailViewModel viewModel)
         {
             InitializeComponent();
-            Title = string.Format("{0:D}", viewModel.Item.Committed);
+            Title = CommonFunctions.Date(viewModel.Item.Committed);
             BindingContext = this.viewModel = viewModel;
         }
 

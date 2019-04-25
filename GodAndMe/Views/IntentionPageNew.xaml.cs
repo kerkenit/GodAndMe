@@ -99,18 +99,20 @@ namespace GodAndMe.Views
                         ddlPerson.Focus();
                     });
                 }
-            };
-
-            ddlStart.Unfocused += (object sender, FocusEventArgs e) =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
+#if __ANDROID__
+                Task.Factory.StartNew(() =>
                 {
-                    tbStart.Text = string.Format("{0:D}", ddlStart.Date);
-                    btStart.IsEnabled = true;
+                    Task.Delay(App.DELAY).Wait();
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        ddlPerson.Focus();
+                    });
                 });
+#endif
             };
+            BindingContext = viewModel;
+        }
 
-            ddlStart.DateSelected += (object sender, DateChangedEventArgs e) =>
         void FillContactList()
         {
             List<string> persons = ContactPersons.GetContacts().Result;
@@ -138,25 +140,10 @@ namespace GodAndMe.Views
             }
             if (anyRecentPersons)
             {
-                Item.Start = null;
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    btStart.IsEnabled = false;
-                    tbStart.Text = string.Empty;
-                });
-            };
-            tbStart.Focused += (object sender, FocusEventArgs e) =>
                 persons.Insert(0, ChooseRecent);
             }
             Device.BeginInvokeOnMainThread(() =>
             {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    ddlStart.Focus();
-                });
-            };
-
-            btStart.IsEnabled = Item.Start != null;
                 ddlPerson.ItemsSource = persons;
             });
         }

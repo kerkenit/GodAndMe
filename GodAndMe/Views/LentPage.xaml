@@ -4,9 +4,15 @@
              xmlns:i18n="clr-namespace:GodAndMe"
              xmlns:local="clr-namespace:GodAndMe"
              xmlns:resX="clr-namespace:GodAndMe.Resx"
+             xmlns:converters="clr-namespace:GodAndMe.Converters"
              x:Class="GodAndMe.Views.LentPage" 
              Title="{resX:TranslateExtension Lent}"
              x:Name="BrowseLentPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+          <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:TranslateExtension Add}" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
@@ -44,7 +50,7 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="75" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding Start, StringFormat='{0:D}'}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" FontAttributes="Bold" TextColor="{Binding TextColor}" Grid.Row="0" Grid.Column="0" />
+                                    <Label Text="{Binding Start, Converter={StaticResource DateConverter}}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" FontAttributes="Bold" TextColor="{Binding TextColor}" Grid.Row="0" Grid.Column="0" />
                                     <Label Text="{Binding SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" FontAttributes="Bold" TextColor="{Binding TextColor}" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
                                     <Label Text="{Binding Text}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" TextColor="{Binding TextColor}" Grid.Row="1" Grid.Column="0" />
                                 </Grid>

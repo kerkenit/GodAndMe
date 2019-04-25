@@ -4,8 +4,14 @@
              xmlns:i18n="clr-namespace:GodAndMe" 
              xmlns:local="clr-namespace:GodAndMe" 
              xmlns:resX="clr-namespace:GodAndMe.Resx" 
+             xmlns:converters="clr-namespace:GodAndMe.Converters" 
              x:Class="GodAndMe.Views.IntentionDetailPage" 
              Title="{resX:TranslateExtension Intention}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+          <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:TranslateExtension Edit}" Clicked="EditItem_Clicked">
             <ToolbarItem.Icon>
@@ -20,7 +26,7 @@
             <Label Text="{resX:TranslateExtension PrayerFor}" FontSize="Medium" FontAttributes="Bold" />
             <Label Text="{Binding Item.Person}" LineBreakMode="NoWrap" FontSize="Default" Margin="0,0,0,15" />
             <Label Text="{resX:TranslateExtension PrayerRequiredAt}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.Start, StringFormat='{0:D}'}" FontSize="Default" Margin="0,0,0,15" />
+            <Label Text="{Binding Item.Start, Converter={StaticResource DateConverter}}" FontSize="Default" Margin="0,0,0,15" />
             <Label Text="{resX:TranslateExtension PrayerIntention}" FontSize="Medium" FontAttributes="Bold" />
             <Label Text="{Binding Item.Description}" LineBreakMode="WordWrap" FontSize="Default" Margin="0,0,0,15" />
         </StackLayout>

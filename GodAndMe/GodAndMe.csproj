@@ -213,6 +213,7 @@
         <Compile Include="Interface\IDocument.cs" />
         <Compile Include="Extensions\CryptFile.cs" />
         <Compile Include="GlobalSuppressions.cs" />
+        <Compile Include="Extensions\NullableDatePicker.cs" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml">

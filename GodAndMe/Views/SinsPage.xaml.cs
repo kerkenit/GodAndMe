@@ -79,7 +79,7 @@ namespace GodAndMe.Views
                 var share = DependencyService.Get<IShare>();
                 share.Show(
                     CommonFunctions.i18n("Sin"),
-                    item.Committed.ToString("D"),
+                    CommonFunctions.Date(item.Committed),
                     url,
                     ""
                 );

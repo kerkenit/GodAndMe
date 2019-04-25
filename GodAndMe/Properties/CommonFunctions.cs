@@ -97,6 +97,43 @@ namespace GodAndMe
             return new DateTime(year, month, day);
         }
 
+        public static string Date(object sender)
+        {
+            if (sender == null)
+                return CommonFunctions.i18n("Today");
+
+            if (sender is DateTime)
+            {
+                DateTime dt = (DateTime)sender;
+
+                if (dt.Date == DateTime.Today)
+                {
+                    return CommonFunctions.i18n("Today");
+                }
+                else if (dt.Date == DateTime.Today.AddDays(-2))
+                {
+                    return CommonFunctions.i18n("YesterdayDayBefore");
+                }
+                else if (dt.Date == DateTime.Today.AddDays(-1))
+                {
+                    return CommonFunctions.i18n("Yesterday");
+                }
+                else if (dt.Date == DateTime.Today.AddDays(1))
+                {
+                    return CommonFunctions.i18n("Tomorrow");
+                }
+                else if (dt.Date == DateTime.Today.AddDays(2))
+                {
+                    return CommonFunctions.i18n("TomorrowDayAfter");
+                }
+                else
+                {
+                    return dt.Date.ToString("D");
+                }
+            }
+            return string.Empty;
+        }
+
         public static string i18n(string Text)
         {
             return i18n(Text, null);

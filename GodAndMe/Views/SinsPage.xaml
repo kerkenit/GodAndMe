@@ -5,7 +5,13 @@
              xmlns:i18n="clr-namespace:GodAndMe"
              xmlns:local="clr-namespace:GodAndMe"
              xmlns:resX="clr-namespace:GodAndMe.Resx"
+             xmlns:converters="clr-namespace:GodAndMe.Converters"
              Title="{resX:TranslateExtension Sins}" x:Name="BrowseSinsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+          <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:Translate Add}" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
@@ -34,7 +40,7 @@
                                 </MenuItem>
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Start, StringFormat='{0:D}'}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" FontAttributes="Bold" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Start, Converter={StaticResource DateConverter}}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" FontAttributes="Bold" TextColor="{Binding TextColor}" />
                                 <Label Text="{Binding Description}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" />
                             </StackLayout>
                         </ViewCell>

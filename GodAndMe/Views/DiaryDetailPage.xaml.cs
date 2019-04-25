@@ -15,7 +15,7 @@ namespace GodAndMe.Views
         public DiaryDetailPage(DiaryDetailViewModel viewModel)
         {
             InitializeComponent();
-            Title = string.Format("{0:D}", viewModel.Item.Start);
+            Title = CommonFunctions.Date(viewModel.Item.Start);
             BindingContext = this.viewModel = viewModel;
         }
 

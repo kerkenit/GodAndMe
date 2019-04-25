@@ -105,6 +105,7 @@
         <Compile Include="Renderers\CustomViewCellRenderer.cs" />
         <Compile Include="Interface\Settings_iOS.cs" />
         <Compile Include="Interface\Document_iOS.cs" />
+        <Compile Include="Renderers\NullableDatePickerRenderer.cs" />
     </ItemGroup>
     <ItemGroup>
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
