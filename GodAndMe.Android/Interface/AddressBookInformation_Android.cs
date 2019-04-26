@@ -12,6 +12,9 @@ using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Content.PM;
 using Android.OS;
+using Android.Content;
+using Android.Runtime;
+using Android.Database;
 
 [assembly: Xamarin.Forms.Dependency(typeof(GodAndMe.Android.AddressBookInformation))]
 namespace GodAndMe.Android
@@ -73,7 +76,9 @@ namespace GodAndMe.Android
 
                 // Contact permissions have been granted. Show the contacts fragment.
                 Console.WriteLine("Contact permissions have already been granted. Displaying contact details.");
-                global::Android.Database.ICursor cursor = Activity.ManagedQuery(uriContacts, projection, null, null, null);
+
+                CursorLoader loader = new CursorLoader(CrossCurrentActivity.Current.AppContext, uriContacts, projection, null, null, null);
+                ICursor cursor = loader?.LoadInBackground().JavaCast<ICursor>();
 
                 if (cursor.MoveToFirst())
                 {
