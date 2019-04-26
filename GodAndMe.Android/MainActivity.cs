@@ -11,7 +11,7 @@ namespace GodAndMe.Droid
 {
 
 
-    [Activity(Label = "@string/app_name", Name = "nl.kerkenit.god_and_me", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "@string/app_name", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     [IntentFilter(new[] { Intent.ActionSend, Intent.ActionView }, Categories = new[] { Intent.CategoryDefault }, DataMimeType = CommonFunctions.DATATYPE, DataPathPattern = "*" + CommonFunctions.EXTENSION, DataHost = "*")]
     [IntentFilter(new[] { Intent.ActionView }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable }, DataSchemes = new[] { CommonFunctions.URLSCHEME }, DataHost = "path")]
     //[IntentFilter(new[] { "android.intent.action.VIEW" }, Categories = new[] { "android.intent.category.DEFAULT", "android.intent.category.BROWSABLE" }, DataSchemes = new[] { "https" }, DataHosts = new[] { "app.godandme" })]
@@ -59,6 +59,9 @@ namespace GodAndMe.Droid
                     switch (key)
                     {
                         case "intention":
+                        case "intentions":
+                        case "sin":
+                        case "sins":
                             string base64 = Intent?.Data?.GetQueryParameter(key);
                             Console.WriteLine(base64);
                             if ((Xamarin.Forms.Application.Current != null) && (Xamarin.Forms.Application.Current.MainPage != null))
@@ -71,8 +74,9 @@ namespace GodAndMe.Droid
                         default:
 #if DEBUG
                             throw new NotImplementedException(key);
-#endif
+#else
                             break;
+#endif
                     }
                 }
 
