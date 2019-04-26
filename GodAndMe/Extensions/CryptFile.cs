@@ -88,7 +88,7 @@ namespace GodAndMe.Extensions
         /// </summary>
         /// <returns>The encrypt string.</returns>
         /// <param name="plainString">Plain string.</param>
-        [Obsolete("Use Encrypt(string data, string password = \"G\", byte[] salt = null)", false)]
+        //[Obsolete("Use Encrypt(string data, string password = \"G\", byte[] salt = null)", false)]
         public static string Encrypt_Legacy(string plainString)
         {
             byte[] plain = Encoding.UTF8.GetBytes(plainString);
@@ -100,7 +100,7 @@ namespace GodAndMe.Extensions
         /// </summary>
         /// <returns>The decrypt string.</returns>
         /// <param name="encryptedString">Encrypted string.</param>
-        [Obsolete("Use Decrypt(string data, string password = \"G\", byte[] salt = null)", false)]
+        //[Obsolete("Use Decrypt(string data, string password = \"G\", byte[] salt = null)", false)]
         public static string Decrypt_Legacy(string encryptedString)
         {
             byte[] encrypted = Convert.FromBase64String(WebUtility.UrlDecode(encryptedString));
