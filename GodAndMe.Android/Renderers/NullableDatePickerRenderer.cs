@@ -5,19 +5,26 @@ using Android.App;
 using Android.Widget;
 using System.ComponentModel;
 using GodAndMe.Droid.Renderers;
+using Android.Content;
 
 [assembly: ExportRenderer(typeof(GodAndMe.NullableDatePicker), typeof(NullableDatePickerRenderer))]
 namespace GodAndMe.Droid.Renderers
 {
 
-    public class NullableDatePickerRenderer : ViewRenderer<GodAndMe.NullableDatePicker, EditText>
+    public class NullableDatePickerRenderer : ViewRenderer<NullableDatePicker, EditText>
     {
         DatePickerDialog _dialog;
-        protected override void OnElementChanged(ElementChangedEventArgs<GodAndMe.NullableDatePicker> e)
+
+        public NullableDatePickerRenderer(Context context) : base(context)
+        {
+
+        }
+
+        protected override void OnElementChanged(ElementChangedEventArgs<NullableDatePicker> e)
         {
             base.OnElementChanged(e);
 
-            this.SetNativeControl(new EditText(Forms.Context));
+            this.SetNativeControl(new EditText(Context));
             if (Control == null || e.NewElement == null)
                 return;
 
