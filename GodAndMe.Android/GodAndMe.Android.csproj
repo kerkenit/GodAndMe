@@ -15,7 +15,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -31,7 +31,7 @@
     <DefineConstants>__ANDROID__;__MOBILE__;__UNIFIED__;DEBUG;</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <JavaMaximumHeapSize></JavaMaximumHeapSize>
-    <AndroidManifest></AndroidManifest>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
 <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
 <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
 <AssemblyName>GodAndMe.Android</AssemblyName>
@@ -43,14 +43,13 @@
     <DefineConstants>__ANDROID__;__MOBILE__;__UNIFIED__;</DefineConstants>
     <WarningLevel>4</WarningLevel>
     <JavaMaximumHeapSize></JavaMaximumHeapSize>
-    <AndroidManifest></AndroidManifest>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
 <ReleaseVersion>1.2.6</ReleaseVersion>
 <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
 <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
 <AssemblyName>nl.kerkenit.god_and_me</AssemblyName>
 <EnableProguard>true</EnableProguard>
-<AndroidEnableMultiDex>true</AndroidEnableMultiDex>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
