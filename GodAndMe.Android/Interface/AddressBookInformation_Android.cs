@@ -53,6 +53,8 @@ namespace GodAndMe.Android
             string[] projection = {
                 ContactsContract.Contacts.InterfaceConsts.Id,
                 ContactsContract.Contacts.InterfaceConsts.DisplayName,
+                ContactsContract.Contacts.InterfaceConsts.SortKeyAlternative,
+                ContactsContract.Contacts.InterfaceConsts.TimesContacted,
             };
 
 
@@ -62,7 +64,7 @@ namespace GodAndMe.Android
             }
 
             // Verify that all required contact permissions have been granted.
-            if (CrossCurrentActivity.Current.Activity.CheckSelfPermission(Manifest.Permission.ReadContacts) != (int)Permission.Granted)
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.M && CrossCurrentActivity.Current.Activity.CheckSelfPermission(Manifest.Permission.ReadContacts) != (int)Permission.Granted)
 
             {
 
@@ -73,22 +75,23 @@ namespace GodAndMe.Android
             }
             else
             {
-
                 // Contact permissions have been granted. Show the contacts fragment.
                 Console.WriteLine("Contact permissions have already been granted. Displaying contact details.");
-
                 CursorLoader loader = new CursorLoader(CrossCurrentActivity.Current.AppContext, uriContacts, projection, null, null, null);
                 ICursor cursor = loader?.LoadInBackground().JavaCast<ICursor>();
-
                 if (cursor.MoveToFirst())
                 {
                     do
                     {
-                        string key = cursor.GetString(cursor.GetColumnIndex(projection[1])).Trim();
-
-                        if (!peopleList.ContainsKey(key))
+                        string DisplayName = cursor.GetString(cursor.GetColumnIndex(projection[1])).Trim();
+                        string SortKeyPrimary = cursor.GetString(cursor.GetColumnIndex(projection[2])).Trim();
+                        if (long.TryParse(cursor.GetString(cursor.GetColumnIndex(projection[3])).Trim(), out long TimesContacted))
                         {
-                            peopleList.Add(key, key);
+                            SortKeyPrimary = (long.MaxValue - TimesContacted).ToString("D19") + SortKeyPrimary;
+                        }
+                        if (!peopleList.ContainsKey(SortKeyPrimary))
+                        {
+                            peopleList.Add(SortKeyPrimary, DisplayName);
                         }
 
 
@@ -108,6 +111,7 @@ namespace GodAndMe.Android
 
                 taskSource.SetResult(items);
             }
+
             //return items;
             return taskSource.Task;
         }
@@ -115,7 +119,14 @@ namespace GodAndMe.Android
         public Task<bool> IsAuthorized()
         {
             TaskCompletionSource<bool> taskSource = new TaskCompletionSource<bool>();
-            taskSource.SetResult(CrossCurrentActivity.Current.Activity.CheckSelfPermission(Manifest.Permission.ReadContacts) == (int)Permission.Granted);
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+            {
+                taskSource.SetResult(CrossCurrentActivity.Current.Activity.CheckSelfPermission(Manifest.Permission.ReadContacts) == (int)Permission.Granted);
+            }
+            else
+            {
+                taskSource.SetResult(true);
+            }
             return taskSource.Task;
         }
         /*
