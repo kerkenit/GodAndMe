@@ -59,12 +59,14 @@ namespace GodAndMe.Views
                 IconSource = "tab_prayers.png",
                 TargetType = typeof(PrayersPage)
             });
+#if __IOS__
             menuList.Add(new MasterPageItem
             {
                 Title = CommonFunctions.i18n("Settings"),
                 IconSource = "tab_settings.png",
                 TargetType = typeof(SettingsPage)
             });
+#endif
             menuList.Add(new MasterPageItem
             {
                 Title = CommonFunctions.i18n("About"),
