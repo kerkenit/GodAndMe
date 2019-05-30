@@ -25,7 +25,14 @@ namespace GodAndMe.iOS
                         App.justUnlocked = success;
                         taskSource.SetResult(success);
                     });
-                    context.EvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, CommonFunctions.i18n("AuthenticationWithBiometricsMessage"), replyHandler); //Todo: translate
+                    try
+                    {
+                        context.EvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, CommonFunctions.i18n("AuthenticationWithBiometricsMessage"), replyHandler);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
                 };
             }
             return taskSource.Task;
