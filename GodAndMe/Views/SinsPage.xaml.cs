@@ -25,7 +25,7 @@ namespace GodAndMe.Views
 
 #if __IOS__
             var toolbarItem = new ToolbarItem();
-            toolbarItem.Icon = "hamburger.png";
+            toolbarItem.IconImageSource = "hamburger.png";
             toolbarItem.Priority = -1;
             toolbarItem.Clicked += (object sender, EventArgs e) =>
             {
