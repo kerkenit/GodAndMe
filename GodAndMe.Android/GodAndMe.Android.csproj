@@ -227,6 +227,12 @@
     <AndroidResource Include="Resources\drawable\tab_lent.png" />
     <AndroidResource Include="Resources\drawable\trash.png" />
     <AndroidResource Include="Resources\drawable-ldpi\trash.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\share.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\share.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\share.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\share.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\share.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\share.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />

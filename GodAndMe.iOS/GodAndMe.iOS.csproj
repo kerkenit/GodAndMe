@@ -225,6 +225,9 @@
         <BundleResource Include="Resources\UTTypeSize64IconFile.png" />
         <BundleResource Include="Resources\icon512x512.png" />
         <BundleResource Include="Resources\icon58x58.png" />
+        <BundleResource Include="Resources\share%403x.png" />
+        <BundleResource Include="Resources\share%402x.png" />
+        <BundleResource Include="Resources\share.png" />
     </ItemGroup>
     <ItemGroup>
         <Reference Include="System" />

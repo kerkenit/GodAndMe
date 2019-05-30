@@ -29,8 +29,22 @@
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
-                                <MenuItem x:Name="Archive" Clicked="OnArchive" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Archive}" IsDestructive="false" />
-                                <MenuItem x:Name="Share" Clicked="OnShare" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Share}" />
+                                <MenuItem x:Name="Archive" Clicked="OnArchive" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Archive}" IsDestructive="false">
+                                    <MenuItem.Icon>
+                                        <OnPlatform x:TypeArguments="FileImageSource">
+                                            <On Platform="iOS" Value="archive.png" />
+                                            <On Platform="Android" Value="archive.png" />
+                                        </OnPlatform>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem x:Name="Share" Clicked="OnShare" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Share}">
+                                    <MenuItem.Icon>
+                                        <OnPlatform x:TypeArguments="FileImageSource">
+                                            <On Platform="iOS" Value="share.png" />
+                                            <On Platform="Android" Value="share.png" />
+                                        </OnPlatform>
+                                    </MenuItem.Icon>
+                                </MenuItem>
                                 <MenuItem x:Name="Delete" Clicked="OnDelete" CommandParameter="{Binding Id}" Icon="trash.png" Text="{resX:TranslateExtension Delete}" IsDestructive="True">
                                     <MenuItem.Icon>
                                         <OnPlatform x:TypeArguments="FileImageSource">

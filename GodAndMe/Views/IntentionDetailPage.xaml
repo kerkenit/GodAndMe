@@ -22,13 +22,26 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="5" Padding="15">
-            <Label Text="{resX:TranslateExtension PrayerFor}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.Person}" LineBreakMode="NoWrap" FontSize="Default" Margin="0,0,0,15" />
-            <Label Text="{resX:TranslateExtension PrayerRequiredAt}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.Start, Converter={StaticResource DateConverter}}" FontSize="Default" Margin="0,0,0,15" />
-            <Label Text="{resX:TranslateExtension PrayerIntention}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.Description}" LineBreakMode="WordWrap" FontSize="Default" Margin="0,0,0,15" />
+        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
+            <StackLayout Spacing="5" Padding="15" HorizontalOptions="StartAndExpand" Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <Label Text="{resX:TranslateExtension PrayerFor}" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="{Binding Item.Person}" LineBreakMode="NoWrap" FontSize="Default" Margin="0,0,0,15" />
+                <Label Text="{resX:TranslateExtension PrayerRequiredAt}" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="{Binding Item.Start, Converter={StaticResource DateConverter}}" FontSize="Default" Margin="0,0,0,15" />
+                <Label Text="{resX:TranslateExtension PrayerIntention}" FontSize="Medium" FontAttributes="Bold" />
+                <Label Text="{Binding Item.Description}" LineBreakMode="WordWrap" FontSize="Default" Margin="0,0,0,15" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" VerticalOptions="EndAndExpand"  >
+                <Button x:Name="Share" Clicked="OnShare" CommandParameter="{Binding Item.Id}" Text="{resX:TranslateExtension Share}">
+                    <Button.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource">
+                            <On Platform="iOS" Value="share.png" />
+                            <On Platform="Android" Value="share.png" />
+                        </OnPlatform>
+                    </Button.Image>
+                </Button>
+               
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
