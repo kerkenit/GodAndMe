@@ -100,6 +100,14 @@
             <SubType>Designer</SubType>
             <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
         </EmbeddedResource>
+        <EmbeddedResource Include="Resx\AppResources.it.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>AppResources.nl.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resx\AppResources.de.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>AppResources.nl.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
         <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -214,6 +222,12 @@
         <Compile Include="Extensions\CryptFile.cs" />
         <Compile Include="GlobalSuppressions.cs" />
         <Compile Include="Extensions\NullableDatePicker.cs" />
+        <Compile Include="Resx\AppResources.it.Designer.cs">
+          <DependentUpon>AppResources.it.resx</DependentUpon>
+        </Compile>
+        <Compile Include="Resx\AppResources.de.Designer.cs">
+          <DependentUpon>AppResources.de.resx</DependentUpon>
+        </Compile>
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml">
