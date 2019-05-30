@@ -1,339 +1,418 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <data name="About" xml:space="preserve">
-        <value>Over</value>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
-    <data name="AboutText" xml:space="preserve">
-        <value>Deze app is gebouwd op privacy. Alles werkt offline en er worden geen gevens gedeelt. Alles is tussen God en jou.</value>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
     </data>
-    <data name="Add" xml:space="preserve">
-        <value>Toevoegen</value>
-    </data>
-    <data name="AddSavings" xml:space="preserve">
-        <value>Besparing toevoegen</value>
-    </data>
-    <data name="AllDataWillBeDeletedContinue" xml:space="preserve">
-        <value>Alle gegevens worden gewist. Doorgaan?</value>
-    </data>
-    <data name="ApplicationTitle" xml:space="preserve">
-        <value>God &amp; Ik</value>
-    </data>
-    <data name="Archive" xml:space="preserve">
-        <value>Archief</value>
-    </data>
-    <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
-        <value>Om je persoonlijke communicatie met God in te zien.</value>
-    </data>
-    <data name="Cancel" xml:space="preserve">
-        <value>Annuleren</value>
-    </data>
-    <data name="ChooseOther" xml:space="preserve">
-        <value>Kies andere</value>
-    </data>
-    <data name="ChooseRecent" xml:space="preserve">
-        <value>Kies recente contacten</value>
-    </data>
-    <data name="Clear" xml:space="preserve">
-        <value>Wissen</value>
-    </data>
-    <data name="Contacts" xml:space="preserve">
-        <value>Contacten</value>
-    </data>
-    <data name="Date" xml:space="preserve">
-        <value>Datum</value>
-    </data>
-    <data name="Delete" xml:space="preserve">
-        <value>Verwijderen</value>
-    </data>
-    <data name="Description" xml:space="preserve">
-        <value>Omschrijving</value>
-    </data>
-    <data name="Diary" xml:space="preserve">
-        <value>Dagboek</value>
-    </data>
-    <data name="Done" xml:space="preserve">
-        <value>Gereed</value>
-    </data>
-    <data name="DownloadApp" xml:space="preserve">
-        <value>Download de God &amp; Ik app via https://godandme.app/get</value>
-    </data>
-    <data name="Duplicate" xml:space="preserve">
-        <value>Dupliceren</value>
-    </data>
-    <data name="Edit" xml:space="preserve">
-        <value>Wijzig</value>
-    </data>
-    <data name="EditIntention" xml:space="preserve">
-        <value>Bewerk intentie</value>
-    </data>
-    <data name="EditSavings" xml:space="preserve">
-        <value>Bewerk besparing</value>
-    </data>
-    <data name="Export" xml:space="preserve">
-        <value>Exporteren</value>
-    </data>
-    <data name="Firstname" xml:space="preserve">
-        <value>Voornaam</value>
-    </data>
-    <data name="For" xml:space="preserve">
-        <value>Voor</value>
-    </data>
-    <data name="Import" xml:space="preserve">
-        <value>Importeren</value>
-    </data>
-    <data name="ImportAndExport" xml:space="preserve">
-        <value>Importeren &amp; Exporteren</value>
-    </data>
-    <data name="ImportAndExportText" xml:space="preserve">
-        <value>Hier kan je je gegevens importeren vanaf een ander apparaat of importeren naar een ander apparaat.</value>
-    </data>
-    <data name="Intention" xml:space="preserve">
-        <value>Intentie</value>
-    </data>
-    <data name="Intentions" xml:space="preserve">
-        <value>Intenties</value>
-    </data>
-    <data name="Lastname" xml:space="preserve">
-        <value>Achternaam</value>
-    </data>
-    <data name="LearnMore" xml:space="preserve">
-        <value>Lees meer...</value>
-    </data>
-    <data name="Lent" xml:space="preserve">
-        <value>Vasten</value>
-    </data>
-    <data name="Menu" xml:space="preserve">
-        <value>Menu</value>
-    </data>
-    <data name="More" xml:space="preserve">
-        <value>Meer</value>
-    </data>
-    <data name="MyIntentions" xml:space="preserve">
-        <value>Mijn intenties</value>
-    </data>
-    <data name="MyName" xml:space="preserve">
-        <value>Mijn naam</value>
-    </data>
-    <data name="MyPeriodOfLent" xml:space="preserve">
-        <value>Mijn vastentijd</value>
-    </data>
-    <data name="MyPrayers" xml:space="preserve">
-        <value>Mijn gebeden</value>
-    </data>
-    <data name="MyReligiousDiary" xml:space="preserve">
-        <value>Mijn religieus dagboek</value>
-    </data>
-    <data name="MySins" xml:space="preserve">
-        <value>Mijn zonden</value>
-    </data>
-    <data name="Name" xml:space="preserve">
-        <value>Naam</value>
-    </data>
-    <data name="NewIntention" xml:space="preserve">
-        <value>Nieuwe intentie</value>
-    </data>
-    <data name="NewMessage" xml:space="preserve">
-        <value>Nieuw bericht</value>
-    </data>
-    <data name="NewPrayer" xml:space="preserve">
-        <value>Nieuw gebed</value>
-    </data>
-    <data name="NewSin" xml:space="preserve">
-        <value>Nieuwe zonde</value>
-    </data>
-    <data name="No" xml:space="preserve">
-        <value>Nee</value>
-    </data>
-    <data name="Notes" xml:space="preserve">
-        <value>Notitie</value>
-    </data>
-    <data name="OK" xml:space="preserve">
-        <value>Oké</value>
-    </data>
-    <data name="OrderBy" xml:space="preserve">
-        <value>Sorteer op</value>
-    </data>
-    <data name="OriginalPrice" xml:space="preserve">
-        <value>Origineel bedrag</value>
-    </data>
-    <data name="Payed" xml:space="preserve">
-        <value>Betaald</value>
-    </data>
-    <data name="PermissionContactsRationale" xml:space="preserve">
-        <value>Machtigingen zijn nodig om contactpersonen te openen.</value>
-    </data>
-    <data name="Prayer" xml:space="preserve">
-        <value>Gebed</value>
-    </data>
-    <data name="PrayerFor" xml:space="preserve">
-        <value>Gebed voor</value>
-    </data>
-    <data name="PrayerIntention" xml:space="preserve">
-        <value>Gebedsintentie</value>
-    </data>
-    <data name="PrayerRequiredAt" xml:space="preserve">
-        <value>Gebedsverhoring nodig op</value>
-    </data>
-    <data name="Prayers" xml:space="preserve">
-        <value>Gebeden</value>
-    </data>
-    <data name="SCREENSHOT_Diary_1_Description" xml:space="preserve">
-        <value>Bewuster het Onze Vader bidden en dieper op mij laten inwerken. Dus niet snel bidden maar met het hart bidden.</value>
-    </data>
-    <data name="SCREENSHOT_Diary_2_Description" xml:space="preserve">
-        <value>De Heer is mijn herder, mij zal niets ontbreken</value>
-    </data>
-    <data name="SCREENSHOT_Diary_3_Description" xml:space="preserve">
-        <value>Als een hert dat verlangt naar water,
-zo verlangt mijn ziel naar U.
-U alleen kunt mijn hart vervullen,
-mijn aanbidding is voor U.
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
 
-U alleen bent mijn Kracht, mijn Schild.
-Aan U alleen geef ik mij geheel.
-U alleen kunt mijn hart vervullen,
-mijn aanbidding is voor U.</value>
-    </data>
-    <data name="SCREENSHOT_Intention_1_Description" xml:space="preserve">
-        <value>Om verlichting van de Heilige Geest bij de afgelopen synode over het sexueel misbruik bij minderjarige</value>
-    </data>
-    <data name="SCREENSHOT_Intention_1_Person" xml:space="preserve">
-        <value>Paus Fransiscus</value>
-    </data>
-    <data name="SCREENSHOT_Intention_2_Description" xml:space="preserve">
-        <value>Voor een spoedig herstel na de zware operatie</value>
-    </data>
-    <data name="SCREENSHOT_Intention_2_Person" xml:space="preserve">
-        <value>Jan Jansen</value>
-    </data>
-    <data name="SCREENSHOT_Intention_3_Description" xml:space="preserve">
-        <value>Dat ze kracht naar kruis mag krijgen en het lijden mag aanvaarden</value>
-    </data>
-    <data name="SCREENSHOT_Intention_3_Person" xml:space="preserve">
-        <value>Mama</value>
-    </data>
-    <data name="SCREENSHOT_Lent_1_Text" xml:space="preserve">
-        <value>Boter</value>
-    </data>
-    <data name="SCREENSHOT_Lent_2_Text" xml:space="preserve">
-        <value>Kaas</value>
-    </data>
-    <data name="SCREENSHOT_Lent_3_Text" xml:space="preserve">
-        <value>Eieren</value>
-    </data>
-    <data name="SCREENSHOT_Prayers_1_Description" xml:space="preserve">
-        <value>Onbevlekte Maagd Maria - Moeder van Jezus Christus en Moeder van ons - wij hebben het grootste vertrouwen in uw voorspraak. U kunt van uw Zoon alles verkrijgen, wat goed is voor ons.
-
-Wij danken U, dat U ons daaraan herinnert - door de medaille, waarop onze verlossing is afgebeeld. U houdt van ons, wij vertrouwen op U. Wil voor ons uw kinderen de genade verkrijgen, waarom wij nederig vragen.
-
-(Hier maakt men zijn/haar intenties).
-
-Moeder Maria - verkrijg voor ons niet alleen tijdelijke gunsten - maar vooral dat wij bereid mogen zijn tot gebed en offer. Zo alleen zullen wij in staat zijn - tot ware liefde voor uw Zoon - en tot oprechte liefde voor de evenmens. Dan zullen wij het geluk van de hemel verkrijgen - dat U reeds bezit als onze Koningin en Moeder.
-Amen.
-
-Schietgebed:
-O Maria, zonder zonden ontvangen, bid voor ons, die onze toevlucht tot U nemen. (3x)</value>
-    </data>
-    <data name="SCREENSHOT_Prayers_1_Title" xml:space="preserve">
-        <value>Noveengebed tot O.L. Vrouw van de Wonderdadige Medaille</value>
-    </data>
-    <data name="SCREENSHOT_Prayers_2_Description" xml:space="preserve">
-        <value>Heilige Aartsengel Michaël, verdedig ons in de strijd;
-wees onze bescherming tegen de boosheid en de listen van de duivel. Wij smeken ootmoedig dat God hem Zijn macht doe gevoelen. En gij, vorst van de hemelse legerscharen, drijf Satan en andere boze geesten, die tot verderf van de zielen over de wereld rondgaan, door de goddelijke kracht in de hel terug.
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Über</value>
+  </data>
+  <data name="AboutText" xml:space="preserve">
+    <value>Diese App basiert auf Datenschutz. Alles funktioniert offline und es werden keine Daten geteilt. Alles ist zwischen Gott und dir.</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Hinzufügen</value>
+  </data>
+  <data name="AddSavings" xml:space="preserve">
+    <value>Fügen Sie Einsparungen hinzu</value>
+  </data>
+  <data name="AllDataWillBeDeletedContinue" xml:space="preserve">
+    <value>Alle Daten werden gelöscht. Fortsetzen?</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Gott &amp; Mir</value>
+  </data>
+  <data name="Archive" xml:space="preserve">
+    <value>Archiv</value>
+  </data>
+  <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
+    <value>Um Ihre persönliche Kommunikation mit Gott zu sehen.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Stornieren</value>
+  </data>
+  <data name="ChooseOther" xml:space="preserve">
+    <value>Andere wählen</value>
+  </data>
+  <data name="ChooseRecent" xml:space="preserve">
+    <value>Wählen Sie die letzten Kontakte aus</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Kontakte</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Diary" xml:space="preserve">
+    <value>Tagebuch</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Fertig</value>
+  </data>
+  <data name="DownloadApp" xml:space="preserve">
+    <value>Laden Sie den Gott &amp; Ich app über https://godandme.app/get</value>
+  </data>
+  <data name="Duplicate" xml:space="preserve">
+    <value>Duplikat</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
+  <data name="EditIntention" xml:space="preserve">
+    <value>Absicht bearbeiten</value>
+  </data>
+  <data name="EditSavings" xml:space="preserve">
+    <value>Einsparungen bearbeiten</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Firstname" xml:space="preserve">
+    <value>Vorname</value>
+  </data>
+  <data name="For" xml:space="preserve">
+    <value>Zum</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Einführen</value>
+  </data>
+  <data name="ImportAndExport" xml:space="preserve">
+    <value>Import &amp; Export</value>
+  </data>
+  <data name="ImportAndExportText" xml:space="preserve">
+    <value>Hier können Sie Ihre Daten von einem anderen Gerät importieren oder auf ein anderes Gerät importieren.</value>
+  </data>
+  <data name="Intention" xml:space="preserve">
+    <value>Absicht</value>
+  </data>
+  <data name="Intentions" xml:space="preserve">
+    <value>Intentionen</value>
+  </data>
+  <data name="Lastname" xml:space="preserve">
+    <value>Nachname</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Mehr erfahren...</value>
+  </data>
+  <data name="Lent" xml:space="preserve">
+    <value>Fastenzeit</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Speisekarte</value>
+  </data>
+  <data name="More" xml:space="preserve">
+    <value>Mehr</value>
+  </data>
+  <data name="MyIntentions" xml:space="preserve">
+    <value>Meine Absichten</value>
+  </data>
+  <data name="MyName" xml:space="preserve">
+    <value>Mein Name</value>
+  </data>
+  <data name="MyPeriodOfLent" xml:space="preserve">
+    <value>Meine Fastenzeit</value>
+  </data>
+  <data name="MyPrayers" xml:space="preserve">
+    <value>Meine Gebete</value>
+  </data>
+  <data name="MyReligiousDiary" xml:space="preserve">
+    <value>Mein religiöses Tagebuch</value>
+  </data>
+  <data name="MySins" xml:space="preserve">
+    <value>Meine Sinne</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NewIntention" xml:space="preserve">
+    <value>Neue Absicht</value>
+  </data>
+  <data name="NewMessage" xml:space="preserve">
+    <value>Neue Nachricht</value>
+  </data>
+  <data name="NewPrayer" xml:space="preserve">
+    <value>Neues Gebet</value>
+  </data>
+  <data name="NewSin" xml:space="preserve">
+    <value>Neue Sünde</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Anmerkungen</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OrderBy" xml:space="preserve">
+    <value>Sortieren nach</value>
+  </data>
+  <data name="OriginalPrice" xml:space="preserve">
+    <value>Original Preis</value>
+  </data>
+  <data name="Payed" xml:space="preserve">
+    <value>Bezahlt</value>
+  </data>
+  <data name="PermissionContactsRationale" xml:space="preserve">
+    <value>Für den Zugriff auf Kontakte sind Berechtigungen erforderlich.</value>
+  </data>
+  <data name="Prayer" xml:space="preserve">
+    <value>Gebet</value>
+  </data>
+  <data name="PrayerFor" xml:space="preserve">
+    <value>Gebet für</value>
+  </data>
+  <data name="PrayerIntention" xml:space="preserve">
+    <value>Gebetsabsicht</value>
+  </data>
+  <data name="PrayerRequiredAt" xml:space="preserve">
+    <value>Gebet erforderlich bei</value>
+  </data>
+  <data name="Prayers" xml:space="preserve">
+    <value>Gebete</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>sparen</value>
+  </data>
+  <data name="SavedAt" xml:space="preserve">
+    <value>Gespeichert um</value>
+  </data>
+  <data name="SavedMoney" xml:space="preserve">
+    <value>Geld gespart</value>
+  </data>
+  <data name="SavedXThisYear" xml:space="preserve">
+    <value>{0:C} wurde dieses Jahr gespeichert</value>
+  </data>
+  <data name="SCREENSHOT_Diary_1_Description" xml:space="preserve">
+    <value>Beten Sie bewusster das Vaterunser und lassen Sie es tiefer auf mich wirken. Bete also nicht schnell, sondern bete mit deinem Herzen.</value>
+  </data>
+  <data name="SCREENSHOT_Diary_2_Description" xml:space="preserve">
+    <value>Der Herr ist mein Hirte, mir fehlt nichts.</value>
+  </data>
+  <data name="SCREENSHOT_Diary_3_Description" xml:space="preserve">
+    <value>Wie der Hirsch nach dem Wasser lechzt\r\nSo sehnt sich meine Seele nach dir\r\nDu bist allein der Wunsch meines Herzens\r\nUnd ich sehne mich, dich anzubeten\r\n\r\nDu bist allein meine Stärke, mein Schild Nur für dich allein kann mein Geist nachgeben. Du allein bist der Wunsch meines Herzens. Und ich sehne mich danach, dich zu verehren. Du bist mein Freund und du bist mein Bruder. Obwohl du es bist ein König\r\nIch liebe dich mehr als jeder andere\r\nSo viel mehr als alles andere</value>
+  </data>
+  <data name="SCREENSHOT_Intention_1_Description" xml:space="preserve">
+    <value>Aufklärung des Heiligen Geistes auf der letzten Synode über den sexuellen Missbrauch von Kindern</value>
+  </data>
+  <data name="SCREENSHOT_Intention_1_Person" xml:space="preserve">
+    <value>Papst Franziskus</value>
+  </data>
+  <data name="SCREENSHOT_Intention_2_Description" xml:space="preserve">
+    <value>Für eine schnelle Erholung nach der Hauptoperation</value>
+  </data>
+  <data name="SCREENSHOT_Intention_2_Person" xml:space="preserve">
+    <value>John Doe</value>
+  </data>
+  <data name="SCREENSHOT_Intention_3_Description" xml:space="preserve">
+    <value>Damit sie Kraft gewinnen und Leiden annehmen kann</value>
+  </data>
+  <data name="SCREENSHOT_Intention_3_Person" xml:space="preserve">
+    <value>Mama</value>
+  </data>
+  <data name="SCREENSHOT_Lent_1_Text" xml:space="preserve">
+    <value>Butter</value>
+  </data>
+  <data name="SCREENSHOT_Lent_2_Text" xml:space="preserve">
+    <value>Käse</value>
+  </data>
+  <data name="SCREENSHOT_Lent_3_Text" xml:space="preserve">
+    <value>Eier</value>
+  </data>
+  <data name="SCREENSHOT_Prayers_1_Description" xml:space="preserve">
+    <value>Gott, du hast den heiligen Josef zum Bräutigam der Mutter deines Sohnes erwählt. Wir bitten dich: laß uns in ihm, den wir als unsern Beschützer verehren, einen Fürsprecher an deinem Thron finden; das erbitten wir durch Christus, unsern Herrn.
 Amen.</value>
-    </data>
-    <data name="SCREENSHOT_Prayers_2_Title" xml:space="preserve">
-        <value>Heilige Aartsengel Michaël</value>
-    </data>
-    <data name="SCREENSHOT_Prayers_3_Description" xml:space="preserve">
-        <value>Kom, Heilige Geest, vervul de harten van uw gelovigen, en ontsteek in hen het vuur van uw liefde.
-
-℣. Zend uw Geest uit en alles zal herschapen worden.
-℟. En Gij zult het aanschijn van de aarde vernieuwen.
-
-Laat ons bidden
-God Gij hebt de harten van de gelovigen door de verlichting van de Heilige Geest onderwezen: geef dat wij door die Heilige Geest de ware wijsheid mogen bezitten, en ons altijd over zijn vertroosting mogen verblijden. Door Christus onze Heer.
-Amen.</value>
-    </data>
-    <data name="SCREENSHOT_Prayers_3_Title" xml:space="preserve">
-        <value>Kom Heilige Geest</value>
-    </data>
-    <data name="SCREENSHOT_Sins_1_Description" xml:space="preserve">
-        <value>Boos geworden</value>
-    </data>
-    <data name="SCREENSHOT_Sins_2_Description" xml:space="preserve">
-        <value>Te lang in bed gelegen</value>
-    </data>
-    <data name="SCREENSHOT_Sins_3_Description" xml:space="preserve">
-        <value>Niet goed voor de schepping gezorgd</value>
-    </data>
-    <data name="Save" xml:space="preserve">
-        <value>Opslaan</value>
-    </data>
-    <data name="SavedAt" xml:space="preserve">
-        <value>Bespaard op</value>
-    </data>
-    <data name="SavedMoney" xml:space="preserve">
-        <value>Bespaard bedrag</value>
-    </data>
-    <data name="SavedXThisYear" xml:space="preserve">
-        <value>Dit jaar {0:C} bespaard</value>
-    </data>
-    <data name="Settings" xml:space="preserve">
-        <value>Instellingen</value>
-    </data>
-    <data name="Share" xml:space="preserve">
-        <value>Delen</value>
-    </data>
-    <data name="Sin" xml:space="preserve">
-        <value>Zonde</value>
-    </data>
-    <data name="Sins" xml:space="preserve">
-        <value>Zonden</value>
-    </data>
-    <data name="Start" xml:space="preserve">
-        <value>Start</value>
-    </data>
-    <data name="Title" xml:space="preserve">
-        <value>Titel</value>
-    </data>
-    <data name="Today" xml:space="preserve">
-        <value>Vandaag</value>
-    </data>
-    <data name="Tomorrow" xml:space="preserve">
-        <value>Morgen</value>
-    </data>
-    <data name="TomorrowDayAfter" xml:space="preserve">
-        <value>Overmorgen</value>
-    </data>
-    <data name="TouchIDEnabled" xml:space="preserve">
-        <value>Touch-ID geactiveerd</value>
-    </data>
-    <data name="UnlockToOpenGodAndMe" xml:space="preserve">
-        <value>Ontgrendel om God &amp; Ik te openen</value>
-    </data>
-    <data name="WouldYouPrayForX" xml:space="preserve">
-        <value>Zou je voor {0} willen bidden?</value>
-    </data>
-    <data name="Yes" xml:space="preserve">
-        <value>Ja</value>
-    </data>
-    <data name="Yesterday" xml:space="preserve">
-        <value>Gisteren</value>
-    </data>
-    <data name="YesterdayDayBefore" xml:space="preserve">
-        <value>Eergisteren</value>
-    </data>
+  </data>
+  <data name="SCREENSHOT_Prayers_1_Title" xml:space="preserve">
+    <value>Novene zu Saint Joseph</value>
+  </data>
+  <data name="SCREENSHOT_Prayers_2_Description" xml:space="preserve">
+    <value>Heiliger Erzengel Michael,\r\nverteidige uns im Kampfe;\r\ngegen die Bosheit und die Nachstellungen des Teufels sei unser Schutz!\r\n"Gott gebiete ihm", so bitten wir flehentlich.\r\nUnd du, Fürst der himmlischen Heerscharen,\r\nstürze den Satan und die anderen bösen Geister,\r\ndie zum Verderben der Menschen\r\ndie Welt durchziehen,\r\nmit Gottes Kraft hinab in den Abgrund.\r\nAmen.</value>
+  </data>
+  <data name="SCREENSHOT_Prayers_2_Title" xml:space="preserve">
+    <value>Gebet zum Hl. Erzengel Michael</value>
+  </data>
+  <data name="SCREENSHOT_Prayers_3_Description" xml:space="preserve">
+    <value>Komm, Schöpfer, Geist, kehr bei uns ein, besuch das Herz der Kinder Dein!\r\nErfüll' uns all mit Deiner Gnad', die Deine Macht erschaffen hat.\r\nDer Du der Tröster wirst genannt, vom höchsten Gott ein Gnadenpfand.\r\nDu Lebensstrom, Licht, Lieb' und Glut, der Seele Salbung, höchstes Gut.\r\nO Schatz, der siebenfältig ziert, o Finger Gottes, der uns führt.\r\nGeschenk vom Vater zugesagt, du, der die Zungen reden macht.\r\nZünd an in uns Dein Gnadenlicht, gieß Lieb' ins Herz, die ihm gebricht.\r\nStärk' unsres Leibs Gebrechlichkeit mit Deiner Kraft zu jeder Zeit!\r\nTreib weit von uns des Feinds Gewalt, in Deinem Frieden uns erhalt;\r\nDaß wir geführt von Deinem Licht, in Sünd' und Leid verfallen nicht.\r\nGib, daß durch Dich den Vater wir und auch den Sohn erkennen hier,\r\nUnd daß als Geist von beiden Dich wir allzeit glauben festiglich.\r\nLob sei dem Vater auf dem Thron und Seinem auferstandenen Sohn,\r\ndem Heiligen Geist auch allezeit, von nun an bis in Ewigkeit. Amen.\r\n\r\n℣. Sende aus Deinen Geist und alles wird neu geschaffen.\r\n℟. Und Du wirst das Angesicht der Erde erneuern.\r\n\r\nLasset uns beten!\r\nGott, Du hast die Herzen Deiner Gläubigen durch die Erleuchtung des Heiligen Geistes belehrt. Gib, daß wir in diesem Geist verstehen, was recht ist, und allezeit uns Seines Trostes erfreuen dürfen: Durch Christus, unseren Herrn.\r\nAmen.</value>
+  </data>
+  <data name="SCREENSHOT_Prayers_3_Title" xml:space="preserve">
+    <value>Komm heiliger Geist</value>
+  </data>
+  <data name="SCREENSHOT_Sins_1_Description" xml:space="preserve">
+    <value>Sauer werden</value>
+  </data>
+  <data name="SCREENSHOT_Sins_2_Description" xml:space="preserve">
+    <value>Zu lange im Bett liegen</value>
+  </data>
+  <data name="SCREENSHOT_Sins_3_Description" xml:space="preserve">
+    <value>Nicht gut um Gottes Schöpfung gekümmert</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>die Einstellungen</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Aktie</value>
+  </data>
+  <data name="Sin" xml:space="preserve">
+    <value>Sünde</value>
+  </data>
+  <data name="Sins" xml:space="preserve">
+    <value>Sünden</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Heute</value>
+  </data>
+  <data name="Tomorrow" xml:space="preserve">
+    <value>Morgen</value>
+  </data>
+  <data name="TomorrowDayAfter" xml:space="preserve">
+    <value>Übermorgen</value>
+  </data>
+  <data name="TouchIDEnabled" xml:space="preserve">
+    <value>Touch-ID aktiviert</value>
+  </data>
+  <data name="UnlockToOpenGodAndMe" xml:space="preserve">
+    <value>Entsperren, um Gott zu öffnen &amp; Mir</value>
+  </data>
+  <data name="WouldYouPrayForX" xml:space="preserve">
+    <value>Würden Sie für {0} beten?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="Yesterday" xml:space="preserve">
+    <value>Gestern</value>
+  </data>
+  <data name="YesterdayDayBefore" xml:space="preserve">
+    <value>Vorgestern</value>
+  </data>
 </root>
