@@ -19,7 +19,11 @@ namespace GodAndMe.Services
             items = new List<Sins>();
             db = DependencyService.Get<IDatabaseConnection>().DbConnection();
             db.CreateTable<Sins>();
+#if DEBUG
+            items = db.Table<Sins>().ToList();
+#else
             items = db.Table<Sins>().Where((arg) => !arg.Confessed).ToList();
+#endif
 
             if (CommonFunctions.SCREENSHOT)
             {
@@ -46,7 +50,7 @@ namespace GodAndMe.Services
 #pragma warning restore CS0162 // Unreachable code detected
             }
 #if DEBUG
-            else if (true && items.Count == 0)
+            else if (items.Count == 0)
             {
                 db.InsertAll(new List<Sins> {
                     new Sins {
@@ -68,6 +72,7 @@ namespace GodAndMe.Services
                 items = db.Table<Sins>().Where((arg) => !arg.Confessed).ToList();
             }
 #endif
+
             items = items.OrderBy((arg) => arg.Committed).ToList();
         }
 
@@ -126,7 +131,12 @@ namespace GodAndMe.Services
         {
             if (forceRefresh)
             {
-                items = db.Table<Sins>().Where((arg) => !arg.Confessed).ToList();
+#if DEBUG
+                items = db.Table<Sins>().ToList();
+#else
+           items = db.Table<Sins>().Where((arg) => !arg.Confessed).ToList();
+#endif
+
             }
             return await Task.FromResult(items.OrderBy((arg) => arg.Committed));
         }
