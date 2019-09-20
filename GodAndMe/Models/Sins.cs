@@ -18,5 +18,13 @@ namespace GodAndMe.Models
         public int Count { get; set; }
         [Column("lastcommitted")]
         public DateTime LastCommitted { get; set; }
+
+        public string TextColor
+        {
+            get
+            {
+                return Confessed ? "Gray" : "Black";
+            }
+        }
     }
 }

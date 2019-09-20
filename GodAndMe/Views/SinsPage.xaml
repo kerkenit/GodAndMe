@@ -1,47 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="GodAndMe.Views.SinsPage" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GodAndMe.Views.SinsPage"
              xmlns:i18n="clr-namespace:GodAndMe"
              xmlns:local="clr-namespace:GodAndMe"
              xmlns:resX="clr-namespace:GodAndMe.Resx"
              xmlns:converters="clr-namespace:GodAndMe.Converters"
-             Title="{resX:TranslateExtension Sins}" x:Name="BrowseSinsPage">
+             Title="{resX:TranslateExtension Sins}"
+             x:Name="BrowseSinsPage">
     <ContentPage.Resources>
         <ResourceDictionary>
-          <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
+            <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="{resX:Translate Add}" Clicked="AddItem_Clicked">
+        <ToolbarItem Text="{resX:Translate Add}"
+                     Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png" />
+                    <On Platform="UWP"
+                        Value="add.png" />
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="StartAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
-                 <ListView.ItemTemplate>
+            <ListView x:Name="ItemsListView"
+                      ItemsSource="{Binding Items}"
+                      VerticalOptions="StartAndExpand"
+                      HasUnevenRows="true"
+                      RefreshCommand="{Binding LoadItemsCommand}"
+                      IsPullToRefreshEnabled="true"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement"
+                      ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
-                                <MenuItem x:Name="Archive" Clicked="OnArchive" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Archive}" IsDestructive="false" />
-                                <MenuItem x:Name="Share" Clicked="OnShare" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Share}" />
-                                <MenuItem x:Name="Delete" Clicked="OnDelete" CommandParameter="{Binding Id}" Icon="trash.png" Text="{resX:TranslateExtension Delete}" IsDestructive="True">
+                                <MenuItem x:Name="Archive"
+                                          Clicked="OnArchive"
+                                          CommandParameter="{Binding Id}"
+                                          Text="{resX:TranslateExtension Archive}"
+                                          IsDestructive="false" />
+                                <MenuItem x:Name="Share"
+                                          Clicked="OnShare"
+                                          CommandParameter="{Binding Id}"
+                                          Text="{resX:TranslateExtension Share}" />
+                                <MenuItem x:Name="Delete"
+                                          Clicked="OnDelete"
+                                          CommandParameter="{Binding Id}"
+                                          Icon="trash.png"
+                                          Text="{resX:TranslateExtension Delete}"
+                                          IsDestructive="True">
                                     <MenuItem.Icon>
                                         <OnPlatform x:TypeArguments="FileImageSource">
-                                            <On Platform="iOS" Value="trash.png" />
-                                            <On Platform="Android" Value="trash.png" />
+                                            <On Platform="iOS"
+                                                Value="trash.png" />
+                                            <On Platform="Android"
+                                                Value="trash.png" />
                                         </OnPlatform>
                                     </MenuItem.Icon>
                                 </MenuItem>
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Start, Converter={StaticResource DateConverter}}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" FontAttributes="Bold" TextColor="{Binding TextColor}" />
-                                <Label Text="{Binding Description}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" />
+                                <Label Text="{Binding Committed, Converter={StaticResource DateConverter}}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="Small"
+                                       FontAttributes="Bold"
+                                       TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Description}"
+                                       LineBreakMode="WordWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="Default"
+                                       TextColor="{Binding TextColor}" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
