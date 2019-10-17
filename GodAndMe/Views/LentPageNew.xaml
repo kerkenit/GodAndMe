@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:i18n="clr-namespace:GodAndMe"
-             xmlns:local="clr-namespace:GodAndMe"
-             xmlns:resX="clr-namespace:GodAndMe.Resx"
-             x:Class="GodAndMe.Views.LentPageNew"
-             Title="{Binding Title}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx" x:Class="GodAndMe.Views.LentPageNew" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:TranslateExtension Save}" Clicked="Save_Clicked">
             <ToolbarItem.Icon>
@@ -27,15 +21,15 @@
                     <ColumnDefinition Width="30" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="{resX:TranslateExtension OriginalPrice}" FontSize="Medium" FontAttributes="Bold" Margin="0" Grid.Row="0" Grid.Column="0"/>
-                <Label Text="{resX:TranslateExtension Payed}" FontSize="Medium" FontAttributes="Bold" Margin="0" Grid.Row="0" Grid.Column="2"/>
-                <Entry x:Name="tbMoneyFrom" Text="{Binding Item.MoneyFrom, StringFormat='{0:C}'}" Margin="0" Keyboard="Numeric" FontSize="Default" Grid.Row="1" Grid.Column="0" />
-                <Entry x:Name="tbMoneyTo" Text="{Binding Item.MoneyTo, StringFormat='{0:C}'}" Margin="0" Keyboard="Numeric" FontSize="Default" Grid.Row="1" Grid.Column="2" />
+                <Label Text="{resX:TranslateExtension OriginalPrice}" Style="{DynamicResource LabelTitle}" Margin="0" Grid.Row="0" Grid.Column="0" />
+                <Label Text="{resX:TranslateExtension Payed}" Style="{DynamicResource LabelTitle}" Margin="0" Grid.Row="0" Grid.Column="2" />
+                <Entry x:Name="tbMoneyFrom" Text="{Binding Item.MoneyFrom, StringFormat='{0:C}'}" Style="{DynamicResource EntryMoney}" Grid.Row="1" Grid.Column="0" />
+                <Entry x:Name="tbMoneyTo" Text="{Binding Item.MoneyTo, StringFormat='{0:C}'}" Style="{DynamicResource EntryMoney}" Grid.Row="1" Grid.Column="2" />
             </Grid>
-            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" Margin="0,15,0,0" FontAttributes="Bold" />
-            <Entry Text="{Binding Item.Text}" FontSize="Default" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
-            <Label Text="{resX:TranslateExtension SavedAt}" FontSize="Medium" FontAttributes="Bold" />
-            <DatePicker x:Name="ddlStart" Format="D" FontSize="Default" Date="{Binding Item.Start}"  />
+            <Label Text="{resX:TranslateExtension Description}" Style="{DynamicResource LabelTitle}" />
+            <Entry Text="{Binding Item.Text}" Style="{DynamicResource EntryValue}" Grid.Row="0" Grid.Column="0" />
+            <Label Text="{resX:TranslateExtension SavedAt}" Style="{DynamicResource LabelTitle}" />
+            <DatePicker x:Name="ddlStart" Style="{DynamicResource DatePicker}" Date="{Binding Item.Start}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:i18n="clr-namespace:GodAndMe"
-             xmlns:local="clr-namespace:GodAndMe"
-             xmlns:resX="clr-namespace:GodAndMe.Resx"
-             xmlns:converters="clr-namespace:GodAndMe.Converters"
-             x:Class="GodAndMe.Views.IntentionPage" 
-             Title="{resX:TranslateExtension Intentions}"
-             x:Name="BrowseIntentionsPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx" xmlns:converters="clr-namespace:GodAndMe.Converters" x:Class="GodAndMe.Views.IntentionPage" Title="{resX:TranslateExtension Intentions}" x:Name="BrowseIntentionsPage">
     <ContentPage.Resources>
         <ResourceDictionary>
-          <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
+            <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -23,8 +15,8 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="IntentionsListView" ItemsSource="{Binding Items}" VerticalOptions="StartAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+        <StackLayout VerticalOptions="FillAndExpand">
+            <ListView x:Name="IntentionsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected" Style="{DynamicResource ListViewStyle}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -54,10 +46,10 @@
                                     </MenuItem.Icon>
                                 </MenuItem>
                             </ViewCell.ContextActions>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Person}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Medium" FontAttributes="Bold" TextColor="{Binding TextColor}" IsVisible="{Binding EmptyPerson}" />
-                                <Label Text="{Binding Start, Converter={StaticResource DateConverter}}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Small" TextColor="{Binding TextColor}" />
-                                <Label Text="{Binding Description}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Default" TextColor="{Binding TextColor}" IsVisible="{Binding EmptyDescription}" />
+                            <StackLayout Padding="10" Style="{DynamicResource ListItemBackgroundStyle}">
+                                <Label Text="{Binding Person}" Style="{DynamicResource LabelTitle}" TextColor="{Binding TextColor}" IsVisible="{Binding EmptyPerson}" />
+                                <Label Text="{Binding Start, Converter={StaticResource DateConverter}}" Style="{DynamicResource DateLabel}" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Description}" Style="{DynamicResource LabelDescription}" TextColor="{Binding TextColor}" IsVisible="{Binding EmptyDescription}" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

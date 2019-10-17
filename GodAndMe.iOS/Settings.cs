@@ -1,5 +1,6 @@
 ﻿using System;
 using Foundation;
+using LocalAuthentication;
 
 namespace GodAndMe.iOS
 {
@@ -32,10 +33,14 @@ namespace GodAndMe.iOS
                 var key = (NSString)prefItem["Key"];
                 if (key == null)
                     continue;
-
+                if (((new LAContext()).BiometryType == LABiometryType.TouchId ? CommonFunctions.FACEID : CommonFunctions.TOUCHID) == key.ToString())
+                {
+                    continue;
+                }
                 var val = prefItem["DefaultValue"];
                 switch (key.ToString())
                 {
+                    case CommonFunctions.FACEID:
                     case CommonFunctions.TOUCHID:
                         bool touch_id = false;
                         if (bool.TryParse(val.ToString(), out touch_id))

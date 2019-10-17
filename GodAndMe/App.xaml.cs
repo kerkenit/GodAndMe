@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using GodAndMe.DependencyServices;
@@ -18,13 +20,20 @@ namespace GodAndMe
 #if __IOS__
         static UIView unlockView;
 #endif
-        bool appLocked = false;
         public static bool justShowedUnlockView = false;
         public static bool justUnlocked = false;
         public const int DELAY = 123;
-        public App()
+        public static Theme theme = Theme.Light;
+        public static bool unlocked_YN = false;
+
+        public App(Theme thema)
         {
             InitializeComponent();
+            if (false)
+            {
+                theme = thema;
+            }
+            //App.SetTheme();
 
 #if DEBUG
             System.Diagnostics.Debug.WriteLine("====== resource debug info =========");
@@ -53,37 +62,38 @@ namespace GodAndMe
             {
                 Blur();
             }
-
+            GetTheme();
             MainPage = new MainPage();
         }
 
-
-
         protected override void OnStart()
         {
-            justUnlocked = true;
-
+            justUnlocked = false;
+            GetTheme();
             Device.BeginInvokeOnMainThread(async () =>
             {
-                appLocked = await AuthenticatedWithTouchID();
+                if (!justUnlocked && touchId.CanAuthenticateUserIDWithTouchID())
+                {
+                    unlocked_YN = await AuthenticatedWithTouchID();
+                }
             });
         }
 
         protected override void OnSleep()
         {
             // Handle when your app sleeps
-            appLocked = true;
-            justUnlocked = true;
-            if (touchId.CanAuthenticateUserIDWithTouchID())
+            if (!justUnlocked && touchId.CanAuthenticateUserIDWithTouchID())
             {
                 Blur();
             }
+            unlocked_YN = false;
+            justUnlocked = false;
         }
 
         protected override void OnResume()
         {
             // Handle when your app resumes
-            if (appLocked)
+            if (!unlocked_YN)
             {
                 if (touchId.CanAuthenticateUserIDWithTouchID())
                 {
@@ -91,8 +101,8 @@ namespace GodAndMe
                 }
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    appLocked = await AuthenticatedWithTouchID();
-                    if (!appLocked)
+                    unlocked_YN = await AuthenticatedWithTouchID();
+                    if (unlocked_YN)
                     {
                         Sharpen();
                     }
@@ -104,11 +114,42 @@ namespace GodAndMe
             }
         }
 
+        public static void GetTheme()
+        {
+            //theme = DependencyService.Get<IEnvironment>().GetOperatingSystemTheme();
+            SetTheme();
+        }
+
+        public static void SetTheme()
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                //Handle Light Theme & Dark Theme
+                ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
+                if (mergedDictionaries != null)
+                {
+                    mergedDictionaries.Clear();
+                    Uri url = new Uri("Themes/LightTheme.xaml", UriKind.Relative);
+                    switch (theme)
+                    {
+                        case Theme.Dark:
+                            mergedDictionaries.Add(new DarkTheme());
+                            url = new Uri("Themes/DarkTheme.xaml", UriKind.Relative);
+                            break;
+                        case Theme.Light:
+                        default:
+                            mergedDictionaries.Add(new LightTheme());
+                            break;
+                    }
+                    //Application.Current.Resources.Source = url;
+                }
+            });
+        }
+
         public static Task<bool> AuthenticatedWithTouchID()
         {
-
             TaskCompletionSource<bool> taskSource = new TaskCompletionSource<bool>();
-            if (!justShowedUnlockView)
+            if (!justUnlocked)
             {
                 // Handle when your app starts
                 Device.BeginInvokeOnMainThread(async () =>
@@ -129,17 +170,16 @@ namespace GodAndMe
                         Blur();
                     }
 #endif
-
                     bool _authenticatedWithTouchID = await touchId.AuthenticateUserIDWithTouchID();
                     if (_authenticatedWithTouchID)
                     {
                         Sharpen();
-                        taskSource.SetResult(false);
+                        taskSource.SetResult(true);
                     }
                     else
                     {
                         Unlock();
-                        taskSource.SetResult(true);
+                        taskSource.SetResult(false);
                     }
                 });
             }
@@ -159,7 +199,7 @@ namespace GodAndMe
                 {
                     UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
-                    UIVisualEffect blurEffect = UIBlurEffect.FromStyle(UIBlurEffectStyle.Light);
+                    UIVisualEffect blurEffect = UIBlurEffect.FromStyle(App.theme == Theme.Light ? UIBlurEffectStyle.Light : UIBlurEffectStyle.Dark);
                     UIVisualEffectView visualEffectView = new UIVisualEffectView(blurEffect)
                     {
                         Frame = yourController.View.Bounds,

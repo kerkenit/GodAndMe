@@ -47,6 +47,7 @@ namespace GodAndMe.Views
 
             tblCommon.Title = string.Format("{0}-{1}", CommonFunctions.i18n("ApplicationTitle"), CommonFunctions.i18n("Settings"));
 
+
             MyName.Text = settings.GetYourName();
             MyName.PropertyChanged += (object sender, PropertyChangedEventArgs e) =>
             {
@@ -55,6 +56,30 @@ namespace GodAndMe.Views
                     settings.SetYourName(MyName.Text);
                 }
             };
+#if __IOS__
+            if ((new LocalAuthentication.LAContext()).CanEvaluatePolicy(LocalAuthentication.LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out Foundation.NSError AuthError))
+            {
+                if (AuthError == null)
+                {
+                    switch ((new LocalAuthentication.LAContext()).BiometryType)
+                    {
+                        case LocalAuthentication.LABiometryType.TouchId:
+                            TouchIDEnabled.Text = CommonFunctions.i18n("TouchIDEnabled");
+                            break;
+                        case LocalAuthentication.LABiometryType.FaceId:
+                            TouchIDEnabled.Text = CommonFunctions.i18n("FaceIDEnabled");
+                            break;
+                        default:
+                            TouchIDEnabled.IsEnabled = false;
+                            break;
+                    }
+                }
+                else
+                {
+                    TouchIDEnabled.IsEnabled = false;
+                }
+            }
+#endif
             TouchIDEnabled.On = settings.GetTouchID();
             TouchIDEnabled.OnChanged += (object sender, ToggledEventArgs e) =>
             {

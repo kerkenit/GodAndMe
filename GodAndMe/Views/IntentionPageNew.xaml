@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:i18n="clr-namespace:GodAndMe"
-             xmlns:local="clr-namespace:GodAndMe"
-             xmlns:resX="clr-namespace:GodAndMe.Resx"
-             xmlns:converters="clr-namespace:GodAndMe.Converters"
-             x:Class="GodAndMe.Views.IntentionPageNew"
-             Title="{Binding Title}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx" xmlns:converters="clr-namespace:GodAndMe.Converters" x:Class="GodAndMe.Views.IntentionPageNew" Title="{Binding Title}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:TranslateExtension Save}" Clicked="Save_Clicked">
             <ToolbarItem.Icon>
@@ -18,33 +11,33 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <ResourceDictionary>
-          <OnPlatform x:Key="GridSize" x:TypeArguments="GridLength"  iOS="45"  Android="60" WinPhone="60" />
+            <OnPlatform x:Key="GridSize" x:TypeArguments="GridLength" iOS="45" Android="60" WinPhone="60" />
         </ResourceDictionary>
-      </ContentPage.Resources>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Spacing="5" Padding="15" Orientation="Vertical" VerticalOptions="FillAndExpand">
-            <Label Text="{resX:TranslateExtension PrayerFor}" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{resX:TranslateExtension PrayerFor}" Style="{DynamicResource LabelTitle}" />
             <Grid>
                 <Grid.RowDefinitions>
-                   <RowDefinition Height="{StaticResource GridSize}" />
+                    <RowDefinition Height="{StaticResource GridSize}" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="45" />
                 </Grid.ColumnDefinitions>
-                <Entry x:Name="tbPerson" Text="{Binding Item.Person}" FontSize="Default" Margin="0,0,0,15" Grid.Row="0" Grid.Column="0" />
-                <Picker x:Name="ddlPerson" IsVisible="false" Grid.Row="0" Grid.Column="0" FontSize="Default" Margin="0,0,0,15" />
-                <Button x:Name="btPerson" Text="" Image="contact.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TranslationY="-7" BackgroundColor="Transparent"  />
+                <Entry x:Name="tbPerson" Text="{Binding Item.Person}" Style="{DynamicResource EntryValue}" Grid.Row="0" Grid.Column="0" />
+                <Picker x:Name="ddlPerson" IsVisible="false" Grid.Row="0" Grid.Column="0" Style="{DynamicResource Picker}" />
+                <Button x:Name="btPerson" Text="" Image="contact.png" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" TranslationY="-7" BackgroundColor="Transparent" />
             </Grid>
-            <Label Text="{resX:TranslateExtension PrayerRequiredAt}" FontSize="Medium" FontAttributes="Bold" />
-            <local:NullableDatePicker x:Name="ddlStart"  NullableDate="{Binding Item.Start}" FontSize="Default" Margin="0,0,0,15" />
-            <Label Text="{resX:TranslateExtension PrayerIntention}" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{resX:TranslateExtension PrayerRequiredAt}" Style="{DynamicResource LabelTitle}" />
+            <local:NullableDatePicker x:Name="ddlStart" NullableDate="{Binding Item.Start}" Style="{DynamicResource NullableDatePicker}" />
+            <Label Text="{resX:TranslateExtension PrayerIntention}" Style="{DynamicResource LabelTitle}" />
             <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1" VerticalOptions="FillAndExpand">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" />
                 </Frame.GestureRecognizers>
                 <ScrollView VerticalOptions="StartAndExpand">
-                        <local:MyEditor x:Name="tbDescription" Text="{Binding Item.Description}" FontSize="Default" VerticalOptions="FillAndExpand" TextChanged="OnTextChanged" />
+                    <local:MyEditor x:Name="tbDescription" Text="{Binding Item.Description}" TextChanged="OnTextChanged" Style="{DynamicResource MyEditor}" />
                 </ScrollView>
             </Frame>
         </StackLayout>

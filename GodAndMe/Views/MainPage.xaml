@@ -1,71 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
-                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-                  xmlns:i18n="clr-namespace:GodAndMe"
-                  xmlns:local="clr-namespace:GodAndMe"
-                  xmlns:views="clr-namespace:GodAndMe.Views"
-                  xmlns:resX="clr-namespace:GodAndMe.Resx"
-                  x:Class="GodAndMe.Views.MainPage">
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:views="clr-namespace:GodAndMe.Views" xmlns:resX="clr-namespace:GodAndMe.Resx" x:Class="GodAndMe.Views.MainPage">
 
-<MasterDetailPage.Master>
-    <ContentPage Title="{resX:TranslateExtension Menu}"
-                 BackgroundColor="#e8e8e8">
-
-      <StackLayout Orientation="Vertical">
-        
-        <!-- 
+    <MasterDetailPage.Master>
+        <ContentPage Title="{resX:TranslateExtension Menu}" Style="{DynamicResource MenuContentPage}">
+            <StackLayout Orientation="Vertical" Style="{DynamicResource MenuContentPageStack}" VerticalOptions="FillAndExpand">
+                <!-- 
              This StackLayout you can use for other
              data that you want to have in your menu drawer
         -->
-        <StackLayout BackgroundColor="#ffd75b"
-                     HeightRequest="65">
-
-          <Label Text="{resX:TranslateExtension ApplicationTitle}"
-                 FontSize="Large"
-                 Margin="0,20,0,0"
-                 VerticalOptions="CenterAndExpand"
-                 TextColor="Black"
-                 HorizontalOptions="Center"/>
-        </StackLayout>
-
-        <ListView x:Name="navigationDrawerList"
-                  RowHeight="60"
-                  SeparatorVisibility="None"
-                  BackgroundColor="#f7f7f7"
-                  ItemSelected="OnMenuItemSelected">
-
-          <ListView.ItemTemplate>
-            <DataTemplate>
-              <ViewCell>
-                
-                <!-- Main design for our menu items -->
-                <StackLayout VerticalOptions="StartAndExpand"
-                             Orientation="Horizontal"
-                             Padding="20,10,0,10"
-                             Spacing="20">
-
-                  <Image Source="{Binding IconSource}"
-                         WidthRequest="32"
-                         HeightRequest="32"
-                         VerticalOptions="Center" />
-
-                  <Label Text="{Binding Title}"
-                         FontSize="Default"
-                         VerticalOptions="Center"
-                         TextColor="Black"/>
+                <StackLayout BackgroundColor="{DynamicResource NavigationPrimary}" HeightRequest="88">
+                    <Label Text="{resX:TranslateExtension ApplicationTitle}" FontSize="Large" Margin="0,0,0,10" VerticalOptions="EndAndExpand" TextColor="{DynamicResource PrimaryTextColor}" HorizontalOptions="Center" />
                 </StackLayout>
-              </ViewCell>
-            </DataTemplate>
-          </ListView.ItemTemplate>
-        </ListView>
-      </StackLayout>
 
-    </ContentPage>
-  </MasterDetailPage.Master>
+                <ListView x:Name="navigationDrawerList" RowHeight="52" SeparatorVisibility="Default" ItemSelected="OnMenuItemSelected" Style="{DynamicResource navigationDrawerList}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <!-- Main design for our menu items -->
+                                <StackLayout x:Name="navigationStackLayout" VerticalOptions="StartAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20" Style="{DynamicResource navigationStackLayout}">
+                                    <local:IconView Source="{Binding IconSource}" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" Foreground="{DynamicResource PrimaryTextColor}" />
+                                    <Label Text="{Binding Title}" FontSize="Default" VerticalOptions="Center" x:Name="navigationLabel" TextColor="{DynamicResource PrimaryTextColor}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
 
-  <MasterDetailPage.Detail>
-    <NavigationPage>
-
-    </NavigationPage>
-  </MasterDetailPage.Detail>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
 </MasterDetailPage>

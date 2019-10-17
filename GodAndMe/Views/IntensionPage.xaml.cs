@@ -133,7 +133,6 @@ namespace GodAndMe.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
             if (viewModel != null && viewModel.Items != null && viewModel.Items.Count == 0 && viewModel.LoadItemsCommand != null)
             {
                 viewModel.LoadItemsCommand.Execute(null);

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using Foundation;
+using GodAndMe.iOS.Helpers;
 using GodAndMe.iOS.Interface;
 using GodAndMe.Views;
 using UIKit;
@@ -37,12 +39,35 @@ namespace GodAndMe.iOS
             DefaultsChanged(null);
 
             DependencyService.Register<Share>();
+            ///DependencyService.Register<TouchID>();
 
-            LoadApplication(new App());
+
+            LoadApplication(new App(theme));
             // GetUrlForUbiquityContainer is blocking, Apple recommends background thread or your UI will freeze
 
 
             return base.FinishedLaunching(uiApplication, launchOptions);
+        }
+
+        private Theme theme
+        {
+            get
+            {
+                //Ensure the current device is running 12.0 or higher, because `TraitCollection.UserInterfaceStyle` was introduced in iOS 12.0
+                if (false && UIDevice.CurrentDevice.CheckSystemVersion(12, 0))
+                {
+                    UIUserInterfaceStyle userInterfaceStyle = UIScreen.MainScreen.TraitCollection.UserInterfaceStyle;
+
+                    switch (userInterfaceStyle)
+                    {
+                        case UIUserInterfaceStyle.Light:
+                            return Theme.Light;
+                        case UIUserInterfaceStyle.Dark:
+                            return Theme.Dark;
+                    }
+                }
+                return Theme.Light;
+            }
         }
 
         /// <summary>
@@ -83,12 +108,9 @@ namespace GodAndMe.iOS
             }
             else
             {
-
 #pragma warning disable XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
-
                 if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
                 {
-
                     string fname = url.Path;
                     using (Stream stm = new FileStream(fname, FileMode.Open, FileAccess.Read))
                     {
@@ -97,9 +119,7 @@ namespace GodAndMe.iOS
                             dataToShare = rdr.ReadToEnd();
                         }
                     }
-
                 }
-
 #pragma warning restore XI0002 // Notifies you from using newer Apple APIs when targeting an older OS version
             }
             if (dataToShare != null)
@@ -127,5 +147,26 @@ namespace GodAndMe.iOS
         {
             Settings.SetupByPreferences();
         }
+
+        /*
+        public override void WillEnterForeground(UIApplication application)
+        {
+            if (!Settings.TouchID)
+            {
+                return;
+            }
+
+            LocalAuthHelper.Authenticate(null, // do not do anything on success
+            () =>
+            {
+                // show View Controller that requires authentication
+                InvokeOnMainThread(() =>
+                        {
+                            var localAuthViewController = new AuthenticationViewController();
+                            Window.RootViewController.ShowViewController(localAuthViewController, null);
+                        });
+            });
+        }
+        */
     }
 }

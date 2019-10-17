@@ -10,21 +10,30 @@ namespace GodAndMe.iOS.Renderers
 {
     public class NullableDatePickerRenderer : DatePickerRenderer
     {
+        //public NullableDatePickerRenderer()
+        //{
+        //    if (Control != null && Control.Layer != null)
+        //    {
+        //        Control.BorderStyle = UITextBorderStyle.RoundedRect;
+        //        //Control.Layer.BorderColor = UIColor.LightGray.CGColor;
+        //        Control.Layer.BorderWidth = 1;
+        //    }
+        //}
         protected override void OnElementChanged(ElementChangedEventArgs<DatePicker> e)
         {
             base.OnElementChanged(e);
 
-            if (e.NewElement != null && this.Control != null)
+            if (e.NewElement != null && Control != null)
             {
-                this.AddClearButton();
+                AddClearButton();
 
-                this.Control.BorderStyle = UITextBorderStyle.Line;
-                Control.Layer.BorderColor = UIColor.LightGray.CGColor;
-                Control.Layer.BorderWidth = 1;
+                //Control.BorderStyle = UITextBorderStyle.RoundedRect;
+                //Control.Layer.BorderColor = UIColor.LightGray.CGColor;
+                //Control.Layer.BorderWidth = 1;
 
                 if (Device.Idiom == TargetIdiom.Tablet)
                 {
-                    this.Control.Font = UIFont.SystemFontOfSize(25);
+                    Control.Font = UIFont.SystemFontOfSize(25);
                 }
             }
 
@@ -32,20 +41,20 @@ namespace GodAndMe.iOS.Renderers
 
         private void AddClearButton()
         {
-            var originalToolbar = this.Control.InputAccessoryView as UIToolbar;
+            UIToolbar originalToolbar = Control.InputAccessoryView as UIToolbar;
 
             if (originalToolbar != null && originalToolbar.Items.Length <= 2)
             {
-                var clearButton = new UIBarButtonItem(CommonFunctions.i18n("Clear"), UIBarButtonItemStyle.Plain, ((sender, ev) =>
+                var clearButton = new UIBarButtonItem(CommonFunctions.i18n("Clear"), UIBarButtonItemStyle.Plain, (sender, ev) =>
                 {
-                    GodAndMe.NullableDatePicker baseDatePicker = this.Element as GodAndMe.NullableDatePicker;
-                    this.Element.Unfocus();
-                    this.Element.Date = DateTime.Now;
+                    NullableDatePicker baseDatePicker = this.Element as NullableDatePicker;
+                    Element.Unfocus();
+                    Element.Date = DateTime.Now;
                     baseDatePicker.CleanDate();
 
-                }));
+                });
 
-                var newItems = new List<UIBarButtonItem>();
+                List<UIBarButtonItem> newItems = new List<UIBarButtonItem>();
                 foreach (var item in originalToolbar.Items)
                 {
                     newItems.Add(item);

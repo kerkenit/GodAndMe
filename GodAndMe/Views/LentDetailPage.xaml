@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:i18n="clr-namespace:GodAndMe" 
-             xmlns:local="clr-namespace:GodAndMe" 
-             xmlns:resX="clr-namespace:GodAndMe.Resx" 
-             xmlns:converters="clr-namespace:GodAndMe.Converters"
-             x:Class="GodAndMe.Views.LentDetailPage" 
-             Title="{resX:TranslateExtension Lent}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx" xmlns:converters="clr-namespace:GodAndMe.Converters" x:Class="GodAndMe.Views.LentDetailPage" Title="{resX:TranslateExtension Lent}">
     <ContentPage.Resources>
         <ResourceDictionary>
-          <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
+            <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
@@ -22,14 +15,16 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="5" Padding="15">
-            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.Text}" LineBreakMode="WordWrap" FontSize="Default" Margin="0,0,0,15" />
+        <ScrollView>
+            <StackLayout Spacing="5" Padding="15">
+                <Label Text="{resX:TranslateExtension Description}" Style="{DynamicResource LabelTitle}" />
+                <Label Text="{Binding Item.Text}" Style="{DynamicResource LabelValue}" />
 
-            <Label Text="{resX:TranslateExtension SavedMoney}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" FontSize="Default" Margin="0,0,0,15" />
-            <Label Text="{resX:TranslateExtension SavedAt}" FontSize="Medium" FontAttributes="Bold" />
-            <Label Text="{Binding Item.Start, Converter={StaticResource DateConverter}}" FontSize="Default" Margin="0,0,0,15" />
-        </StackLayout>
+                <Label Text="{resX:TranslateExtension SavedMoney}" Style="{DynamicResource LabelTitle}" />
+                <Label Text="{Binding Item.SavedMoney, StringFormat='{0:C}'}" Style="{DynamicResource LabelValue}" />
+                <Label Text="{resX:TranslateExtension SavedAt}" Style="{DynamicResource LabelTitle}" />
+                <Label Text="{Binding Item.Start, Converter={StaticResource DateConverter}}" Style="{DynamicResource LabelValue}" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

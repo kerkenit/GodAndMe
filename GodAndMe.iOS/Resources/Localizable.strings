@@ -1,0 +1,9 @@
+﻿"RequirePasscode" = "Require passcode";
+"RequireTouchID" = "Require TouchID";
+"RequireFaceID" = "Require FaceID";
+"UnlockWithPasscode" = "Unlock with passcode";
+"UnlockWithTouchID" = "Unlock with TouchID";
+"UnlockWithFaceID"= "Unlock with FaceID";
+"PleaseAuthenticateToProceed" = "Please authenticate to proceed";
+"Save" = "Guardar";
+"Delete" = "Eliminar";

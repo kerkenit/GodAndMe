@@ -70,19 +70,19 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
-    <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.1" />
+    <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
+    <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Fragment">
-      <Version>28.0.0.1</Version>
+      <Version>28.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
-      <Version>1.5.231</Version>
+      <Version>1.6.292</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.0.0.425677</Version>
+      <Version>4.2.0.848062</Version>
     </PackageReference>
     <PackageReference Include="Plugin.CurrentActivity">
       <Version>2.1.0.4</Version>
@@ -91,19 +91,19 @@
       <Version>1.0.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
-      <Version>28.0.0.1</Version>
+      <Version>28.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v7.CardView">
-      <Version>28.0.0.1</Version>
+      <Version>28.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter">
-      <Version>28.0.0.1</Version>
+      <Version>28.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v7.GridLayout">
-      <Version>28.0.0.1</Version>
+      <Version>28.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v7.Preference">
-      <Version>28.0.0.1</Version>
+      <Version>28.0.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +121,8 @@
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Interface\Document_Android.cs" />
     <Compile Include="Renderers\NullableDatePickerRenderer.cs" />
+    <Compile Include="Interface\Environment_Android.cs" />
+    <Compile Include="Renderers\IconViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

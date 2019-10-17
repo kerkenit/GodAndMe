@@ -1,46 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:i18n="clr-namespace:GodAndMe"
-             xmlns:local="clr-namespace:GodAndMe"
-             xmlns:views="clr-namespace:GodAndMe.Views"
-             xmlns:viewmodels="clr-namespace:GodAndMe.ViewModels"
-             xmlns:resX="clr-namespace:GodAndMe.Resx"
-             x:Class="GodAndMe.Views.MasterPage"
-             Padding="0,40,0,0"
-             Icon="hamburger.png"
-             
-             Title="{resX:TranslateExtension ApplicationTitle}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:views="clr-namespace:GodAndMe.Views" xmlns:viewmodels="clr-namespace:GodAndMe.ViewModels" xmlns:resX="clr-namespace:GodAndMe.Resx" x:Class="GodAndMe.Views.MasterPage" Padding="0,40,0,0" Icon="hamburger.png" Title="{resX:TranslateExtension ApplicationTitle}">
     <ContentPage.ToolbarItems>
-        
-    <ToolbarItem Text="{resX:TranslateExtension ApplicationTitle}" Order="Primary" />
-</ContentPage.ToolbarItems>
-    <!--<StackLayout>
-        <ListView x:Name="listView" x:FieldModifier="public">
-           <ListView.ItemsSource>
-                <x:Array Type="{x:Type local:ViewModels.MasterPageItem}">
-                    <viewmodels:MasterPageItem Title="{resX:TranslateExtension MyIntentions}" IconSource="tab_intention.png" TargetType="{x:Type views:IntentionPage}" />
-                    <viewmodels:MasterPageItem Title="{resX:TranslateExtension MyPeriodOfLent}" IconSource="tab_lent.png" TargetType="{x:Type views:LentPage}" />
-                    <viewmodels:MasterPageItem Title="{resX:TranslateExtension MyReligiousDiary}" IconSource="tab_diary.png" TargetType="{x:Type views:DiaryPage}" />
-                    <viewmodels:MasterPageItem Title="{resX:TranslateExtension MySins}" IconSource="tab_sins.png" TargetType="{x:Type views:SinsPage}" />
-                    <viewmodels:MasterPageItem Title="{resX:TranslateExtension MyPrayers}" IconSource="tab_prayers.png" TargetType="{x:Type views:PrayersPage}" />
-                    <viewmodels:MasterPageItem Title="{resX:TranslateExtension About}" IconSource="tab_about.png" TargetType="{x:Type views:AboutPage}" />
-                </x:Array>
-            </ListView.ItemsSource>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="5,10">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="30"/>
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Image Source="{Binding IconSource}" />
-                            <Label Grid.Column="1" Text="{Binding Title}" />
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>-->
+
+        <ToolbarItem Text="{resX:TranslateExtension ApplicationTitle}" Order="Primary" />
+    </ContentPage.ToolbarItems>
+
 </ContentPage>

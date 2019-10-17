@@ -86,10 +86,13 @@ namespace GodAndMe.ViewModels
             try
             {
                 Items.Clear();
-                var items = await SinsDataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                if (App.unlocked_YN)
                 {
-                    Items.Add(item);
+                    var items = await SinsDataStore.GetItemsAsync(true);
+                    foreach (var item in items)
+                    {
+                        Items.Add(item);
+                    }
                 }
             }
             catch (Exception ex)

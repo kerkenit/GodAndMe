@@ -19,11 +19,23 @@ namespace GodAndMe.Models
         [Column("lastcommitted")]
         public DateTime LastCommitted { get; set; }
 
+        private bool DarkMode
+        {
+            get
+            {
+                return false;
+#if __IOS__
+                return UIKit.UIApplication.SharedApplication.KeyWindow.RootViewController.TraitCollection.UserInterfaceStyle == UIKit.UIUserInterfaceStyle.Dark;
+#endif
+
+            }
+        }
+
         public string TextColor
         {
             get
             {
-                return Confessed ? "Gray" : "Black";
+                return Confessed ? "Gray" : (DarkMode ? "White" : "Black");
             }
         }
     }

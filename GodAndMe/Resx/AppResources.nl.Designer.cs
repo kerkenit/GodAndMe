@@ -611,6 +611,12 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string FaceIDEnabled {
+            get {
+                return ResourceManager.GetString("FaceIDEnabled", resourceCulture);
+            }
+        }
+        
         internal static string UnlockToOpenGodAndMe {
             get {
                 return ResourceManager.GetString("UnlockToOpenGodAndMe", resourceCulture);
@@ -638,6 +644,48 @@ namespace GodAndMe.Resx {
         internal static string YesterdayDayBefore {
             get {
                 return ResourceManager.GetString("YesterdayDayBefore", resourceCulture);
+            }
+        }
+        
+        internal static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        internal static string God {
+            get {
+                return ResourceManager.GetString("God", resourceCulture);
+            }
+        }
+        
+        internal static string DiscernmentOfSpirits {
+            get {
+                return ResourceManager.GetString("DiscernmentOfSpirits", resourceCulture);
+            }
+        }
+        
+        internal static string Personal {
+            get {
+                return ResourceManager.GetString("Personal", resourceCulture);
+            }
+        }
+        
+        internal static string DiscernmentOfSpirits_Q1 {
+            get {
+                return ResourceManager.GetString("DiscernmentOfSpirits_Q1", resourceCulture);
+            }
+        }
+        
+        internal static string DiscernmentOfSpirits_Q2 {
+            get {
+                return ResourceManager.GetString("DiscernmentOfSpirits_Q2", resourceCulture);
+            }
+        }
+        
+        internal static string DiscernmentOfSpirits_Q3 {
+            get {
+                return ResourceManager.GetString("DiscernmentOfSpirits_Q3", resourceCulture);
             }
         }
     }

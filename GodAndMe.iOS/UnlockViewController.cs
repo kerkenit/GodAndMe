@@ -19,7 +19,7 @@ namespace GodAndMe.iOS
 
         partial void UseTouchID_Tapped(UIButton sender)
         {
-            App.justUnlocked = true;
+            App.justUnlocked = false;
             App.justShowedUnlockView = false;
             App.AuthenticatedWithTouchID();
         }

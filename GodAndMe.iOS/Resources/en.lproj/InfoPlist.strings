@@ -1,3 +1,4 @@
 "CFBundleDisplayName" = "God & Me";
 "NSContactsUsageDescription" = "to select the first and last name of your contacts";
 "NSMotionUsageDescription" = "to see your personal communication with God.";
+"NSFaceIDUsageDescription" = "to see your personal communication with God.";

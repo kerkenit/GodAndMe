@@ -17,11 +17,23 @@ namespace GodAndMe.Models
         [Column("completed_yn")]
         public bool Completed { get; set; }
 
+        private bool DarkMode
+        {
+            get
+            {
+                return false;
+#if __IOS__
+                return UIKit.UIApplication.SharedApplication.KeyWindow.RootViewController.TraitCollection.UserInterfaceStyle == UIKit.UIUserInterfaceStyle.Dark;
+#endif
+
+            }
+        }
+
         public string TextColor
         {
             get
             {
-                return Completed ? "Gray" : "Black";
+                return Completed ? "Gray" : (DarkMode ? "White" : "Black");
             }
         }
 

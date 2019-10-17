@@ -8,5 +8,11 @@ namespace GodAndMe.Views
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            App.GetTheme();
+        }
     }
 }

@@ -11,32 +11,41 @@ namespace GodAndMe.iOS
     public class TouchID : ITouchID
     {
         static NSObject Invoker = new NSObject();
+
         public Task<bool> AuthenticateUserIDWithTouchID()
         {
             var taskSource = new TaskCompletionSource<bool>();
-            if (Settings.TouchID && App.justUnlocked)
+            if (Settings.TouchID && !App.justUnlocked)
             {
-                var context = new LAContext();
+                LAContext context = new LAContext();
                 if (context.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out NSError AuthError))
                 {
-
-                    var replyHandler = new LAContextReplyHandler((success, error) =>
-                    {
-                        App.justUnlocked = success;
-                        taskSource.SetResult(success);
-                    });
                     try
                     {
-                        context.EvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, CommonFunctions.i18n("AuthenticationWithBiometricsMessage"), replyHandler);
+                        context.EvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics,
+                            CommonFunctions.i18n("AuthenticationWithBiometricsMessage"),
+                            new LAContextReplyHandler((success, error) =>
+                        {
+                            if (error == null)
+                            {
+                                App.justUnlocked = success;
+                                taskSource.SetResult(success);
+                            }
+                            else
+                            {
+                                taskSource.SetResult(false);
+                            }
+                        }));
                     }
                     catch (Exception ex)
                     {
 
                     }
-                };
+                }
             }
             return taskSource.Task;
         }
+
 
         public bool CanAuthenticateUserIDWithTouchID()
         {
@@ -63,5 +72,7 @@ namespace GodAndMe.iOS
                 Invoker.BeginInvokeOnMainThread(Action);
             }
         }
+
+
     }
 }

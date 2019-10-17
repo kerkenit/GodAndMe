@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:i18n="clr-namespace:GodAndMe"
-             xmlns:local="clr-namespace:GodAndMe"
-             xmlns:resX="clr-namespace:GodAndMe.Resx"
-             Title="{Binding Title}" 
-             x:Class="GodAndMe.Views.DiaryPageNew">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx" Title="{Binding Title}" x:Class="GodAndMe.Views.DiaryPageNew">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:TranslateExtension Save}" Clicked="Save_Clicked">
             <ToolbarItem.Icon>
@@ -17,15 +11,19 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Spacing="5" Padding="15" VerticalOptions="Fill">
-            <Label Text="{resX:TranslateExtension Date}" FontSize="Medium" FontAttributes="Bold" />
-            <DatePicker x:Name="ddlStart" Format="D" FontSize="Default" Date="{Binding Item.Start}"  />
-            <Label Text="{resX:TranslateExtension Description}" FontSize="Medium" FontAttributes="Bold" />
+            <Label Text="{resX:TranslateExtension Date}" Style="{DynamicResource LabelTitle}" />
+            <DatePicker x:Name="ddlStart" Style="{DynamicResource DatePicker}" Date="{Binding Item.Start}" />
+            <Label Text="{resX:TranslateExtension Type}" Style="{DynamicResource LabelTitle}" />
+            <Picker x:Name="ddlType" Style="{DynamicResource Picker}" />
+
+
+            <Label Text="{resX:TranslateExtension Description}" Style="{DynamicResource LabelTitle}" />
             <Frame BorderColor="#eeeeee" HasShadow="False" Padding="0" WidthRequest="1" VerticalOptions="FillAndExpand">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="1" />
                 </Frame.GestureRecognizers>
                 <ScrollView VerticalOptions="StartAndExpand" Orientation="Vertical">
-                    <local:MyEditor x:Name="tbDescription" Text="{Binding Item.Description}" FontSize="Default" VerticalOptions="FillAndExpand" TextChanged="OnTextChanged" />
+                    <local:MyEditor x:Name="tbDescription" Text="{Binding Item.Description}" TextChanged="OnTextChanged" Style="{DynamicResource MyEditor}" />
                 </ScrollView>
             </Frame>
         </StackLayout>

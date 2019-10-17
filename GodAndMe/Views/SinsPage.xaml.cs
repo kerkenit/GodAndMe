@@ -19,9 +19,12 @@ namespace GodAndMe.Views
         {
             InitializeComponent();
 
-            App.justUnlocked = true;
+            App.justUnlocked = false;
             App.justShowedUnlockView = false;
-            App.AuthenticatedWithTouchID();
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                App.unlocked_YN = await App.AuthenticatedWithTouchID();
+            });
 
 #if __IOS__
             var toolbarItem = new ToolbarItem();
@@ -107,9 +110,9 @@ namespace GodAndMe.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+
         }
     }
 }

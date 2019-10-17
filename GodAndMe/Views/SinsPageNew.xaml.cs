@@ -15,7 +15,6 @@ namespace GodAndMe.Views
         public SinsPageNew(string title, Sins item = null)
         {
             InitializeComponent();
-
 #if __IOS__
             ToolbarItem btCancel = new ToolbarItem()
             {

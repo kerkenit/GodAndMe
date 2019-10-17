@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:i18n="clr-namespace:GodAndMe" 
-             xmlns:local="clr-namespace:GodAndMe" 
-             xmlns:resX="clr-namespace:GodAndMe.Resx" 
-             x:Class="GodAndMe.Views.SettingsPage" 
-             Title="{resX:TranslateExtension Settings}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx" x:Class="GodAndMe.Views.SettingsPage" Title="{resX:TranslateExtension Settings}">
     <ContentPage.Content>
         <StackLayout>
             <TableView Intent="Settings">
                 <TableRoot>
-                    <TableSection x:Name="tblCommon">
+                    <TableSection x:Name="tblCommon" TextColor="Black">
                         <SwitchCell x:Name="TouchIDEnabled" Text="{resX:TranslateExtension TouchIDEnabled}" />
-                        <EntryCell x:Name="MyName" Label="{resX:TranslateExtension MyName}" />
+                        <EntryCell x:Name="MyName" Label="{resX:TranslateExtension MyName}" LabelColor="Black" />
                     </TableSection>
-                    <TableSection Title="{resX:TranslateExtension Contacts}">
+                    <TableSection Title="{resX:TranslateExtension Contacts}" TextColor="Black">
                         <SwitchCell x:Name="OrderBy" />
                     </TableSection>
                 </TableRoot>
             </TableView>
             <StackLayout x:Name="pnlImportAndExport" Orientation="Vertical" VerticalOptions="StartAndExpand" Padding="16,40,16,40" Spacing="10" IsVisible="false">
-                <Label Text="{resX:TranslateExtension ImportAndExport}" FontSize="Medium" />
-                <Label Text="{resX:TranslateExtension ImportAndExportText}" FontSize="Default" />
+                <Label Text="{resX:TranslateExtension ImportAndExport}" Style="{DynamicResource LabelTitle}" />
+                <Label Text="{resX:TranslateExtension ImportAndExportText}" Style="{DynamicResource LabelDescription}" />
                 <Button x:Name="btImport" Margin="0,10,0,0" Text="{resX:TranslateExtension Import}" BackgroundColor="{StaticResource Primary}" TextColor="Black" Clicked="Import_Clicked" />
                 <Button x:Name="btExport" Margin="0,10,0,0" Text="{resX:TranslateExtension Export}" BackgroundColor="{StaticResource Primary}" TextColor="Black" Clicked="Export_Clicked" />
             </StackLayout>

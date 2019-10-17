@@ -321,6 +321,9 @@ Amen.</value>
     <data name="TouchIDEnabled" xml:space="preserve">
         <value>Touch-ID geactiveerd</value>
     </data>
+    <data name="FaceIDEnabled" xml:space="preserve">
+        <value>Face-ID geactiveerd</value>
+    </data>
     <data name="UnlockToOpenGodAndMe" xml:space="preserve">
         <value>Ontgrendel om God &amp; Ik te openen</value>
     </data>
@@ -335,5 +338,26 @@ Amen.</value>
     </data>
     <data name="YesterdayDayBefore" xml:space="preserve">
         <value>Eergisteren</value>
+    </data>
+    <data name="Type" xml:space="preserve">
+        <value>Type</value>
+    </data>
+    <data name="God" xml:space="preserve">
+        <value>God</value>
+    </data>
+    <data name="DiscernmentOfSpirits" xml:space="preserve">
+        <value>Onderscheiding der geesten</value>
+    </data>
+    <data name="Personal" xml:space="preserve">
+        <value>Persoonlijk</value>
+    </data>
+    <data name="DiscernmentOfSpirits_Q1" xml:space="preserve">
+        <value>Waar was ik verbonden met God?</value>
+    </data>
+    <data name="DiscernmentOfSpirits_Q2" xml:space="preserve">
+        <value>Waar was ik niet verbonden met God?</value>
+    </data>
+    <data name="DiscernmentOfSpirits_Q3" xml:space="preserve">
+        <value>Hoe voel ik mij na afloop?</value>
     </data>
 </root>

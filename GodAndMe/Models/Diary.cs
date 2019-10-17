@@ -3,6 +3,12 @@ using SQLite;
 
 namespace GodAndMe.Models
 {
+    public enum DiaryType
+    {
+        God,
+        DiscernmentOfSpirits,
+        Personal
+    }
     [Table("Diary")]
     public class Diary
     {
@@ -18,5 +24,16 @@ namespace GodAndMe.Models
         public string Description { get; set; }
         [Column("execution")]
         public DateTime Start { get; set; }
+        [Column("type")]
+        public int DiaryType { get; set; }
+
+        public string DiaryTypeText
+        {
+            get
+            {
+                return CommonFunctions.i18n(((DiaryType)Enum.Parse(typeof(DiaryType), DiaryType.ToString())).ToString());
+            }
+        }
+
     }
 }

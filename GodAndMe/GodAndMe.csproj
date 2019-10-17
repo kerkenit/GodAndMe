@@ -102,12 +102,14 @@
         </EmbeddedResource>
         <EmbeddedResource Include="Resx\AppResources.it.resx">
           <Generator>ResXFileCodeGenerator</Generator>
-          <LastGenOutput>AppResources.nl.Designer.cs</LastGenOutput>
+          <LastGenOutput>AppResources.it.Designer.cs</LastGenOutput>
         </EmbeddedResource>
         <EmbeddedResource Include="Resx\AppResources.de.resx">
           <Generator>ResXFileCodeGenerator</Generator>
-          <LastGenOutput>AppResources.nl.Designer.cs</LastGenOutput>
+          <LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
         </EmbeddedResource>
+        <EmbeddedResource Include="Themes\DarkTheme.xaml" />
+        <EmbeddedResource Include="Themes\LightTheme.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -156,8 +158,8 @@
         <Compile Include="$(MSBuildThisFileDirectory)Resx\AppResources.es.Designer.cs">
             <DependentUpon>AppResources.es.resx</DependentUpon>
         </Compile>
-        <Compile Include="$(MSBuildThisFileDirectory)Resx\AppResources.nl.Designer.cs">
-            <DependentUpon>AppResources.nl.resx</DependentUpon>
+        <Compile Include="Resx\AppResources.de.Designer.cs">
+            <DependentUpon>AppResources.de.resx</DependentUpon>
         </Compile>
         <Compile Include="$(MSBuildThisFileDirectory)Interface\IAppVersionAndBuild.cs" />
         <Compile Include="$(MSBuildThisFileDirectory)Interface\ILocalize.cs" />
@@ -225,9 +227,14 @@
         <Compile Include="Resx\AppResources.it.Designer.cs">
           <DependentUpon>AppResources.it.resx</DependentUpon>
         </Compile>
-        <Compile Include="Resx\AppResources.de.Designer.cs">
-          <DependentUpon>AppResources.de.resx</DependentUpon>
+        <Compile Include="Resx\AppResources.nl.Designer.cs">
+          <DependentUpon>AppResources.nl.resx</DependentUpon>
         </Compile>
+        <Compile Include="Interface\IEnvironment.cs" />
+        <Compile Include="Themes\DarkTheme.xaml.cs" />
+        <Compile Include="Themes\LightTheme.xaml.cs" />
+        <Compile Include="Extensions\IconView.cs" />
+        <Compile Include="Extensions\KeyboardResizingAwareContentPage.cs" />
     </ItemGroup>
     <ItemGroup>
         <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml">
@@ -248,9 +255,9 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />
+        <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
         <PackageReference Include="sqlite-net-pcl">
-            <Version>1.5.231</Version>
+            <Version>1.6.292</Version>
         </PackageReference>
         <PackageReference Include="System.IO">
             <Version>4.3.0</Version>
@@ -291,6 +298,7 @@
         <Folder Include="$(MSBuildThisFileDirectory)Extensions\" />
         <Folder Include="$(MSBuildThisFileDirectory)Interface\" />
         <Folder Include="Converters\" />
+        <Folder Include="Themes\" />
     </ItemGroup>
     <ItemGroup>
         <None Include="project.json" />

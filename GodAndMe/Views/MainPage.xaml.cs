@@ -77,11 +77,9 @@ namespace GodAndMe.Views
 
             // Setting our list to be ItemSource for ListView in MainPage.xaml
             navigationDrawerList.ItemsSource = menuList;
-
             // Initial navigation, this can be used for our home page
+            App.GetTheme();
             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
-
-
             //masterPage.listView.ItemSelected += OnItemSelected;
             MasterBehavior = MasterBehavior.Split;
             if (Device.RuntimePlatform == Device.UWP)
@@ -118,6 +116,7 @@ namespace GodAndMe.Views
                     intention.Completed = false;
                     IDataStore<Intention> IntentionDataStore = new IntentionsDataStore();
                     IntentionDataStore.AddItemAsync(intention);
+                    App.GetTheme();
                     Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
                 }
                 else if (sender != null && sender.GetType() == typeof(Sins))
@@ -127,6 +126,7 @@ namespace GodAndMe.Views
                     sin.Id = Guid.NewGuid().ToString();
                     IDataStore<Sins> SinsDataStore = new SinsDataStore();
                     SinsDataStore.AddItemAsync(sin);
+                    App.GetTheme();
                     Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(SinsPage)));
                 }
             }
@@ -208,6 +208,7 @@ namespace GodAndMe.Views
                             db.CreateTable<Sins>();
                             db.DeleteAll<Sins>();
                             db.InsertAll(BaseJson.sins);
+                            App.GetTheme();
                             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
                         }
                     });
@@ -224,6 +225,7 @@ namespace GodAndMe.Views
             var item = e.SelectedItem as MasterPageItem;
             if (item != null)
             {
+                App.GetTheme();
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
                 //masterPage.listView.SelectedItem = null;
                 IsPresented = false;

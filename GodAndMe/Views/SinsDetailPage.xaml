@@ -1,11 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:i18n="clr-namespace:GodAndMe"
-             xmlns:local="clr-namespace:GodAndMe"
-             xmlns:resX="clr-namespace:GodAndMe.Resx"
-             x:Class="GodAndMe.Views.SinsDetailPage" 
-             Title="{resX:TranslateExtension Sin}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx" x:Class="GodAndMe.Views.SinsDetailPage" Title="{resX:TranslateExtension Sin}">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{resX:TranslateExtension Edit}" Clicked="EditItem_Clicked">
             <ToolbarItem.Icon>
@@ -16,8 +10,10 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="5" Padding="15">
-            <Label Text="{Binding Item.Description}" FontSize="Default" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="5" Padding="15">
+                <Label Text="{Binding Item.Description}" Style="{DynamicResource LabelDescription}" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

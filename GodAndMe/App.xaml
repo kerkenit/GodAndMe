@@ -1,22 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:i18n="clr-namespace:GodAndMe"
-             xmlns:local="clr-namespace:GodAndMe"
-             xmlns:resX="clr-namespace:GodAndMe.Resx;assembly=GodAndMe"
-             x:Class="GodAndMe.App">
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx;assembly=GodAndMe" x:Class="GodAndMe.App">
     <Application.Resources>
-        <ResourceDictionary>
-            <!--Global Styles-->
-            <Color x:Key="NavigationPrimary">#FFD75B</Color>
-             <!--Page Level Resources: Compatibile with Xamarin Live Player -->
-            <Color x:Key="Primary">#FFD75B</Color>
-            <Color x:Key="Accent">#FFE081</Color>
-            <Color x:Key="LightTextColor">#999999</Color>
-            <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="BarTextColor" Value="Black" />
-            </Style>
-        </ResourceDictionary>
+        <ResourceDictionary Source="Themes/LightTheme.xaml" />
     </Application.Resources>
 </Application>

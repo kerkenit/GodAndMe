@@ -15,6 +15,16 @@
 			<false/>
 		</dict>
 		<dict>
+			<key>Key</key>
+			<string>faceIDKey</string>
+			<key>Title</key>
+			<string>FaceIDEnabled</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
 			<key>DefaultValue</key>
 			<string></string>
 			<key>Key</key>

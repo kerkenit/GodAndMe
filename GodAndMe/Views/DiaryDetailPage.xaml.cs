@@ -16,6 +16,7 @@ namespace GodAndMe.Views
         {
             InitializeComponent();
             Title = CommonFunctions.Date(viewModel.Item.Start);
+
             BindingContext = this.viewModel = viewModel;
         }
 
