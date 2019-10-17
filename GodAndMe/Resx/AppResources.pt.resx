@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="About" xml:space="preserve">
+        <value>Sobre</value>
+    </data>
+    <data name="AboutText" xml:space="preserve">
+        <value>Este aplicativo é construído sobre privacidade. Tudo funciona offline e nenhum dado é compartilhado. Tudo está entre Deus e você.</value>
+    </data>
+    <data name="Add" xml:space="preserve">
+        <value>Adicionar</value>
+    </data>
+    <data name="AddSavings" xml:space="preserve">
+        <value>Adicione economias</value>
+    </data>
+    <data name="AllDataWillBeDeletedContinue" xml:space="preserve">
+        <value>Todos os dados serão apagados. Continuar?</value>
+    </data>
+    <data name="ApplicationTitle" xml:space="preserve">
+        <value>Deus &amp; Eu</value>
+    </data>
+    <data name="Archive" xml:space="preserve">
+        <value>Arquivo</value>
+    </data>
+    <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
+        <value>Para ver a sua comunicação pessoal com Deus.</value>
+    </data>
+    <data name="Cancel" xml:space="preserve">
+        <value>Cancelar</value>
+    </data>
+    <data name="ChooseOther" xml:space="preserve">
+        <value>Escolha outro</value>
+    </data>
+    <data name="ChooseRecent" xml:space="preserve">
+        <value>Escolha contatos recentes</value>
+    </data>
+    <data name="Clear" xml:space="preserve">
+        <value>Limpar</value>
+    </data>
+    <data name="Contacts" xml:space="preserve">
+        <value>Contactos</value>
+    </data>
+    <data name="Date" xml:space="preserve">
+        <value>Data</value>
+    </data>
+    <data name="Delete" xml:space="preserve">
+        <value>Eliminar</value>
+    </data>
+    <data name="Description" xml:space="preserve">
+        <value>Descrição</value>
+    </data>
+    <data name="Diary" xml:space="preserve">
+        <value>Diário</value>
+    </data>
+    <data name="Done" xml:space="preserve">
+        <value>Feito</value>
+    </data>
+    <data name="DownloadApp" xml:space="preserve">
+        <value>Baixe o aplicativo Deus &amp; Eu via https://godandme.app/get</value>
+    </data>
+    <data name="Duplicate" xml:space="preserve">
+        <value>Duplicar</value>
+    </data>
+    <data name="Edit" xml:space="preserve">
+        <value>Editar</value>
+    </data>
+    <data name="EditIntention" xml:space="preserve">
+        <value>Editar intenção</value>
+    </data>
+    <data name="EditSavings" xml:space="preserve">
+        <value>Editar poupanças</value>
+    </data>
+    <data name="Export" xml:space="preserve">
+        <value>Exportação</value>
+    </data>
+    <data name="Firstname" xml:space="preserve">
+        <value>Nome próprio</value>
+    </data>
+    <data name="For" xml:space="preserve">
+        <value>Para</value>
+    </data>
+    <data name="Import" xml:space="preserve">
+        <value>Importação</value>
+    </data>
+    <data name="ImportAndExport" xml:space="preserve">
+        <value>Importação &amp; Exportação</value>
+    </data>
+    <data name="ImportAndExportText" xml:space="preserve">
+        <value>Aqui você pode importar seus dados de outro dispositivo ou importar para outro dispositivo.</value>
+    </data>
+    <data name="Intention" xml:space="preserve">
+        <value>Intenção</value>
+    </data>
+    <data name="Intentions" xml:space="preserve">
+        <value>Intenções</value>
+    </data>
+    <data name="Lastname" xml:space="preserve">
+        <value>Sobrenome</value>
+    </data>
+    <data name="LearnMore" xml:space="preserve">
+        <value>Saiba mais...</value>
+    </data>
+    <data name="Lent" xml:space="preserve">
+        <value>Quaresma</value>
+    </data>
+    <data name="Menu" xml:space="preserve">
+        <value>Menu</value>
+    </data>
+    <data name="More" xml:space="preserve">
+        <value>Mais</value>
+    </data>
+    <data name="MyIntentions" xml:space="preserve">
+        <value>Minhas intenções</value>
+    </data>
+    <data name="MyName" xml:space="preserve">
+        <value>Meu nome</value>
+    </data>
+    <data name="MyPeriodOfLent" xml:space="preserve">
+        <value>O meu período de Quaresma</value>
+    </data>
+    <data name="MyPrayers" xml:space="preserve">
+        <value>Minhas orações</value>
+    </data>
+    <data name="MyReligiousDiary" xml:space="preserve">
+        <value>Meu diário religioso</value>
+    </data>
+    <data name="MySins" xml:space="preserve">
+        <value>Meus pecados</value>
+    </data>
+    <data name="Name" xml:space="preserve">
+        <value>Nome</value>
+    </data>
+    <data name="NewIntention" xml:space="preserve">
+        <value>Nova intenção</value>
+    </data>
+    <data name="NewMessage" xml:space="preserve">
+        <value>Nova mensagem</value>
+    </data>
+    <data name="NewPrayer" xml:space="preserve">
+        <value>Nova oração</value>
+    </data>
+    <data name="NewSin" xml:space="preserve">
+        <value>Novo pecado</value>
+    </data>
+    <data name="No" xml:space="preserve">
+        <value>Não</value>
+    </data>
+    <data name="Notes" xml:space="preserve">
+        <value>Notas</value>
+    </data>
+    <data name="OK" xml:space="preserve">
+        <value>OK</value>
+    </data>
+    <data name="OrderBy" xml:space="preserve">
+        <value>Ordenar por</value>
+    </data>
+    <data name="OriginalPrice" xml:space="preserve">
+        <value>Preço original</value>
+    </data>
+    <data name="Payed" xml:space="preserve">
+        <value>Pagos</value>
+    </data>
+    <data name="PermissionContactsRationale" xml:space="preserve">
+        <value>São necessárias permissões para aceder aos contactos.</value>
+    </data>
+    <data name="Prayer" xml:space="preserve">
+        <value>Oração</value>
+    </data>
+    <data name="PrayerFor" xml:space="preserve">
+        <value>Oração para</value>
+    </data>
+    <data name="PrayerIntention" xml:space="preserve">
+        <value>Intenção de oração</value>
+    </data>
+    <data name="PrayerRequiredAt" xml:space="preserve">
+        <value>Oração requerida em</value>
+    </data>
+    <data name="Prayers" xml:space="preserve">
+        <value>Orações</value>
+    </data>
+    <data name="SCREENSHOT_Diary_1_Description" xml:space="preserve">
+        <value>Ore mais conscientemente a Oração do Senhor e permita que ela trabalhe mais profundamente em mim. Portanto, não ore rapidamente, mas ore com seu coração.</value>
+    </data>
+    <data name="SCREENSHOT_Diary_2_Description" xml:space="preserve">
+        <value>O Senhor é o meu pastor, não me falta nada.</value>
+    </data>
+    <data name="SCREENSHOT_Diary_3_Description" xml:space="preserve">
+        <value>Como o cervo suspira pela agua
+Minha alma anseia por ti
+Só tu és o desejo de meu coração
+E eu anseio adorar-te
+ 
+Refrão
+Só tu és minha força, meu escudo
+A ti somente meu espirito cederá
+Só tu és o desejo de meu coração
+E eu anseio adorar-te
+ 
+És meu amigo e és meu irmão
+Apesar de seres um rei
+Amo-te mais que a todos
+Muito mais que tudo
+ 
+Quero-te mais do que a prata ou ouro
+Só tu podes satisfazer-me
+Só tu és o verdadeiro doador de alegria
+E a menina de meus olhos.</value>
+    </data>
+    <data name="SCREENSHOT_Intention_1_Description" xml:space="preserve">
+        <value>Iluminar o Espírito Santo no último sínodo sobre o abuso sexual de crianças.</value>
+    </data>
+    <data name="SCREENSHOT_Intention_1_Person" xml:space="preserve">
+        <value>Papa Francisco</value>
+    </data>
+    <data name="SCREENSHOT_Intention_2_Description" xml:space="preserve">
+        <value>Para uma recuperação rápida após a operação principal.</value>
+    </data>
+    <data name="SCREENSHOT_Intention_2_Person" xml:space="preserve">
+        <value>João Ninguém</value>
+    </data>
+    <data name="SCREENSHOT_Intention_3_Description" xml:space="preserve">
+        <value>Para que ela possa ganhar força e aceitar o sofrimento.</value>
+    </data>
+    <data name="SCREENSHOT_Intention_3_Person" xml:space="preserve">
+        <value>Mamãe</value>
+    </data>
+    <data name="SCREENSHOT_Lent_1_Text" xml:space="preserve">
+        <value>Manteiga</value>
+    </data>
+    <data name="SCREENSHOT_Lent_2_Text" xml:space="preserve">
+        <value>Queijo</value>
+    </data>
+    <data name="SCREENSHOT_Lent_3_Text" xml:space="preserve">
+        <value>Ovos</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_1_Description" xml:space="preserve">
+        <value>Lembrai- vos, ó puríssimo Esposo da Virgem Maria, ó meu doce Protetor São José, que jamais se ouviu dizer que alguém tivesse invocado vossa proteção, implorando vosso socorro e não fosse por vós consolado.
+
+Com grande confiança, venho à vossa presença recomendar-me fervorosamente a vós. Não desprezeis as minhas súplicas, ó pai adotivo do Redentor, mas dignai-vos acolhê-la piedosamente. Assim seja.
+
+ANT. José, filho de Davi, não temas receber Maria, vossa Esposa Santíssima, em vossa companhia, porque o que ela leva em suas puríssimas entranhas é obra do Espírito Santo.
+
+V. Rogai por nós, José santíssimo.
+
+R. Para que sejamos dignos das promessas de Cristo.
+
+Oremos: Ó Jesus, que por uma inefável providência, dignastes-Vos escolher o bem-aventurado esposo de Vossa Mãe Santíssima; concedei-nos que aquele mesmo que veneramos como protetor, mereçamos tê-lo no céu por nosso intercessor. Vós que viveis e reinais por todos os séculos dos séculos. Amém.
+
+Pede-se agora a graça que necessita conseguir.
+
+Para melhor alcançar as graças pedidas, rezaremos sete Pai-nossos, sete Ave-Marias e sete Glórias ao Pai em honra das alegrias e dores do glorioso patriarca.</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_1_Title" xml:space="preserve">
+        <value>A novena a São José</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_2_Description" xml:space="preserve">
+        <value>Glorioso São Miguel Arcanjo,
+poderoso vencedor das batalhas espirituais,
+vinde em auxílio das minhas necessidades
+espirituais e temporais.
+
+Afugentai de minha presença todo mal
+e todo ataque e ciladas do inimigo.
+Com sua poderosa espada de luz,
+derrotai todas as forças malignas
+e iluminai meus caminhos
+com a luz de tua proteção.
+
+Arcanjo Miguel,
+do mal: libertai-me;
+do inimigo: livrai-me;
+das tempestades: socorrei-me;
+dos perigos: protegei-me;
+das perseguições: salvai-me!
+
+Glorioso São Miguel Arcanjo,
+pelo poder celeste a vós conferido,
+sê para mim o guerreiro valente
+e conduzi-me nos caminhos da paz.
+
+Amém!</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_2_Title" xml:space="preserve">
+        <value>Oração a São Miguel Arcanjo para alcançar libertação</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_3_Description" xml:space="preserve">
+        <value>Vinde Espírito Santo, enchei os corações dos vossos fiéis e acendei neles o fogo do Vosso Amor. Enviai o Vosso Espírito e tudo será criado e renovareis a face da terra.
+
+Oremos: Ó Deus que instruíste os corações dos vossos fiéis, com a luz do Espírito Santo, fazei que apreciemos retamente todas as coisas segundo o mesmo Espírito e gozemos da sua consolação.Por Cristo Senhor Nosso. Amém.</value>
+    </data>
+    <data name="SCREENSHOT_Prayers_3_Title" xml:space="preserve">
+        <value>Vinde Espírito Santo</value>
+    </data>
+    <data name="SCREENSHOT_Sins_1_Description" xml:space="preserve">
+        <value>Eu fiquei zangado</value>
+    </data>
+    <data name="SCREENSHOT_Sins_2_Description" xml:space="preserve">
+        <value>Deitado na cama por muito tempo</value>
+    </data>
+    <data name="SCREENSHOT_Sins_3_Description" xml:space="preserve">
+        <value>Não cuidamos bem da criação de Deus</value>
+    </data>
+    <data name="Save" xml:space="preserve">
+        <value>Armazenar</value>
+    </data>
+    <data name="SavedAt" xml:space="preserve">
+        <value>Armazenado em</value>
+    </data>
+    <data name="SavedMoney" xml:space="preserve">
+        <value>Dinheiro poupado</value>
+    </data>
+    <data name="SavedXThisYear" xml:space="preserve">
+        <value>Salvo {0:C} este ano</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Ajustes</value>
+    </data>
+    <data name="Share" xml:space="preserve">
+        <value>Compartilhar</value>
+    </data>
+    <data name="Sin" xml:space="preserve">
+        <value>Pecado</value>
+    </data>
+    <data name="Sins" xml:space="preserve">
+        <value>Pecados</value>
+    </data>
+    <data name="Start" xml:space="preserve">
+        <value>Início</value>
+    </data>
+    <data name="Title" xml:space="preserve">
+        <value>Título</value>
+    </data>
+    <data name="Today" xml:space="preserve">
+        <value>Hoje</value>
+    </data>
+    <data name="Tomorrow" xml:space="preserve">
+        <value>Amanhã</value>
+    </data>
+    <data name="TomorrowDayAfter" xml:space="preserve">
+        <value>Depois de amanhã</value>
+    </data>
+    <data name="TouchIDEnabled" xml:space="preserve">
+        <value>Touch-ID ativado</value>
+    </data>
+    <data name="FaceIDEnabled" xml:space="preserve">
+        <value>Face-ID ativado</value>
+    </data>
+    <data name="UnlockToOpenGodAndMe" xml:space="preserve">
+        <value>Desbloquear para abrir Deus &amp; Eu</value>
+    </data>
+    <data name="WouldYouPrayForX" xml:space="preserve">
+        <value>Rezarias por {0}?</value>
+    </data>
+    <data name="Yes" xml:space="preserve">
+        <value>Sim</value>
+    </data>
+    <data name="Yesterday" xml:space="preserve">
+        <value>Ontem</value>
+    </data>
+    <data name="YesterdayDayBefore" xml:space="preserve">
+        <value>Anteontem</value>
+    </data>
+    <data name="Type" xml:space="preserve">
+        <value>Tipo de</value>
+    </data>
+    <data name="God" xml:space="preserve">
+        <value>Deus</value>
+    </data>
+    <data name="DiscernmentOfSpirits" xml:space="preserve">
+        <value>Discernimento dos Espíritos</value>
+    </data>
+    <data name="Personal" xml:space="preserve">
+        <value>Pessoal</value>
+    </data>
+    <data name="DiscernmentOfSpirits_Q1" xml:space="preserve">
+        <value>Onde é que eu estava ligado a Deus?</value>
+    </data>
+    <data name="DiscernmentOfSpirits_Q2" xml:space="preserve">
+        <value>Onde eu não estava ligado a Deus?</value>
+    </data>
+    <data name="DiscernmentOfSpirits_Q3" xml:space="preserve">
+        <value>Como me sinto depois?</value>
+    </data>
+</root>

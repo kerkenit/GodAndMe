@@ -3,9 +3,11 @@ using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using GodAndMe.DependencyServices;
 using GodAndMe.Extensions;
 using GodAndMe.Interface;
 using GodAndMe.Models;
+using LocalAuthentication;
 using Newtonsoft.Json;
 using PCLStorage;
 using SQLite;
@@ -17,6 +19,7 @@ namespace GodAndMe.Views
     {
         SQLiteConnection db;
         ISettings settings = DependencyService.Get<ISettings>();
+        ITouchID TouchID = DependencyService.Get<ITouchID>();
         public SettingsPage()
         {
             InitializeComponent();
@@ -57,27 +60,17 @@ namespace GodAndMe.Views
                 }
             };
 #if __IOS__
-            if ((new LocalAuthentication.LAContext()).CanEvaluatePolicy(LocalAuthentication.LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out Foundation.NSError AuthError))
+            switch (TouchID.GetLocalAuthType())
             {
-                if (AuthError == null)
-                {
-                    switch ((new LocalAuthentication.LAContext()).BiometryType)
-                    {
-                        case LocalAuthentication.LABiometryType.TouchId:
-                            TouchIDEnabled.Text = CommonFunctions.i18n("TouchIDEnabled");
-                            break;
-                        case LocalAuthentication.LABiometryType.FaceId:
-                            TouchIDEnabled.Text = CommonFunctions.i18n("FaceIDEnabled");
-                            break;
-                        default:
-                            TouchIDEnabled.IsEnabled = false;
-                            break;
-                    }
-                }
-                else
-                {
+                case LocalAuthType.TouchId:
+                    TouchIDEnabled.Text = CommonFunctions.i18n("TouchIDEnabled");
+                    break;
+                case LocalAuthType.FaceId:
+                    TouchIDEnabled.Text = CommonFunctions.i18n("FaceIDEnabled");
+                    break;
+                default:
                     TouchIDEnabled.IsEnabled = false;
-                }
+                    break;
             }
 #endif
             TouchIDEnabled.On = settings.GetTouchID();
@@ -93,6 +86,8 @@ namespace GodAndMe.Views
                 SetOrderByText();
             };
         }
+
+
 
         void Export_Clicked(object sender, EventArgs e)
         {

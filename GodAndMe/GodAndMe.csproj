@@ -10,7 +10,7 @@
         <AssemblyName>GodAndMe</AssemblyName>
         <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
         <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
-        <ReleaseVersion>1.2.6</ReleaseVersion>
+        <ReleaseVersion>1.3.0</ReleaseVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Android|AnyCPU' ">
         <DebugSymbols>true</DebugSymbols>
@@ -101,12 +101,16 @@
             <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
         </EmbeddedResource>
         <EmbeddedResource Include="Resx\AppResources.it.resx">
-          <Generator>ResXFileCodeGenerator</Generator>
-          <LastGenOutput>AppResources.it.Designer.cs</LastGenOutput>
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>AppResources.it.Designer.cs</LastGenOutput>
         </EmbeddedResource>
         <EmbeddedResource Include="Resx\AppResources.de.resx">
-          <Generator>ResXFileCodeGenerator</Generator>
-          <LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>AppResources.de.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Resx\AppResources.pt.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>AppResources.pt.Designer.cs</LastGenOutput>
         </EmbeddedResource>
         <EmbeddedResource Include="Themes\DarkTheme.xaml" />
         <EmbeddedResource Include="Themes\LightTheme.xaml" />
@@ -160,6 +164,9 @@
         </Compile>
         <Compile Include="Resx\AppResources.de.Designer.cs">
             <DependentUpon>AppResources.de.resx</DependentUpon>
+        </Compile>
+        <Compile Include="Resx\AppResources.pt.Designer.cs">
+            <DependentUpon>AppResources.pt.resx</DependentUpon>
         </Compile>
         <Compile Include="$(MSBuildThisFileDirectory)Interface\IAppVersionAndBuild.cs" />
         <Compile Include="$(MSBuildThisFileDirectory)Interface\ILocalize.cs" />
@@ -225,10 +232,10 @@
         <Compile Include="GlobalSuppressions.cs" />
         <Compile Include="Extensions\NullableDatePicker.cs" />
         <Compile Include="Resx\AppResources.it.Designer.cs">
-          <DependentUpon>AppResources.it.resx</DependentUpon>
+            <DependentUpon>AppResources.it.resx</DependentUpon>
         </Compile>
         <Compile Include="Resx\AppResources.nl.Designer.cs">
-          <DependentUpon>AppResources.nl.resx</DependentUpon>
+            <DependentUpon>AppResources.nl.resx</DependentUpon>
         </Compile>
         <Compile Include="Interface\IEnvironment.cs" />
         <Compile Include="Themes\DarkTheme.xaml.cs" />
@@ -304,9 +311,9 @@
         <None Include="project.json" />
     </ItemGroup>
     <ItemGroup>
-      <Reference Include="Xamarin.iOS">
-        <HintPath>..\..\..\..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\12.14.0.114\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
-      </Reference>
+        <Reference Include="Xamarin.iOS">
+            <HintPath>..\..\..\..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\12.14.0.114\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

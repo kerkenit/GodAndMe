@@ -8,843 +8,684 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GodAndMe.Resx
-{
+namespace GodAndMe.Resx {
     using System;
     using System.Reflection;
-
-
+    
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AppResources_it
-    {
-
+    internal class AppResources_it {
+        
         private static System.Resources.ResourceManager resourceMan;
-
+        
         private static System.Globalization.CultureInfo resourceCulture;
-
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal AppResources_it()
-        {
+        internal AppResources_it() {
         }
-
+        
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.Equals(null, resourceMan))
-                {
+        internal static System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.Equals(null, resourceMan)) {
                     System.Resources.ResourceManager temp = new System.Resources.ResourceManager("GodAndMe.Resx.AppResources.it", typeof(AppResources_it).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
-
-        internal static string About
-        {
-            get
-            {
+        
+        internal static string About {
+            get {
                 return ResourceManager.GetString("About", resourceCulture);
             }
         }
-
-        internal static string AboutText
-        {
-            get
-            {
+        
+        internal static string AboutText {
+            get {
                 return ResourceManager.GetString("AboutText", resourceCulture);
             }
         }
-
-        internal static string Add
-        {
-            get
-            {
+        
+        internal static string Add {
+            get {
                 return ResourceManager.GetString("Add", resourceCulture);
             }
         }
-
-        internal static string AddSavings
-        {
-            get
-            {
+        
+        internal static string AddSavings {
+            get {
                 return ResourceManager.GetString("AddSavings", resourceCulture);
             }
         }
-
-        internal static string AllDataWillBeDeletedContinue
-        {
-            get
-            {
+        
+        internal static string AllDataWillBeDeletedContinue {
+            get {
                 return ResourceManager.GetString("AllDataWillBeDeletedContinue", resourceCulture);
             }
         }
-
-        internal static string ApplicationTitle
-        {
-            get
-            {
+        
+        internal static string ApplicationTitle {
+            get {
                 return ResourceManager.GetString("ApplicationTitle", resourceCulture);
             }
         }
-
-        internal static string Archive
-        {
-            get
-            {
+        
+        internal static string Archive {
+            get {
                 return ResourceManager.GetString("Archive", resourceCulture);
             }
         }
-
-        internal static string AuthenticationWithBiometricsMessage
-        {
-            get
-            {
+        
+        internal static string AuthenticationWithBiometricsMessage {
+            get {
                 return ResourceManager.GetString("AuthenticationWithBiometricsMessage", resourceCulture);
             }
         }
-
-        internal static string Cancel
-        {
-            get
-            {
+        
+        internal static string Cancel {
+            get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
-
-        internal static string ChooseOther
-        {
-            get
-            {
+        
+        internal static string ChooseOther {
+            get {
                 return ResourceManager.GetString("ChooseOther", resourceCulture);
             }
         }
-
-        internal static string ChooseRecent
-        {
-            get
-            {
+        
+        internal static string ChooseRecent {
+            get {
                 return ResourceManager.GetString("ChooseRecent", resourceCulture);
             }
         }
-
-        internal static string Clear
-        {
-            get
-            {
+        
+        internal static string Clear {
+            get {
                 return ResourceManager.GetString("Clear", resourceCulture);
             }
         }
-
-        internal static string Contacts
-        {
-            get
-            {
+        
+        internal static string Contacts {
+            get {
                 return ResourceManager.GetString("Contacts", resourceCulture);
             }
         }
-
-        internal static string Date
-        {
-            get
-            {
+        
+        internal static string Date {
+            get {
                 return ResourceManager.GetString("Date", resourceCulture);
             }
         }
-
-        internal static string Delete
-        {
-            get
-            {
+        
+        internal static string Delete {
+            get {
                 return ResourceManager.GetString("Delete", resourceCulture);
             }
         }
-
-        internal static string Description
-        {
-            get
-            {
+        
+        internal static string Description {
+            get {
                 return ResourceManager.GetString("Description", resourceCulture);
             }
         }
-
-        internal static string Diary
-        {
-            get
-            {
+        
+        internal static string Diary {
+            get {
                 return ResourceManager.GetString("Diary", resourceCulture);
             }
         }
-
-        internal static string Done
-        {
-            get
-            {
+        
+        internal static string Done {
+            get {
                 return ResourceManager.GetString("Done", resourceCulture);
             }
         }
-
-        internal static string DownloadApp
-        {
-            get
-            {
+        
+        internal static string DownloadApp {
+            get {
                 return ResourceManager.GetString("DownloadApp", resourceCulture);
             }
         }
-
-        internal static string Duplicate
-        {
-            get
-            {
+        
+        internal static string Duplicate {
+            get {
                 return ResourceManager.GetString("Duplicate", resourceCulture);
             }
         }
-
-        internal static string Edit
-        {
-            get
-            {
+        
+        internal static string Edit {
+            get {
                 return ResourceManager.GetString("Edit", resourceCulture);
             }
         }
-
-        internal static string EditIntention
-        {
-            get
-            {
+        
+        internal static string EditIntention {
+            get {
                 return ResourceManager.GetString("EditIntention", resourceCulture);
             }
         }
-
-        internal static string EditSavings
-        {
-            get
-            {
+        
+        internal static string EditSavings {
+            get {
                 return ResourceManager.GetString("EditSavings", resourceCulture);
             }
         }
-
-        internal static string Export
-        {
-            get
-            {
+        
+        internal static string Export {
+            get {
                 return ResourceManager.GetString("Export", resourceCulture);
             }
         }
-
-        internal static string Firstname
-        {
-            get
-            {
+        
+        internal static string Firstname {
+            get {
                 return ResourceManager.GetString("Firstname", resourceCulture);
             }
         }
-
-        internal static string For
-        {
-            get
-            {
+        
+        internal static string For {
+            get {
                 return ResourceManager.GetString("For", resourceCulture);
             }
         }
-
-        internal static string Import
-        {
-            get
-            {
+        
+        internal static string Import {
+            get {
                 return ResourceManager.GetString("Import", resourceCulture);
             }
         }
-
-        internal static string ImportAndExport
-        {
-            get
-            {
+        
+        internal static string ImportAndExport {
+            get {
                 return ResourceManager.GetString("ImportAndExport", resourceCulture);
             }
         }
-
-        internal static string ImportAndExportText
-        {
-            get
-            {
+        
+        internal static string ImportAndExportText {
+            get {
                 return ResourceManager.GetString("ImportAndExportText", resourceCulture);
             }
         }
-
-        internal static string Intention
-        {
-            get
-            {
+        
+        internal static string Intention {
+            get {
                 return ResourceManager.GetString("Intention", resourceCulture);
             }
         }
-
-        internal static string Intentions
-        {
-            get
-            {
+        
+        internal static string Intentions {
+            get {
                 return ResourceManager.GetString("Intentions", resourceCulture);
             }
         }
-
-        internal static string Lastname
-        {
-            get
-            {
+        
+        internal static string Lastname {
+            get {
                 return ResourceManager.GetString("Lastname", resourceCulture);
             }
         }
-
-        internal static string LearnMore
-        {
-            get
-            {
+        
+        internal static string LearnMore {
+            get {
                 return ResourceManager.GetString("LearnMore", resourceCulture);
             }
         }
-
-        internal static string Lent
-        {
-            get
-            {
+        
+        internal static string Lent {
+            get {
                 return ResourceManager.GetString("Lent", resourceCulture);
             }
         }
-
-        internal static string Menu
-        {
-            get
-            {
+        
+        internal static string Menu {
+            get {
                 return ResourceManager.GetString("Menu", resourceCulture);
             }
         }
-
-        internal static string More
-        {
-            get
-            {
+        
+        internal static string More {
+            get {
                 return ResourceManager.GetString("More", resourceCulture);
             }
         }
-
-        internal static string MyIntentions
-        {
-            get
-            {
+        
+        internal static string MyIntentions {
+            get {
                 return ResourceManager.GetString("MyIntentions", resourceCulture);
             }
         }
-
-        internal static string MyName
-        {
-            get
-            {
+        
+        internal static string MyName {
+            get {
                 return ResourceManager.GetString("MyName", resourceCulture);
             }
         }
-
-        internal static string MyPeriodOfLent
-        {
-            get
-            {
+        
+        internal static string MyPeriodOfLent {
+            get {
                 return ResourceManager.GetString("MyPeriodOfLent", resourceCulture);
             }
         }
-
-        internal static string MyPrayers
-        {
-            get
-            {
+        
+        internal static string MyPrayers {
+            get {
                 return ResourceManager.GetString("MyPrayers", resourceCulture);
             }
         }
-
-        internal static string MyReligiousDiary
-        {
-            get
-            {
+        
+        internal static string MyReligiousDiary {
+            get {
                 return ResourceManager.GetString("MyReligiousDiary", resourceCulture);
             }
         }
-
-        internal static string MySins
-        {
-            get
-            {
+        
+        internal static string MySins {
+            get {
                 return ResourceManager.GetString("MySins", resourceCulture);
             }
         }
-
-        internal static string Name
-        {
-            get
-            {
+        
+        internal static string Name {
+            get {
                 return ResourceManager.GetString("Name", resourceCulture);
             }
         }
-
-        internal static string NewIntention
-        {
-            get
-            {
+        
+        internal static string NewIntention {
+            get {
                 return ResourceManager.GetString("NewIntention", resourceCulture);
             }
         }
-
-        internal static string NewMessage
-        {
-            get
-            {
+        
+        internal static string NewMessage {
+            get {
                 return ResourceManager.GetString("NewMessage", resourceCulture);
             }
         }
-
-        internal static string NewPrayer
-        {
-            get
-            {
+        
+        internal static string NewPrayer {
+            get {
                 return ResourceManager.GetString("NewPrayer", resourceCulture);
             }
         }
-
-        internal static string NewSin
-        {
-            get
-            {
+        
+        internal static string NewSin {
+            get {
                 return ResourceManager.GetString("NewSin", resourceCulture);
             }
         }
-
-        internal static string No
-        {
-            get
-            {
+        
+        internal static string No {
+            get {
                 return ResourceManager.GetString("No", resourceCulture);
             }
         }
-
-        internal static string Notes
-        {
-            get
-            {
+        
+        internal static string Notes {
+            get {
                 return ResourceManager.GetString("Notes", resourceCulture);
             }
         }
-
-        internal static string OK
-        {
-            get
-            {
+        
+        internal static string OK {
+            get {
                 return ResourceManager.GetString("OK", resourceCulture);
             }
         }
-
-        internal static string OrderBy
-        {
-            get
-            {
+        
+        internal static string OrderBy {
+            get {
                 return ResourceManager.GetString("OrderBy", resourceCulture);
             }
         }
-
-        internal static string OriginalPrice
-        {
-            get
-            {
+        
+        internal static string OriginalPrice {
+            get {
                 return ResourceManager.GetString("OriginalPrice", resourceCulture);
             }
         }
-
-        internal static string Payed
-        {
-            get
-            {
+        
+        internal static string Payed {
+            get {
                 return ResourceManager.GetString("Payed", resourceCulture);
             }
         }
-
-        internal static string PermissionContactsRationale
-        {
-            get
-            {
+        
+        internal static string PermissionContactsRationale {
+            get {
                 return ResourceManager.GetString("PermissionContactsRationale", resourceCulture);
             }
         }
-
-        internal static string Prayer
-        {
-            get
-            {
+        
+        internal static string Prayer {
+            get {
                 return ResourceManager.GetString("Prayer", resourceCulture);
             }
         }
-
-        internal static string PrayerFor
-        {
-            get
-            {
+        
+        internal static string PrayerFor {
+            get {
                 return ResourceManager.GetString("PrayerFor", resourceCulture);
             }
         }
-
-        internal static string PrayerIntention
-        {
-            get
-            {
+        
+        internal static string PrayerIntention {
+            get {
                 return ResourceManager.GetString("PrayerIntention", resourceCulture);
             }
         }
-
-        internal static string PrayerRequiredAt
-        {
-            get
-            {
+        
+        internal static string PrayerRequiredAt {
+            get {
                 return ResourceManager.GetString("PrayerRequiredAt", resourceCulture);
             }
         }
-
-        internal static string Prayers
-        {
-            get
-            {
+        
+        internal static string Prayers {
+            get {
                 return ResourceManager.GetString("Prayers", resourceCulture);
             }
         }
-
-        internal static string SCREENSHOT_Diary_1_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Diary_1_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Diary_2_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Diary_2_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Diary_3_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Diary_3_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Intention_1_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Intention_1_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Intention_1_Person
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Intention_1_Person", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Intention_2_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Intention_2_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Intention_2_Person
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Intention_2_Person", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Intention_3_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Intention_3_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Intention_3_Person
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Intention_3_Person", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Lent_1_Text
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Lent_1_Text", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Lent_2_Text
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Lent_2_Text", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Lent_3_Text
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Lent_3_Text", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Prayers_1_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Prayers_1_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Prayers_1_Title
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Prayers_1_Title", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Prayers_2_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Prayers_2_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Prayers_2_Title
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Prayers_2_Title", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Prayers_3_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Prayers_3_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Prayers_3_Title
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Prayers_3_Title", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Sins_1_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Sins_1_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Sins_2_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Sins_2_Description", resourceCulture);
-            }
-        }
-
-        internal static string SCREENSHOT_Sins_3_Description
-        {
-            get
-            {
-                return ResourceManager.GetString("SCREENSHOT_Sins_3_Description", resourceCulture);
-            }
-        }
-
-        internal static string Save
-        {
-            get
-            {
+        
+        internal static string Save {
+            get {
                 return ResourceManager.GetString("Save", resourceCulture);
             }
         }
-
-        internal static string SavedAt
-        {
-            get
-            {
+        
+        internal static string SavedAt {
+            get {
                 return ResourceManager.GetString("SavedAt", resourceCulture);
             }
         }
-
-        internal static string SavedMoney
-        {
-            get
-            {
+        
+        internal static string SavedMoney {
+            get {
                 return ResourceManager.GetString("SavedMoney", resourceCulture);
             }
         }
-
-        internal static string SavedXThisYear
-        {
-            get
-            {
+        
+        internal static string SavedXThisYear {
+            get {
                 return ResourceManager.GetString("SavedXThisYear", resourceCulture);
             }
         }
-
-        internal static string Settings
-        {
-            get
-            {
+        
+        internal static string SCREENSHOT_Diary_1_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Diary_1_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Diary_2_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Diary_2_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Diary_3_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Diary_3_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_1_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_1_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_1_Person {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_1_Person", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_2_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_2_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_2_Person {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_2_Person", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_3_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_3_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Intention_3_Person {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Intention_3_Person", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Lent_1_Text {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Lent_1_Text", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Lent_2_Text {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Lent_2_Text", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Lent_3_Text {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Lent_3_Text", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_1_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_1_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_1_Title {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_1_Title", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_2_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_2_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_2_Title {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_2_Title", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_3_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_3_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Prayers_3_Title {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Prayers_3_Title", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Sins_1_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Sins_1_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Sins_2_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Sins_2_Description", resourceCulture);
+            }
+        }
+        
+        internal static string SCREENSHOT_Sins_3_Description {
+            get {
+                return ResourceManager.GetString("SCREENSHOT_Sins_3_Description", resourceCulture);
+            }
+        }
+        
+        internal static string Settings {
+            get {
                 return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
-
-        internal static string Share
-        {
-            get
-            {
+        
+        internal static string Share {
+            get {
                 return ResourceManager.GetString("Share", resourceCulture);
             }
         }
-
-        internal static string Sin
-        {
-            get
-            {
+        
+        internal static string Sin {
+            get {
                 return ResourceManager.GetString("Sin", resourceCulture);
             }
         }
-
-        internal static string Sins
-        {
-            get
-            {
+        
+        internal static string Sins {
+            get {
                 return ResourceManager.GetString("Sins", resourceCulture);
             }
         }
-
-        internal static string Start
-        {
-            get
-            {
+        
+        internal static string Start {
+            get {
                 return ResourceManager.GetString("Start", resourceCulture);
             }
         }
-
-        internal static string Title
-        {
-            get
-            {
+        
+        internal static string Title {
+            get {
                 return ResourceManager.GetString("Title", resourceCulture);
             }
         }
-
-        internal static string Today
-        {
-            get
-            {
+        
+        internal static string Today {
+            get {
                 return ResourceManager.GetString("Today", resourceCulture);
             }
         }
-
-        internal static string Tomorrow
-        {
-            get
-            {
+        
+        internal static string Tomorrow {
+            get {
                 return ResourceManager.GetString("Tomorrow", resourceCulture);
             }
         }
-
-        internal static string TomorrowDayAfter
-        {
-            get
-            {
+        
+        internal static string TomorrowDayAfter {
+            get {
                 return ResourceManager.GetString("TomorrowDayAfter", resourceCulture);
             }
         }
-
-        internal static string TouchIDEnabled
-        {
-            get
-            {
+        
+        internal static string TouchIDEnabled {
+            get {
                 return ResourceManager.GetString("TouchIDEnabled", resourceCulture);
             }
         }
-
-        internal static string UnlockToOpenGodAndMe
-        {
-            get
-            {
+        
+        internal static string FaceIDEnabled {
+            get {
+                return ResourceManager.GetString("FaceIDEnabled", resourceCulture);
+            }
+        }
+        
+        internal static string UnlockToOpenGodAndMe {
+            get {
                 return ResourceManager.GetString("UnlockToOpenGodAndMe", resourceCulture);
             }
         }
-
-        internal static string WouldYouPrayForX
-        {
-            get
-            {
+        
+        internal static string WouldYouPrayForX {
+            get {
                 return ResourceManager.GetString("WouldYouPrayForX", resourceCulture);
             }
         }
-
-        internal static string Yes
-        {
-            get
-            {
+        
+        internal static string Yes {
+            get {
                 return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
-
-        internal static string Yesterday
-        {
-            get
-            {
+        
+        internal static string Yesterday {
+            get {
                 return ResourceManager.GetString("Yesterday", resourceCulture);
             }
         }
-
-        internal static string YesterdayDayBefore
-        {
-            get
-            {
+        
+        internal static string YesterdayDayBefore {
+            get {
                 return ResourceManager.GetString("YesterdayDayBefore", resourceCulture);
+            }
+        }
+        
+        internal static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        internal static string God {
+            get {
+                return ResourceManager.GetString("God", resourceCulture);
+            }
+        }
+        
+        internal static string DiscernmentOfSpirits {
+            get {
+                return ResourceManager.GetString("DiscernmentOfSpirits", resourceCulture);
+            }
+        }
+        
+        internal static string Personal {
+            get {
+                return ResourceManager.GetString("Personal", resourceCulture);
+            }
+        }
+        
+        internal static string DiscernmentOfSpirits_Q1 {
+            get {
+                return ResourceManager.GetString("DiscernmentOfSpirits_Q1", resourceCulture);
+            }
+        }
+        
+        internal static string DiscernmentOfSpirits_Q2 {
+            get {
+                return ResourceManager.GetString("DiscernmentOfSpirits_Q2", resourceCulture);
+            }
+        }
+        
+        internal static string DiscernmentOfSpirits_Q3 {
+            get {
+                return ResourceManager.GetString("DiscernmentOfSpirits_Q3", resourceCulture);
             }
         }
     }

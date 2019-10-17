@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+    <!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,359 +59,383 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+        <xsd:element name="root" msdata:IsDataSet="true">
             <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string" />
+                            <xsd:attribute name="name" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+                            <xsd:attribute ref="xml:space" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
             </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="About" xml:space="preserve">
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="About" xml:space="preserve">
     <value>A proposito di</value>
   </data>
-  <data name="AboutText" xml:space="preserve">
+    <data name="AboutText" xml:space="preserve">
     <value>Questa app è costruita sulla privacy. Tutto funziona offline e nessun dato è condiviso. Tutto è tra Dio e te.</value>
   </data>
-  <data name="Add" xml:space="preserve">
+    <data name="Add" xml:space="preserve">
     <value>Inserisci</value>
   </data>
-  <data name="AddSavings" xml:space="preserve">
+    <data name="AddSavings" xml:space="preserve">
     <value>Aggiungi risparmio</value>
   </data>
-  <data name="AllDataWillBeDeletedContinue" xml:space="preserve">
+    <data name="AllDataWillBeDeletedContinue" xml:space="preserve">
     <value>Tutti i dati saranno cancellati Continua?</value>
   </data>
-  <data name="ApplicationTitle" xml:space="preserve">
+    <data name="ApplicationTitle" xml:space="preserve">
     <value>Dio &amp; Io</value>
   </data>
-  <data name="Archive" xml:space="preserve">
+    <data name="Archive" xml:space="preserve">
     <value>Archivio</value>
   </data>
-  <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
+    <data name="AuthenticationWithBiometricsMessage" xml:space="preserve">
     <value>Per vedere la tua comunicazione personale con Dio.</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
+    <data name="Cancel" xml:space="preserve">
     <value>Annulla</value>
   </data>
-  <data name="ChooseOther" xml:space="preserve">
+    <data name="ChooseOther" xml:space="preserve">
     <value>Scegli altro</value>
   </data>
-  <data name="ChooseRecent" xml:space="preserve">
+    <data name="ChooseRecent" xml:space="preserve">
     <value>Scegli i contatti recenti</value>
   </data>
-  <data name="Clear" xml:space="preserve">
+    <data name="Clear" xml:space="preserve">
     <value>Cancella</value>
   </data>
-  <data name="Contacts" xml:space="preserve">
+    <data name="Contacts" xml:space="preserve">
     <value>Contatti</value>
   </data>
-  <data name="Date" xml:space="preserve">
+    <data name="Date" xml:space="preserve">
     <value>Data</value>
   </data>
-  <data name="Delete" xml:space="preserve">
+    <data name="Delete" xml:space="preserve">
     <value>Elimina</value>
   </data>
-  <data name="Description" xml:space="preserve">
+    <data name="Description" xml:space="preserve">
     <value>Descrizione</value>
   </data>
-  <data name="Diary" xml:space="preserve">
+    <data name="Diary" xml:space="preserve">
     <value>Diario</value>
   </data>
-  <data name="Done" xml:space="preserve">
+    <data name="Done" xml:space="preserve">
     <value>Fine</value>
   </data>
-  <data name="DownloadApp" xml:space="preserve">
+    <data name="DownloadApp" xml:space="preserve">
     <value>Scarica il Dio e &amp; Io app tramite https://godandme.app/get</value>
   </data>
-  <data name="Duplicate" xml:space="preserve">
+    <data name="Duplicate" xml:space="preserve">
     <value>Duplicare</value>
   </data>
-  <data name="Edit" xml:space="preserve">
+    <data name="Edit" xml:space="preserve">
     <value>Modificare</value>
   </data>
-  <data name="EditIntention" xml:space="preserve">
+    <data name="EditIntention" xml:space="preserve">
     <value>Modifica l'intenzione</value>
   </data>
-  <data name="EditSavings" xml:space="preserve">
+    <data name="EditSavings" xml:space="preserve">
     <value>Modifica i risparmi</value>
   </data>
-  <data name="Export" xml:space="preserve">
+    <data name="Export" xml:space="preserve">
     <value>Esportare</value>
   </data>
-  <data name="Firstname" xml:space="preserve">
+    <data name="Firstname" xml:space="preserve">
     <value>Nome di battesimo</value>
   </data>
-  <data name="For" xml:space="preserve">
+    <data name="For" xml:space="preserve">
     <value>Per</value>
   </data>
-  <data name="Import" xml:space="preserve">
+    <data name="Import" xml:space="preserve">
     <value>Importare</value>
   </data>
-  <data name="ImportAndExport" xml:space="preserve">
+    <data name="ImportAndExport" xml:space="preserve">
     <value>Importa &amp; Esportare</value>
   </data>
-  <data name="ImportAndExportText" xml:space="preserve">
+    <data name="ImportAndExportText" xml:space="preserve">
     <value>Qui puoi importare i tuoi dati da un altro dispositivo o importarli su un altro dispositivo.</value>
   </data>
-  <data name="Intention" xml:space="preserve">
+    <data name="Intention" xml:space="preserve">
     <value>Intenzione</value>
   </data>
-  <data name="Intentions" xml:space="preserve">
+    <data name="Intentions" xml:space="preserve">
     <value>intenzioni</value>
   </data>
-  <data name="Lastname" xml:space="preserve">
+    <data name="Lastname" xml:space="preserve">
     <value>Cognome</value>
   </data>
-  <data name="LearnMore" xml:space="preserve">
+    <data name="LearnMore" xml:space="preserve">
     <value>Per saperne di più...</value>
   </data>
-  <data name="Lent" xml:space="preserve">
+    <data name="Lent" xml:space="preserve">
     <value>Quaresima</value>
   </data>
-  <data name="Menu" xml:space="preserve">
+    <data name="Menu" xml:space="preserve">
     <value>Menu</value>
   </data>
-  <data name="More" xml:space="preserve">
+    <data name="More" xml:space="preserve">
     <value>Di più</value>
   </data>
-  <data name="MyIntentions" xml:space="preserve">
+    <data name="MyIntentions" xml:space="preserve">
     <value>Le mie intenzioni</value>
   </data>
-  <data name="MyName" xml:space="preserve">
+    <data name="MyName" xml:space="preserve">
     <value>Il mio nome</value>
   </data>
-  <data name="MyPeriodOfLent" xml:space="preserve">
+    <data name="MyPeriodOfLent" xml:space="preserve">
     <value>La mia Quaresima</value>
   </data>
-  <data name="MyPrayers" xml:space="preserve">
+    <data name="MyPrayers" xml:space="preserve">
     <value>Le mie preghiere</value>
   </data>
-  <data name="MyReligiousDiary" xml:space="preserve">
+    <data name="MyReligiousDiary" xml:space="preserve">
     <value>Il mio diario religioso</value>
   </data>
-  <data name="MySins" xml:space="preserve">
+    <data name="MySins" xml:space="preserve">
     <value>I miei peccati</value>
   </data>
-  <data name="Name" xml:space="preserve">
+    <data name="Name" xml:space="preserve">
     <value>Nome</value>
   </data>
-  <data name="NewIntention" xml:space="preserve">
+    <data name="NewIntention" xml:space="preserve">
     <value>Nuova intenzione</value>
   </data>
-  <data name="NewMessage" xml:space="preserve">
+    <data name="NewMessage" xml:space="preserve">
     <value>Nuovo messaggio</value>
   </data>
-  <data name="NewPrayer" xml:space="preserve">
+    <data name="NewPrayer" xml:space="preserve">
     <value>Nuova preghiera</value>
   </data>
-  <data name="NewSin" xml:space="preserve">
+    <data name="NewSin" xml:space="preserve">
     <value>Nuovo peccato</value>
   </data>
-  <data name="No" xml:space="preserve">
+    <data name="No" xml:space="preserve">
     <value>No</value>
   </data>
-  <data name="Notes" xml:space="preserve">
+    <data name="Notes" xml:space="preserve">
     <value>Gli appunti</value>
   </data>
-  <data name="OK" xml:space="preserve">
+    <data name="OK" xml:space="preserve">
     <value>Bene</value>
   </data>
-  <data name="OrderBy" xml:space="preserve">
+    <data name="OrderBy" xml:space="preserve">
     <value>Ordina per</value>
   </data>
-  <data name="OriginalPrice" xml:space="preserve">
+    <data name="OriginalPrice" xml:space="preserve">
     <value>Prezzo originale</value>
   </data>
-  <data name="Payed" xml:space="preserve">
+    <data name="Payed" xml:space="preserve">
     <value>pagato</value>
   </data>
-  <data name="PermissionContactsRationale" xml:space="preserve">
+    <data name="PermissionContactsRationale" xml:space="preserve">
     <value>Le autorizzazioni sono necessarie per accedere ai contatti.</value>
   </data>
-  <data name="Prayer" xml:space="preserve">
+    <data name="Prayer" xml:space="preserve">
     <value>Preghiera</value>
   </data>
-  <data name="PrayerFor" xml:space="preserve">
+    <data name="PrayerFor" xml:space="preserve">
     <value>Preghiera per</value>
   </data>
-  <data name="PrayerIntention" xml:space="preserve">
+    <data name="PrayerIntention" xml:space="preserve">
     <value>Intenzione di preghiera</value>
   </data>
-  <data name="PrayerRequiredAt" xml:space="preserve">
+    <data name="PrayerRequiredAt" xml:space="preserve">
     <value>Preghiera richiesta a</value>
   </data>
-  <data name="Prayers" xml:space="preserve">
+    <data name="Prayers" xml:space="preserve">
     <value>Preghiere</value>
   </data>
-  <data name="Save" xml:space="preserve">
+    <data name="Save" xml:space="preserve">
     <value>Salvare</value>
   </data>
-  <data name="SavedAt" xml:space="preserve">
+    <data name="SavedAt" xml:space="preserve">
     <value>Salvato a</value>
   </data>
-  <data name="SavedMoney" xml:space="preserve">
+    <data name="SavedMoney" xml:space="preserve">
     <value>Soldi risparmiati</value>
   </data>
-  <data name="SavedXThisYear" xml:space="preserve">
+    <data name="SavedXThisYear" xml:space="preserve">
     <value>Risparmiato {0:C} quest'anno</value>
   </data>
-  <data name="SCREENSHOT_Diary_1_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Diary_1_Description" xml:space="preserve">
     <value>Pregare più coscientemente il Padre Nostro e permettetergli di entrare profondamente in me. Quindi non pregare in fretta, ma con il cuore.</value>
   </data>
-  <data name="SCREENSHOT_Diary_2_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Diary_2_Description" xml:space="preserve">
     <value>Il Signore è il mio pastore, nulla mi può mancare.</value>
   </data>
-  <data name="SCREENSHOT_Diary_3_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Diary_3_Description" xml:space="preserve">
     <value>Come la cerva anela\r\nai corsi d'acqua,\r\ncosì l'anima mia anela\r\na te, o Dio.\r\n\r\nL'anima mia ha sete di Dio,\r\ndel Dio vivente:\r\nquando verrò e vedrò\r\nil volto di Dio?\r\n\r\nLe lacrime sono il mio pane\r\ngiorno e notte,\r\nmentre mi dicono sempre:\r\n“Dov'è il tuo Dio?”.\r\n\r\nQuesto io ricordo\r\ne l'anima mia si strugge:\r\navanzavo tra la folla,\r\nla precedevo fino alla casa di Dio,\r\nfra canti di gioia e di lode\r\ndi una moltitudine in festa.\r\n\r\nPerché ti rattristi, anima mia,\r\nperché ti agiti in me?\r\nSpera in Dio: ancora potrò lodarlo,\r\nlui, salvezza del mio volto e mio Dio.</value>
   </data>
-  <data name="SCREENSHOT_Intention_1_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Intention_1_Description" xml:space="preserve">
     <value>Per illuminare lo Spirito Santo all'ultimo sinodo sull'abuso sessuale dei bambini</value>
   </data>
-  <data name="SCREENSHOT_Intention_1_Person" xml:space="preserve">
+    <data name="SCREENSHOT_Intention_1_Person" xml:space="preserve">
     <value>Papa Francesco</value>
   </data>
-  <data name="SCREENSHOT_Intention_2_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Intention_2_Description" xml:space="preserve">
     <value>Per una pronta guarigione dopo l'operazione</value>
   </data>
-  <data name="SCREENSHOT_Intention_2_Person" xml:space="preserve">
+    <data name="SCREENSHOT_Intention_2_Person" xml:space="preserve">
     <value>Mario Rossi</value>
   </data>
-  <data name="SCREENSHOT_Intention_3_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Intention_3_Description" xml:space="preserve">
     <value>Che possa acquisire forza e accettare la sofferenza</value>
   </data>
-  <data name="SCREENSHOT_Intention_3_Person" xml:space="preserve">
+    <data name="SCREENSHOT_Intention_3_Person" xml:space="preserve">
     <value>Mamma</value>
   </data>
-  <data name="SCREENSHOT_Lent_1_Text" xml:space="preserve">
+    <data name="SCREENSHOT_Lent_1_Text" xml:space="preserve">
     <value>Pane</value>
   </data>
-  <data name="SCREENSHOT_Lent_2_Text" xml:space="preserve">
+    <data name="SCREENSHOT_Lent_2_Text" xml:space="preserve">
     <value>Formaggio</value>
   </data>
-  <data name="SCREENSHOT_Lent_3_Text" xml:space="preserve">
+    <data name="SCREENSHOT_Lent_3_Text" xml:space="preserve">
     <value>Uova</value>
   </data>
-  <data name="SCREENSHOT_Prayers_1_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Prayers_1_Description" xml:space="preserve">
     <value>Spirito di Gesù, tu che conosci la nostra vita, le nostre prove, il pericolo in cui viviamo, apri i nostri cuori perché possiamo accogliere la tua grazia e possiamo comprendere ciò che, in noi, attenta alla speranza. Donaci la luce per discernere le vie dell'avversario nella nostra vita, per non sottovalutarle, per essere vigilanti, per prevenirle, per poter lottare coraggiosamente ed essere vittoriosi, rimanendo saldi nella fede.</value>
   </data>
-  <data name="SCREENSHOT_Prayers_1_Title" xml:space="preserve">
+    <data name="SCREENSHOT_Prayers_1_Title" xml:space="preserve">
     <value>Apri i nostri cuori</value>
   </data>
-  <data name="SCREENSHOT_Prayers_2_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Prayers_2_Description" xml:space="preserve">
     <value>O Trinità Santa, ti ringraziamo per aver donato alla Chiesa san Giovanni Paolo II e per aver fatto risplendere in lui la tenerezza della Tua paternità, la gloria della Croce di Cristo e lo splendore dello Spirito d’amore.\r\n\r\nEgli, confidando totalmente nella Tua infinita misericordia e nella materna intercessione di Maria, ci ha dato un’immagine viva di Gesù Buon Pastore e ci ha indicato la santità come misura alta della vita cristiana ordinaria quale strada per raggiungere la comunione eterna con Te. Concedici, per sua intercessione, secondo la Tua volontà, la grazia che imploriamo … Amen.\r\n\r\nPater\r\n\r\nAve\r\n\r\nGloria\r\n\r\nSan Giovanni Paolo II, prega per noi</value>
   </data>
-  <data name="SCREENSHOT_Prayers_2_Title" xml:space="preserve">
+    <data name="SCREENSHOT_Prayers_2_Title" xml:space="preserve">
     <value>Preghiera a San Giovanni Paolo II</value>
   </data>
-  <data name="SCREENSHOT_Prayers_3_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Prayers_3_Description" xml:space="preserve">
     <value>Vieni, Spirito Santo, riempi i cuori dei tuoi fedeli e accendi in essi il fuoco del tuo amore.\r\n\r\n℣. Invia il tuo Spirito e saranno ricreati.\r\n℟. E rinnoverai la faccia della terra.\r\n\r\nPreghiamo.\r\nO Dio, che istruisci il cuore dei fedeli con luce dello Spirito Santo, concedici nello stesso Spirito di essere veramente saggi, e gioire sempre per la Sua consolazione.\r\nPer Cristo, nostro Signore.\r\nAmen.</value>
   </data>
-  <data name="SCREENSHOT_Prayers_3_Title" xml:space="preserve">
+    <data name="SCREENSHOT_Prayers_3_Title" xml:space="preserve">
     <value>Vieni, Santo Spirito</value>
   </data>
-  <data name="SCREENSHOT_Sins_1_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Sins_1_Description" xml:space="preserve">
     <value>Arrabbiarsi</value>
   </data>
-  <data name="SCREENSHOT_Sins_2_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Sins_2_Description" xml:space="preserve">
     <value>Steso a letto troppo a lungo</value>
   </data>
-  <data name="SCREENSHOT_Sins_3_Description" xml:space="preserve">
+    <data name="SCREENSHOT_Sins_3_Description" xml:space="preserve">
     <value>Non essersi preso cura della creazione di Dio</value>
   </data>
-  <data name="Settings" xml:space="preserve">
+    <data name="Settings" xml:space="preserve">
     <value>impostazioni</value>
   </data>
-  <data name="Share" xml:space="preserve">
+    <data name="Share" xml:space="preserve">
     <value>Condividere</value>
   </data>
-  <data name="Sin" xml:space="preserve">
+    <data name="Sin" xml:space="preserve">
     <value>Peccato</value>
   </data>
-  <data name="Sins" xml:space="preserve">
+    <data name="Sins" xml:space="preserve">
     <value>Peccati</value>
   </data>
-  <data name="Start" xml:space="preserve">
+    <data name="Start" xml:space="preserve">
     <value>Inizio</value>
   </data>
-  <data name="Title" xml:space="preserve">
+    <data name="Title" xml:space="preserve">
     <value>Titolo</value>
   </data>
-  <data name="Today" xml:space="preserve">
+    <data name="Today" xml:space="preserve">
     <value>Oggi</value>
   </data>
-  <data name="Tomorrow" xml:space="preserve">
+    <data name="Tomorrow" xml:space="preserve">
     <value>Domani</value>
   </data>
-  <data name="TomorrowDayAfter" xml:space="preserve">
+    <data name="TomorrowDayAfter" xml:space="preserve">
     <value>Dopodomani</value>
   </data>
-  <data name="TouchIDEnabled" xml:space="preserve">
+    <data name="TouchIDEnabled" xml:space="preserve">
     <value>Touch-ID abilitato</value>
   </data>
-  <data name="UnlockToOpenGodAndMe" xml:space="preserve">
+    <data name="FaceIDEnabled" xml:space="preserve">
+    <value>Face-ID abilitato</value>
+  </data>
+    <data name="UnlockToOpenGodAndMe" xml:space="preserve">
     <value>Sblocca per aprire Dio &amp; Io</value>
   </data>
-  <data name="WouldYouPrayForX" xml:space="preserve">
+    <data name="WouldYouPrayForX" xml:space="preserve">
     <value>Vuoi pregare per {0}?</value>
   </data>
-  <data name="Yes" xml:space="preserve">
+    <data name="Yes" xml:space="preserve">
     <value>Sì</value>
   </data>
-  <data name="Yesterday" xml:space="preserve">
+    <data name="Yesterday" xml:space="preserve">
     <value>Leri</value>
   </data>
-  <data name="YesterdayDayBefore" xml:space="preserve">
+    <data name="YesterdayDayBefore" xml:space="preserve">
     <value>L'altro ieri</value>
   </data>
+    <data name="Type" xml:space="preserve">
+        <value>Tipo</value>
+    </data>
+    <data name="God" xml:space="preserve">
+        <value>Dio</value>
+    </data>
+    <data name="DiscernmentOfSpirits" xml:space="preserve">
+        <value>Discernimento degli spiriti</value>
+    </data>
+    <data name="Personal" xml:space="preserve">
+        <value>Personalmente</value>
+    </data>
+    <data name="DiscernmentOfSpirits_Q1" xml:space="preserve">
+        <value>Dov'ero collegato a Dio?</value>
+    </data>
+    <data name="DiscernmentOfSpirits_Q2" xml:space="preserve">
+        <value>Dove non ero collegato a Dio?</value>
+    </data>
+    <data name="DiscernmentOfSpirits_Q3" xml:space="preserve">
+        <value>Come mi sento dopo?</value>
+    </data>
 </root>

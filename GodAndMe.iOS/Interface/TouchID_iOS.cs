@@ -73,6 +73,32 @@ namespace GodAndMe.iOS
             }
         }
 
+        public int GetOsMajorVersion()
+        {
+            return int.Parse(UIDevice.CurrentDevice.SystemVersion.Split('.')[0]);
+        }
 
+        public LocalAuthType GetLocalAuthType()
+        {
+            var localAuthContext = new LAContext();
+            NSError AuthError;
+
+            if (localAuthContext.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthentication, out AuthError))
+            {
+                if (localAuthContext.CanEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, out AuthError))
+                {
+                    if (GetOsMajorVersion() >= 11 && localAuthContext.BiometryType == (LABiometryType.TypeFaceId | LABiometryType.FaceId))
+                    {
+                        return LocalAuthType.FaceId;
+                    }
+
+                    return LocalAuthType.TouchId;
+                }
+
+                return LocalAuthType.Passcode;
+            }
+
+            return LocalAuthType.None;
+        }
     }
 }

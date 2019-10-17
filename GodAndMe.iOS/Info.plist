@@ -41,6 +41,9 @@
 		<string>en</string>
 		<string>nl</string>
 		<string>es</string>
+		<string>pt</string>
+		<string>it</string>
+		<string>de</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

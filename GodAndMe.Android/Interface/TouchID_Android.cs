@@ -26,5 +26,12 @@ namespace GodAndMe.Android
         {
             return false;
         }
+
+
+
+        public LocalAuthType GetLocalAuthType()
+        {
+            return LocalAuthType.None;
+        }
     }
 }
