@@ -74,10 +74,10 @@
         <WarningLevel>4</WarningLevel>
         <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
         <ConsolePause>false</ConsolePause>
-        <CodesignKey>iPhone Developer: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+        <CodesignKey>iPhone Distribution: Kerk en IT (6V28A47VS9)</CodesignKey>
         <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
         <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-        <CodesignProvision>VS: WildCard Development</CodesignProvision>
+        <CodesignProvision>God and Me iOS Distribution</CodesignProvision>
         <MtouchUseLlvm>true</MtouchUseLlvm>
         <MtouchUseThumb>true</MtouchUseThumb>
     </PropertyGroup>
