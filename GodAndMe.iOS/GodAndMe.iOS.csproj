@@ -1,310 +1,330 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <PropertyGroup>
-        <Configuration Condition=" '$(Configuration)' == '' ">Debug iPhoneSimulator</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-        <ProductVersion>8.0.30703</ProductVersion>
-        <SchemaVersion>2.0</SchemaVersion>
-        <ProjectGuid>{360E6AEC-9C5B-421E-AA0F-2ED4879A7556}</ProjectGuid>
-        <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-        <TemplateGuid>{89a4fe7c-635d-49c9-8d8c-5cd363c0d68d}</TemplateGuid>
-        <OutputType>Exe</OutputType>
-        <RootNamespace>GodAndMe.iOS</RootNamespace>
-        <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-        <AssemblyName>GodAndMe.iOS</AssemblyName>
-        <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-        <NuGetPackageImportStamp>
-        </NuGetPackageImportStamp>
-        <ReleaseVersion>1.2.6</ReleaseVersion>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug iPhoneSimulator|iPhoneSimulator' ">
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\iPhoneSimulator\Debug iPhoneSimulator</OutputPath>
-        <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;DEBUG;__SIMULATOR__</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <ConsolePause>false</ConsolePause>
-        <MtouchArch>i386, x86_64</MtouchArch>
-        <MtouchLink>None</MtouchLink>
-        <MtouchDebug>true</MtouchDebug>
-        <CodesignKey>iPhone Developer: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
-        <CodesignProvision>VS: WildCard Development</CodesignProvision>
-        <DeviceSpecificBuild>true</DeviceSpecificBuild>
-        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release iPhoneSimulator|iPhoneSimulator' ">
-        <DebugType>none</DebugType>
-        <Optimize>true</Optimize>
-        <OutputPath>bin\iPhoneSimulator\Release iPhoneSimulator</OutputPath>
-        <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;__SIMULATOR__</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <MtouchLink>None</MtouchLink>
-        <MtouchArch>x86_64</MtouchArch>
-        <ConsolePause>false</ConsolePause>
-        <CodesignKey>iPhone Developer: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
-        <CodesignProvision>VS: WildCard Development</CodesignProvision>
-        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug iPhone|iPhone' ">
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\iPhone\Debug iPhone</OutputPath>
-        <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;DEBUG</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <ConsolePause>false</ConsolePause>
-        <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
-        <CodesignKey>iPhone Developer: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
-        <MtouchDebug>true</MtouchDebug>
-        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-        <CodesignProvision>VS: WildCard Development</CodesignProvision>
-        <MtouchLink>SdkOnly</MtouchLink>
-        <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-        <DeviceSpecificBuild>true</DeviceSpecificBuild>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release iPhone|iPhone' ">
-        <DebugType>none</DebugType>
-        <Optimize>true</Optimize>
-        <OutputPath>bin\iPhone\Release iPhone</OutputPath>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
-        <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
-        <ConsolePause>false</ConsolePause>
-        <CodesignKey>iPhone Distribution: Kerk en IT (6V28A47VS9)</CodesignKey>
-        <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-        <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-        <CodesignProvision>God and Me iOS Distribution</CodesignProvision>
-        <MtouchUseLlvm>true</MtouchUseLlvm>
-        <MtouchUseThumb>true</MtouchUseThumb>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <CodesignProvision>VS: WildCard Development</CodesignProvision>
-        <CodesignKey>iPhone Developer: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <CodesignProvision>VS: WildCard Development</CodesignProvision>
-        <CodesignKey>iPhone Developer: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
-    </PropertyGroup>
-    <ItemGroup>
-        <Compile Include="Main.cs" />
-        <Compile Include="AppDelegate.cs" />
-        <None Include="Entitlements.plist" />
-        <None Include="Info.plist" />
-        <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Interface\Localize_iOS.cs" />
-        <Compile Include="Interface\VersionAndBuild_iOS.cs" />
-        <Compile Include="Renderers\CustomContentPageRenderer.cs" />
-        <Compile Include="Interface\TouchID_iOS.cs" />
-        <Compile Include="Interface\DatabaseConnection_iOS.cs" />
-        <Compile Include="Interface\AddressBookInformation_iOS.cs" />
-        <Compile Include="UnlockViewController.cs" />
-        <Compile Include="UnlockViewController.designer.cs">
-            <DependentUpon>UnlockViewController.cs</DependentUpon>
-        </Compile>
-        <Compile Include="Interface\Share_iOS.cs" />
-        <Compile Include="ContactPickerDelegate.cs" />
-        <Compile Include="Helpers\Settings.cs" />
-        <Compile Include="Settings.cs" />
-        <Compile Include="Renderers\CustomViewCellRenderer.cs" />
-        <Compile Include="Interface\Settings_iOS.cs" />
-        <Compile Include="Interface\Document_iOS.cs" />
-        <Compile Include="Renderers\NullableDatePickerRenderer.cs" />
-        <None Include="AuthenticationViewController.cs" />
-        <None Include="AuthenticationViewController.designer.cs" />
-        <None Include="Helpers\LocalAuthHelper.cs" />
-        <Compile Include="Interface\Environment_iOS.cs" />
-        <None Include="Renderers\TabbedPageRenderer.cs" />
-        <Compile Include="Renderers\IconViewRenderer.cs" />
-        <Compile Include="Renderers\CustomPageRenderer.cs" />
-        <None Include="Renderers\CustomMyEntryRenderer.cs" />
-        <None Include="Renderers\CustomMyEditorRenderer.cs" />
-    </ItemGroup>
-    <ItemGroup>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
-            <Visible>false</Visible>
-        </ImageAsset>
-        <BundleResource Include="Resources\tab_about.png" />
-        <BundleResource Include="Resources\tab_about%402x.png" />
-        <BundleResource Include="Resources\tab_about%403x.png" />
-        <BundleResource Include="Resources\tab_diary.png" />
-        <BundleResource Include="Resources\tab_diary%402x.png" />
-        <BundleResource Include="Resources\tab_diary%403x.png" />
-        <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-        <BundleResource Include="Resources\trash%403x.png" />
-        <BundleResource Include="Resources\trash%402x.png" />
-        <BundleResource Include="Resources\trash.png" />
-        <BundleResource Include="Resources\tab_intention%403x.png" />
-        <BundleResource Include="Resources\tab_intention%402x.png" />
-        <BundleResource Include="Resources\tab_intention.png" />
-        <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
-        <BundleResource Include="Resources\Icon167.png" />
-        <BundleResource Include="Resources\icon.png" />
-        <BundleResource Include="Resources\en.lproj\GodAndMe_logo.png" />
-        <BundleResource Include="Resources\en.lproj\GodAndMe_logo%402x.png" />
-        <BundleResource Include="Resources\en.lproj\GodAndMe_logo%403x.png" />
-        <BundleResource Include="Resources\en.lproj\InfoPlist.strings" />
-        <BundleResource Include="Resources\es.lproj\GodAndMe_logo.png" />
-        <BundleResource Include="Resources\es.lproj\GodAndMe_logo%402x.png" />
-        <BundleResource Include="Resources\es.lproj\GodAndMe_logo%403x.png" />
-        <BundleResource Include="Resources\es.lproj\InfoPlist.strings" />
-        <BundleResource Include="Resources\nl.lproj\GodAndMe_logo.png" />
-        <BundleResource Include="Resources\nl.lproj\GodAndMe_logo%402x.png" />
-        <BundleResource Include="Resources\nl.lproj\GodAndMe_logo%403x.png" />
-        <BundleResource Include="Resources\nl.lproj\InfoPlist.strings" />
-        <BundleResource Include="Resources\it.lproj\GodAndMe_logo.png" />
-        <BundleResource Include="Resources\it.lproj\GodAndMe_logo%402x.png" />
-        <BundleResource Include="Resources\it.lproj\GodAndMe_logo%403x.png" />
-        <BundleResource Include="Resources\it.lproj\InfoPlist.strings" />
-        <BundleResource Include="Resources\pt.lproj\GodAndMe_logo.png" />
-        <BundleResource Include="Resources\pt.lproj\GodAndMe_logo%402x.png" />
-        <BundleResource Include="Resources\pt.lproj\GodAndMe_logo%403x.png" />
-        <BundleResource Include="Resources\pt.lproj\InfoPlist.strings" />
-        <BundleResource Include="Resources\de.lproj\GodAndMe_logo.png" />
-        <BundleResource Include="Resources\de.lproj\GodAndMe_logo%402x.png" />
-        <BundleResource Include="Resources\de.lproj\GodAndMe_logo%403x.png" />
-        <BundleResource Include="Resources\de.lproj\InfoPlist.strings" />
-        <BundleResource Include="Resources\contact%403x.png" />
-        <BundleResource Include="Resources\contact%402x.png" />
-        <BundleResource Include="Resources\contact.png" />
-        <BundleResource Include="Resources\locked.png" />
-        <BundleResource Include="Resources\locked%402x.png" />
-        <BundleResource Include="Resources\locked%403x.png" />
-        <BundleResource Include="Resources\nl.lproj\UnlockScreen.strings" />
-        <BundleResource Include="Resources\es.lproj\UnlockScreen.strings" />
-        <BundleResource Include="Resources\en.lproj\UnlockScreen.strings" />
-        <BundleResource Include="Resources\pt.lproj\UnlockScreen.strings" />
-        <BundleResource Include="Resources\it.lproj\UnlockScreen.strings" />
-        <BundleResource Include="Resources\de.lproj\UnlockScreen.strings" />
-        <InterfaceDefinition Include="Base.lproj\UnlockScreen.storyboard" />
-        <BundleResource Include="Resources\delete%403x.png" />
-        <BundleResource Include="Resources\delete%402x.png" />
-        <BundleResource Include="Resources\delete.png" />
-        <BundleResource Include="Settings.bundle\Root.plist" />
-        <BundleResource Include="Settings.bundle\en.lproj\Root.strings" />
-        <BundleResource Include="Settings.bundle\nl.lproj\Root.strings" />
-        <BundleResource Include="Settings.bundle\es.lproj\Root.strings" />
-        <BundleResource Include="Settings.bundle\pt.lproj\Root.strings" />
-        <BundleResource Include="Settings.bundle\it.lproj\Root.strings" />
-        <BundleResource Include="Settings.bundle\de.lproj\Root.strings" />
-        <BundleResource Include="Resources\tab_lent%403x.png" />
-        <BundleResource Include="Resources\tab_lent%402x.png" />
-        <BundleResource Include="Resources\tab_lent.png" />
-        <BundleResource Include="Resources\hamburger.png" />
-        <BundleResource Include="Resources\hamburger%402x.png" />
-        <BundleResource Include="Resources\hamburger%403x.png" />
-        <BundleResource Include="Resources\tab_prayers%403x.png" />
-        <BundleResource Include="Resources\tab_prayers%402x.png" />
-        <BundleResource Include="Resources\tab_prayers.png" />
-        <BundleResource Include="Resources\tab_sins%403x.png" />
-        <BundleResource Include="Resources\tab_sins%402x.png" />
-        <BundleResource Include="Resources\tab_sins.png" />
-        <BundleResource Include="Resources\Icon58.png" />
-        <BundleResource Include="Resources\tab_settings.png" />
-        <BundleResource Include="Resources\tab_settings%402x.png" />
-        <BundleResource Include="Resources\Default-568h%402x.png" />
-        <BundleResource Include="Resources\Default-Portrait.png" />
-        <BundleResource Include="Resources\Default-Portrait%402x.png" />
-        <BundleResource Include="Resources\Default.png" />
-        <BundleResource Include="Resources\Default%402x.png" />
-        <BundleResource Include="Resources\tab_settings%403x.png" />
-        <BundleResource Include="Resources\document.png" />
-        <BundleResource Include="Resources\document%402x.png" />
-        <BundleResource Include="Resources\UTTypeSize320IconFile.png" />
-        <BundleResource Include="Resources\UTTypeSize64IconFile.png" />
-        <BundleResource Include="Resources\icon512x512.png" />
-        <BundleResource Include="Resources\icon58x58.png" />
-        <BundleResource Include="Resources\share%403x.png" />
-        <BundleResource Include="Resources\share%402x.png" />
-        <BundleResource Include="Resources\share.png" />
-        <BundleResource Include="Resources\Localizable.strings" />
-    </ItemGroup>
-    <ItemGroup>
-        <Reference Include="System" />
-        <Reference Include="System.Xml" />
-        <Reference Include="System.Core" />
-        <Reference Include="Xamarin.iOS" />
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />
-        <PackageReference Include="sqlite-net-pcl">
-            <Version>1.6.292</Version>
-        </PackageReference>
-        <PackageReference Include="Xam.Plugins.Settings">
-            <Version>3.1.1</Version>
-        </PackageReference>
-        <PackageReference Include="PCLStorage">
-            <Version>1.0.2</Version>
-        </PackageReference>
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Interface\" />
-        <Folder Include="Renderers\" />
-        <Folder Include="Resources\es.lproj\" />
-        <Folder Include="Resources\en.lproj\" />
-        <Folder Include="Resources\nl.lproj\" />
-        <Folder Include="Resources\pt.lproj\" />
-        <Folder Include="Resources\it.lproj\" />
-        <Folder Include="Resources\de.lproj\" />
-        <Folder Include="Base.lproj\" />
-        <Folder Include="Helpers\" />
-        <Folder Include="Settings.bundle\nl.lproj\" />
-        <Folder Include="Settings.bundle\es.lproj\" />
-        <Folder Include="Settings.bundle\pt.lproj\" />
-        <Folder Include="Settings.bundle\it.lproj\" />
-        <Folder Include="Settings.bundle\de.lproj\" />
-    </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\GodAndMe\GodAndMe.csproj">
-            <Project>{AACBD266-AF23-48D4-BD14-073ECE957791}</Project>
-            <Name>GodAndMe</Name>
-        </ProjectReference>
-    </ItemGroup>
-    <ItemGroup>
-        <ITunesArtwork Include="iTunesArtwork" />
-        <ITunesArtwork Include="iTunesArtwork%402x" />
-    </ItemGroup>
-    <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug iPhoneSimulator</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+		<ProductVersion>8.0.30703</ProductVersion>
+		<SchemaVersion>2.0</SchemaVersion>
+		<ProjectGuid>{360E6AEC-9C5B-421E-AA0F-2ED4879A7556}</ProjectGuid>
+		<ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<TemplateGuid>{89a4fe7c-635d-49c9-8d8c-5cd363c0d68d}</TemplateGuid>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>GodAndMe.iOS</RootNamespace>
+		<IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+		<AssemblyName>GodAndMe.iOS</AssemblyName>
+		<MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+		<NuGetPackageImportStamp>
+		</NuGetPackageImportStamp>
+		<ReleaseVersion>1.2.6</ReleaseVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug iPhoneSimulator|iPhoneSimulator' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\iPhoneSimulator\Debug iPhoneSimulator</OutputPath>
+		<DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;DEBUG;__SIMULATOR__</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<ConsolePause>false</ConsolePause>
+		<MtouchArch>i386, x86_64</MtouchArch>
+		<MtouchLink>None</MtouchLink>
+		<MtouchDebug>true</MtouchDebug>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+		<DeviceSpecificBuild>true</DeviceSpecificBuild>
+		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release iPhoneSimulator|iPhoneSimulator' ">
+		<DebugType>none</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\iPhoneSimulator\Release iPhoneSimulator</OutputPath>
+		<DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;__SIMULATOR__</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<MtouchLink>None</MtouchLink>
+		<MtouchArch>x86_64</MtouchArch>
+		<ConsolePause>false</ConsolePause>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug iPhone|iPhone' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\iPhone\Debug iPhone</OutputPath>
+		<DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;DEBUG</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<ConsolePause>false</ConsolePause>
+		<MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+		<MtouchDebug>true</MtouchDebug>
+		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+		<MtouchLink>None</MtouchLink>
+		<MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+		<DeviceSpecificBuild>true</DeviceSpecificBuild>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release iPhone|iPhone' ">
+		<DebugType>none</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\iPhone\Release iPhone</OutputPath>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+		<ConsolePause>false</ConsolePause>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+		<MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+		<MtouchUseLlvm>true</MtouchUseLlvm>
+		<MtouchUseThumb>true</MtouchUseThumb>
+		<MtouchLink>SdkOnly</MtouchLink>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+		<MtouchLink>SdkOnly</MtouchLink>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+		<MtouchLink>SdkOnly</MtouchLink>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Include="Main.cs" />
+		<Compile Include="AppDelegate.cs" />
+		<None Include="Entitlements.plist" />
+		<None Include="Info.plist" />
+		<Compile Include="Properties\AssemblyInfo.cs" />
+		<Compile Include="Interface\Localize_iOS.cs" />
+		<Compile Include="Interface\VersionAndBuild_iOS.cs" />
+		<Compile Include="Renderers\CustomContentPageRenderer.cs" />
+		<Compile Include="Interface\TouchID_iOS.cs" />
+		<Compile Include="Interface\DatabaseConnection_iOS.cs" />
+		<Compile Include="Interface\AddressBookInformation_iOS.cs" />
+		<Compile Include="UnlockViewController.cs" />
+		<Compile Include="UnlockViewController.designer.cs">
+			<DependentUpon>UnlockViewController.cs</DependentUpon>
+		</Compile>
+		<Compile Include="Interface\Share_iOS.cs" />
+		<Compile Include="ContactPickerDelegate.cs" />
+		<Compile Include="Helpers\Settings.cs" />
+		<Compile Include="Settings.cs" />
+		<Compile Include="Renderers\CustomViewCellRenderer.cs" />
+		<Compile Include="Interface\Settings_iOS.cs" />
+		<Compile Include="Interface\Document_iOS.cs" />
+		<Compile Include="Renderers\NullableDatePickerRenderer.cs" />
+		<None Include="AuthenticationViewController.cs" />
+		<None Include="AuthenticationViewController.designer.cs" />
+		<None Include="Helpers\LocalAuthHelper.cs" />
+		<None Include="Renderers\TabbedPageRenderer.cs" />
+		<Compile Include="Renderers\IconViewRenderer.cs" />
+		<Compile Include="Renderers\CustomPageRenderer.cs" />
+		<None Include="Renderers\CustomMyEntryRenderer.cs" />
+		<None Include="Renderers\CustomMyEditorRenderer.cs" />
+		<None Include="Renderers\CustomListViewRenderer.cs" />
+		<None Include="Interface\Environment_iOS.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<BundleResource Include="Resources\tab_about.png" />
+		<BundleResource Include="Resources\tab_about%402x.png" />
+		<BundleResource Include="Resources\tab_about%403x.png" />
+		<BundleResource Include="Resources\tab_diary.png" />
+		<BundleResource Include="Resources\tab_diary%402x.png" />
+		<BundleResource Include="Resources\tab_diary%403x.png" />
+		<InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+		<BundleResource Include="Resources\trash%403x.png" />
+		<BundleResource Include="Resources\trash%402x.png" />
+		<BundleResource Include="Resources\trash.png" />
+		<BundleResource Include="Resources\tab_intention%403x.png" />
+		<BundleResource Include="Resources\tab_intention%402x.png" />
+		<BundleResource Include="Resources\tab_intention.png" />
+		<ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+		<BundleResource Include="Resources\Icon167.png" />
+		<BundleResource Include="Resources\icon.png" />
+		<BundleResource Include="Resources\en.lproj\GodAndMe_logo.png" />
+		<BundleResource Include="Resources\en.lproj\GodAndMe_logo%402x.png" />
+		<BundleResource Include="Resources\en.lproj\GodAndMe_logo%403x.png" />
+		<BundleResource Include="Resources\en.lproj\InfoPlist.strings" />
+		<BundleResource Include="Resources\es.lproj\GodAndMe_logo.png" />
+		<BundleResource Include="Resources\es.lproj\GodAndMe_logo%402x.png" />
+		<BundleResource Include="Resources\es.lproj\GodAndMe_logo%403x.png" />
+		<BundleResource Include="Resources\es.lproj\InfoPlist.strings" />
+		<BundleResource Include="Resources\nl.lproj\GodAndMe_logo.png" />
+		<BundleResource Include="Resources\nl.lproj\GodAndMe_logo%402x.png" />
+		<BundleResource Include="Resources\nl.lproj\GodAndMe_logo%403x.png" />
+		<BundleResource Include="Resources\nl.lproj\InfoPlist.strings" />
+		<BundleResource Include="Resources\it.lproj\GodAndMe_logo.png" />
+		<BundleResource Include="Resources\it.lproj\GodAndMe_logo%402x.png" />
+		<BundleResource Include="Resources\it.lproj\GodAndMe_logo%403x.png" />
+		<BundleResource Include="Resources\it.lproj\InfoPlist.strings" />
+		<BundleResource Include="Resources\pt.lproj\GodAndMe_logo.png" />
+		<BundleResource Include="Resources\pt.lproj\GodAndMe_logo%402x.png" />
+		<BundleResource Include="Resources\pt.lproj\GodAndMe_logo%403x.png" />
+		<BundleResource Include="Resources\pt.lproj\InfoPlist.strings" />
+		<BundleResource Include="Resources\de.lproj\GodAndMe_logo.png" />
+		<BundleResource Include="Resources\de.lproj\GodAndMe_logo%402x.png" />
+		<BundleResource Include="Resources\de.lproj\GodAndMe_logo%403x.png" />
+		<BundleResource Include="Resources\de.lproj\InfoPlist.strings" />
+		<BundleResource Include="Resources\contact%403x.png" />
+		<BundleResource Include="Resources\contact%402x.png" />
+		<BundleResource Include="Resources\contact.png" />
+		<BundleResource Include="Resources\locked.png" />
+		<BundleResource Include="Resources\locked%402x.png" />
+		<BundleResource Include="Resources\locked%403x.png" />
+		<BundleResource Include="Resources\nl.lproj\UnlockScreen.strings" />
+		<BundleResource Include="Resources\es.lproj\UnlockScreen.strings" />
+		<BundleResource Include="Resources\en.lproj\UnlockScreen.strings" />
+		<BundleResource Include="Resources\pt.lproj\UnlockScreen.strings" />
+		<BundleResource Include="Resources\it.lproj\UnlockScreen.strings" />
+		<BundleResource Include="Resources\de.lproj\UnlockScreen.strings" />
+		<InterfaceDefinition Include="Base.lproj\UnlockScreen.storyboard" />
+		<BundleResource Include="Resources\delete%403x.png" />
+		<BundleResource Include="Resources\delete%402x.png" />
+		<BundleResource Include="Resources\delete.png" />
+		<BundleResource Include="Settings.bundle\Root.plist" />
+		<BundleResource Include="Settings.bundle\en.lproj\Root.strings" />
+		<BundleResource Include="Settings.bundle\nl.lproj\Root.strings" />
+		<BundleResource Include="Settings.bundle\es.lproj\Root.strings" />
+		<BundleResource Include="Settings.bundle\pt.lproj\Root.strings" />
+		<BundleResource Include="Settings.bundle\it.lproj\Root.strings" />
+		<BundleResource Include="Settings.bundle\de.lproj\Root.strings" />
+		<BundleResource Include="Resources\tab_lent%403x.png" />
+		<BundleResource Include="Resources\tab_lent%402x.png" />
+		<BundleResource Include="Resources\tab_lent.png" />
+		<BundleResource Include="Resources\hamburger.png" />
+		<BundleResource Include="Resources\hamburger%402x.png" />
+		<BundleResource Include="Resources\hamburger%403x.png" />
+		<BundleResource Include="Resources\tab_prayers%403x.png" />
+		<BundleResource Include="Resources\tab_prayers%402x.png" />
+		<BundleResource Include="Resources\tab_prayers.png" />
+		<BundleResource Include="Resources\tab_sins%403x.png" />
+		<BundleResource Include="Resources\tab_sins%402x.png" />
+		<BundleResource Include="Resources\tab_sins.png" />
+		<BundleResource Include="Resources\Icon58.png" />
+		<BundleResource Include="Resources\tab_settings.png" />
+		<BundleResource Include="Resources\tab_settings%402x.png" />
+		<BundleResource Include="Resources\Default-568h%402x.png" />
+		<BundleResource Include="Resources\Default-Portrait.png" />
+		<BundleResource Include="Resources\Default-Portrait%402x.png" />
+		<BundleResource Include="Resources\Default.png" />
+		<BundleResource Include="Resources\Default%402x.png" />
+		<BundleResource Include="Resources\tab_settings%403x.png" />
+		<BundleResource Include="Resources\document.png" />
+		<BundleResource Include="Resources\document%402x.png" />
+		<BundleResource Include="Resources\UTTypeSize320IconFile.png" />
+		<BundleResource Include="Resources\UTTypeSize64IconFile.png" />
+		<BundleResource Include="Resources\icon512x512.png" />
+		<BundleResource Include="Resources\icon58x58.png" />
+		<BundleResource Include="Resources\share%403x.png" />
+		<BundleResource Include="Resources\share%402x.png" />
+		<BundleResource Include="Resources\share.png" />
+		<BundleResource Include="Resources\Localizable.strings" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon48.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon55.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon58-1.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon87-1.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon80-1.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon88.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon100.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon172.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon196.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon216.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon1024-1.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="System" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Core" />
+		<Reference Include="Xamarin.iOS" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+		<PackageReference Include="sqlite-net-pcl">
+			<Version>1.7.335</Version>
+		</PackageReference>
+		<PackageReference Include="Xam.Plugins.Settings">
+			<Version>3.1.1</Version>
+		</PackageReference>
+		<PackageReference Include="PCLStorage">
+			<Version>1.0.2</Version>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Interface\" />
+		<Folder Include="Renderers\" />
+		<Folder Include="Resources\es.lproj\" />
+		<Folder Include="Resources\en.lproj\" />
+		<Folder Include="Resources\nl.lproj\" />
+		<Folder Include="Resources\pt.lproj\" />
+		<Folder Include="Resources\it.lproj\" />
+		<Folder Include="Resources\de.lproj\" />
+		<Folder Include="Base.lproj\" />
+		<Folder Include="Helpers\" />
+		<Folder Include="Settings.bundle\nl.lproj\" />
+		<Folder Include="Settings.bundle\es.lproj\" />
+		<Folder Include="Settings.bundle\pt.lproj\" />
+		<Folder Include="Settings.bundle\it.lproj\" />
+		<Folder Include="Settings.bundle\de.lproj\" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\GodAndMe\GodAndMe.csproj">
+			<Project>{AACBD266-AF23-48D4-BD14-073ECE957791}</Project>
+			<Name>GodAndMe</Name>
+		</ProjectReference>
+		<ProjectReference Include="..\GodandMe.WatchOSApp\GodandMe.WatchOSApp.csproj">
+			<IsWatchApp>true</IsWatchApp>
+			<Project>{54672F62-5C8B-4E5A-BABF-9CBC94C711D9}</Project>
+			<Name>GodandMe.WatchOSApp</Name>
+		</ProjectReference>
+	</ItemGroup>
+	<ItemGroup>
+		<ITunesArtwork Include="iTunesArtwork" />
+		<ITunesArtwork Include="iTunesArtwork%402x" />
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

@@ -17,6 +17,7 @@ namespace GodAndMe.iOS
     public class Settings
     {
         public static bool TouchID { get; private set; }
+        public static bool HasiCloud { get; set; }
         public static string YourName { get; private set; }
         public static ContactSort ContactSort { get; private set; }
 

@@ -1,6 +1,150 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx;assembly=GodAndMe" x:Class="GodAndMe.App">
     <Application.Resources>
-        <ResourceDictionary Source="Themes/LightTheme.xaml" />
+        <!--Global Styles-->
+        <!--<Color x:Key="NavigationPrimary">#FFD75B</Color>-->
+        <!--Page Level Resources: Compatibile with Xamarin Live Player -->
+        <!--<Color x:Key="Primary">#FFD75B</Color>
+    <Color x:Key="Accent">#FFE081</Color>
+    <Color x:Key="LightTextColor">#999999</Color>
+    <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
+    <Color x:Key="NavigationBarColor">#FFD75B</Color>
+    <Color x:Key="PrimaryColor">#FFFFFF</Color>
+    <Color x:Key="SecondaryColor">#EFEFEF</Color>
+    <Color x:Key="PrimaryTextColor">#000000</Color>
+    <Color x:Key="SecondaryTextColor">#222222</Color>-->
+
+        <!-- Light colors -->
+        <Color x:Key="LightNavigationPrimary">#FFD75B</Color>
+        <!--Page Level Resources: Compatibile with Xamarin Live Player -->
+        <Color x:Key="LightPrimary">#FFD75B</Color>
+        <Color x:Key="LightAccent">#FFE081</Color>
+        <Color x:Key="LightLightTextColor">#999999</Color>
+        <Color x:Key="LightPageBackgroundColor">#FFFFFF</Color>
+        <Color x:Key="LightNavigationBarColor">#FFD75B</Color>
+        <Color x:Key="LightPrimaryColor">#FFFFFF</Color>
+        <Color x:Key="LightSecondaryColor">#EFEFEF</Color>
+        <Color x:Key="LightPrimaryTextColor">#000000</Color>
+        <Color x:Key="LightSecondaryTextColor">#222222</Color>
+
+        <!-- Dark colors -->
+        <Color x:Key="DarkNavigationPrimary">#128FEF</Color>
+        <!--Page Level Resources: Compatibile with Xamarin Live Player -->
+        <Color x:Key="DarkPrimary">#128FEF</Color>
+        <Color x:Key="DarkAccent">#3BA4F4</Color>
+        <Color x:Key="DarkLightTextColor">#999999</Color>
+        <Color x:Key="DarkPageBackgroundColor">#000000</Color>
+        <Color x:Key="DarkNavigationBarColor">#FFD75B</Color>
+        <Color x:Key="DarkPrimaryColor">#000000</Color>
+        <Color x:Key="DarkSecondaryColor">#333333</Color>
+        <Color x:Key="DarkPrimaryTextColor">#FFFFFF</Color>
+        <Color x:Key="DarkSecondaryTextColor">#EFEFEF</Color>
+
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light={StaticResource LightNavigationPrimary}, Dark={StaticResource DarkNavigationPrimary}}" />
+            <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}" />
+        </Style>
+        <Style TargetType="Label" x:Key="LabelTitle">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+        </Style>
+        <Style TargetType="Label" x:Key="LabelValue">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="FontSize" Value="Default" />
+            <Setter Property="Margin" Value="0,0,0,15" />
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+        </Style>
+        <Style TargetType="Label" x:Key="LabelDescription">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="FontSize" Value="Default" />
+            <Setter Property="LineBreakMode" Value="WordWrap" />
+        </Style>
+        <Style TargetType="Picker" x:Key="Picker">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="FontSize" Value="Default" />
+            <Setter Property="Margin" Value="0,0,0,15" />
+        </Style>
+        <Style TargetType="DatePicker" x:Key="DatePicker">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="FontSize" Value="Default" />
+            <Setter Property="Format" Value="D" />
+        </Style>
+        <Style TargetType="local:NullableDatePicker" x:Key="NullableDatePicker">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="FontSize" Value="Default" />
+            <Setter Property="Margin" Value="0,0,0,15" />
+        </Style>
+        <Style TargetType="Label" x:Key="DateLabel">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="FontSize" Value="Small" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="LineBreakMode" Value="NoWrap" />
+        </Style>
+        <Style TargetType="Label" x:Key="Money">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="FontSize" Value="Default" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="LineBreakMode" Value="NoWrap" />
+        </Style>
+        <Style TargetType="Entry" x:Key="Entry">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+        </Style>
+        <Style TargetType="Entry" x:Key="EntryMoney">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Keyboard" Value="Numeric" />
+            <Setter Property="FontSize" Value="Default" />
+        </Style>
+        <Style TargetType="Entry" x:Key="EntryValue">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="FontSize" Value="Default" />
+            <Setter Property="Margin" Value="0,0,0,15" />
+        </Style>
+        <Style TargetType="Editor" x:Key="Editor">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+        </Style>
+        <Style x:Key="MyEditor" TargetType="local:MyEditor">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+            <Setter Property="FontSize" Value="Default" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+        </Style>
+        <Style TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}" />
+        </Style>
+        <Style TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}" />
+        </Style>
+        <Style TargetType="ScrollView">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}" />
+        </Style>
+        <Style TargetType="ListView">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}" />
+        </Style>
+        <Style TargetType="MasterDetailPage">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}" />
+        </Style>
+        <Style x:Key="navigationDrawerList" TargetType="ListView">
+            <Setter Property="BackgroundColor" Value="#eeeeee" />
+            <Setter Property="SeparatorColor" Value="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}" />
+        </Style>
+        <Style x:Key="navigationStackLayout" TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="#eeeeee" />
+        </Style>
+        <Style x:Key="navigationLabel" TargetType="Label">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+        </Style>
+        <Style x:Key="MenuContentPage" TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightNavigationBarColor}, Dark={StaticResource DarkNavigationBarColor}}" />
+        </Style>
+        <Style x:Key="MenuContentPageStack" TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}" />
+        </Style>
     </Application.Resources>
 </Application>

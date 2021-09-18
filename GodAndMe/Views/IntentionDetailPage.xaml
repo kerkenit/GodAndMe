@@ -18,12 +18,12 @@
         <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical">
             <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
                 <StackLayout Spacing="5" Padding="15" HorizontalOptions="StartAndExpand" Orientation="Vertical" VerticalOptions="FillAndExpand">
-                    <Label Text="{resX:TranslateExtension PrayerFor}" Style="{DynamicResource LabelTitle}" />
-                    <Label Text="{Binding Item.Person}" Style="{DynamicResource LabelValue}" />
-                    <Label Text="{resX:TranslateExtension PrayerRequiredAt}" Style="{DynamicResource LabelTitle}" />
-                    <Label Text="{Binding Item.Start, Converter={StaticResource DateConverter}}" Style="{DynamicResource LabelValue}" />
-                    <Label Text="{resX:TranslateExtension PrayerIntention}" Style="{DynamicResource LabelTitle}" />
-                    <Label Text="{Binding Item.Description}" Style="{DynamicResource LabelValue}" />
+                    <Label Text="{resX:TranslateExtension PrayerFor}" Style="{StaticResource LabelTitle}" />
+                    <Label Text="{Binding Item.Person}" Style="{StaticResource LabelValue}" />
+                    <Label Text="{resX:TranslateExtension PrayerRequiredAt}" Style="{StaticResource LabelTitle}" />
+                    <Label Text="{Binding Item.Start, Converter={StaticResource DateConverter}}" Style="{StaticResource LabelValue}" />
+                    <Label Text="{resX:TranslateExtension PrayerIntention}" Style="{StaticResource LabelTitle}" />
+                    <Label Text="{Binding Item.Description}" Style="{StaticResource LabelValue}" />
                 </StackLayout>
             </ScrollView>
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" VerticalOptions="EndAndExpand">

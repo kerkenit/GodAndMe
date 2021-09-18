@@ -12,10 +12,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="5" Padding="15">
-                <Label Text="{resX:TranslateExtension Type}" Style="{DynamicResource LabelTitle}" />
-                <Label Text="{Binding Item.DiaryTypeText}" Style="{DynamicResource LabelValue}" />
-                <Label Text="{resX:TranslateExtension Description}" Style="{DynamicResource LabelTitle}" />
-                <Label Text="{Binding Item.Description}" Style="{DynamicResource LabelValue}" />
+                <Label Text="{resX:TranslateExtension Type}" Style="{StaticResource LabelTitle}" />
+                <Label Text="{Binding Item.DiaryTypeText}" Style="{StaticResource LabelValue}" />
+                <Label Text="{resX:TranslateExtension Description}" Style="{StaticResource LabelTitle}" />
+                <Label Text="{Binding Item.Description}" Style="{StaticResource LabelValue}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

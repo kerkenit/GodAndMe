@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+		<ProjectTypeGuids>{A9A6EAC2-568B-4F3E-869D-32CBBA122DF2};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<ProjectGuid>{54672F62-5C8B-4E5A-BABF-9CBC94C711D9}</ProjectGuid>
+		<TemplateGuid>{baaaf399-9f1e-41ac-a256-56b2550b9b13}</TemplateGuid>
+		<OutputType>Library</OutputType>
+		<RootNamespace>GodandMe.WatchOSApp</RootNamespace>
+		<AssemblyName>GodandMeWatchOSApp</AssemblyName>
+		<IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+		<MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+		<MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<ReleaseVersion>1.2.6</ReleaseVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+		<DefineConstants>DEBUG;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+		<MtouchDebug>true</MtouchDebug>
+		<MtouchFastDev>true</MtouchFastDev>
+		<MtouchLink>None</MtouchLink>
+		<MtouchArch>i386</MtouchArch>
+		<DeviceSpecificBuild>false</DeviceSpecificBuild>
+		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\iPhone\Release</OutputPath>
+		<DefineConstants>
+		</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+		<MtouchUseLlvm>true</MtouchUseLlvm>
+		<MtouchFloat32>true</MtouchFloat32>
+		<MtouchEnableBitcode>true</MtouchEnableBitcode>
+		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+		<MtouchLink>SdkOnly</MtouchLink>
+		<MtouchArch>ARMv7k</MtouchArch>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+		<DebugType>pdbonly</DebugType>
+		<Optimize>true</Optimize>
+		<OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+		<DefineConstants>
+		</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+		<MtouchLink>None</MtouchLink>
+		<MtouchArch>i386</MtouchArch>
+		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+		<DebugSymbols>true</DebugSymbols>
+		<DebugType>full</DebugType>
+		<Optimize>false</Optimize>
+		<OutputPath>bin\iPhone\Debug</OutputPath>
+		<DefineConstants>DEBUG;</DefineConstants>
+		<ErrorReport>prompt</ErrorReport>
+		<WarningLevel>4</WarningLevel>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
+		<DeviceSpecificBuild>true</DeviceSpecificBuild>
+		<MtouchDebug>true</MtouchDebug>
+		<MtouchFastDev>true</MtouchFastDev>
+		<MtouchFloat32>true</MtouchFloat32>
+		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+		<MtouchLink>SdkOnly</MtouchLink>
+		<MtouchArch>ARMv7k</MtouchArch>
+		<IOSDebugOverWiFi>true</IOSDebugOverWiFi>
+		<IOSDebuggerPort>10001</IOSDebuggerPort>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="System" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Core" />
+		<Reference Include="Xamarin.WatchOS" />
+	</ItemGroup>
+	<ItemGroup>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon1024.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon172.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon196.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon48.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon55.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon58.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon80.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon87.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon88.png">
+			<Visible>false</Visible>
+		</ImageAsset>
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon216.png" />
+		<ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon100.png" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Resources\" />
+	</ItemGroup>
+	<ItemGroup>
+		<BundleResource Include="..\GodAndMe.iOS\Resources\de.lproj\InfoPlist.strings">
+			<Link>Resources\de.lproj\InfoPlist.strings</Link>
+		</BundleResource>
+		<BundleResource Include="..\GodAndMe.iOS\Resources\en.lproj\InfoPlist.strings">
+			<Link>Resources\en.lproj\InfoPlist.strings</Link>
+		</BundleResource>
+		<BundleResource Include="..\GodAndMe.iOS\Resources\es.lproj\InfoPlist.strings">
+			<Link>Resources\es.lproj\InfoPlist.strings</Link>
+		</BundleResource>
+		<BundleResource Include="..\GodAndMe.iOS\Resources\it.lproj\InfoPlist.strings">
+			<Link>Resources\it.lproj\InfoPlist.strings</Link>
+		</BundleResource>
+		<BundleResource Include="..\GodAndMe.iOS\Resources\nl.lproj\InfoPlist.strings">
+			<Link>Resources\nl.lproj\InfoPlist.strings</Link>
+		</BundleResource>
+		<BundleResource Include="..\GodAndMe.iOS\Resources\pt.lproj\InfoPlist.strings">
+			<Link>Resources\pt.lproj\InfoPlist.strings</Link>
+		</BundleResource>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Entitlements.plist" />
+		<None Include="Info.plist" />
+	</ItemGroup>
+	<ItemGroup>
+		<InterfaceDefinition Include="Interface.storyboard" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\GodandMe.WatchOSExtension\GodandMe.WatchOSExtension.csproj">
+			<Name>GodandMe.WatchOSExtension</Name>
+			<Project>{0BD7CA8B-4726-4FAC-AEC3-6CF46C18240F}</Project>
+			<IsAppExtension>True</IsAppExtension>
+		</ProjectReference>
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath)\Xamarin\WatchOS\Xamarin.WatchOS.App.CSharp.targets" />
+</Project>

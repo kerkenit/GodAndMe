@@ -12,7 +12,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="5" Padding="15">
-                <Label Text="{Binding Item.Description}" Style="{DynamicResource LabelDescription}" />
+                <Label Text="{Binding Item.Description}" Style="{StaticResource LabelDescription}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

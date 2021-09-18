@@ -15,7 +15,7 @@ namespace GodAndMe.Droid
         public Theme GetOperatingSystemTheme()
         {
             //Ensure the device is running Android Froyo or higher because UIMode was added in Android Froyo, API 8.0
-            if (false && Build.VERSION.SdkInt >= BuildVersionCodes.Froyo)
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.Froyo)
             {
                 var uiModeFlags = CrossCurrentActivity.Current.AppContext.Resources.Configuration.UiMode & UiMode.NightMask;
 
@@ -28,7 +28,12 @@ namespace GodAndMe.Droid
                         return Theme.Light;
 
                     default:
+#if DEBUG
                         throw new NotSupportedException($"UiMode {uiModeFlags} not supported");
+#else
+                        return Theme.Light;
+#endif
+
                 }
             }
             else

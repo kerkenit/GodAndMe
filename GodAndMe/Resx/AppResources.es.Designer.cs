@@ -293,6 +293,18 @@ namespace GodAndMe.Resx {
             }
         }
         
+        internal static string MyPersonalDiary {
+            get {
+                return ResourceManager.GetString("MyPersonalDiary", resourceCulture);
+            }
+        }
+        
+        internal static string MomentsOfHappiness {
+            get {
+                return ResourceManager.GetString("MomentsOfHappiness", resourceCulture);
+            }
+        }
+        
         internal static string MySins {
             get {
                 return ResourceManager.GetString("MySins", resourceCulture);

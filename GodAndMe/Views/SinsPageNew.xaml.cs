@@ -72,6 +72,7 @@ namespace GodAndMe.Views
         {
             viewModel.Item.Description = viewModel.Item.Description.Trim().Trim(Environment.NewLine.ToCharArray()).Trim();
             Item = viewModel.Item;
+            Item.Committed = ddlStart.Date.Date;
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopToRootAsync();
         }

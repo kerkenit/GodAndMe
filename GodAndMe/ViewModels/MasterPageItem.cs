@@ -9,5 +9,7 @@ namespace GodAndMe.ViewModels
         public string IconSource { get; set; }
 
         public Type TargetType { get; set; }
+
+        public object args { get; internal set; }
     }
 }

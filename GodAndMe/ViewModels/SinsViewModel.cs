@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using GodAndMe.Interface;
 using GodAndMe.Models;
 using GodAndMe.Views;
 using Xamarin.Forms;
@@ -86,7 +87,7 @@ namespace GodAndMe.ViewModels
             try
             {
                 Items.Clear();
-                if (App.unlocked_YN)
+                if (App.unlocked_YN || DependencyService.Get<ISettings>().GetTouchID() == false)
                 {
                     var items = await SinsDataStore.GetItemsAsync(true);
                     foreach (var item in items)

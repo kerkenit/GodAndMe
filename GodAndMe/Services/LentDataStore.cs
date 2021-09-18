@@ -51,7 +51,7 @@ namespace GodAndMe.Services
 #pragma warning restore CS0162 // Unreachable code detected
             }
 #if DEBUG
-            else if (true && items.Count == 0)
+            else if (false && items.Count == 0)
             {
                 db.InsertAll(new List<Lent> {
                     new Lent {
@@ -134,8 +134,9 @@ namespace GodAndMe.Services
             if (forceRefresh)
             {
                 items = db.Table<Lent>().ToList();
+
             }
-            return await Task.FromResult(items.OrderByDescending((arg) => arg.Start));
+            return await Task.FromResult(items.Where(x => x.Start.Year == DateTime.Today.Year).OrderByDescending((arg) => arg.Start));
         }
     }
 }

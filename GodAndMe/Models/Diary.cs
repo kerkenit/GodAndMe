@@ -7,7 +7,8 @@ namespace GodAndMe.Models
     {
         God,
         DiscernmentOfSpirits,
-        Personal
+        Personal,
+        MomentsOfHappiness
     }
     [Table("Diary")]
     public class Diary
@@ -27,6 +28,17 @@ namespace GodAndMe.Models
         [Column("type")]
         public int DiaryType { get; set; }
 
+        [Ignore]
+        public DiaryType[] DiaryTypes { get; set; }
+
+        public bool ShowType
+        {
+            get
+            {
+                return DiaryTypes != null && DiaryTypes.Length > 1;
+            }
+        }
+
         public string DiaryTypeText
         {
             get
@@ -35,5 +47,12 @@ namespace GodAndMe.Models
             }
         }
 
+        public DiaryType DiaryTypeEnum
+        {
+            get
+            {
+                return (DiaryType)Enum.Parse(typeof(DiaryType), DiaryType.ToString());
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace LocalDataAccess.Droid
         {
             string dbName = "GodAndMe.db3";
             string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), dbName);
-            return new SQLiteConnection(path, true, "");
+            return new SQLiteConnection(path, true);
         }
     }
 }

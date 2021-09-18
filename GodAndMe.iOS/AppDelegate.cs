@@ -38,37 +38,72 @@ namespace GodAndMe.iOS
             observer = NSNotificationCenter.DefaultCenter.AddObserver((NSString)"NSUserDefaultsDidChangeNotification", DefaultsChanged);
             DefaultsChanged(null);
 
+            // GetUrlForUbiquityContainer is blocking, Apple recommends background thread or your UI will freeze
+            //ThreadPool.QueueUserWorkItem(_ =>
+            //{
+            //    CheckingForiCloud = true;
+            //    Console.WriteLine("Checking for iCloud");
+            //    var uburl = NSFileManager.DefaultManager.GetUrlForUbiquityContainer(null);
+            //    // OR instead of null you can specify "TEAMID.com.your-company.ApplicationName"
+
+            //    if (uburl == null)
+            //    {
+            //        Settings.HasiCloud = false;
+            //        Console.WriteLine("Can't find iCloud container, check your provisioning profile and entitlements");
+
+            //        InvokeOnMainThread(() =>
+            //        {
+            //            var alertController = UIAlertController.Create("No \uE049 available",
+            //            "Check your Entitlements.plist, BundleId, TeamId and Provisioning Profile!", UIAlertControllerStyle.Alert);
+            //            alertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Destructive, null));
+            //            UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(alertController, false, null);
+            //        });
+            //    }
+            //    else
+            //    { // iCloud enabled, store the NSURL for later use
+            //        Settings.HasiCloud = true;
+            //        iCloudUrl = uburl;
+            //        Console.WriteLine("yyy Yes iCloud! {0}", uburl.AbsoluteUrl);
+            //    }
+            //    CheckingForiCloud = false;
+            //});
+
             DependencyService.Register<Share>();
             ///DependencyService.Register<TouchID>();
 
 
-            LoadApplication(new App(theme));
+            LoadApplication(new App());
             // GetUrlForUbiquityContainer is blocking, Apple recommends background thread or your UI will freeze
 
 
             return base.FinishedLaunching(uiApplication, launchOptions);
         }
 
-        private Theme theme
-        {
-            get
-            {
-                //Ensure the current device is running 12.0 or higher, because `TraitCollection.UserInterfaceStyle` was introduced in iOS 12.0
-                if (false && UIDevice.CurrentDevice.CheckSystemVersion(12, 0))
-                {
-                    UIUserInterfaceStyle userInterfaceStyle = UIScreen.MainScreen.TraitCollection.UserInterfaceStyle;
+        //private Theme theme
+        //{
+        //    get
+        //    {
+        //        //Ensure the current device is running 12.0 or higher, because `TraitCollection.UserInterfaceStyle` was introduced in iOS 12.0
+        //        if (false && UIDevice.CurrentDevice.CheckSystemVersion(12, 0))
+        //        {
+        //            UIUserInterfaceStyle userInterfaceStyle = UIScreen.MainScreen.TraitCollection.UserInterfaceStyle;
 
-                    switch (userInterfaceStyle)
-                    {
-                        case UIUserInterfaceStyle.Light:
-                            return Theme.Light;
-                        case UIUserInterfaceStyle.Dark:
-                            return Theme.Dark;
-                    }
-                }
-                return Theme.Light;
-            }
-        }
+        //            switch (userInterfaceStyle)
+        //            {
+        //                case UIUserInterfaceStyle.Light:
+        //                    return Theme.Light;
+        //                case UIUserInterfaceStyle.Dark:
+        //                    return Theme.Dark;
+        //            }
+        //        }
+        //        return Theme.Light;
+        //    }
+        //}
+
+        public bool CheckingForiCloud { get; private set; }
+
+
+        private NSUrl iCloudUrl;
 
         /// <summary>
         /// Opens the URL.

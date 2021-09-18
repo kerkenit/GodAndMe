@@ -13,9 +13,23 @@ namespace GodAndMe.ViewModels
     {
         public ObservableCollection<Diary> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
+        public DiaryType[] DiaryTypes { get; set; }
 
-        public DiaryViewModel()
+        public DiaryViewModel(DiaryType[] types)
         {
+            if (types.Length > 0)
+            {
+                DiaryTypes = types;
+            }
+            else
+            {
+                DiaryTypes = new DiaryType[] {
+                    DiaryType.God,
+                    DiaryType.DiscernmentOfSpirits,
+                    DiaryType.Personal,
+                    DiaryType.MomentsOfHappiness
+                };
+            }
             Items = new ObservableCollection<Diary>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
@@ -77,7 +91,11 @@ namespace GodAndMe.ViewModels
                 var items = await DiaryDataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
-                    Items.Add(item);
+                    if (DiaryTypes.Contains(item.DiaryTypeEnum))
+                    {
+                        item.DiaryTypes = DiaryTypes;
+                        Items.Add(item);
+                    }
                 }
                 Items.OrderByDescending((arg) => arg.Start);
             }

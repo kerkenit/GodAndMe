@@ -10,11 +10,14 @@ namespace GodAndMe.Views
     public partial class DiaryDetailPage : ContentPage
     {
         DiaryDetailViewModel viewModel;
+        private DiaryType[] diaryTypes;
+
         public Diary Item { get; set; }
 
-        public DiaryDetailPage(DiaryDetailViewModel viewModel)
+        public DiaryDetailPage(DiaryDetailViewModel viewModel, DiaryType[] types)
         {
             InitializeComponent();
+            diaryTypes = types;
             Title = CommonFunctions.Date(viewModel.Item.Start);
 
             BindingContext = this.viewModel = viewModel;
@@ -27,7 +30,8 @@ namespace GodAndMe.Views
             Item = new Diary
             {
                 Id = Guid.NewGuid().ToString(),
-                Start = DateTime.Now
+                Start = DateTime.Now,
+                DiaryTypes = diaryTypes
             };
 
             viewModel = new DiaryDetailViewModel(Item);
@@ -41,7 +45,7 @@ namespace GodAndMe.Views
                 Item = await viewModel.DiaryDataStore.GetItemAsync(viewModel.Item.Id);
             }
 
-            await Navigation.PushAsync(new DiaryPageNew(Title, Item));
+            await Navigation.PushAsync(new DiaryPageNew(Title, diaryTypes, Item));
         }
     }
 }

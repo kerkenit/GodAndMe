@@ -240,6 +240,12 @@
     <data name="MyReligiousDiary" xml:space="preserve">
     <value>Mein religiöses Tagebuch</value>
   </data>
+    <data name="MyPersonalDiary" xml:space="preserve">
+        <value>Mein persönliches Tagebuch</value>
+    </data>
+    <data name="MomentsOfHappiness" xml:space="preserve">
+        <value>Moment des Glücks</value>
+    </data>
     <data name="MySins" xml:space="preserve">
     <value>Meine Sinne</value>
   </data>

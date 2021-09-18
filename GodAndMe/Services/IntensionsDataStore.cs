@@ -52,7 +52,7 @@ namespace GodAndMe.Services
 #pragma warning restore CS0162 // Unreachable code detected
             }
 #if DEBUG
-            else if (true && items.Count == 0)
+            else if (false && items.Count == 0)
             {
                 db.InsertAll(new List<Intention> {
                     new Intention {

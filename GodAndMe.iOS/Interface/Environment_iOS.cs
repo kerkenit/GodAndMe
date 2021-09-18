@@ -15,7 +15,7 @@ namespace GodAndMe.iOS
             get
             {
                 //Ensure the current device is running 12.0 or higher, because `TraitCollection.UserInterfaceStyle` was introduced in iOS 12.0
-                if (false && UIDevice.CurrentDevice.CheckSystemVersion(12, 0))
+                if (true && UIDevice.CurrentDevice.CheckSystemVersion(12, 0))
                 {
 
                     UIUserInterfaceStyle userInterfaceStyle = UIScreen.MainScreen.TraitCollection.UserInterfaceStyle;

@@ -135,6 +135,12 @@
     <data name="MyReligiousDiary" xml:space="preserve">
         <value>My religious diary</value>
     </data>
+    <data name="MyPersonalDiary" xml:space="preserve">
+        <value>My personal diary</value>
+    </data>
+    <data name="MomentsOfHappiness" xml:space="preserve">
+        <value>Moment of Happiness</value>
+    </data>
     <data name="MySins" xml:space="preserve">
         <value>My sins</value>
     </data>

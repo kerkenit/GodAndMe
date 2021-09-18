@@ -17,22 +17,24 @@ namespace GodAndMe
     public partial class App : Application
     {
         static ITouchID touchId = DependencyService.Get<ITouchID>();
+        // static IEnvironment environment = DependencyService.Get<IEnvironment>();
 #if __IOS__
         static UIView unlockView;
 #endif
         public static bool justShowedUnlockView = false;
         public static bool justUnlocked = false;
         public const int DELAY = 123;
-        public static Theme theme = Theme.Light;
+        //public static Theme theme = Theme.Light;
         public static bool unlocked_YN = false;
 
-        public App(Theme thema)
+        public App()
         {
+
+            //if (true)
+            //{
+            //    theme = environment.GetOperatingSystemTheme();
+            //}
             InitializeComponent();
-            if (false)
-            {
-                theme = thema;
-            }
             //App.SetTheme();
 
 #if DEBUG
@@ -62,14 +64,16 @@ namespace GodAndMe
             {
                 Blur();
             }
-            GetTheme();
+            //GetTheme();
             MainPage = new MainPage();
         }
 
         protected override void OnStart()
         {
+            justShowedUnlockView = false;
             justUnlocked = false;
-            GetTheme();
+            unlocked_YN = false;
+            //GetTheme();
             Device.BeginInvokeOnMainThread(async () =>
             {
                 if (!justUnlocked && touchId.CanAuthenticateUserIDWithTouchID())
@@ -81,6 +85,10 @@ namespace GodAndMe
 
         protected override void OnSleep()
         {
+            justShowedUnlockView = false;
+            justUnlocked = false;
+            unlocked_YN = false;
+
             // Handle when your app sleeps
             if (!justUnlocked && touchId.CanAuthenticateUserIDWithTouchID())
             {
@@ -92,6 +100,10 @@ namespace GodAndMe
 
         protected override void OnResume()
         {
+            justShowedUnlockView = false;
+            justUnlocked = false;
+            unlocked_YN = false;
+
             // Handle when your app resumes
             if (!unlocked_YN)
             {
@@ -114,37 +126,37 @@ namespace GodAndMe
             }
         }
 
-        public static void GetTheme()
-        {
-            //theme = DependencyService.Get<IEnvironment>().GetOperatingSystemTheme();
-            SetTheme();
-        }
+        //public static void GetTheme()
+        //{
+        //    //theme = DependencyService.Get<IEnvironment>().GetOperatingSystemTheme();
+        //    SetTheme();
+        //}
 
-        public static void SetTheme()
-        {
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                //Handle Light Theme & Dark Theme
-                ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
-                if (mergedDictionaries != null)
-                {
-                    mergedDictionaries.Clear();
-                    Uri url = new Uri("Themes/LightTheme.xaml", UriKind.Relative);
-                    switch (theme)
-                    {
-                        case Theme.Dark:
-                            mergedDictionaries.Add(new DarkTheme());
-                            url = new Uri("Themes/DarkTheme.xaml", UriKind.Relative);
-                            break;
-                        case Theme.Light:
-                        default:
-                            mergedDictionaries.Add(new LightTheme());
-                            break;
-                    }
-                    //Application.Current.Resources.Source = url;
-                }
-            });
-        }
+        //public static void SetTheme()
+        //{
+        //    Device.BeginInvokeOnMainThread(async () =>
+        //    {
+        //        //Handle Light Theme & Dark Theme
+        //        ICollection<ResourceDictionary> mergedDictionaries = Application.Current.Resources.MergedDictionaries;
+        //        if (mergedDictionaries != null)
+        //        {
+        //            mergedDictionaries.Clear();
+        //            Uri url = new Uri("Themes/LightTheme.xaml", UriKind.Relative);
+        //            switch (theme)
+        //            {
+        //                case Theme.Dark:
+        //                    mergedDictionaries.Add(new DarkTheme());
+        //                    url = new Uri("Themes/DarkTheme.xaml", UriKind.Relative);
+        //                    break;
+        //                case Theme.Light:
+        //                default:
+        //                    mergedDictionaries.Add(new LightTheme());
+        //                    break;
+        //            }
+        //            //Application.Current.Resources.Source = url;
+        //        }
+        //    });
+        //}
 
         public static Task<bool> AuthenticatedWithTouchID()
         {
@@ -199,7 +211,7 @@ namespace GodAndMe
                 {
                     UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
-                    UIVisualEffect blurEffect = UIBlurEffect.FromStyle(App.theme == Theme.Light ? UIBlurEffectStyle.Light : UIBlurEffectStyle.Dark);
+                    UIVisualEffect blurEffect = UIBlurEffect.FromStyle(Current.UserAppTheme == OSAppTheme.Light ? UIBlurEffectStyle.Light : UIBlurEffectStyle.Dark);
                     UIVisualEffectView visualEffectView = new UIVisualEffectView(blurEffect)
                     {
                         Frame = yourController.View.Bounds,

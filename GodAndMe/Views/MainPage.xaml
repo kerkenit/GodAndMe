@@ -2,24 +2,24 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:views="clr-namespace:GodAndMe.Views" xmlns:resX="clr-namespace:GodAndMe.Resx" x:Class="GodAndMe.Views.MainPage">
 
     <MasterDetailPage.Master>
-        <ContentPage Title="{resX:TranslateExtension Menu}" Style="{DynamicResource MenuContentPage}">
-            <StackLayout Orientation="Vertical" Style="{DynamicResource MenuContentPageStack}" VerticalOptions="FillAndExpand">
+        <ContentPage Title="{resX:TranslateExtension Menu}" Style="{StaticResource MenuContentPage}">
+            <StackLayout Orientation="Vertical" Style="{StaticResource MenuContentPageStack}" VerticalOptions="FillAndExpand">
                 <!-- 
              This StackLayout you can use for other
              data that you want to have in your menu drawer
         -->
-                <StackLayout BackgroundColor="{DynamicResource NavigationPrimary}" HeightRequest="88">
-                    <Label Text="{resX:TranslateExtension ApplicationTitle}" FontSize="Large" Margin="0,0,0,10" VerticalOptions="EndAndExpand" TextColor="{DynamicResource PrimaryTextColor}" HorizontalOptions="Center" />
+                <StackLayout BackgroundColor="{AppThemeBinding Light={StaticResource LightNavigationPrimary}, Dark={StaticResource DarkNavigationPrimary}}" HeightRequest="88">
+                    <Label Text="{resX:TranslateExtension ApplicationTitle}" FontSize="Large" Margin="0,0,0,10" VerticalOptions="EndAndExpand" TextColor="{AppThemeBinding Light={x:StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" HorizontalOptions="Center" />
                 </StackLayout>
 
-                <ListView x:Name="navigationDrawerList" RowHeight="52" SeparatorVisibility="Default" ItemSelected="OnMenuItemSelected" Style="{DynamicResource navigationDrawerList}">
+                <ListView x:Name="navigationDrawerList" RowHeight="52" SeparatorVisibility="Default" ItemSelected="OnMenuItemSelected" Style="{StaticResource navigationDrawerList}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <!-- Main design for our menu items -->
-                                <StackLayout x:Name="navigationStackLayout" VerticalOptions="StartAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20" Style="{DynamicResource navigationStackLayout}">
-                                    <local:IconView Source="{Binding IconSource}" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" Foreground="{DynamicResource PrimaryTextColor}" />
-                                    <Label Text="{Binding Title}" FontSize="Default" VerticalOptions="Center" x:Name="navigationLabel" TextColor="{DynamicResource PrimaryTextColor}" />
+                                <StackLayout x:Name="navigationStackLayout" VerticalOptions="StartAndExpand" Orientation="Horizontal" Padding="20,10,0,10" Spacing="20" Style="{StaticResource navigationStackLayout}">
+                                    <local:IconView Source="{Binding IconSource}" WidthRequest="32" HeightRequest="32" VerticalOptions="Center" Foreground="{AppThemeBinding Light={x:StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
+                                    <Label Text="{Binding Title}" FontSize="Default" VerticalOptions="Center" x:Name="navigationLabel" TextColor="{AppThemeBinding Light={x:StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}" />
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

@@ -16,13 +16,13 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand">
-            <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+            <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected" PropertyChanged="OnPropertyChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
                                 <MenuItem x:Name="Archive" Clicked="OnArchive" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Archive}" IsDestructive="false" />
-                                <MenuItem x:Name="Share" Clicked="OnShare" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Share}" />
+                                <!--<MenuItem x:Name="Share" Clicked="OnShare" CommandParameter="{Binding Id}" Text="{resX:TranslateExtension Share}" />-->
                                 <MenuItem x:Name="Delete" Clicked="OnDelete" CommandParameter="{Binding Id}" Icon="trash.png" Text="{resX:TranslateExtension Delete}" IsDestructive="True">
                                     <MenuItem.Icon>
                                         <OnPlatform x:TypeArguments="FileImageSource">
@@ -33,8 +33,8 @@
                                 </MenuItem>
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10">
-                                <Label Text="{Binding Committed, Converter={StaticResource DateConverter}}" Style="{DynamicResource DateLabel}" TextColor="{Binding TextColor}" />
-                                <Label Text="{Binding Description}" Style="{DynamicResource LabelDescription}" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Committed, Converter={StaticResource DateConverter}}" Style="{StaticResource DateLabel}" TextColor="{Binding TextColor}" />
+                                <Label Text="{Binding Description}" Style="{StaticResource LabelDescription}" TextColor="{Binding TextColor}" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

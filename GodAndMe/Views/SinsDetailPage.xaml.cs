@@ -17,6 +17,7 @@ namespace GodAndMe.Views
             InitializeComponent();
             Title = CommonFunctions.Date(viewModel.Item.Committed);
             BindingContext = this.viewModel = viewModel;
+            Item = viewModel.Item;
         }
 
         public SinsDetailPage()
@@ -35,7 +36,7 @@ namespace GodAndMe.Views
 
         async void EditItem_Clicked(object sender, EventArgs e)
         {
-            if ((viewModel != null) && (viewModel.Item != null) && (viewModel.SinsDataStore != null))
+            if ((viewModel != null) && (viewModel.Item != null))
             {
                 Item = await viewModel.SinsDataStore.GetItemAsync(viewModel.Item.Id);
             }

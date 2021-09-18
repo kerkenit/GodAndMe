@@ -76,13 +76,13 @@
       <Version>28.0.0.3</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
-      <Version>1.6.292</Version>
+      <Version>1.7.335</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.2.0.848062</Version>
+      <Version>5.0.0.2012</Version>
     </PackageReference>
     <PackageReference Include="Plugin.CurrentActivity">
       <Version>2.1.0.4</Version>
@@ -121,7 +121,6 @@
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Interface\Document_Android.cs" />
     <Compile Include="Renderers\NullableDatePickerRenderer.cs" />
-    <Compile Include="Interface\Environment_Android.cs" />
     <Compile Include="Renderers\IconViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +128,7 @@
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Helpers\Settings.cs" />
+    <None Include="Interface\Environment_Android.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.axml" />

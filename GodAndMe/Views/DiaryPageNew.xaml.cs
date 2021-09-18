@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using GodAndMe.Models;
 using GodAndMe.ViewModels;
 using Xamarin.Forms;
@@ -11,10 +12,12 @@ namespace GodAndMe.Views
     {
         public DiaryDetailViewModel viewModel;
         public Diary Item { get; set; }
+        private DiaryType[] diaryTypes;
 
-        public DiaryPageNew(string title, Diary item = null)
+        public DiaryPageNew(string title, DiaryType[] types, Diary item = null)
         {
             InitializeComponent();
+            diaryTypes = types;
 
 #if __IOS__
             ToolbarItem btCancel = new ToolbarItem()
@@ -35,6 +38,11 @@ namespace GodAndMe.Views
             if (item != null)
             {
                 Item = item;
+                ddlType.Items.Add(CommonFunctions.i18n("God"));
+                ddlType.Items.Add(CommonFunctions.i18n("DiscernmentOfSpirits"));
+                ddlType.Items.Add(CommonFunctions.i18n("Personal"));
+                ddlType.Items.Add(CommonFunctions.i18n("MomentsOfHappiness"));
+                ddlType.SelectedItem = CommonFunctions.i18n(Enum.GetName(typeof(DiaryType), Item.DiaryType));
             }
             else
             {
@@ -43,16 +51,29 @@ namespace GodAndMe.Views
                     Id = Guid.NewGuid().ToString(),
                     Start = DateTime.Now
                 };
-            }
+                if (types.Contains(DiaryType.God))
+                {
+                    ddlType.Items.Add(CommonFunctions.i18n("God"));
+                }
+                if (types.Contains(DiaryType.DiscernmentOfSpirits))
+                {
+                    ddlType.Items.Add(CommonFunctions.i18n("DiscernmentOfSpirits"));
+                }
+                if (types.Contains(DiaryType.Personal))
+                {
+                    ddlType.Items.Add(CommonFunctions.i18n("Personal"));
+                }
+                if (types.Contains(DiaryType.MomentsOfHappiness))
+                {
+                    ddlType.Items.Add(CommonFunctions.i18n("MomentsOfHappiness"));
+                }
 
-            ddlType.Items.Add(CommonFunctions.i18n("God"));
-            ddlType.Items.Add(CommonFunctions.i18n("DiscernmentOfSpirits"));
-            ddlType.Items.Add(CommonFunctions.i18n("Personal"));
+                ddlType.SelectedIndex = 0;
+            }
             ddlType.SelectedIndexChanged += ddlType_SelectedIndexChanged;
             viewModel = new DiaryDetailViewModel(Item);
             BindingContext = viewModel;
 
-            ddlType.SelectedIndex = Item.DiaryType;
 
 
 
@@ -98,7 +119,24 @@ namespace GodAndMe.Views
         async void Save_Clicked(object sender, EventArgs e)
         {
             Item = viewModel.Item;
-            Item.DiaryType = ddlType.SelectedIndex;
+
+            if (ddlType.SelectedItem.ToString() == CommonFunctions.i18n("DiscernmentOfSpirits"))
+            {
+                Item.DiaryType = (int)DiaryType.DiscernmentOfSpirits;
+            }
+            else if (ddlType.SelectedItem.ToString() == CommonFunctions.i18n("Personal"))
+            {
+                Item.DiaryType = (int)DiaryType.Personal;
+            }
+            else if (ddlType.SelectedItem.ToString() == CommonFunctions.i18n("MomentsOfHappiness"))
+            {
+                Item.DiaryType = (int)DiaryType.MomentsOfHappiness;
+            }
+            else
+            {
+                Item.DiaryType = (int)DiaryType.God;
+            }
+
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopToRootAsync();
         }

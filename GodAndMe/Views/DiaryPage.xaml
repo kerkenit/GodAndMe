@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GodAndMe.Views.DiaryPage" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx" xmlns:converters="clr-namespace:GodAndMe.Converters" Title="{resX:TranslateExtension Diary}" x:Name="BrowseDiaryPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="GodAndMe.Views.DiaryPage" xmlns:i18n="clr-namespace:GodAndMe" xmlns:local="clr-namespace:GodAndMe" xmlns:resX="clr-namespace:GodAndMe.Resx" xmlns:converters="clr-namespace:GodAndMe.Converters" x:Name="BrowseDiaryPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:DateConverter x:Key="DateConverter"></converters:DateConverter>
@@ -41,10 +41,10 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Text="{Binding Start, Converter={StaticResource DateConverter}}" Style="{DynamicResource DateLabel}" Grid.Row="0" Grid.Column="0" HorizontalOptions="StartAndExpand" />
-                                    <Label Text="{Binding DiaryTypeText}" Style="{DynamicResource DateLabel}" Grid.Row="0" Grid.Column="1" HorizontalOptions="EndAndExpand" />
+                                    <Label Text="{Binding Start, Converter={StaticResource DateConverter}}" Style="{StaticResource DateLabel}" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" />
+                                    <Label Text="{Binding DiaryTypeText}" Style="{StaticResource DateLabel}" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" IsVisible="{Binding ShowType}"  />
 
-                                    <Label Text="{Binding Description}" Style="{DynamicResource LabelDescription}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                                    <Label Text="{Binding Description}" Style="{StaticResource LabelDescription}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
                                 </Grid>
                             </StackLayout>
                         </ViewCell>

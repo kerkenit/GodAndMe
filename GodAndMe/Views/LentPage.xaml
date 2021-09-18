@@ -42,9 +42,9 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="75" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding Start, Converter={StaticResource DateConverter}}" Style="{DynamicResource DateLabel}" TextColor="{Binding TextColor}" Grid.Row="0" Grid.Column="0" />
-                                    <Label Text="{Binding SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" Style="{DynamicResource Money}" TextColor="{Binding TextColor}" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
-                                    <Label Text="{Binding Text}" Style="{DynamicResource LabelDescription}" TextColor="{Binding TextColor}" Grid.Row="1" Grid.Column="0" />
+                                    <Label Text="{Binding Start, Converter={StaticResource DateConverter}}" Style="{StaticResource DateLabel}" TextColor="{Binding TextColor}" Grid.Row="0" Grid.Column="0" />
+                                    <Label Text="{Binding SavedMoney, StringFormat='{0:C}'}" LineBreakMode="NoWrap" Style="{StaticResource Money}" TextColor="{Binding TextColor}" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="End" VerticalOptions="CenterAndExpand" />
+                                    <Label Text="{Binding Text}" Style="{StaticResource LabelDescription}" TextColor="{Binding TextColor}" Grid.Row="1" Grid.Column="0" />
                                 </Grid>
                             </StackLayout>
                         </ViewCell>

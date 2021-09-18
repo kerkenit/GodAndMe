@@ -45,7 +45,32 @@ namespace GodAndMe.Views
             {
                 Title = CommonFunctions.i18n("MyReligiousDiary"),
                 IconSource = "tab_diary.png",
-                TargetType = typeof(DiaryPage)
+                TargetType = typeof(DiaryPage),
+
+                args = new object[] {
+                    new DiaryType[] { DiaryType.God, DiaryType.DiscernmentOfSpirits },
+                    CommonFunctions.i18n("Diary")
+                }
+            });
+            menuList.Add(new MasterPageItem
+            {
+                Title = CommonFunctions.i18n("MyPersonalDiary"),
+                IconSource = "tab_diary.png",
+                TargetType = typeof(DiaryPage),
+                args = new object[] {
+                    new DiaryType[] { DiaryType.Personal },
+                    CommonFunctions.i18n("Personal")
+                }
+            });
+            menuList.Add(new MasterPageItem
+            {
+                Title = CommonFunctions.i18n("MomentsOfHappiness"),
+                IconSource = "tab_diary.png",
+                TargetType = typeof(DiaryPage),
+                args = new object[] {
+                    new DiaryType[] { DiaryType.MomentsOfHappiness },
+                    CommonFunctions.i18n("MomentsOfHappiness")
+                }
             });
             menuList.Add(new MasterPageItem
             {
@@ -78,7 +103,7 @@ namespace GodAndMe.Views
             // Setting our list to be ItemSource for ListView in MainPage.xaml
             navigationDrawerList.ItemsSource = menuList;
             // Initial navigation, this can be used for our home page
-            App.GetTheme();
+            //App.GetTheme();
             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
             //masterPage.listView.ItemSelected += OnItemSelected;
             MasterBehavior = MasterBehavior.Split;
@@ -116,7 +141,7 @@ namespace GodAndMe.Views
                     intention.Completed = false;
                     IDataStore<Intention> IntentionDataStore = new IntentionsDataStore();
                     IntentionDataStore.AddItemAsync(intention);
-                    App.GetTheme();
+                    // App.GetTheme();
                     Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
                 }
                 else if (sender != null && sender.GetType() == typeof(Sins))
@@ -126,7 +151,7 @@ namespace GodAndMe.Views
                     sin.Id = Guid.NewGuid().ToString();
                     IDataStore<Sins> SinsDataStore = new SinsDataStore();
                     SinsDataStore.AddItemAsync(sin);
-                    App.GetTheme();
+                    // App.GetTheme();
                     Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(SinsPage)));
                 }
             }
@@ -208,7 +233,7 @@ namespace GodAndMe.Views
                             db.CreateTable<Sins>();
                             db.DeleteAll<Sins>();
                             db.InsertAll(BaseJson.sins);
-                            App.GetTheme();
+                            //App.GetTheme();
                             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(IntentionPage)));
                         }
                     });
@@ -225,10 +250,24 @@ namespace GodAndMe.Views
             var item = e.SelectedItem as MasterPageItem;
             if (item != null)
             {
-                App.GetTheme();
-                Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
+                //App.GetTheme();
+                if (item.TargetType == typeof(DiaryPage))
+                {
+                    Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType, item.args));
+                }
+                else
+                {
+                    Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
+                }
+
                 //masterPage.listView.SelectedItem = null;
-                IsPresented = false;
+                try
+                {
+                    IsPresented = false;
+                }
+                catch (InvalidOperationException)
+                {
+                }
             }
         }
     }

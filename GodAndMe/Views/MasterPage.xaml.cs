@@ -12,7 +12,7 @@ namespace GodAndMe.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            App.GetTheme();
+            // App.GetTheme();
         }
     }
 }

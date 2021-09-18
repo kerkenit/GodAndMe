@@ -11,10 +11,14 @@ namespace GodAndMe.Views
     public partial class DiaryPage : ContentPage
     {
         DiaryViewModel viewModel;
+        private DiaryType[] diaryTypes;
 
-        public DiaryPage()
+        public DiaryPage(object[] args)
         {
+            DiaryType[] types = (DiaryType[])args[0];
+            Title = (string)args[1];
             InitializeComponent();
+            diaryTypes = types;
 #if __IOS__
             var toolbarItem = new ToolbarItem();
             toolbarItem.IconImageSource = "hamburger.png";
@@ -25,7 +29,7 @@ namespace GodAndMe.Views
             };
             ToolbarItems.Add(toolbarItem);
 #endif
-            BindingContext = viewModel = new DiaryViewModel();
+            BindingContext = viewModel = new DiaryViewModel(diaryTypes);
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -33,7 +37,7 @@ namespace GodAndMe.Views
             if (!(args.SelectedItem is Diary item))
                 return;
 
-            await Navigation.PushAsync(new DiaryDetailPage(new DiaryDetailViewModel(item)));
+            await Navigation.PushAsync(new DiaryDetailPage(new DiaryDetailViewModel(item), diaryTypes));
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;
@@ -41,7 +45,7 @@ namespace GodAndMe.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DiaryPageNew(CommonFunctions.i18n("NewMessage")));
+            await Navigation.PushAsync(new DiaryPageNew(CommonFunctions.i18n("NewMessage"), diaryTypes));
         }
 
         public void OnDelete(object sender, EventArgs e)

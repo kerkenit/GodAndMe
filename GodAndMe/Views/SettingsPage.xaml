@@ -14,10 +14,10 @@
                 </TableRoot>
             </TableView>
             <StackLayout x:Name="pnlImportAndExport" Orientation="Vertical" VerticalOptions="StartAndExpand" Padding="16,40,16,40" Spacing="10" IsVisible="false">
-                <Label Text="{resX:TranslateExtension ImportAndExport}" Style="{DynamicResource LabelTitle}" />
-                <Label Text="{resX:TranslateExtension ImportAndExportText}" Style="{DynamicResource LabelDescription}" />
-                <Button x:Name="btImport" Margin="0,10,0,0" Text="{resX:TranslateExtension Import}" BackgroundColor="{StaticResource Primary}" TextColor="Black" Clicked="Import_Clicked" />
-                <Button x:Name="btExport" Margin="0,10,0,0" Text="{resX:TranslateExtension Export}" BackgroundColor="{StaticResource Primary}" TextColor="Black" Clicked="Export_Clicked" />
+                <Label Text="{resX:TranslateExtension ImportAndExport}" Style="{StaticResource LabelTitle}" />
+                <Label Text="{resX:TranslateExtension ImportAndExportText}" Style="{StaticResource LabelDescription}" />
+                <Button x:Name="btImport" Margin="0,10,0,0" Text="{resX:TranslateExtension Import}" BackgroundColor="{AppThemeBinding Light={StaticResource LightPrimary}, Dark={StaticResource DarkPrimary}}" TextColor="Black" Clicked="Import_Clicked" />
+                <Button x:Name="btExport" Margin="0,10,0,0" Text="{resX:TranslateExtension Export}" BackgroundColor="{AppThemeBinding Light={StaticResource LightPrimary}, Dark={StaticResource DarkPrimary}}" TextColor="Black" Clicked="Export_Clicked" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

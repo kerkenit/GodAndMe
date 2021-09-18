@@ -21,15 +21,15 @@
                     <ColumnDefinition Width="30" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="{resX:TranslateExtension OriginalPrice}" Style="{DynamicResource LabelTitle}" Margin="0" Grid.Row="0" Grid.Column="0" />
-                <Label Text="{resX:TranslateExtension Payed}" Style="{DynamicResource LabelTitle}" Margin="0" Grid.Row="0" Grid.Column="2" />
-                <Entry x:Name="tbMoneyFrom" Text="{Binding Item.MoneyFrom, StringFormat='{0:C}'}" Style="{DynamicResource EntryMoney}" Grid.Row="1" Grid.Column="0" />
-                <Entry x:Name="tbMoneyTo" Text="{Binding Item.MoneyTo, StringFormat='{0:C}'}" Style="{DynamicResource EntryMoney}" Grid.Row="1" Grid.Column="2" />
+                <Label Text="{resX:TranslateExtension OriginalPrice}" Style="{StaticResource LabelTitle}" Margin="0" Grid.Row="0" Grid.Column="0" />
+                <Label Text="{resX:TranslateExtension Payed}" Style="{StaticResource LabelTitle}" Margin="0" Grid.Row="0" Grid.Column="2" />
+                <Entry x:Name="tbMoneyFrom" Text="{Binding Item.MoneyFrom, StringFormat='{0:C}'}" Style="{StaticResource EntryMoney}" Grid.Row="1" Grid.Column="0" />
+                <Entry x:Name="tbMoneyTo" Text="{Binding Item.MoneyTo, StringFormat='{0:C}'}" Style="{StaticResource EntryMoney}" Grid.Row="1" Grid.Column="2" />
             </Grid>
-            <Label Text="{resX:TranslateExtension Description}" Style="{DynamicResource LabelTitle}" />
-            <Entry Text="{Binding Item.Text}" Style="{DynamicResource EntryValue}" Grid.Row="0" Grid.Column="0" />
-            <Label Text="{resX:TranslateExtension SavedAt}" Style="{DynamicResource LabelTitle}" />
-            <DatePicker x:Name="ddlStart" Style="{DynamicResource DatePicker}" Date="{Binding Item.Start}" />
+            <Label Text="{resX:TranslateExtension Description}" Style="{StaticResource LabelTitle}" />
+            <Entry Text="{Binding Item.Text}" Style="{StaticResource EntryValue}" Grid.Row="0" Grid.Column="0" />
+            <Label Text="{resX:TranslateExtension SavedAt}" Style="{StaticResource LabelTitle}" />
+            <DatePicker x:Name="ddlStart" Style="{StaticResource DatePicker}" Date="{Binding Item.Start}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -110,6 +110,8 @@ namespace GodAndMe.iOS
                             Console.WriteLine(error.LocalizedDescription);
                             //Show fallback mechanism here
                             unAuthenticatedLabel.Text = $"{BiometryType} Authentication Failed";
+
+
                             //AuthenticateButton.Hidden = true;
                         }
                     });

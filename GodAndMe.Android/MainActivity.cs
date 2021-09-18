@@ -3,6 +3,7 @@ using Android;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Content.Res;
 using Android.OS;
 using Plugin.CurrentActivity;
 using RuntimePermissions;
@@ -82,6 +83,34 @@ namespace GodAndMe.Droid
 
             }
         }
+
+        //        public GodAndMe.Theme GetOperatingSystemTheme()
+        //        {
+        //            //Ensure the device is running Android Froyo or higher because UIMode was added in Android Froyo, API 8.0
+        //            if (Build.VERSION.SdkInt >= BuildVersionCodes.Froyo)
+        //            {
+        //                var uiModeFlags = CrossCurrentActivity.Current.AppContext.Resources.Configuration.UiMode & UiMode.NightMask;
+
+        //                switch (uiModeFlags)
+        //                {
+        //                    case UiMode.NightYes:
+        //                        return GodAndMe.Theme.Dark;
+
+        //                    case UiMode.NightNo:
+        //                        return GodAndMe.Theme.Light;
+        //                    default:
+        //#if DEBUG
+        //                        throw new NotSupportedException($"UiMode {uiModeFlags} not supported");
+        //#else
+        //                        return GodAndMe.Theme.Light;
+        //#endif
+        //                }
+        //            }
+        //            else
+        //            {
+        //                return GodAndMe.Theme.Light;
+        //            }
+        //        }
 
 
         /*

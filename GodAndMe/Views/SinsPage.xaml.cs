@@ -37,7 +37,34 @@ namespace GodAndMe.Views
             ToolbarItems.Add(toolbarItem);
 #endif
             BindingContext = viewModel = new SinsViewModel();
+#if DEBUG
+            if (viewModel != null && viewModel.Items != null && viewModel.Items.Count == 0 && viewModel.LoadItemsCommand != null)
+            {
+                viewModel.LoadItemsCommand.Execute(null);
+                GoToToday();
+            }
+#endif
         }
+#if DEBUG
+        void GoToToday()
+        {
+            if (ItemsListView != null && ItemsListView.ItemsSource != null && viewModel != null && viewModel.Items != null && viewModel.Items.Any((arg) => !arg.Confessed))
+            {
+                Sins firstSin = ItemsListView.ItemsSource.Cast<Sins>().OrderBy((arg) => arg.Confessed).FirstOrDefault((arg) => !arg.Confessed);
+                if (firstSin != null)
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        if (ItemsListView != null)
+                        {
+                            ItemsListView.ScrollTo(firstSin, ScrollToPosition.Start, false);
+                        }
+                    });
+                }
+            }
+        }
+#endif
+
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
@@ -62,7 +89,8 @@ namespace GodAndMe.Views
             var item = viewModel.Items.First(x => x.Id == mi.CommandParameter.ToString()) as Sins;
             item.Confessed = true;
             MessagingCenter.Send(this, "UpdateItem", item);
-            viewModel.LoadItemsCommand.Execute(null);
+            item.OnPropertyChanged("Confessed");
+            //viewModel.LoadItemsCommand.Execute(null);
             //Device.BeginInvokeOnMainThread(() =>
             //{
             //    IntentionsListView.Unfocus();
@@ -70,6 +98,9 @@ namespace GodAndMe.Views
             //viewModel.Intentions.Remove(item);
             //viewModel.LoadIntentionsCommand.Execute(null);
             //viewModel.IsBusy = false;
+
+            // viewModel.LoadItemsCommand.Execute(null);
+            //GoToToday();
         }
 
         public void OnShare(object sender, EventArgs e)
@@ -113,6 +144,10 @@ namespace GodAndMe.Views
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
 
+        }
+
+        void OnPropertyChanged(Object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
         }
     }
 }
