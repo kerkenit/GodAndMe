@@ -316,11 +316,6 @@
 			<Project>{AACBD266-AF23-48D4-BD14-073ECE957791}</Project>
 			<Name>GodAndMe</Name>
 		</ProjectReference>
-		<ProjectReference Include="..\GodandMe.WatchOSApp\GodandMe.WatchOSApp.csproj">
-			<IsWatchApp>true</IsWatchApp>
-			<Project>{54672F62-5C8B-4E5A-BABF-9CBC94C711D9}</Project>
-			<Name>GodandMe.WatchOSApp</Name>
-		</ProjectReference>
 	</ItemGroup>
 	<ItemGroup>
 		<ITunesArtwork Include="iTunesArtwork" />
