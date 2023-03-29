@@ -8,9 +8,9 @@
         <OutputType>Library</OutputType>
         <RootNamespace>GodAndMe</RootNamespace>
         <AssemblyName>GodAndMe</AssemblyName>
-        <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
         <ReleaseVersion>1.2.6</ReleaseVersion>
-        <TargetFrameworkProfile>Profile344</TargetFrameworkProfile>
+        <TargetFrameworkProfile>Profile44</TargetFrameworkProfile>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Android|AnyCPU' ">
         <DebugSymbols>true</DebugSymbols>
