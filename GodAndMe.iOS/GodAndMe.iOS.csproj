@@ -27,12 +27,13 @@
 		<WarningLevel>4</WarningLevel>
 		<ConsolePause>false</ConsolePause>
 		<MtouchArch>i386, x86_64</MtouchArch>
-		<MtouchLink>None</MtouchLink>
+		<MtouchLink>Full</MtouchLink>
 		<MtouchDebug>true</MtouchDebug>
 		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
-		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+		<CodesignProvision>God and Me iOS Development</CodesignProvision>
 		<DeviceSpecificBuild>true</DeviceSpecificBuild>
 		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+		<MtouchSdkVersion>16.4</MtouchSdkVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release iPhoneSimulator|iPhoneSimulator' ">
 		<DebugType>none</DebugType>
@@ -61,10 +62,11 @@
 		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
 		<MtouchDebug>true</MtouchDebug>
 		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-		<CodesignProvision>Automatic</CodesignProvision>
+		<CodesignProvision>God and Me iOS Development</CodesignProvision>
 		<MtouchLink>None</MtouchLink>
 		<MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
 		<DeviceSpecificBuild>true</DeviceSpecificBuild>
+		<MtouchInterpreter>-all</MtouchInterpreter>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release iPhone|iPhone' ">
 		<DebugType>none</DebugType>
@@ -74,18 +76,19 @@
 		<WarningLevel>4</WarningLevel>
 		<MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
 		<ConsolePause>false</ConsolePause>
-		<CodesignKey>iPhone Distribution: Kerk en IT (6V28A47VS9)</CodesignKey>
+		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
 		<CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
 		<MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-		<CodesignProvision></CodesignProvision>
+		<CodesignProvision>VS: WildCard Development</CodesignProvision>
 		<MtouchUseLlvm>true</MtouchUseLlvm>
 		<MtouchUseThumb>true</MtouchUseThumb>
 		<MtouchLink>SdkOnly</MtouchLink>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<CodesignProvision>VS: WildCard Development</CodesignProvision>
+		<CodesignProvision>God and Me iOS Development</CodesignProvision>
 		<CodesignKey>Apple Development: Marco van 't Klooster (52LZCCYKGG)</CodesignKey>
 		<MtouchLink>SdkOnly</MtouchLink>
+		<MtouchArch>ARMv7</MtouchArch>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
 		<CodesignProvision>VS: WildCard Development</CodesignProvision>
@@ -283,9 +286,9 @@
 		<Reference Include="Xamarin.iOS" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
 		<PackageReference Include="sqlite-net-pcl">
-			<Version>1.8.116</Version>
+			<Version>1.7.335</Version>
 		</PackageReference>
 		<PackageReference Include="Xam.Plugins.Settings">
 			<Version>3.1.1</Version>

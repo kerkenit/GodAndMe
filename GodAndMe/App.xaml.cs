@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GodAndMe.DependencyServices;
 using GodAndMe.Views;
 #if __IOS__
-//using UIKit;
+using UIKit;
 #endif
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,7 +19,7 @@ namespace GodAndMe
         static ITouchID touchId = DependencyService.Get<ITouchID>();
         // static IEnvironment environment = DependencyService.Get<IEnvironment>();
 #if __IOS__
-       // static UIView unlockView;
+        static UIView unlockView;
 #endif
         public static bool justShowedUnlockView = false;
         public static bool justUnlocked = false;
@@ -167,20 +167,20 @@ namespace GodAndMe
                 Device.BeginInvokeOnMainThread(async () =>
                 {
 #if __IOS__
-                    //UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+                    UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
-                    //if (unlockView != null)
-                    //{
-                    //    foreach (UIView view in yourController.View.Subviews)
-                    //    {
-                    //        if (view.GetType() == typeof(UIVisualEffectView))
-                    //        {
-                    //            view.RemoveFromSuperview();
-                    //        }
-                    //    }
-                    //    unlockView.RemoveFromSuperview();
-                    //    Blur();
-                    //}
+                    if (unlockView != null)
+                    {
+                        foreach (UIView view in yourController.View.Subviews)
+                        {
+                            if (view.GetType() == typeof(UIVisualEffectView))
+                            {
+                                view.RemoveFromSuperview();
+                            }
+                        }
+                        unlockView.RemoveFromSuperview();
+                        Blur();
+                    }
 #endif
                     bool _authenticatedWithTouchID = await touchId.AuthenticateUserIDWithTouchID();
                     if (_authenticatedWithTouchID)
@@ -207,19 +207,19 @@ namespace GodAndMe
             if (!justShowedUnlockView)
             {
 #if __IOS__
-                //Device.BeginInvokeOnMainThread(() =>
-                //{
-                //    UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
-                //    UIVisualEffect blurEffect = UIBlurEffect.FromStyle(Current.UserAppTheme == OSAppTheme.Light ? UIBlurEffectStyle.Light : UIBlurEffectStyle.Dark);
-                //    UIVisualEffectView visualEffectView = new UIVisualEffectView(blurEffect)
-                //    {
-                //        Frame = yourController.View.Bounds,
+                    UIVisualEffect blurEffect = UIBlurEffect.FromStyle(Current.UserAppTheme == OSAppTheme.Light ? UIBlurEffectStyle.Light : UIBlurEffectStyle.Dark);
+                    UIVisualEffectView visualEffectView = new UIVisualEffectView(blurEffect)
+                    {
+                        Frame = yourController.View.Bounds,
 
-                //    };
-                //    yourController.View.AddSubview(visualEffectView);
-                //    UIApplication.SharedApplication.KeyWindow.BringSubviewToFront(visualEffectView);
-                //});
+                    };
+                    yourController.View.AddSubview(visualEffectView);
+                    UIApplication.SharedApplication.KeyWindow.BringSubviewToFront(visualEffectView);
+                });
 #endif
             }
         }
@@ -228,18 +228,18 @@ namespace GodAndMe
         {
             justShowedUnlockView = true;
 #if __IOS__
-            //Device.BeginInvokeOnMainThread(() =>
-            //{
-            //    UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
 
-            //    foreach (UIView view in yourController.View.Subviews)
-            //    {
-            //        if (view.GetType() == typeof(UIVisualEffectView))
-            //        {
-            //            view.RemoveFromSuperview();
-            //        }
-            //    }
-            //});
+                foreach (UIView view in yourController.View.Subviews)
+                {
+                    if (view.GetType() == typeof(UIVisualEffectView))
+                    {
+                        view.RemoveFromSuperview();
+                    }
+                }
+            });
 #endif
             Task.Factory.StartNew(() =>
             {
@@ -253,15 +253,15 @@ namespace GodAndMe
         {
             justShowedUnlockView = true;
 #if __IOS__
-            //Device.BeginInvokeOnMainThread(() =>
-            //{
-            //    UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
-            //    UIStoryboard storyboard = UIStoryboard.FromName("UnlockScreen", null);
-            //    UIViewController viewController = storyboard.InstantiateViewController("UnlockScreen");
-            //    unlockView = viewController.View;
-            //    yourController.View.AddSubview(unlockView);
-            //    UIApplication.SharedApplication.KeyWindow.BringSubviewToFront(unlockView);
-            //});
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                UIViewController yourController = UIApplication.SharedApplication.KeyWindow.RootViewController;
+                UIStoryboard storyboard = UIStoryboard.FromName("UnlockScreen", null);
+                UIViewController viewController = storyboard.InstantiateViewController("UnlockScreen");
+                unlockView = viewController.View;
+                yourController.View.AddSubview(unlockView);
+                UIApplication.SharedApplication.KeyWindow.BringSubviewToFront(unlockView);
+            });
 #endif
             Task.Factory.StartNew(() =>
             {

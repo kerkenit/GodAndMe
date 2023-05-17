@@ -9,8 +9,8 @@
         <RootNamespace>GodAndMe</RootNamespace>
         <AssemblyName>GodAndMe</AssemblyName>
         <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-        <ReleaseVersion>1.2.6</ReleaseVersion>
         <TargetFrameworkProfile>Profile44</TargetFrameworkProfile>
+        <ReleaseVersion>1.2.6</ReleaseVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Android|AnyCPU' ">
         <DebugSymbols>true</DebugSymbols>
@@ -261,7 +261,7 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
         <PackageReference Include="sqlite-net-pcl">
             <Version>1.6.292</Version>
         </PackageReference>
@@ -290,7 +290,7 @@
             <Version>3.1.1</Version>
         </PackageReference>
         <PackageReference Include="Newtonsoft.Json">
-            <Version>13.0.3</Version>
+            <Version>12.0.3</Version>
         </PackageReference>
         <PackageReference Include="PCLStorage">
             <Version>1.0.2</Version>
@@ -312,6 +312,11 @@
     <ItemGroup>
         <None Include="project.json" />
         <None Include="Interface\IEnvironment.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="Xamarin.iOS">
+            <HintPath>..\..\..\..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\Current\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
