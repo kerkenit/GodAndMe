@@ -313,10 +313,5 @@
         <None Include="project.json" />
         <None Include="Interface\IEnvironment.cs" />
     </ItemGroup>
-    <ItemGroup>
-        <Reference Include="Xamarin.iOS">
-            <HintPath>..\..\..\..\..\..\..\..\..\..\Library\Frameworks\Xamarin.iOS.framework\Versions\Current\lib\mono\Xamarin.iOS\Xamarin.iOS.dll</HintPath>
-        </Reference>
-    </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

@@ -7,7 +7,7 @@ using GodAndMe.DependencyServices;
 using GodAndMe.Extensions;
 using GodAndMe.Interface;
 using GodAndMe.Models;
-using LocalAuthentication;
+//using LocalAuthentication;
 using Newtonsoft.Json;
 using PCLStorage;
 using SQLite;
@@ -34,11 +34,11 @@ namespace GodAndMe.Views
             ToolbarItems.Add(toolbarItem);
             tblCommon.Remove(MyName);
 
-            if (UIKit.UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
-            {
+            //if (UIKit.UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+            //{
 
-                pnlImportAndExport.IsVisible = true;
-            }
+            //    pnlImportAndExport.IsVisible = true;
+            //}
 #elif __ANDROID__
             tblCommon.Remove(TouchIDEnabled);
             tblCommon.Remove(MyName);

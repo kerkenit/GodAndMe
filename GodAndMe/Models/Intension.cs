@@ -23,7 +23,7 @@ namespace GodAndMe.Models
             {
                 return false;
 #if __IOS__
-                return UIKit.UIApplication.SharedApplication.KeyWindow.RootViewController.TraitCollection.UserInterfaceStyle == UIKit.UIUserInterfaceStyle.Dark;
+              //  return UIKit.UIApplication.SharedApplication.KeyWindow.RootViewController.TraitCollection.UserInterfaceStyle == UIKit.UIUserInterfaceStyle.Dark;
 #endif
 
             }
