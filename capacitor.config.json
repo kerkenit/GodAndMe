@@ -1,0 +1,14 @@
+{
+  "appId": "nl.kerkenit.GodAndMe",
+  "appName": "God and Me",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}
