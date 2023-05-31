@@ -25,7 +25,7 @@ window.customElements.define(
       .button {
         display: inline-block;
         padding: 10px;
-        background-color: #73B5F6;
+        background-color: #FFD75B;
         color: #fff;
         font-size: 0.9em;
         border: 0;
@@ -57,7 +57,7 @@ window.customElements.define(
     </style>
     <div>
       <capacitor-welcome-titlebar>
-        <h1>Capacitor</h1>
+        <h1>God and Me</h1>
       </capacitor-welcome-titlebar>
       <main>
         <p>
@@ -125,7 +125,7 @@ window.customElements.define(
         display: block;
         padding: 15px 15px 15px 15px;
         text-align: center;
-        background-color: #73B5F6;
+        background-color: #FFD75B;
       }
       ::slotted(h1) {
         margin: 0;
