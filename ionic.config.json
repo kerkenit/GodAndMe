@@ -1,7 +1,7 @@
 {
-  "name": "capacitor-app",
+  "name": "GodAndMe",
   "integrations": {
     "capacitor": {}
   },
-  "type": "custom"
+  "type": "angular"
 }
