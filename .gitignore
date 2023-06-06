@@ -1,4 +1,5 @@
 *.map
+*.pack
 .DS_Store
 .idea/
 .sourcemaps
@@ -8,4 +9,3 @@ dist/
 icons/
 ios/
 node_modules/
-*.pack
