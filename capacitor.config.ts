@@ -2,8 +2,8 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'nl.kerkenit.GodAndMe',
-  appName: 'GodAndMe',
-  webDir: 'dist',
+  appName: 'God and Me',
+  webDir: 'www',
   server: {
     androidScheme: 'https'
   }
