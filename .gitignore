@@ -8,3 +8,4 @@ dist/
 icons/
 ios/
 node_modules/
+*.pack
