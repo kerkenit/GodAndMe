@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" *ngIf="intention">
+    <div class="ion-padding">
+  <ion-label class="ion-text-wrap">
+    <h2> {{ intention.forName }} </h2>
+    <span class="date">
+      <ion-note>{{ intention.date }}</ion-note>
+    </span>
+    <p>{{ intention.prayer }}</p>
+  </ion-label>
+</div>
+</ion-content>
