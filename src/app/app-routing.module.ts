@@ -11,6 +11,14 @@ const routes: Routes = [
     loadChildren: () => import('./view-message/view-message.module').then( m => m.ViewMessagePageModule)
   },
   {
+    path: 'intentions',
+    loadChildren: () => import('./intentions/intentions.module').then(m => m.IntentionsPageModule)
+  },
+  {
+    path: 'intention/:id',
+    loadChildren: () => import('./view-intention/view-intention.module').then( m => m.ViewIntentionPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
