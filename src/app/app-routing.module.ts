@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 const routes: Routes = [
   {
     path: 'home',
@@ -22,6 +22,12 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  //Wild Card Route for 404 request
+  {
+    path: '**',
+    pathMatch: 'full',
+    component: PagenotfoundComponent
   },
 ];
 
