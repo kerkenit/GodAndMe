@@ -1,0 +1,9 @@
+<ion-item *ngIf="intention" [routerLink]="'/intention/' + intention.id" [detail]="false">
+  <ion-label class="ion-text-wrap">
+    <h2> {{ intention.forName }} </h2>
+    <span class="date">
+      <ion-note>{{ intention.date }}</ion-note>
+    </span>
+    <p>{{ intention.prayer }}</p>
+  </ion-label>
+</ion-item>
